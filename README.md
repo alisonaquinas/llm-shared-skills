@@ -16,6 +16,7 @@ them loadable by either agent without modification.
 | `docker` | Merged (Claude + Codex) | Containers, Compose, Buildx, AI tooling, Windows Desktop |
 | `bash` | Codex | Bash scripting, WSL2 interop, pipelines, debugging |
 | `powershell` | Codex | PowerShell 7 scripting, remoting, modules, Windows/Linux/macOS |
+| `zsh` | Claude | Zsh interactive shell, completion system, ZLE, globbing, scripting |
 | `git` | Claude | Git workflows, branching, rebasing, LFS, history recovery |
 | `skill-creator` | Merged (Claude + Codex)* | Create and update cross-LLM skills |
 | `ag-search` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
