@@ -1,0 +1,4 @@
+interface:
+  display_name: "markdownlint"
+  short_description: "Lint and fix Markdown with markdownlint"
+  default_prompt: "Use $markdownlint with the configured jsonc file to lint or fix Markdown files, then report violations and changes."
