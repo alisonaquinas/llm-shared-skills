@@ -14,6 +14,7 @@ description: >
 
 | Request | Reference | Load When |
 |---|---|---|
+| Install tool, first-time setup | `references/install-and-setup.md` | User needs to install markdownlint-cli2 or do initial configuration |
 | Rule reference, config format | `references/rules-and-config.md` | User asks about specific rules, how to disable/configure rules, or understand violations |
 | Quick command patterns | (Inline below) | Standard lint/fix workflows |
 

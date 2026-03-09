@@ -15,6 +15,7 @@ Use zoxide-first navigation when the target directory is implied by keywords or 
 
 | Request | Reference | Load When |
 |---|---|---|
+| Install tool, first-time setup | `references/install-and-setup.md` | User needs to install zoxide or fzf, or do initial shell setup |
 | Shell setup, fzf config, migration | `references/zoxide-setup-and-config.md` | User needs init commands, database location, or fzf setup |
 | Preflight and environment | `scripts/probe-zoxide.sh` | Verify shell integration and check database status |
 

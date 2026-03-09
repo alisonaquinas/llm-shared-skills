@@ -34,6 +34,7 @@ and Windows Docker Desktop hosts.
 
 Load only the reference file needed for the active request.
 
+- `references/install-and-setup.md` — Installing Docker Desktop (macOS/Windows) or Docker Engine (Linux), and post-install configuration.
 - `references/core.md` — Windows Desktop-first diagnostics, context management, Desktop status.
 - `references/containers.md` — `run/exec/logs/inspect/debug/stats` and crash triage.
 - `references/images.md` — Dockerfile authoring, multi-stage patterns, Buildx/Bake.

@@ -24,6 +24,8 @@ Use this skill to keep PowerShell work grounded in the installed runtime first, 
 
 Load only the reference file needed for the active request.
 
+- `references/install-and-setup.md`
+  - Installing PowerShell 7 on macOS, Linux, or Windows, and post-install configuration.
 - `references/cli-and-help.md`
   - `pwsh.exe` invocation, startup flags, profile loading, and help workflow.
 - `references/language-and-pipeline.md`

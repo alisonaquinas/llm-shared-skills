@@ -7,6 +7,12 @@ description: Advanced SQLite workflows for diffing databases, syncing replicas, 
 
 Run advanced SQLite workflows with explicit guardrails.
 
+## Intent Router
+
+| Request | Reference | Load When |
+|---|---|---|
+| Install tool, first-time setup | `references/install-and-setup.md` | User needs to install sqlite3, sqldiff, or sqlite3_rsync, or do initial configuration |
+
 ## Workflow
 1. Run `scripts/sqlite_preflight.sh` from `$sqlite-file-workbench` to verify tools and versions.
 2. Generate diffs before migration or synchronization work.

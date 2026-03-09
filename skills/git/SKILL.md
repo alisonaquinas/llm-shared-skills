@@ -29,6 +29,7 @@ queries the inline quick reference below is usually sufficient.
 
 | Topic | File | Load when... |
 |-------|------|--------------|
+| Install & setup | `references/install-and-setup.md` | User needs to install git or do initial configuration |
 | Basics — init, clone, add, commit, diff | `references/basics.md` | init/clone/add/commit/diff/status/.gitignore questions |
 | Branching & merging | `references/branching.md` | branch/switch/merge/tag/checkout/--no-ff questions |
 | Remotes — fetch, pull, push | `references/remotes.md` | remote/fetch/pull/push/force/origin/upstream/refspec questions |

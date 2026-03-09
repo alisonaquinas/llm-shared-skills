@@ -16,6 +16,7 @@ Use `ag` to find text across code and documents quickly with the right scope, ou
 
 | Request | Reference | Load When |
 |---|---|---|
+| Install tool, first-time setup | `references/install-and-setup.md` | User needs to install ag or do initial configuration |
 | Output modes, file filtering, patterns | `references/ag-patterns.md` | User needs ignore file info, output format details, or complex filtering |
 | Preflight and environment | `scripts/probe-ag.sh` | Verify ag availability and features before workflows |
 

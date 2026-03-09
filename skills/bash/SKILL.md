@@ -26,6 +26,8 @@ Use this skill to keep Bash work grounded in the installed shell first, then fal
 
 Load only the reference file needed for the active request.
 
+- `references/install-and-setup.md`
+  - Installing or upgrading Bash on macOS, Linux, or Windows (WSL2/Git Bash), and post-install configuration.
 - `references/cli-and-help.md`
   - `bash` invocation, startup files, built-in help, `man`, `info`, and local discovery.
 - `references/language-and-expansion.md`
