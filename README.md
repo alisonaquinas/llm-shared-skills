@@ -9,12 +9,13 @@ them loadable by either agent without modification.
 > it's a living collection that may benefit from human review before production use.
 > The install scripts and references have been tested, but your feedback is welcome! 🚀
 
-## What's New in v1.1.0
+## What's New in v1.2.0
 
-- **32 command-line utilities upgraded** — All command skills now feature comprehensive reference files, cross-platform install scripts, and safety guardrails
-- **Cleaner skill names** — Removed postfixes (-cli, -navigation, -command) for simpler, more intuitive naming
-- **SQLite consolidation** — Merged two complementary SQLite skills into one unified interface covering core to advanced workflows
-- **Mature architecture** — All 39 command skills now match the quality standard of core skills (bash, powershell, zsh, git, docker)
+- **New `changelog` skill** — Maintain CHANGELOG.md files in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format with structured entries, release workflows, and semantic versioning
+  - 4 comprehensive reference files: format specification, setup guides, CI/CD automation, troubleshooting
+  - Cross-platform install scripts for optional git-cliff integration
+  - Safety guardrails to prevent vague entries and enforce consistency
+  - Support for both manual curation and automated changelog generation
 
 See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
