@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **New `changelog` skill** — Maintain CHANGELOG.md files following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format with structured entries, release workflows, and semantic versioning
+  - 4 comprehensive reference files: cheatsheet (format spec), install-and-setup (optional git-cliff), advanced-usage (CI/CD automation), troubleshooting (anti-patterns)
+  - Cross-platform install scripts for optional git-cliff integration (Bash and PowerShell)
+  - Safety guardrails: prevent vague entries, enforce entry types, maintain [Unreleased] section, validate dates and links
+  - Supports both manual curation and automated generation workflows
+
 ## [1.1.1] - 2026-03-09
 
 ### Added
