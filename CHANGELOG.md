@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-03-09
+
 ### Added
 
 - **New `changelog` skill** — Maintain CHANGELOG.md files following [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format with structured entries, release workflows, and semantic versioning
@@ -104,7 +106,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-install checks: scripts verify if tools are already installed and skip installation if current version meets requirements
 - Post-install verification: all scripts confirm successful installation and print setup hints
 
-[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.0.0...v1.0.1
