@@ -63,6 +63,12 @@ llm-shared-skills/
 │   ├── powershell/
 │   ├── git/
 │   └── skill-creator/
-├── README.md
-└── INSTALL.md
+├── AGENTS.md                # Guidance for AI agents working in this repo
+├── INSTALL.md               # Installation instructions
+├── LICENSE.md               # MIT
+└── README.md
 ```
+
+## License
+
+[MIT](LICENSE.md)
