@@ -1,0 +1,4 @@
+interface:
+  display_name: "SQLite File Workbench Advanced"
+  short_description: "Advanced SQLite diff, sync, migration, and app integration."
+  default_prompt: "Use $sqlite-file-workbench-advanced for SQLite diff/sync workflows, migration validation, and integration smoke checks."

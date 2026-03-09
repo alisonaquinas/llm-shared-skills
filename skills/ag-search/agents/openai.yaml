@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ag Search"
+  short_description: "Fast repository search with The Silver Searcher (ag)."
+  default_prompt: "Use ag to search code and documents quickly, with precise flags and ignore behavior."

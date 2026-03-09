@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zoxide Navigation"
+  short_description: "Fast directory jumps with zoxide"
+  default_prompt: "Use $zoxide-navigation to choose the right zoxide command for this directory navigation task."

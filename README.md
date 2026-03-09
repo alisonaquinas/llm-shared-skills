@@ -13,6 +13,14 @@ them loadable by either agent without modification.
 | `powershell` | Codex | PowerShell 7 scripting, remoting, modules, Windows/Linux/macOS |
 | `git` | Claude | Git workflows, branching, rebasing, LFS, history recovery |
 | `skill-creator` | Merged (Claude + Codex) | Create and update cross-LLM skills |
+| `ag-search` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
+| `aws-cli` | Codex | AWS CLI auth, profile context, and safe service commands |
+| `az-cli` | Codex | Azure CLI auth, subscription context, and safe ARM commands |
+| `glab-cli` | Codex | GitLab CLI auth, MR/issue/CI workflows, and safe commands |
+| `markdownlint-cli2-enforcer` | Codex | Lint and fix Markdown with markdownlint-cli2 |
+| `sqlite-file-workbench` | Codex | Core SQLite file ops with preflight, queries, and backups |
+| `sqlite-file-workbench-advanced` | Codex | SQLite diff, sync, migration validation, and smoke tests |
+| `zoxide-navigation` | Codex | Fast directory jumps with zoxide |
 
 ## Installation
 
