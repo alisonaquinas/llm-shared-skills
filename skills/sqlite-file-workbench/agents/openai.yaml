@@ -1,4 +1,0 @@
-interface:
-  display_name: "SQLite File Workbench"
-  short_description: "Core SQLite file workflows with safe defaults."
-  default_prompt: "Use $sqlite-file-workbench to run safe SQLite file workflows with preflight checks and backups."

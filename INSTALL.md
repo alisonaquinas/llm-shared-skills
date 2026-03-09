@@ -53,7 +53,7 @@ If you have a plugin already set up, symlink the `skills/` directories into it:
 ```powershell
 $repo = "C:\Users\aaqui\llm-shared-skills\skills"
 $pluginSkills = "C:\path\to\your\plugin\skills"
-foreach ($skill in "ag-search","aws-cli","az-cli","bash","docker","git","glab-cli","markdownlint-cli2-enforcer","powershell","sqlite-file-workbench","sqlite-file-workbench-advanced","zoxide-navigation","skill-creator") {
+foreach ($skill in "ag","aws","az","bash","docker","git","glab","markdownlint","powershell","sqlite","zoxide","skill-creator") {
     New-Item -ItemType Junction -Path "$pluginSkills\$skill" -Target "$repo\$skill" -Force
 }
 ```
@@ -83,7 +83,7 @@ foreach ($skill in "docker","bash","powershell","git","skill-creator") {
 
 ```bash
 REPO="$HOME/llm-shared-skills/skills"  # adjust path as needed
-for skill in ag-search aws-cli az-cli bash docker git glab-cli markdownlint-cli2-enforcer powershell sqlite-file-workbench sqlite-file-workbench-advanced zoxide-navigation skill-creator; do
+for skill in ag aws az bash docker git glab markdownlint powershell sqlite zoxide skill-creator; do
     target="$HOME/.codex/skills/$skill"
     if [ -e "$target" ]; then
         echo "Skipping $skill (already exists)"

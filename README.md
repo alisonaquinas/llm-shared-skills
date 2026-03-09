@@ -19,14 +19,13 @@ them loadable by either agent without modification.
 | `zsh` | Claude | Zsh interactive shell, completion system, ZLE, globbing, scripting |
 | `git` | Claude | Git workflows, branching, rebasing, LFS, history recovery |
 | `skill-creator` | Merged (Claude + Codex)* | Create and update cross-LLM skills |
-| `ag-search` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
-| `aws-cli` | Codex | AWS CLI auth, profile context, and safe service commands |
-| `az-cli` | Codex | Azure CLI auth, subscription context, and safe ARM commands |
-| `glab-cli` | Codex | GitLab CLI auth, MR/issue/CI workflows, and safe commands |
-| `markdownlint-cli2-enforcer` | Codex | Lint and fix Markdown with markdownlint-cli2 |
-| `sqlite-file-workbench` | Codex | Core SQLite file ops with preflight, queries, and backups |
-| `sqlite-file-workbench-advanced` | Codex | SQLite diff, sync, migration validation, and smoke tests |
-| `zoxide-navigation` | Codex | Fast directory jumps with zoxide |
+| `ag` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
+| `aws` | Codex | AWS CLI auth, profile context, and safe service commands |
+| `az` | Codex | Azure CLI auth, subscription context, and safe ARM commands |
+| `glab` | Codex | GitLab CLI auth, MR/issue/CI workflows, and safe commands |
+| `markdownlint` | Codex | Lint and fix Markdown with markdownlint |
+| `sqlite` | Codex | Complete SQLite workflows from queries and backups to diffing and migrations |
+| `zoxide` | Codex | Fast directory jumps with zoxide |
 | `7z` | vibe-coding | 7z archive creation, extraction, listing, and compression |
 | `ar` | vibe-coding | Static library (`.a`) inspection, member extraction, and manipulation |
 | `awk` | vibe-coding | Text processing with field extraction, pattern matching, and filtering |
@@ -113,18 +112,17 @@ llm-shared-skills/
 ├── .claude-plugin/
 │   └── plugin.json                  # Claude Code plugin registration
 ├── skills/
-│   ├── ag-search/
-│   ├── aws-cli/
-│   ├── az-cli/
+│   ├── ag/
+│   ├── aws/
+│   ├── az/
 │   ├── bash/
 │   ├── docker/
 │   ├── git/
-│   ├── glab-cli/
-│   ├── markdownlint-cli2-enforcer/
+│   ├── glab/
+│   ├── markdownlint/
 │   ├── powershell/
-│   ├── sqlite-file-workbench/
-│   ├── sqlite-file-workbench-advanced/
-│   ├── zoxide-navigation/
+│   ├── sqlite/
+│   ├── zoxide/
 │   └── skill-creator/
 ├── AGENTS.md                        # Guidance for AI agents working in this repo
 ├── CHANGELOG.md                     # Release history

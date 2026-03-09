@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **12 cross-compatible tool skills**: ag-search, aws-cli, az-cli, bash, docker, git, glab-cli, markdownlint-cli2-enforcer, powershell, sqlite-file-workbench, sqlite-file-workbench-advanced, zoxide-navigation
+- **11 cross-compatible tool skills**: ag, aws, az, bash, docker, git, glab, markdownlint, powershell, sqlite, zoxide
 - **Install scripts** for all 12 skills:
   - `scripts/install.sh` (bash) with platform detection, distro-specific package managers (apt, dnf, pacman, zypper), and installation verification
   - `scripts/install.ps1` (PowerShell) with Windows/macOS/Linux support and winget/scoop/package manager integration
