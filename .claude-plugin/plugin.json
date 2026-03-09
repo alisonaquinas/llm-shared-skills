@@ -1,0 +1,7 @@
+{
+  "name": "llm-shared-skills",
+  "description": "Cross-compatible skills for Claude Code and Codex: docker, bash, powershell, git, and skill-creator.",
+  "author": {
+    "name": "Local"
+  }
+}

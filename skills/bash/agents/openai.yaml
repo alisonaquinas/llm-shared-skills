@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bash"
+  short_description: "Practical Bash and WSL2 workflows"
+  default_prompt: "Use $bash to solve a Bash task with local help first and GNU/Microsoft docs as fallback."

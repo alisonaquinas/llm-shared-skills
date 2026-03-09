@@ -1,0 +1,208 @@
+---
+name: skill-creator
+description: >
+  Guide for creating, updating, and improving skills that extend LLM agent capabilities
+  (compatible with both Claude Code and Codex). Use when the user wants to create a new
+  skill from scratch, update or optimize an existing skill, write a SKILL.md, improve a
+  skill description, understand skill structure and progressive disclosure, or make a skill
+  work across both Claude Code and Codex.
+---
+
+# Skill Creator
+
+Guidance for building effective skills — modular, self-contained folders that extend
+an LLM agent's capabilities with specialized knowledge, workflows, and tools.
+
+## Core Principles
+
+### Concise is Key
+
+The context window is shared. Only add context the agent doesn't already have. Challenge
+every piece of information: "Does the agent really need this?" and "Does this paragraph
+justify its token cost?" Prefer concise examples over verbose explanations.
+
+### Set Appropriate Degrees of Freedom
+
+| Freedom level | When to use | How |
+|---|---|---|
+| High | Multiple valid approaches, context-dependent | Text-based instructions |
+| Medium | Preferred pattern, some variation OK | Pseudocode or parameterized scripts |
+| Low | Fragile operations, consistency critical | Specific scripts, few parameters |
+
+### Anatomy of a Skill
+
+```
+skill-name/
+├── SKILL.md (required)             — frontmatter + instructions
+├── agents/
+│   └── openai.yaml (recommended)  — Codex UI metadata
+└── Bundled Resources (optional)
+    ├── scripts/      — Executable code (deterministic, repeatable tasks)
+    ├── references/   — Documentation loaded into context on demand
+    └── assets/       — Templates, images, boilerplate (used in output, not loaded)
+```
+
+### Progressive Disclosure (3-Level Loading)
+
+1. **Frontmatter** (`name` + `description`) — Always in context (~100 words)
+2. **SKILL.md body** — When skill triggers (<5k words, ideally <500 lines)
+3. **Bundled resources** — As needed (unlimited; scripts can run without loading)
+
+Keep SKILL.md body to essentials. Move detailed docs to `references/`. Always link
+references from SKILL.md and describe clearly when to load each file.
+
+---
+
+## SKILL.md Format
+
+### Frontmatter
+
+```yaml
+---
+name: my-skill          # kebab-case, lowercase, <64 chars
+description: >          # primary trigger mechanism — be comprehensive
+  Detailed description of what the skill does and when to use it.
+  Include all "when to use" information HERE (not in the body).
+  The body only loads after triggering.
+---
+```
+
+**Only `name` and `description` in frontmatter.** No other YAML fields.
+
+### Description Writing
+
+The description is how the agent decides whether to use the skill. Include:
+- What the skill does
+- Specific triggers / keywords / user phrases
+- Concrete scenarios
+
+**Claude Code:** Use third-person — "This skill should be used when the user wants to..."
+**Codex:** Either first or third person works; specificity matters most.
+
+### Body
+
+Write instructions in imperative/infinitive form. Never second-person ("You should...").
+Do not include "When to Use This Skill" sections in the body — that content belongs in the description.
+
+---
+
+## Platform Compatibility
+
+Both Claude Code and Codex use the same SKILL.md format. The differences are additive:
+
+| Feature | Claude Code | Codex |
+|---|---|---|
+| Core format | `SKILL.md` with YAML frontmatter | Same |
+| UI metadata | Not required | `agents/openai.yaml` |
+| Plugin registration | `.claude-plugin/plugin.json` at plugin root | Not applicable |
+| Skill discovery | Via plugin `skills/` directory | Via `~/.codex/skills/` directory |
+| Additional plugin dirs | `commands/`, `agents/`, `hooks/` | Not applicable |
+| System skills | Not applicable | `.system/` prefix (protected) |
+
+**For cross-compatible skills:** Include `agents/openai.yaml` and ensure SKILL.md works for both. The `agents/openai.yaml` is silently ignored by Claude Code.
+
+### agents/openai.yaml (Codex UI metadata)
+
+```yaml
+interface:
+  display_name: "Human-Readable Name"          # Title case, shown in Codex UI
+  short_description: "Brief 25-64 char desc"   # Shown as chip/tag
+  default_prompt: "Use $skill-name to..."       # Suggested prompt using $skill-name
+```
+
+Optional fields: `icon_small`, `icon_large`, `brand_color`. See `references/skill-format.md`.
+
+### Claude Code Plugin Structure (when publishing as Claude plugin)
+
+```
+my-plugin/
+├── .claude-plugin/
+│   └── plugin.json      # {"name": "...", "description": "...", "author": {...}}
+├── skills/
+│   └── my-skill/
+│       └── SKILL.md
+├── commands/            # optional: slash commands
+└── agents/              # optional: sub-agents
+```
+
+---
+
+## Skill Creation Process
+
+### Step 1: Understand with Concrete Examples
+
+Identify:
+- What will users ask that should trigger this skill?
+- What does a successful outcome look like?
+- What would the agent struggle with without this skill?
+
+### Step 2: Plan Bundled Resources
+
+For each concrete example, identify what reusable resource would help:
+- **Code rewritten each time** → `scripts/` file
+- **Schema/docs looked up each time** → `references/` file
+- **Boilerplate copied each time** → `assets/templates/` file
+
+### Step 3: Initialize the Skill
+
+Create the directory structure. For Codex, use `scripts/init_skill.py` if available:
+
+```bash
+scripts/init_skill.py my-skill --path skills/ --resources scripts,references
+```
+
+Otherwise, create manually:
+```bash
+mkdir -p my-skill/{agents,references,scripts,assets}
+touch my-skill/SKILL.md my-skill/agents/openai.yaml
+```
+
+### Step 4: Build Resources First
+
+Implement `scripts/`, `references/`, and `assets/` before writing SKILL.md. For scripts,
+test them by running to verify correctness. Resource files should be self-contained — avoid
+requiring context from SKILL.md to understand them.
+
+### Step 5: Write SKILL.md
+
+Start with frontmatter, then body:
+1. Intent Router — which reference file to load for which request type
+2. Quick reference — the 80% case inline
+3. Patterns / workflow — step-by-step for common tasks
+4. Safety matrix — destructive commands and required guardrails
+5. Resource index — what each script/asset does and its calling contract
+
+### Step 6: Validate and Iterate
+
+Check:
+- [ ] YAML frontmatter is valid (`name` and `description` present, no extra fields)
+- [ ] `agents/openai.yaml` exists and has `display_name`, `short_description`, `default_prompt`
+- [ ] No "Codex" or "Claude" platform-specific language in the body (use "the agent")
+- [ ] Body is under 500 lines
+- [ ] All referenced files in Intent Router actually exist
+- [ ] Destructive operations have explicit guardrails
+
+Use the skill on real tasks; iterate based on what the agent struggled with.
+
+---
+
+## Naming Conventions
+
+- Lowercase, digits, hyphens only; kebab-case; under 64 characters
+- Prefer verb-led for action skills: `skill-creator`, `gh-address-comments`
+- Namespace by tool when helpful: `gh-*`, `linear-*`, `notion-*`
+- Skill folder name must match the `name` frontmatter field
+
+---
+
+## What NOT to Include
+
+Do not create extraneous files: `README.md`, `INSTALLATION_GUIDE.md`, `QUICK_REFERENCE.md`,
+`CHANGELOG.md`. The skill exists for the agent, not for humans. Only include files that
+directly support the agent's execution of the skill.
+
+---
+
+## References
+
+- `references/skill-format.md` — canonical field definitions, platform differences, openai.yaml spec

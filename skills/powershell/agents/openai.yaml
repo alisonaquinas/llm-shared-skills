@@ -1,0 +1,4 @@
+interface:
+  display_name: "PowerShell"
+  short_description: "Practical PowerShell 7 workflows"
+  default_prompt: "Use $powershell to solve a PowerShell task with local help first and Microsoft Learn as fallback."
