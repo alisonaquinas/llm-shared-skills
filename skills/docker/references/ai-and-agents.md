@@ -181,10 +181,10 @@ Model workflows can consume significant storage and network bandwidth — confir
 
 ## Source Links
 
-- https://docs.docker.com/ai/gordon/
-- https://docs.docker.com/ai/cagent/
-- https://docs.docker.com/reference/cli/docker/ai/
-- https://docs.docker.com/reference/cli/docker/agent/
-- https://docs.docker.com/reference/cli/docker/mcp/
-- https://docs.docker.com/reference/cli/docker/model/
-- https://docs.docker.com/reference/cli/docker/sandbox/
+- <https://docs.docker.com/ai/gordon/>
+- <https://docs.docker.com/ai/cagent/>
+- <https://docs.docker.com/reference/cli/docker/ai/>
+- <https://docs.docker.com/reference/cli/docker/agent/>
+- <https://docs.docker.com/reference/cli/docker/mcp/>
+- <https://docs.docker.com/reference/cli/docker/model/>
+- <https://docs.docker.com/reference/cli/docker/sandbox/>

@@ -13,6 +13,7 @@
 | `brew install azure-cli` | See Linux note | `dnf install azure-cli` | `winget install Microsoft.AzureCLI` |
 
 **Debian/Ubuntu:** Add Microsoft apt repository:
+
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 sudo apt install azure-cli
@@ -75,18 +76,23 @@ Expected output shows your subscription ID, tenant ID, and display name.
 ## Troubleshooting
 
 ### "Microsoft.Authorization/roleAssignments/write" error
+
 - You lack permissions on the resource group.
 - Ask your Azure admin to grant appropriate role (Contributor, Owner, etc.).
 
 ### "Subscription '<id>' could not be found"
+
 - Subscription doesn't exist or you don't have access.
 - Run `az account list` to see available subscriptions.
 
 ### Authentication expired
+
 - Run `az login` again to re-authenticate.
 
 ### Command fails in non-interactive environment
+
 - Use service principal instead of user login:
+
   ```bash
   az login --service-principal -u <app-id> -p <password> --tenant <tenant-id>
   ```

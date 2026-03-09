@@ -36,6 +36,7 @@ npx markdownlint-cli2 "**/*.md"
 ### Zero-Install with npx
 
 No installation required:
+
 ```bash
 npx markdownlint-cli2 "**/*.md"
 ```
@@ -120,15 +121,19 @@ rm test.md
 ## Troubleshooting
 
 ### "command not found: markdownlint-cli2"
+
 - Global install failed. Try: `npm install -g markdownlint-cli2`
 - Or use npx: `npx markdownlint-cli2 "**/*.md"`
 
 ### "Cannot find module" errors
+
 - Node.js or npm not installed. Install Node.js from nodejs.org or via package manager.
 
 ### Config file ignored
+
 - Ensure file is named `.markdownlint-cli2.jsonc` (exact name, includes leading dot).
 - Or specify explicitly: `markdownlint-cli2 --config path/to/config.jsonc "**/*.md"`
 
 ### Fix changes nothing
+
 - Not all rules can auto-fix. Check error messages: `markdownlint-cli2 "**/*.md"`

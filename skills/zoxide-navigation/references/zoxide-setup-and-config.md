@@ -37,6 +37,7 @@ zoxide init powershell | Out-String | Invoke-Expression
 ```
 
 Create profile if it doesn't exist:
+
 ```powershell
 New-Item -Path $PROFILE -ItemType File -Force
 ```
@@ -189,6 +190,7 @@ zoxide query --list -0 2>/dev/null | xargs -0 ls -ld
 **Cause:** Shell initialization not sourced.
 
 **Solution:**
+
 1. Check `~/.bashrc`/`~/.zshrc` for `eval "$(zoxide init ...)"`
 2. If present, restart shell: `exec $SHELL`
 3. If not present, add init line and source file
@@ -198,6 +200,7 @@ zoxide query --list -0 2>/dev/null | xargs -0 ls -ld
 **Cause:** Interactive mode requires fzf.
 
 **Solution:**
+
 ```bash
 # Install fzf
 brew install fzf  # macOS
@@ -212,6 +215,7 @@ command -v fzf
 **Cause:** Database not writable or shell init not active.
 
 **Solution:**
+
 1. Check database file permissions: `ls -la ~/.local/share/zoxide/`
 2. Verify zoxide hooks active: `type z` (should show shell function)
 3. Manually update score: `zoxide add /path/to/dir`
@@ -231,6 +235,7 @@ rm "$_ZO_DATA_DIR/db.zo"
 ### Symlink Issues
 
 If directory moved but symlink still active:
+
 ```bash
 # Enable symlink resolution
 export _ZO_RESOLVE_SYMLINKS=1

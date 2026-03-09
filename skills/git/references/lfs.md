@@ -17,6 +17,7 @@ With LFS:      repo/binary.psd  →  text pointer (134 bytes) in repo
 ```
 
 The pointer file looks like:
+
 ```
 version https://git-lfs.github.com/spec/v1
 oid sha256:4d7a214614ab2935c943f9e0ff69d22eadbb8f32b1258daaa5e2ca24d17e2393
@@ -68,6 +69,7 @@ git lfs track --filename "specific-file.dat"
 ```
 
 **What goes in .gitattributes after tracking:**
+
 ```
 *.psd filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
@@ -120,6 +122,7 @@ git lfs checkout                        # materialize LFS files already fetched
 ```
 
 **When cloning a repo with LFS:**
+
 ```bash
 git clone <url>                         # LFS content is downloaded automatically
 # If you cloned without LFS (or LFS wasn't installed when you cloned):
@@ -148,6 +151,7 @@ Use `git lfs migrate` to retroactively move large files that are already committ
 into LFS. This **rewrites git history** (new commit SHAs).
 
 > ⚠️ **Coordinate with your team before migrating.** After migration:
+>
 > - All collaborators must `git clone` a fresh copy (existing clones are broken)
 > - All open pull requests need to be rebased
 > - Remote history must be force-pushed
@@ -197,6 +201,7 @@ git lfs unlock --force design/hero.psd
 ```
 
 **Configure .gitattributes for locking:**
+
 ```
 *.psd filter=lfs diff=lfs merge=lfs -text lockable
 ```
@@ -206,6 +211,7 @@ git lfs unlock --force design/hero.psd
 ## Troubleshooting LFS
 
 **"Smudge error" or files appear as pointer text:**
+
 ```bash
 git lfs pull                            # force re-download LFS content
 # If still broken:
@@ -214,11 +220,13 @@ git lfs checkout
 ```
 
 **Push rejected: LFS objects missing:**
+
 ```bash
 git lfs push --all origin              # explicitly push all LFS objects
 ```
 
 **Large file accidentally committed without LFS:**
+
 ```bash
 # Option 1: if not yet pushed, amend
 git lfs track "*.bin"
@@ -231,11 +239,13 @@ git push --force-with-lease
 ```
 
 **Check LFS storage usage:**
+
 ```bash
 git lfs du                              # disk usage of LFS objects in repo
 ```
 
 **Environment debugging:**
+
 ```bash
 git lfs env                             # full LFS config: endpoint, access, filters
 GIT_TRACE=1 git push                    # trace all git operations including LFS

@@ -24,6 +24,7 @@ scripts/sqlite_healthcheck.sh --db app.db --analyzer --out-dir reports/health
 ```
 
 Artifacts:
+
 - `reports/health/healthcheck-report.txt`
 - `reports/health/sqlite3_analyzer.txt` (if analyzer is on PATH)
 
@@ -40,7 +41,9 @@ scripts/sqlite_backup.sh --db app.db --out backups/app-compact.sqlite --vacuum-i
 ```
 
 ## 5) Handoff to Advanced Skill
+
 Use `$sqlite-file-workbench-advanced` when the task requires:
+
 - DB-to-DB SQL diffs
 - Replica sync across hosts
 - Migration validation workflows

@@ -42,6 +42,7 @@ docker pull myuser/myapp@sha256:abc123   # By digest (immutable)
 ## Common Registry Providers
 
 ### Docker Hub
+
 ```bash
 docker tag myapp myuser/myapp:latest
 docker push myuser/myapp:latest
@@ -49,6 +50,7 @@ docker push myuser/myapp:latest
 ```
 
 ### GitHub Container Registry (GHCR)
+
 ```bash
 docker login ghcr.io -u USERNAME --password-stdin <<< "$GITHUB_TOKEN"
 docker tag myapp ghcr.io/myorg/myapp:latest
@@ -57,6 +59,7 @@ docker push ghcr.io/myorg/myapp:latest
 ```
 
 ### AWS ECR
+
 ```bash
 aws ecr get-login-password --region us-east-1 | \
   docker login --username AWS --password-stdin \
@@ -68,6 +71,7 @@ docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
 ```
 
 ### Google Artifact Registry (GAR)
+
 ```bash
 gcloud auth configure-docker us-central1-docker.pkg.dev
 docker tag myapp us-central1-docker.pkg.dev/myproject/myrepo/myapp:latest
@@ -75,6 +79,7 @@ docker push us-central1-docker.pkg.dev/myproject/myrepo/myapp:latest
 ```
 
 ### Azure Container Registry (ACR)
+
 ```bash
 az acr login --name myregistry
 docker tag myapp myregistry.azurecr.io/myapp:latest
@@ -82,6 +87,7 @@ docker push myregistry.azurecr.io/myapp:latest
 ```
 
 ### Self-hosted Registry
+
 ```bash
 docker run -d --name registry \
   -p 5000:5000 \

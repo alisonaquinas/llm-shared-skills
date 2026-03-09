@@ -14,6 +14,7 @@ description: Operate GitLab CLI (`glab`) for authentication checks, host and rep
 | GitLab concepts, organization | `references/gitlab-concepts.md` | User asks about groups/projects, namespaces, runners, visibility, or CI variables |
 
 ## Workflow
+
 1. Run preflight before GitLab CLI workflows.
 2. Check auth status and active host context.
 3. Choose a core command track and begin with inspect commands.
@@ -21,18 +22,22 @@ description: Operate GitLab CLI (`glab`) for authentication checks, host and rep
 5. Re-check status and summarize outcomes.
 
 ## Preflight
+
 Use bundled scripts:
+
 - `scripts/glab-preflight.sh`
 - `scripts/glab-auth-status.sh`
 - `scripts/glab-context.sh`
 - `scripts/glab-diagnostics.sh [--json] [--out <file>]`
 
 If the environment cannot access the default config location, set:
+
 ```bash
 export GLAB_CONFIG_DIR=/tmp/glab-config
 ```
 
 ## Core Command Tracks
+
 - Auth and host checks:
 `glab auth status`, `glab auth login`
 - Repository, issue, and MR inspection:
@@ -43,16 +48,19 @@ export GLAB_CONFIG_DIR=/tmp/glab-config
 `glab api <path>` for focused GitLab API reads.
 
 ## Safety Guardrails
+
 - Inspect first with `list`/`view` commands.
 - Ask for explicit confirmation before commands that create/edit/close/delete resources.
 - Confirm active host and project before mutating operations.
 - Never print tokens or secrets.
 
 ## Troubleshooting
+
 - If auth fails, run `glab auth login` then re-run `scripts/glab-auth-status.sh`.
 - If host context is wrong, verify config and re-check with `scripts/glab-context.sh`.
 - If network/API calls fail, collect `scripts/glab-diagnostics.sh --json` output before retry.
 
 ## References
+
 - `references/command-cookbook.md`
-- GitLab CLI docs: https://docs.gitlab.com/cli/
+- GitLab CLI docs: <https://docs.gitlab.com/cli/>

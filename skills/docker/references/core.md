@@ -110,9 +110,9 @@ Prefer command flags for one-off overrides; use env vars for session-level behav
 
 ## Source Links
 
-- https://docs.docker.com/manuals/
-- https://docs.docker.com/reference/cli/docker/
-- https://docs.docker.com/engine/
-- https://docs.docker.com/compose/
-- https://docs.docker.com/build/
-- https://docs.docker.com/desktop/
+- <https://docs.docker.com/manuals/>
+- <https://docs.docker.com/reference/cli/docker/>
+- <https://docs.docker.com/engine/>
+- <https://docs.docker.com/compose/>
+- <https://docs.docker.com/build/>
+- <https://docs.docker.com/desktop/>

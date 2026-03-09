@@ -167,6 +167,7 @@ Inside the debug shell you get: curl, jq, strace, vim, netstat, ss, dig, and mor
 even if the original image has none of these.
 
 Useful when:
+
 - The container is running but has no shell (distroless, scratch images)
 - The container crashed and you need to inspect the stopped filesystem
 - You need network debugging tools the app image doesn't have

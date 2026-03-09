@@ -30,12 +30,14 @@ git merge --abort                       # restore to pre-merge state
 ```
 
 **Use VS Code as merge tool (configured on this machine):**
+
 ```bash
 git mergetool                           # opens each conflicted file in VS Code
 # In VS Code, use the conflict resolution buttons: Accept Current | Accept Incoming | Accept Both
 ```
 
 **Accept all from one side (when you know you want everything from one branch):**
+
 ```bash
 git checkout --ours <file>              # keep your version
 git checkout --theirs <file>            # keep their version
@@ -45,6 +47,7 @@ git add <file>
 ### Conflicts During Rebase
 
 Rebase conflicts are similar but resolved one commit at a time:
+
 ```bash
 # Conflict during rebase — resolve the conflicted file, then:
 git add <resolved-file>
@@ -75,12 +78,14 @@ git status                              # shows: "HEAD detached at abc1234"
 ```
 
 **If you want to commit in detached HEAD state:**
+
 ```bash
 git switch -c new-branch-name           # create a branch to capture your commits
 # Now you're safe to commit
 ```
 
 **If you accidentally committed in detached HEAD:**
+
 ```bash
 git log --oneline -5                    # note the SHA of your commits
 git switch main                         # switch back (HEAD commits become "orphaned")
@@ -99,26 +104,33 @@ git switch -c recovery-branch <sha>     # create branch at the orphaned tip
 `core.autocrlf=true` is set on this machine. Common symptoms:
 
 **Entire file shows as changed even though you didn't edit it:**
+
 ```bash
 git diff --ignore-space-change          # check if it's whitespace-only
 git diff --check                        # show whitespace errors
 ```
 
 **Spurious CRLF warnings on commit:**
+
 ```
 warning: LF will be replaced by CRLF in src/app.js
 ```
+
 This is normal with `autocrlf=true` — files have CRLF on disk but LF in repo.
 To suppress: `git config --global core.safecrlf false`
 
 **Fix for a cross-platform repo:**
+
 1. Set `core.autocrlf=input` on all contributors' machines
 2. OR add `.gitattributes` to normalize line endings:
+
    ```gitattributes
    * text=auto eol=lf
    *.bat text eol=crlf
    ```
+
 3. Normalize existing repo history:
+
    ```bash
    git add --renormalize .
    git commit -m "chore: normalize line endings"
@@ -155,6 +167,7 @@ git switch -c <branch-name> <sha>       # recreate the branch
 ## Accidentally Committed to the Wrong Branch
 
 **Committed to main instead of a feature branch:**
+
 ```bash
 git log --oneline -3                    # note the SHA of the misplaced commit
 git switch -c feature/my-thing          # create the feature branch (stays at same commit)
@@ -234,17 +247,20 @@ git commit --no-gpg-sign -m "urgent fix"
 ## Submodule Issues
 
 **Submodule shows as "modified" with no actual changes:**
+
 ```bash
 git submodule update                    # restore to superproject's recorded commit
 ```
 
 **"Fatal: no submodule mapping found in .gitmodules":**
+
 ```bash
 git submodule sync
 git submodule update --init
 ```
 
 **Submodule directory not empty when adding:**
+
 ```bash
 git rm --cached <path>                  # remove from index
 rm -rf <path>                           # remove from disk

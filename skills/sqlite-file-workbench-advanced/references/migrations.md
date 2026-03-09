@@ -1,6 +1,7 @@
 # Migration Validation Guide
 
 ## Goal
+
 Validate migration SQL on a cloned database to avoid mutating the source file.
 
 ## Standard Run
@@ -20,6 +21,7 @@ scripts/sqlite_migration_validate.sh \
 ```
 
 ## Checks Performed
+
 - Source DB copy is created in a temp or explicit output directory.
 - Optional seed script is applied first.
 - Migration SQL is applied with `sqlite3 -bail`.
@@ -27,11 +29,13 @@ scripts/sqlite_migration_validate.sh \
 - Foreign key violations must be zero.
 
 ## Failure Handling
+
 - Keep generated clone/log artifacts for diagnosis.
 - Fix migration SQL, then rerun validation.
 - Only apply to production after validation passes.
 
 References:
-- https://www.sqlite.org/lang_altertable.html
-- https://www.sqlite.org/lang_transaction.html
-- https://www.sqlite.org/pragma.html
+
+- <https://www.sqlite.org/lang_altertable.html>
+- <https://www.sqlite.org/lang_transaction.html>
+- <https://www.sqlite.org/pragma.html>

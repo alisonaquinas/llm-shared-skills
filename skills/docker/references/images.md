@@ -90,6 +90,7 @@ RUN npm install
 ```
 
 For Python:
+
 ```dockerfile
 COPY requirements.txt .
 RUN pip install -r requirements.txt
@@ -97,6 +98,7 @@ COPY . .
 ```
 
 For Go:
+
 ```dockerfile
 COPY go.mod go.sum ./
 RUN go mod download
@@ -135,6 +137,7 @@ full BuildKit features. This is needed for `--mount=type=cache`.
 RUN --mount=type=secret,id=npmrc,dst=/root/.npmrc \
     npm ci
 ```
+
 ```bash
 docker build --secret id=npmrc,src=.npmrc .
 ```
@@ -144,6 +147,7 @@ docker build --secret id=npmrc,src=.npmrc .
 ## docker buildx — Extended Build
 
 `buildx` is the modern builder frontend using BuildKit. Use it for:
+
 - Multi-platform builds (`linux/amd64` + `linux/arm64`)
 - Cross-compilation
 - Advanced cache export/import

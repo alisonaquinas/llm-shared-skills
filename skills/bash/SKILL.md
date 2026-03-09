@@ -11,6 +11,7 @@ Use this skill to keep Bash work grounded in the installed shell first, then fal
 
 1. Run `scripts/probe-bash.sh` first for environment truth.
 2. Establish the local help surface before guessing:
+
 - `bash --help`
 - `help`
 - `help <builtin>`
@@ -18,9 +19,10 @@ Use this skill to keep Bash work grounded in the installed shell first, then fal
 - `declare -p <var>`
 - `set -o`
 - `shopt -p`
-3. Use `bash --noprofile --norc` early when startup files may be involved.
-4. Separate Bash semantics from external-command behavior and from WSL/Windows boundary behavior.
-5. Call out WSL-specific behavior whenever the request mentions `/mnt/c`, `cmd.exe`, `powershell.exe`, CRLF line endings, Windows paths, or cross-boundary process launching.
+
+1. Use `bash --noprofile --norc` early when startup files may be involved.
+2. Separate Bash semantics from external-command behavior and from WSL/Windows boundary behavior.
+3. Call out WSL-specific behavior whenever the request mentions `/mnt/c`, `cmd.exe`, `powershell.exe`, CRLF line endings, Windows paths, or cross-boundary process launching.
 
 ## Intent Router
 
@@ -46,21 +48,25 @@ Load only the reference file needed for the active request.
 ## Core Workflow
 
 1. Establish runtime truth
+
 - Run `scripts/probe-bash.sh --json` when structured output helps.
 - Capture Bash version, startup files, tool availability, shell options, and WSL indicators.
 
-2. Choose the smallest discovery path
+1. Choose the smallest discovery path
+
 - Help: `help <builtin>`, `man bash`, `info bash`
 - Command discovery: `type -a`, `command -V`, `compgen -b`, `declare -F`
 - Runtime state: `set -o`, `shopt -p`, `env | sort`
 
-3. Separate task classes before changing code
+1. Separate task classes before changing code
+
 - Shell invocation and startup behavior
 - Language behavior: quoting, expansion, arrays, conditionals, exit status
 - Text pipeline behavior: pipes, redirection, command substitution
 - WSL boundary behavior: path translation, CRLF, Windows process interop
 
-4. Prefer reproducible diagnostics
+1. Prefer reproducible diagnostics
+
 - Use `scripts/collect-help-index.sh` when help and builtins are in scope.
 - Use `scripts/test-wsl-boundaries.sh` when interop, path, CRLF, stdout/stderr, or exit-code behavior is suspect.
 

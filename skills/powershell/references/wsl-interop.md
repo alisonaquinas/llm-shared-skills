@@ -21,6 +21,7 @@ $linuxPath = wsl.exe wslpath -u 'C:\Users\user\project'
 - `wsl.exe` returns text; PowerShell receives strings, not objects.
 - Line endings in `wsl.exe` output are LF; PowerShell usually handles them transparently, but `TrimEnd()` or `-replace '\r',''` may be needed if CRLF appears.
 - Long paths with spaces must be quoted inside the WSL command string:
+
   ```powershell
   wsl.exe bash -c "cat '/path with spaces/file.txt'"
   ```

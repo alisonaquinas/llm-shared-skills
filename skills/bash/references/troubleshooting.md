@@ -3,6 +3,7 @@
 Use this reference when a Bash command fails, a script has errors, or behavior is unclear.
 
 **Related references:**
+
 - `references/quoting-and-expansion.md` — Variable expansion, word splitting, quote handling
 - `references/redirection-and-pipes.md` — Input/output redirection, pipelines
 - `references/process-and-jobs.md` — Backgrounding, signals, job control
@@ -115,14 +116,17 @@ fi
 ## Cross-References by Topic
 
 ### Variable Expansion Issues
+
 - See `references/quoting-and-expansion.md` for `${var#pattern}`, `${var/old/new}`, parameter expansion
 - Parameter expansion doesn't work in single quotes: must use double quotes
 
 ### Redirection and Pipes
+
 - See `references/redirection-and-pipes.md` for `>`, `>>`, `2>`, `|` behavior
 - File descriptor confusion: `2>&1` redirects stderr to stdout
 
 ### Script Execution vs Sourcing
+
 - **Execute:** `bash script.sh` or `./script.sh` — runs in subshell, variables don't affect parent
 - **Source:** `. script.sh` or `source script.sh` — runs in current shell, affects environment
 - Use source for loading config/functions; use execute for isolated scripts

@@ -21,30 +21,40 @@ Use `ag` to find text across code and documents quickly with the right scope, ou
 | Preflight and environment | `scripts/probe-ag.sh` | Verify ag availability and features before workflows |
 
 ## Workflow
+
 1. Confirm search goal: matching lines, matching files, counts, filename search, or inverse match.
 2. Pick pattern mode:
+
 - Regex (default)
 - Literal: `-Q` / `--literal`
 - Whole word: `-w`
 - If pattern starts with a dash, use `--` before the pattern.
-3. Pick scope:
+
+1. Pick scope:
+
 - Path(s): `ag '<pattern>' <path>`
 - File name restriction: `-G '<file-regex>'`
 - File type restriction: run `ag --list-file-types`, then use `--<type>`
 - Depth restriction: `--depth <num>`
-4. Pick output:
+
+1. Pick output:
+
 - Files only: `-l`
 - Count per file: `-c`
 - Column and line numbers: `--column --numbers`
 - Script-safe filenames: `-0` with `xargs -0`
-5. Run and summarize totals plus notable matches.
+
+1. Run and summarize totals plus notable matches.
 
 ## Ignore and Visibility Rules
+
 Default behavior:
+
 - Obey `.gitignore`, `.hgignore`, `.ignore`, and `$HOME/.agignore`
 - Skip binary files
 
 Overrides:
+
 - `--hidden`: include hidden files and still obey ignore files
 - `-U`: ignore VCS ignore files and still obey `.ignore`
 - `-t`: search all text files (not hidden)
@@ -52,6 +62,7 @@ Overrides:
 - `-u`: unrestricted (hidden + binary + ignore bypass)
 
 ## Command Patterns
+
 - Basic recursive search: `ag '<pattern>' .`
 - Literal string search: `ag -Q '<literal>' .`
 - Files containing match: `ag -l '<pattern>' .`
@@ -61,6 +72,7 @@ Overrides:
 - Include context lines: `ag -C 2 '<pattern>' .`
 - Search compressed content (if supported): `ag -z '<pattern>' .`
 - Safe pipeline:
+
 ```bash
 ag -l -0 '<pattern>' . | xargs -0 <command>
 ```
@@ -75,6 +87,7 @@ ag -l -0 '<pattern>' . | xargs -0 <command>
 | **Pattern safety** | Quote patterns to avoid shell expansion | `'pattern'` not `pattern` |
 
 ## Practical Guardrails
+
 - Quote patterns to avoid shell expansion.
 - For machine-readable output, add `--nocolor` and optionally `--nogroup`.
 - For very large trees, start with `-l`, `-c`, or `--depth` to control output volume.
@@ -82,6 +95,7 @@ ag -l -0 '<pattern>' . | xargs -0 <command>
 - Run probe script first: `scripts/probe-ag.sh` to verify ag availability and features
 
 ## Sources
-- Official repository: https://github.com/ggreer/the_silver_searcher
-- README: https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/README.md
-- Manpage source: https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/doc/ag.1.md
+
+- Official repository: <https://github.com/ggreer/the_silver_searcher>
+- README: <https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/README.md>
+- Manpage source: <https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/doc/ag.1.md>

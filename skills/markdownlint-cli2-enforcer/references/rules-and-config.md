@@ -5,6 +5,7 @@
 Markdownlint supports multiple configuration formats. The tool searches in this order:
 
 ### `.markdownlint-cli2.jsonc` (JSON with comments)
+
 ```jsonc
 {
   "extends": "default",
@@ -17,6 +18,7 @@ Markdownlint supports multiple configuration formats. The tool searches in this 
 ```
 
 ### `.markdownlint.yaml` or `.markdownlint.yml`
+
 ```yaml
 extends: default
 rules:
@@ -28,6 +30,7 @@ rules:
 ```
 
 ### `.markdownlint.json`
+
 ```json
 {
   "extends": "default",
@@ -53,6 +56,7 @@ rules:
 ## Curvecapture Config Explained
 
 The curvecapture `markdownlint-cli2.jsonc` disables:
+
 - **MD013** (line-length) — allows documentation with long URLs and code examples
 - **MD026** (no-trailing-punctuation) — allows descriptive headings like "What is This?"
 - **MD033** (no-inline-html) — allows `<br>`, `<img>`, and other HTML where Markdown lacks equivalent
@@ -64,12 +68,14 @@ All other default rules remain enabled.
 ### MD001: Heading Increment
 
 ❌ **Bad:**
+
 ```markdown
 # Main Title
 ### Subsection (skips level 2)
 ```
 
 ✅ **Good:**
+
 ```markdown
 # Main Title
 ## Subsection
@@ -79,11 +85,13 @@ All other default rules remain enabled.
 ### MD013: Line Too Long
 
 ❌ **Bad (over 80 chars):**
+
 ```markdown
 This is a very long line of text that exceeds the default character limit and should be wrapped
 ```
 
 ✅ **Good (under 80 chars):**
+
 ```markdown
 This is a very long line of text that exceeds the
 default character limit and should be wrapped
@@ -92,11 +100,13 @@ default character limit and should be wrapped
 ### MD033: Inline HTML
 
 ❌ **Bad (raw HTML):**
+
 ```markdown
 Use <br> to break lines and <img src="x.png"> for images
 ```
 
 ✅ **Good (Markdown native):**
+
 ```markdown
 Use double space at end of line to break lines
 ![Image alt text](x.png)
@@ -109,6 +119,7 @@ Use double space at end of line to break lines
 **Cause:** Config file not found or rule disabled.
 
 **Solution:**
+
 1. Check config file exists in search path
 2. Run with `--verbose` to see which config loaded
 3. Verify rule is not disabled in the config
@@ -118,6 +129,7 @@ Use double space at end of line to break lines
 **Cause:** Rule might be disabled in config or not apply to file type.
 
 **Solution:**
+
 1. Check rule isn't set to `false` in config
 2. Ensure file is `.md` or `.markdown` extension
 3. Run manually: `markdownlint-cli2 --config <path> <file>`

@@ -150,6 +150,7 @@ environment:
 ```
 
 `.env` file in the project directory is auto-loaded. For others:
+
 ```bash
 docker compose --env-file .env.staging up
 ```

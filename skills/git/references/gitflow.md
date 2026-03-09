@@ -90,6 +90,7 @@ git flow feature delete -r <name>       # local + remote
 ```
 
 **Feature workflow example:**
+
 ```bash
 git flow feature start user-auth
 # ... develop, commit multiple times ...
@@ -151,6 +152,7 @@ prep need to be included in `develop` so they're in the next release too. Forget
 this is a common git-flow mistake.
 
 **Release workflow example:**
+
 ```bash
 # Develop is ready for v2.0.0
 git flow release start 2.0.0
@@ -223,6 +225,7 @@ git flow log                            # show git log for commits deviating fro
 ```
 
 Git flow stores its config in `.git/config`:
+
 ```ini
 [gitflow "branch"]
     master = main

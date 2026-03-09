@@ -72,6 +72,7 @@ description: >          # primary trigger mechanism — be comprehensive
 ### Description Writing
 
 The description is how the agent decides whether to use the skill. Include:
+
 - What the skill does
 - Specific triggers / keywords / user phrases
 - Concrete scenarios
@@ -132,6 +133,7 @@ my-plugin/
 ### Step 1: Understand with Concrete Examples
 
 Identify:
+
 - What will users ask that should trigger this skill?
 - What does a successful outcome look like?
 - What would the agent struggle with without this skill?
@@ -139,6 +141,7 @@ Identify:
 ### Step 2: Plan Bundled Resources
 
 For each concrete example, identify what reusable resource would help:
+
 - **Code rewritten each time** → `scripts/` file
 - **Schema/docs looked up each time** → `references/` file
 - **Boilerplate copied each time** → `assets/templates/` file
@@ -161,6 +164,7 @@ requiring context from SKILL.md to understand them.
 ### Step 5: Write SKILL.md
 
 Start with frontmatter, then body:
+
 1. Intent Router — which reference file to load for which request type
 2. Quick reference — the 80% case inline
 3. Patterns / workflow — step-by-step for common tasks
@@ -170,6 +174,7 @@ Start with frontmatter, then body:
 ### Step 6: Validate and Iterate
 
 Check:
+
 - [ ] YAML frontmatter is valid (`name` and `description` present, no extra fields)
 - [ ] `agents/openai.yaml` exists and has `display_name`, `short_description`, `default_prompt`
 - [ ] No "Codex" or "Claude" platform-specific language in the body (use "the agent")

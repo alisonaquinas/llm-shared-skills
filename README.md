@@ -37,13 +37,16 @@ and is provided as-is.
 See [INSTALL.md](INSTALL.md) for full instructions. Quick start:
 
 **Claude Code (as local plugin):**
+
 ```json
 // In ~/.claude/settings.json, add to enabledPlugins:
 "llm-shared-skills@local": true
 ```
+
 Then point Claude Code at this directory as a local plugin source.
 
 **Codex (symlink skills into ~/.codex/skills/):**
+
 ```powershell
 # PowerShell
 $repo = "C:\Users\aaqui\llm-shared-skills\skills"
@@ -55,6 +58,7 @@ foreach ($skill in "ag-search","aws-cli","az-cli","bash","docker","git","glab-cl
 ## Compatibility Design
 
 Both agents use the same SKILL.md format. This repo adds:
+
 - `agents/openai.yaml` in every skill for Codex UI metadata
 - `.claude-plugin/plugin.json` at repo root for Claude plugin registration
 

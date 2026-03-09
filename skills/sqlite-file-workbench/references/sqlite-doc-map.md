@@ -2,20 +2,23 @@
 
 ## Core Documentation Map
 
-The official SQLite docs: https://www.sqlite.org/docs.html
+The official SQLite docs: <https://www.sqlite.org/docs.html>
 
 ### SQL Language and Pragmas
-https://www.sqlite.org/lang.html — Complete SQL reference
-https://www.sqlite.org/pragma.html — PRAGMA statements for tuning
+
+<https://www.sqlite.org/lang.html> — Complete SQL reference
+<https://www.sqlite.org/pragma.html> — PRAGMA statements for tuning
 
 ### File Safety and Transactions
-https://www.sqlite.org/lockingv3.html — How SQLite locks work
-https://www.sqlite.org/wal.html — Write-Ahead Logging (WAL) mode
-https://www.sqlite.org/lang_transaction.html — Transaction control
+
+<https://www.sqlite.org/lockingv3.html> — How SQLite locks work
+<https://www.sqlite.org/wal.html> — Write-Ahead Logging (WAL) mode
+<https://www.sqlite.org/lang_transaction.html> — Transaction control
 
 ### Backup and Recovery
-https://www.sqlite.org/backup.html — Backup API and strategies
-https://www.sqlite.org/recovery.html — Recovery extension
+
+<https://www.sqlite.org/backup.html> — Backup API and strategies
+<https://www.sqlite.org/recovery.html> — Recovery extension
 
 ## Essential PRAGMAs
 
@@ -125,8 +128,9 @@ PRAGMA database_list;    -- Attached databases
 ```
 
 ## Performance and Analysis
-https://www.sqlite.org/optoverview.html — Query planner overview
-https://www.sqlite.org/sqlanalyze.html — sqlite3_analyzer tool
+
+<https://www.sqlite.org/optoverview.html> — Query planner overview
+<https://www.sqlite.org/sqlanalyze.html> — sqlite3_analyzer tool
 
 ### EXPLAIN QUERY PLAN
 
@@ -136,6 +140,7 @@ SELECT * FROM users WHERE email = 'test@example.com';
 ```
 
 Shows:
+
 - Index usage (or full scan)
 - Scan type (SCAN, SEARCH)
 - Whether index is used efficiently
@@ -143,9 +148,11 @@ Shows:
 ## Advanced Tools
 
 ### Diff and Sync
-https://www.sqlite.org/sqldiff.html — sqldiff tool for comparing databases
-https://www.sqlite.org/rsync.html — sqlite3_rsync for remote syncing
+
+<https://www.sqlite.org/sqldiff.html> — sqldiff tool for comparing databases
+<https://www.sqlite.org/rsync.html> — sqlite3_rsync for remote syncing
 
 ### Version and Compatibility
-https://www.sqlite.org/changes.html — Complete changelog
-https://www.sqlite.org/fileformat2.html — File format details
+
+<https://www.sqlite.org/changes.html> — Complete changelog
+<https://www.sqlite.org/fileformat2.html> — File format details

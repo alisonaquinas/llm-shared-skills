@@ -82,7 +82,7 @@ $env:PATH
 
 | Method | Command | Persistence | When Visible | Platform |
 |---|---|---|---|---|
-| `$env:VAR = ` | `$env:PATH = ...` | Session only | Immediate in current shell | All |
+| `$env:VAR =` | `$env:PATH = ...` | Session only | Immediate in current shell | All |
 | `SetEnvironmentVariable` | `[System.Environment]::SetEnvironmentVariable('VAR', 'value', 'User')` | Persistent (User/Machine) | Next new session | Windows/Linux/macOS |
 | `setx` | `setx MYVAR value` | User-persistent | Next new cmd.exe only | Windows |
 | Environment block (advanced) | Modify in registry directly | Persistent | Next new session | Windows |

@@ -9,6 +9,7 @@
 ## Install by Platform
 
 ### macOS
+
 ```bash
 # Via Homebrew (simplest)
 brew install --cask docker
@@ -18,6 +19,7 @@ brew install --cask docker
 ```
 
 ### Linux (Docker Engine)
+
 ```bash
 # Official convenience script (recommended for quick setup)
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -34,6 +36,7 @@ docker run hello-world
 ```
 
 ### Windows
+
 ```powershell
 # Via winget
 winget install Docker.DockerDesktop
@@ -109,14 +112,18 @@ docker run --rm hello-world
 ## Troubleshooting
 
 ### "docker: permission denied"
+
 - Add your user to docker group: `sudo usermod -aG docker $USER`
 - Then logout/login or use `newgrp docker`.
 
 ### "Cannot connect to Docker daemon"
+
 - Daemon not running. Start it: `sudo systemctl start docker` (Linux) or launch Docker Desktop (macOS/Windows).
 
 ### "no space left on device"
+
 - Docker images/containers filled disk. Run: `docker system prune -a` to clean up.
 
 ### Image pull slow or fails
+
 - Network issue or registry down. Try: `docker pull --all-platforms ubuntu` with timeout.

@@ -9,6 +9,7 @@
 ## Install by Platform
 
 ### macOS
+
 ```bash
 # Install via Homebrew (macOS 3.2 is ancient; upgrade recommended)
 brew install bash
@@ -24,6 +25,7 @@ bash --version
 ```
 
 ### Linux (Debian/Ubuntu)
+
 ```bash
 # Update to latest bash
 apt update
@@ -34,13 +36,16 @@ bash --version
 ```
 
 ### Linux (Fedora/RHEL)
+
 ```bash
 dnf install bash
 bash --version
 ```
 
 ### Windows
+
 **Option 1: WSL2 (full Linux environment)**
+
 ```powershell
 # Install WSL2
 wsl --install
@@ -51,7 +56,8 @@ sudo apt install bash
 ```
 
 **Option 2: Git Bash (Windows-native)**
-- Download from https://git-scm.com/download/win
+
+- Download from <https://git-scm.com/download/win>
 - Includes bash, git, and Unix tools (awk, grep, etc.)
 
 ## Post-Install Configuration
@@ -151,15 +157,19 @@ set -o
 ## Troubleshooting
 
 ### "command not found" after shell change
+
 - Your PATH is wrong or ~/.bashrc is missing.
 - Run `echo $PATH` to check.
 
 ### Changes to .bashrc not applying
+
 - You need to restart the shell or run `source ~/.bashrc`.
 
 ### "Permission denied" when running scripts
+
 - Scripts need execute bit: `chmod +x script.sh`
 
 ### macOS still uses old bash
+
 - After installing via brew, verify it's in your shell list: `cat /etc/shells | grep bash`
 - Then change: `chsh -s /opt/homebrew/bin/bash`

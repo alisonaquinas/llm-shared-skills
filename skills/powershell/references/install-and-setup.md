@@ -12,6 +12,7 @@
 | `brew install powershell` | See Linux note | `dnf install powershell` | `winget install Microsoft.PowerShell` |
 
 **Debian/Ubuntu:** Add Microsoft apt repository:
+
 ```bash
 curl https://aka.ms/install-powershell.sh | bash
 ```
@@ -97,18 +98,23 @@ Get-Module | Select Name
 ## Troubleshooting
 
 ### "$PROFILE does not exist"
+
 - Create it: `New-Item -Path $PROFILE -Type File -Force`
 
 ### "Import-Module: The specified module 'PSReadLine' was not found"
+
 - Install the module: `Install-Module PSReadLine -Force`
 - May need `-SkipPublisherCheck` if already installed:
+
   ```powershell
   Install-Module PSReadLine -Force -SkipPublisherCheck
   ```
 
 ### Changes to $PROFILE not applying
+
 - Reload: `. $PROFILE` or `& $PROFILE`
 
 ### Execution policy prevents running scripts
+
 - Check: `Get-ExecutionPolicy`
 - Set for current user: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`

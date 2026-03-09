@@ -134,18 +134,22 @@ docker network inspect mynet --format '{{range .Containers}}{{.Name}}: {{.IPv4Ad
 ### Common issues
 
 **"No route to host" / containers can't reach each other:**
+
 - Are they on the same network? Check `docker inspect` for both
 - Are you using the default `bridge`? That doesn't have DNS. Create a user-defined network.
 
 **"Connection refused" on a mapped port:**
+
 - Is the service listening on `0.0.0.0` inside the container, not just `127.0.0.1`?
 - `docker ps` — check the port column shows `0.0.0.0:8080->80/tcp`
 
 **Service port works in container, not from host (Docker Desktop):**
+
 - On Docker Desktop, ports are forwarded through the VM. `localhost` on Windows
   maps to the container's mapped port automatically.
 
 **Reach host services from inside a container:**
+
 ```bash
 # Docker Desktop has a special hostname
 curl http://host.docker.internal:8080

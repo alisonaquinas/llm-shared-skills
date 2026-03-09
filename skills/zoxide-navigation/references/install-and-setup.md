@@ -128,20 +128,25 @@ export _ZO_FZF_OPTS="--height 40% --reverse --preview 'ls -la {}' --preview-wind
 ## Troubleshooting
 
 ### "z: command not found"
+
 - Installation incomplete. Re-run `brew install zoxide` (macOS) or package manager for your OS.
 - Or restart shell: `source ~/.bashrc` or close/reopen terminal.
 
 ### "zi command not found"
+
 - fzf not installed. Run: `brew install fzf` (or package manager for your OS).
 
 ### Directory not tracked or zi shows nothing
+
 - Zoxide learns from your `cd` commands. Navigate to directories first.
 - Or manually add: `z /path/to/dir`
 - Check tracked dirs: `z -l`
 
 ### "fzf: command not found" when using zi
+
 - Install fzf: `brew install fzf` (macOS) or `apt install fzf` (Linux).
 
 ### zi freezes or behaves oddly
+
 - fzf options may be wrong. Check: `echo $_ZO_FZF_OPTS`
 - Reset to defaults: `unset _ZO_FZF_OPTS` and try again.

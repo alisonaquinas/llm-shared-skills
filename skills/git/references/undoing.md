@@ -1,6 +1,7 @@
 # Undoing Changes Reference
 
 Understanding git's three trees is the key to choosing the right undo command:
+
 - **Working tree** — files on disk as you see them
 - **Index (staging area)** — snapshot of what will go into the next commit
 - **HEAD** — the current commit
@@ -80,6 +81,7 @@ git reset --hard origin/main            # match exactly what's on remote
 ```
 
 **Relative commit notation:**
+
 ```
 HEAD       = current commit
 HEAD~1     = one commit back (parent)
@@ -111,6 +113,7 @@ git commit -m "revert: undo last 3 commits"
 ```
 
 **Choosing between reset and revert:**
+
 | Situation | Use |
 |-----------|-----|
 | Undo commits on a **private** branch | `git reset` (clean history) |

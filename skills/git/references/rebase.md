@@ -51,6 +51,7 @@ git rebase -i origin/main       # edit all commits not yet in origin/main
 ```
 
 **The editor opens with a list like:**
+
 ```
 pick abc1234 feat: initial login form
 pick def5678 wip: debugging
@@ -183,11 +184,13 @@ git cherry-pick --quit              # stop but keep changes applied so far
 ```
 
 **When to use cherry-pick:**
+
 - Backporting a bug fix to a release/maintenance branch
 - Applying a one-off commit from a colleague's branch you don't want to merge fully
 - Recovering a commit accidentally made on the wrong branch
 
 **When NOT to use cherry-pick:**
+
 - When you want all commits from a branch — use merge or rebase instead
 - Repeatedly cherry-picking between long-lived diverging branches creates duplicate commits
 
@@ -211,11 +214,13 @@ git range-diff <old-base>..<old-tip> <new-base>..<new-tip>
 ## Common Mistakes & Recovery
 
 **Rebase went wrong — too many conflicts, want to bail:**
+
 ```bash
 git rebase --abort          # restores branch to state before rebase started
 ```
 
 **Already completed a bad rebase and pushed:**
+
 ```bash
 # Find the pre-rebase tip in the reflog
 git reflog | head -20       # look for entries before the rebase started
@@ -224,6 +229,7 @@ git push --force-with-lease # update remote (coordinate with team first)
 ```
 
 **Accidentally rebased a shared branch:**
+
 ```bash
 # Every collaborator needs to do this after you force-push:
 git fetch origin

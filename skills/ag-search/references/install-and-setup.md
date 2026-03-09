@@ -91,13 +91,16 @@ ag "pattern" --ignore-dir=node_modules --ignore-dir=.git
 ## Troubleshooting
 
 ### "ag: command not found"
+
 - Install not completed. Re-run the install command for your platform.
 
 ### Slow searches
+
 - You're likely searching in a large directory (node_modules, .git, etc.).
 - Use `--ignore-dir` to exclude them: `ag "pattern" --ignore-dir=node_modules`
 
 ### Too many matches
+
 - Use `-t` (type) filter: `ag -t python "import"`
 - Limit to specific directory: `ag "pattern" src/`
 - Use `-C 0` to show matching lines only (no context): `ag -C 0 "pattern"`

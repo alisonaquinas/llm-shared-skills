@@ -47,9 +47,9 @@ Switch context deliberately and report active context before high-impact command
 
 ## Source Links
 
-- https://docs.docker.com/offload/
-- https://docs.docker.com/build-cloud/
-- https://docs.docker.com/build/
-- https://docs.docker.com/reference/cli/docker/offload/
-- https://docs.docker.com/reference/cli/docker/buildx/
-- https://docs.docker.com/reference/cli/docker/context/
+- <https://docs.docker.com/offload/>
+- <https://docs.docker.com/build-cloud/>
+- <https://docs.docker.com/build/>
+- <https://docs.docker.com/reference/cli/docker/offload/>
+- <https://docs.docker.com/reference/cli/docker/buildx/>
+- <https://docs.docker.com/reference/cli/docker/context/>

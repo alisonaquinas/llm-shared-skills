@@ -13,6 +13,7 @@
 | `brew install glab` | See Linux note | `dnf install glab` | `winget install --id=glab-cli.glab` |
 
 **Debian/Ubuntu:** Add GitLab apt repository:
+
 ```bash
 curl -s https://repo.gitlab.com/api/v4/projects/gitlab-org%2Fglabcli/packages/debian/distributions | sh
 apt install glab
@@ -35,7 +36,8 @@ glab auth login --hostname gitlab.com
 ### Generate GitLab Token
 
 If you don't have a token:
-1. Go to https://gitlab.com/-/user_settings/personal_access_tokens (or your self-hosted instance)
+
+1. Go to <https://gitlab.com/-/user_settings/personal_access_tokens> (or your self-hosted instance)
 2. Click "Add new token"
 3. Set name, expiration, and scopes:
    - `api` — Full API access (required for most operations)
@@ -87,17 +89,22 @@ glab pipeline list
 ## Troubleshooting
 
 ### "401 Unauthorized"
+
 - Token is invalid or expired. Regenerate in GitLab Settings > Access Tokens.
 
 ### "glab: command not found"
+
 - Installation incomplete. Re-run install for your platform.
 
 ### "dial unix /run/user/1000/keyring-*: no such file or directory"
+
 - Credential store issue (usually on Linux). Run:
+
   ```bash
   glab auth login --hostname gitlab.com --stdin < token.txt
   ```
 
 ### Self-hosted instance not recognized
+
 - Ensure config is set: `glab config set host gitlab.example.com`
 - Test: `glab auth status`

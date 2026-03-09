@@ -118,6 +118,7 @@ skill-name/
 ## Progressive Disclosure Patterns
 
 **Pattern 1: Intent Router**
+
 ```markdown
 ## Intent Router
 - `references/aws.md` — AWS deployment patterns
@@ -126,6 +127,7 @@ Load only the file matching the user's chosen provider.
 ```
 
 **Pattern 2: Conditional details**
+
 ```markdown
 ## Creating Documents
 Use docx-js. See references/docx-js.md for full API.
@@ -134,6 +136,7 @@ For tracked changes: see references/redlining.md
 ```
 
 **Guidelines:**
+
 - Keep references one level deep from SKILL.md
 - For reference files >100 lines, include a table of contents at the top
 - Never duplicate information across SKILL.md and a reference file; choose one location

@@ -25,24 +25,29 @@ Use `markdownlint-cli2` to check and fix Markdown consistently. Prefer the provi
 ## Workflow
 
 1. Resolve config file.
+
 - Prefer explicit user-provided config path.
 - Else prefer `curvecapture/markdownlint-cli2.jsonc`.
 - Else use local `markdownlint-cli2.jsonc` or `.markdownlint-cli2.jsonc` if present.
 
-2. Resolve target scope.
+1. Resolve target scope.
+
 - Use user-provided file paths or globs when given.
 - If scope is not provided, lint `**/*.md` and `**/*.markdown` from current working directory.
 - Avoid linting generated output and dependency trees unless explicitly requested.
 
-3. Run lint check first.
+1. Run lint check first.
+
 - Run without `--fix` to capture violations.
 - Report failing rules and affected files before making edits.
 
-4. Apply fixes as needed.
+1. Apply fixes as needed.
+
 - Run with `--fix` only when user asks for fixes or when task requires enforcing rules.
 - Re-run lint check to ensure a clean result.
 
-5. Summarize clearly.
+1. Summarize clearly.
+
 - Report config used, targets checked, whether fixes were applied, and final lint status.
 
 ## Commands
@@ -79,6 +84,7 @@ Run and auto-fix:
 ### scripts/run-markdownlint-cli2.sh
 
 Use this wrapper to:
+
 - auto-select config file
 - run `markdownlint-cli2` directly if installed
 - fall back to `markdownlint` (with mapped disabled rules) when available

@@ -11,14 +11,16 @@ Use this skill to keep PowerShell work grounded in the installed runtime first, 
 
 1. Run `scripts/probe-pwsh.ps1` first for environment truth.
 2. Establish the help surface before guessing:
+
 - `pwsh.exe -?`
 - `Get-Help <name> -Full`
 - `Get-Help about_*`
 - `Get-Command <name> -All`
 - `Get-Member`
-3. Load only the reference file that matches the active request.
-4. Treat PowerShell objects, formatting, and native-process interop as separate concerns.
-5. Call out Windows-specific behavior when the request mentions `pwsh.exe`, execution policy, WMI/CIM, WinRM, registry, certificates, or `cmd.exe`.
+
+1. Load only the reference file that matches the active request.
+2. Treat PowerShell objects, formatting, and native-process interop as separate concerns.
+3. Call out Windows-specific behavior when the request mentions `pwsh.exe`, execution policy, WMI/CIM, WinRM, registry, certificates, or `cmd.exe`.
 
 ## Intent Router
 
@@ -46,20 +48,24 @@ Load only the reference file needed for the active request.
 ## Core Workflow
 
 1. Establish runtime truth
+
 - Run `scripts/probe-pwsh.ps1 -Json` when structured output helps.
 - Capture version, edition, OS, profile paths, module path, and local help coverage.
 
-2. Choose the smallest discovery path
+1. Choose the smallest discovery path
+
 - Command help: `Get-Help <cmdlet> -Detailed`, `-Examples`, `-Full`, `-Online`
 - Command discovery: `Get-Command`, `Get-Module -ListAvailable`, `Find-Module`
 - Object discovery: `... | Get-Member`
 
-3. Separate task classes before changing code
+1. Separate task classes before changing code
+
 - Shell launch and automation: `pwsh.exe` flags and process behavior
 - Language and script behavior: parsing, quoting, variables, scoping, pipeline
 - Operational surfaces: providers, remoting, jobs, debugging, security
 
-4. Prefer reproducible diagnostics
+1. Prefer reproducible diagnostics
+
 - Use `scripts/collect-help-index.ps1` when help completeness is relevant.
 - Use `scripts/test-native-boundaries.ps1` when quoting, argument passing, streams, or exit codes are suspect.
 

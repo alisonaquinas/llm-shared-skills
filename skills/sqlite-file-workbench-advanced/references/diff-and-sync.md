@@ -26,7 +26,7 @@ Single-table diff:
 scripts/sqlite_diff.sh --from old.db --to new.db --table users
 ```
 
-Reference: https://www.sqlite.org/sqldiff.html
+Reference: <https://www.sqlite.org/sqldiff.html>
 
 ### Understanding sqldiff Output
 
@@ -46,6 +46,7 @@ DELETE FROM users WHERE id=2;
 ```
 
 Apply output:
+
 ```bash
 sqlite3 prod.db < full-diff.sql
 ```
@@ -53,19 +54,23 @@ sqlite3 prod.db < full-diff.sql
 ### Edge Cases
 
 #### Empty Output (Identical Databases)
+
 ```bash
 scripts/sqlite_diff.sh --from db1.db --to db2.db
 # Produces empty output if databases are identical
 ```
 
 #### No Common Tables
+
 If databases share no tables:
+
 ```bash
 # Output includes all tables from target as CREATE statements
 # Useful for merging schema from separate databases
 ```
 
 #### Schema-Only vs Data-Only
+
 ```bash
 # Schema changes only (no INSERT/UPDATE/DELETE)
 scripts/sqlite_diff.sh --from old.db --to new.db --schema-only
@@ -94,7 +99,7 @@ Use WAL-only constraint:
 scripts/sqlite_sync.sh --origin prod.db --replica deploy@host:/srv/prod.db --wal-only --apply
 ```
 
-Reference: https://www.sqlite.org/rsync.html
+Reference: <https://www.sqlite.org/rsync.html>
 
 ### Remote Endpoint Format
 
@@ -130,6 +135,7 @@ Replica (updated Alice):
 ```
 
 **Recommended approach:**
+
 1. Use `--schema-only` first to check structural conflicts
 2. Review diffs carefully before applying
 3. Consider manual merge if data semantically conflicts

@@ -30,6 +30,7 @@ user/my-project           # Personal project in user namespace
 ### Personal Projects
 
 Projects under your user namespace:
+
 ```
 @username/my-project
 ```
@@ -138,6 +139,7 @@ glab protected-branch create main --require-code-owner-approval
 ### Push Restrictions
 
 Protected branches prevent:
+
 - Direct commits (must use MR)
 - Force push
 - Deletion
@@ -145,6 +147,7 @@ Protected branches prevent:
 ### Enforcement
 
 All MR to protected branch must:
+
 1. Pass status checks
 2. Get required approvals
 3. Have updated target branch
@@ -211,6 +214,7 @@ glab project update group/project --visibility internal
 ### Custom Variables
 
 Set in `.gitlab-ci.yml`:
+
 ```yaml
 variables:
   API_TOKEN: $SECRET_TOKEN  # Reference secrets
@@ -234,11 +238,13 @@ variables:
 ### Auth Host Mismatch
 
 **Error:**
+
 ```
 [ERROR] Host mismatch. Expected: gitlab.com, Got: gitlab.example.com
 ```
 
 **Solution:**
+
 ```bash
 # Logout and login to correct host
 glab auth logout gitlab.com
@@ -248,11 +254,13 @@ glab auth login --hostname gitlab.example.com
 ### Repo Not Found
 
 **Error:**
+
 ```
 [ERROR] project not found
 ```
 
 **Solution:**
+
 1. Verify full path: `glab project list | grep name`
 2. Check access: `glab project view group/project`
 3. Verify visibility: `glab project view --format json | grep visibility`
@@ -260,11 +268,13 @@ glab auth login --hostname gitlab.example.com
 ### Permission Denied on Protected Branch
 
 **Error:**
+
 ```
 [ERROR] You do not have permission to push code to this project
 ```
 
 **Solution:**
+
 1. Check your role: `glab member list --repo group/project`
 2. Request access via web UI or ask project maintainer
 3. Protected branches require MR (not direct push)

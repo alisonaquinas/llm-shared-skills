@@ -12,6 +12,7 @@ The Silver Searcher respects ignore files in this order (first match wins):
 ### Example: Stop Searching vendor/node_modules
 
 Create `.ignore` in project root:
+
 ```
 vendor/
 node_modules/
@@ -20,6 +21,7 @@ dist/
 ```
 
 Or use `--ignore` flag to skip specific patterns:
+
 ```bash
 ag "pattern" --ignore="node_modules" --ignore="build"
 ```
@@ -97,6 +99,7 @@ ag -C 3 "function declaration"
 ### Multiple Patterns (AND)
 
 Use `-e` flag multiple times:
+
 ```bash
 ag -e "import" -e "React" file.js  # Find lines with both
 ```
@@ -136,6 +139,7 @@ ag --nocolor --nofilename --noheading "pattern"
 ### JSON Output (if available)
 
 Some ag builds support JSON output for parsing:
+
 ```bash
 ag --json "pattern"  # May not be available on all installations
 ```
@@ -150,7 +154,7 @@ ag --json "pattern"  # May not be available on all installations
 | `--hidden` | Search hidden files | Include .dotfiles |
 | `--no-recurse` | Don't descend directories | Current dir only |
 
-### Examples
+### Performance Examples
 
 ```bash
 # Fast search of large repo
@@ -173,6 +177,7 @@ ag --skip-vcs-ignores "pattern"
 **Cause:** Pattern excluded by ignore files.
 
 **Solution:**
+
 1. Check which files match: `ag -l ".*"`
 2. Look for `.ignore`, `.gitignore`, `.hgignore` in parent dirs
 3. Use `--skip-vcs-ignores` to override: `ag --skip-vcs-ignores "pattern"`
@@ -182,6 +187,7 @@ ag --skip-vcs-ignores "pattern"
 **Cause:** ag searches binary files and returns non-text matches.
 
 **Solution:**
+
 ```bash
 # Skip binary files
 ag --nonbinary "pattern"
@@ -195,6 +201,7 @@ ag "pattern" --ignore="node_modules" --ignore=".git"
 **Issue:** Patterns with UTF-8 or multibyte chars may not match.
 
 **Solution:**
+
 ```bash
 # Ensure locale is UTF-8
 export LC_ALL=en_US.UTF-8
@@ -208,6 +215,7 @@ ag "pattern" --nonbinary
 **Cause:** Searching large ignored directories or many files.
 
 **Solution:**
+
 1. Add patterns to `.ignore` file
 2. Use `--depth` to limit recursion
 3. Combine with file type: `ag --python "pattern"`

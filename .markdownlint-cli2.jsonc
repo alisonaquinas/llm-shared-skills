@@ -1,0 +1,16 @@
+{
+    "ignores": [
+        ".venv",
+        ".pytest_cache",
+        "node_modules",
+        ".next",
+        ".git"
+    ],
+    "config": {
+        "default": true,
+        "line-length": false,
+        "no-trailing-punctuation": false,
+        "no-inline-html": false,
+        "table-column-style": false
+    }
+}

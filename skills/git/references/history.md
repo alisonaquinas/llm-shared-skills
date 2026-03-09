@@ -112,6 +112,7 @@ git bisect run python -c "import sys; sys.exit(0 if check() else 1)"
 ```
 
 ### Bisect Tips
+
 - Use `git bisect log` to see your session history
 - Use `git bisect replay <logfile>` to replay a session
 - The `--term-good` / `--term-bad` flags let you rename the states (e.g., `fast`/`slow` for performance regressions)
@@ -180,6 +181,7 @@ git reflog -n 20                        # limit output
 ```
 
 **Common recovery patterns using reflog:**
+
 ```bash
 # Recover commits after accidental reset --hard
 git reflog

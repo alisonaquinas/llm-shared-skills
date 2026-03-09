@@ -108,16 +108,20 @@ git log --oneline
 ## Troubleshooting
 
 ### "fatal: not a git repository"
+
 - You're outside a git repo. Run `git init` to create one or `git clone` to copy an existing repo.
 
 ### "Please tell me who you are" on first commit
+
 - Git user.name and user.email not configured. Run the config commands above with `--global`.
 
 ### "Permission denied (publickey)" when pushing
+
 - SSH key not added to your remote account, or ssh-agent doesn't have the key loaded.
 - Check: `ssh -T git@github.com` or `ssh -T git@gitlab.com`
 
 ### Line-ending issues (CRLF/LF)
+
 - Files swapped between Windows/Unix show as modified even if unchanged.
 - Fix: Set `core.autocrlf` to `true` (Windows) or `input` (Unix/macOS) — see config section above.
 - Or use `.gitattributes` for per-repo override.

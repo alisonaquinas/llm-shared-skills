@@ -124,6 +124,7 @@ git worktree repair                     # fix worktree links after manual direct
 ### Typical Worktree Use Cases
 
 **Hotfix while feature branch is dirty:**
+
 ```bash
 # You're deep in a feature, don't want to stash/restore
 git worktree add ../hotfix -b hotfix/null-crash main
@@ -140,6 +141,7 @@ git fetch --prune
 ```
 
 **Reviewing a PR without losing your place:**
+
 ```bash
 git worktree add ../review-pr-123 origin/feature/pr-123
 cd ../review-pr-123
@@ -149,6 +151,7 @@ git worktree remove ../review-pr-123
 ```
 
 **Building multiple versions simultaneously:**
+
 ```bash
 git worktree add ../build-v1 v1.0.0
 git worktree add ../build-v2 v2.0.0

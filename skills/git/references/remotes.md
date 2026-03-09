@@ -53,6 +53,7 @@ git pull --allow-unrelated-histories  # for merging two unrelated repos (rare)
 ```
 
 **Recommended pull strategy:**
+
 - For feature branches: `git pull --rebase` keeps history linear
 - For main/develop: `git pull` (merge) is fine; preserves merge topology
 - Or configure globally: `git config --global pull.rebase true`
@@ -188,9 +189,11 @@ git config credential.helper
 ## Submodule Remote Operations
 
 When working in repos that have submodules:
+
 ```bash
 git clone --recurse-submodules <url>                # clone with all submodules
 git pull --recurse-submodules                       # pull + update submodules
 git submodule update --remote --merge               # update submodule to latest remote
 ```
+
 See `references/submodules.md` for full submodule documentation.

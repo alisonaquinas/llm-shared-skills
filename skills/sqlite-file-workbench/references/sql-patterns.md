@@ -5,6 +5,7 @@
 ### Common Schema Inspection Queries
 
 List all tables:
+
 ```sql
 SELECT name FROM sqlite_master
 WHERE type='table' AND name NOT LIKE 'sqlite_%'
@@ -12,6 +13,7 @@ ORDER BY name;
 ```
 
 Show table definition:
+
 ```sql
 SELECT sql FROM sqlite_master
 WHERE type='table' AND name='users';
@@ -22,6 +24,7 @@ PRAGMA table_info(users);
 ```
 
 Find all indexes:
+
 ```sql
 SELECT name, tbl_name, sql FROM sqlite_master
 WHERE type='index' AND name NOT LIKE 'sqlite_%'
@@ -29,6 +32,7 @@ ORDER BY tbl_name;
 ```
 
 Check foreign key relationships:
+
 ```sql
 PRAGMA foreign_key_list(orders);
 -- Shows: id, seq, table, from, to, on_delete, on_update
@@ -55,16 +59,19 @@ PRAGMA journal_mode=WAL;
 ```
 
 **Advantages:**
+
 - Better concurrency (readers and writers can coexist)
 - Faster commits (append-only)
 - Suitable for busy databases
 
 **Files created:**
+
 - `mydb.db` (main database)
 - `mydb.db-wal` (write-ahead log)
 - `mydb.db-shm` (shared memory)
 
 **Backup considerations:**
+
 - Must backup all three files together
 - `db-wal` and `db-shm` may be empty if no active transactions
 
@@ -75,11 +82,13 @@ PRAGMA journal_mode=DELETE;
 ```
 
 **Advantages:**
+
 - Single database file
 - No auxiliary files
 - Simpler backup
 
 **Disadvantages:**
+
 - Lower concurrency
 - Extra I/O to delete journal file after commit
 
@@ -275,6 +284,7 @@ SELECT * FROM users;
 ```
 
 Or via SQL:
+
 ```sql
 CREATE TEMP TABLE temp_import (col1, col2, col3);
 -- Then import, transform, and insert into actual table

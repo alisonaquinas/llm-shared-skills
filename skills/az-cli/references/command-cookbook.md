@@ -68,6 +68,7 @@ az deployment group create \
 ### Parameter File Format
 
 `parameters.json`:
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
@@ -111,6 +112,7 @@ az deployment group create \
 ### Bicep with Parameters
 
 `main.bicep`:
+
 ```
 param vmName string
 param location string
@@ -128,6 +130,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = {
 ```
 
 Deploy:
+
 ```bash
 az deployment group create \
   --resource-group my-rg \

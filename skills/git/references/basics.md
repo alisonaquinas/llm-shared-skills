@@ -31,11 +31,11 @@ git status --porcelain      # machine-readable short format
 
 | Code | Meaning |
 |------|---------|
-| `M ` | Modified and staged |
-| ` M` | Modified, not staged |
-| `A ` | New file, staged |
+| `M` | Modified and staged |
+| `M` | Modified, not staged |
+| `A` | New file, staged |
 | `??` | Untracked file |
-| `D ` | Deleted, staged |
+| `D` | Deleted, staged |
 | `UU` | Merge conflict |
 
 ---
@@ -101,6 +101,7 @@ git commit --no-gpg-sign               # override: commit without GPG signature
 ```
 
 **Conventional commit prefixes** (widely used standard):
+
 - `feat:` new feature
 - `fix:` bug fix
 - `docs:` documentation only
@@ -132,6 +133,7 @@ git log -G "regex"                  # commits where diff matches regex
 ```
 
 **Custom format examples:**
+
 ```bash
 git log --format="%h %ad %s" --date=short   # hash, date, subject
 git log --format="%C(yellow)%h%Creset %s %C(blue)(%ar)%Creset"  # colored
@@ -173,6 +175,7 @@ git rm --cached <file>              # stop tracking a file (leave it on disk)
 ```
 
 Global ignore file: `~/.gitignore_global` — configure with:
+
 ```bash
 git config --global core.excludesfile ~/.gitignore_global
 ```

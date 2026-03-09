@@ -104,6 +104,7 @@ git config --global core.autocrlf input
 ```
 
 Other `.gitattributes` uses:
+
 ```gitattributes
 # Custom diff driver for Word documents
 *.docx diff=word
@@ -120,6 +121,7 @@ package-lock.json merge=ours
 ## GPG Signing (This Machine)
 
 This machine has GPG signing configured:
+
 - `commit.gpgsign=true` — all commits auto-signed
 - `user.signingkey=829CA057F35DC2C839477F69FDD7CD4EB45DF7C1!` — the `!` pins the exact subkey
 
@@ -243,6 +245,7 @@ chmod +x .git/hooks/commit-msg
 `.git/hooks/` is not committed. Options for sharing:
 
 1. **Store hooks in repo + configure git to use them:**
+
    ```bash
    mkdir -p .githooks
    # put hooks in .githooks/
@@ -250,12 +253,14 @@ chmod +x .git/hooks/commit-msg
    ```
 
 2. **Husky** (Node.js projects):
+
    ```bash
    npx husky init
    # Creates .husky/ directory with managed hooks
    ```
 
 3. **pre-commit** (Python framework, language-agnostic):
+
    ```yaml
    # .pre-commit-config.yaml
    repos:

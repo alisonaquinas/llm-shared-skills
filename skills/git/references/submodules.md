@@ -9,11 +9,13 @@ the inner repository (submodule) — not the submodule's files directly.
 ## When to Use Submodules
 
 Good fit:
+
 - Shared libraries that are versioned and changed independently
 - Third-party code where you want to track a specific commit/version
 - Monorepo-adjacent setups where separate teams own separate repos
 
 Less ideal alternatives to consider first:
+
 - **npm/pip/cargo/etc.** — better for language-ecosystem dependencies
 - **git subtree** — simpler if you don't need independent history
 - **package registries** — for distributable libraries
@@ -40,6 +42,7 @@ git commit -m "chore: add shared-lib submodule"
 ```
 
 **.gitmodules file:**
+
 ```ini
 [submodule "libs/shared"]
     path = libs/shared
@@ -88,6 +91,7 @@ git submodule update --remote --rebase  # rebase instead of detach
 
 After `--remote`, the submodule pointer in the superproject has changed. Commit
 the update:
+
 ```bash
 git add libs/shared
 git commit -m "chore: update shared-lib to latest"
@@ -116,6 +120,7 @@ git commit -m "chore: pin shared-lib to fix/my-bug tip"
 
 > **Common gotcha:** After working in a submodule, the HEAD is often **detached**.
 > Before committing to the submodule, make sure you're on a branch:
+>
 > ```bash
 > cd libs/shared
 > git branch                  # if output shows "* (HEAD detached at abc1234)"
@@ -206,6 +211,7 @@ git submodule summary                   # show what changed in submodules
 ## Common Mistakes & Fixes
 
 **"Submodule directory is not empty" on add:**
+
 ```bash
 git rm --cached <path>
 rm -rf <path>
@@ -215,6 +221,7 @@ git submodule add <url> <path>
 **Submodule is detached HEAD after update:**
 This is normal — `git submodule update` checks out a specific SHA, not a branch.
 To work on the submodule, explicitly switch to a branch:
+
 ```bash
 cd <submodule-path>
 git switch main                         # or your target branch
@@ -222,6 +229,7 @@ git switch main                         # or your target branch
 
 **Submodule pointer mismatch ("modified" with no actual changes):**
 Usually means the submodule was updated `--remote` but not committed:
+
 ```bash
 git submodule update                    # restore to superproject's recorded commit
 # or commit the new pointer:
@@ -230,6 +238,7 @@ git add <submodule-path> && git commit -m "chore: update submodule pointer"
 
 **Can't re-add submodule after removal:**
 The stale `.git/modules/<name>` directory prevents re-adding. Remove it:
+
 ```bash
 rm -rf .git/modules/<submodule-name>    # Windows: Remove-Item -Recurse
 ```

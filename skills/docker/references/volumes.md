@@ -40,6 +40,7 @@ docker run -v ./config:/etc/myapp:ro myimage # Read-only bind mount
 ```
 
 In Compose, relative paths are relative to the compose file location:
+
 ```yaml
 volumes:
   - ./src:/app/src                    # Bind mount (hot reload)
@@ -57,6 +58,7 @@ docker run --tmpfs /tmp:size=100m,noexec myimage
 ```
 
 In Compose:
+
 ```yaml
 services:
   api:
@@ -123,12 +125,14 @@ docker run --rm \
 A common issue: the app runs as a non-root user, but the volume is owned by root.
 
 Fix 1 — Set ownership in Dockerfile:
+
 ```dockerfile
 RUN mkdir -p /app/data && chown -R appuser:appuser /app/data
 VOLUME /app/data
 ```
 
 Fix 2 — Match UIDs:
+
 ```bash
 docker run --user $(id -u):$(id -g) -v $(pwd)/data:/app/data myimage
 ```

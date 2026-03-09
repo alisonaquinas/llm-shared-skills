@@ -20,12 +20,14 @@ az login --use-device-code
 ```
 
 Returns device code and URL:
+
 ```
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 and enter the code XXXXXX to authenticate.
 ```
 
 Useful for:
+
 - SSH sessions without browser
 - Automated environments
 - Remote machines
@@ -42,6 +44,7 @@ az login --service-principal \
 ```
 
 Example:
+
 ```bash
 az login --service-principal \
   -u "12345678-1234-1234-1234-123456789012" \
@@ -52,6 +55,7 @@ az login --service-principal \
 ### Credentials File
 
 Create `~/.azure/credentials`:
+
 ```ini
 [default]
 subscription_id = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -71,6 +75,7 @@ az login --identity
 No credentials needed. Azure metadata service provides temporary access token.
 
 Useful for:
+
 - Azure VMs
 - App Service / Functions
 - Container Instances
@@ -129,6 +134,7 @@ az cloud list
 ```
 
 Output:
+
 ```json
 {
   "cloudName": "AzureCloud",
@@ -154,10 +160,10 @@ az cloud set --name AzureCloud
 
 | Cloud | Portal | Endpoint |
 |---|---|---|
-| Public | portal.azure.com | https://management.azure.com |
-| China | portal.azure.cn | https://management.chinacloudapi.cn |
-| GovCloud | portal.azure.us | https://management.usgovcloudapi.net |
-| Germany | portal.microsoftazure.de | https://management.microsoftazure.de |
+| Public | portal.azure.com | <https://management.azure.com> |
+| China | portal.azure.cn | <https://management.chinacloudapi.cn> |
+| GovCloud | portal.azure.us | <https://management.usgovcloudapi.net> |
+| Germany | portal.microsoftazure.de | <https://management.microsoftazure.de> |
 
 ## Configuration Isolation (CI/CD)
 
@@ -171,6 +177,7 @@ az group list  # Uses isolated config
 ```
 
 Benefits:
+
 - Prevents credential leakage between jobs
 - Isolates default subscriptions per job
 - No shared state interference
@@ -180,12 +187,14 @@ Benefits:
 ### Expired Token
 
 **Error:**
+
 ```
 [ERROR] AADSTS50058: Silent sign-in request failed.
 User may need to reauthenticate.
 ```
 
 **Solution:**
+
 ```bash
 az logout
 az login
@@ -194,11 +203,13 @@ az login
 ### Subscription Not Found
 
 **Error:**
+
 ```
 [ERROR] Could not find subscription matching: <name-or-id>
 ```
 
 **Solution:**
+
 ```bash
 # List available subscriptions
 az account list --output table
@@ -210,12 +221,14 @@ az account set --subscription "<subscription-id>"
 ### RBAC Permission Denied
 
 **Error:**
+
 ```
 [ERROR] The user does not have permission to perform action
 'Microsoft.Compute/virtualMachines/read' over scope
 ```
 
 **Solution:**
+
 1. Check current user/principal: `az account show`
 2. Check role assignments: `az role assignment list --all`
 3. Request RBAC role assignment from administrator
@@ -223,12 +236,14 @@ az account set --subscription "<subscription-id>"
 ### Multi-Tenant Issues
 
 **Error:**
+
 ```
 [ERROR] Multiple subscriptions with the same ID found
 in different tenants
 ```
 
 **Solution:**
+
 ```bash
 # Explicitly specify tenant when multiple exist
 az account set --subscription "<subscription-id>" --tenant "<tenant-id>"
@@ -237,11 +252,13 @@ az account set --subscription "<subscription-id>" --tenant "<tenant-id>"
 ### Config Directory Problems
 
 **Error:**
+
 ```
 [ERROR] Could not create configuration directory: ~/.azure
 ```
 
 **Solution:**
+
 ```bash
 # Create directory manually
 mkdir -p ~/.azure

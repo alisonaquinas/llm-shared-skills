@@ -63,6 +63,7 @@ git merge --quit                    # abort but keep working tree changes
 Fast-forward merges lose the fact that a feature branch existed — the commits appear
 as if they were all made directly on main. Using `--no-ff` creates an explicit merge
 commit that:
+
 - Preserves the branch topology in `git log --graph`
 - Makes it easy to revert an entire feature with `git revert -m 1 <merge-commit>`
 - Shows when a feature was integrated, not just when each commit was made
@@ -96,6 +97,7 @@ git merge --continue                # commit the merge
 ```
 
 Open in mergetool (uses VS Code on this machine):
+
 ```bash
 git mergetool                       # open all conflicted files in configured tool
 git mergetool <file>                # open specific file
@@ -135,6 +137,7 @@ Recommended patterns (compatible with git-flow prefixes):
 | Experiment | `experiment/<description>` | `experiment/ai-search` |
 
 Tips:
+
 - Use lowercase, hyphens (not underscores or spaces)
 - Keep it short but descriptive
 - Include ticket/issue number if relevant: `feature/PROJ-123-login-page`

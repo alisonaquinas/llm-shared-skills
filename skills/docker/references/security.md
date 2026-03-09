@@ -28,6 +28,7 @@ docker scout policy myimage:latest
 ```
 
 **Recommended workflow:**
+
 1. `docker scout cves --only-fixed myimage` — fix what can be fixed
 2. `docker scout recommendations myimage` — update base image if old
 3. For unfixable CVEs, use VEX attestations to document risk acceptance
@@ -84,6 +85,7 @@ docker run --cap-drop ALL --cap-add NET_BIND_SERVICE myimage
 ```
 
 In Compose:
+
 ```yaml
 services:
   api:
@@ -145,6 +147,7 @@ secrets:
 ```
 
 Read in app:
+
 ```python
 with open(os.environ['DB_PASSWORD_FILE']) as f:
     password = f.read().strip()

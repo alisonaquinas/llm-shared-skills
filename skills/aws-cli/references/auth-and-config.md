@@ -27,6 +27,7 @@ aws configure
 ```
 
 Creates/updates:
+
 - `~/.aws/credentials` — access keys
 - `~/.aws/config` — region and output format
 
@@ -66,6 +67,7 @@ Credentials cached in `~/.aws/sso/cache/` for duration of session (usually 12 ho
 ### Subsequent Calls
 
 Subsequent AWS CLI calls use cached token:
+
 ```bash
 aws s3 ls --profile mycompany-dev
 # Uses cached SSO token, no re-auth needed
@@ -94,6 +96,7 @@ aws sts get-session-token \
 ```
 
 Returns temporary credentials:
+
 ```json
 {
   "Credentials": {
@@ -108,6 +111,7 @@ Returns temporary credentials:
 ### Use Session Token in Profile
 
 Add to `~/.aws/credentials`:
+
 ```ini
 [default]
 aws_access_key_id = ASIAJXXXXXXX
@@ -130,6 +134,7 @@ aws sts assume-role \
 ### Profile File Format
 
 `~/.aws/config`:
+
 ```ini
 [default]
 region = us-east-1
@@ -147,6 +152,7 @@ sso_role_name = Developer
 ```
 
 `~/.aws/credentials`:
+
 ```ini
 [default]
 aws_access_key_id = AKIAIOSFODNN7EXAMPLE
@@ -196,6 +202,7 @@ aws s3 ls \
 ### Per-Profile LocalStack
 
 `~/.aws/config`:
+
 ```ini
 [profile local]
 region = us-east-1
@@ -203,6 +210,7 @@ output = json
 ```
 
 Script:
+
 ```bash
 export AWS_ACCESS_KEY_ID=test
 export AWS_SECRET_ACCESS_KEY=test
@@ -214,11 +222,13 @@ aws s3 ls --endpoint-url http://localhost:4566 --profile local
 ### Expired Credentials
 
 **Error:**
+
 ```
 [ERROR] ExpiredToken: The provided token has expired.
 ```
 
 **Solution:**
+
 - SSO: `aws sso login --profile <name>`
 - MFA: Get new session token with `aws sts get-session-token`
 - Refresh env vars if using temporary credentials
@@ -226,12 +236,14 @@ aws s3 ls --endpoint-url http://localhost:4566 --profile local
 ### Region Not Set
 
 **Error:**
+
 ```
 [ERROR] You must specify a region. You can also configure
 your region by running "aws configure".
 ```
 
 **Solution:**
+
 ```bash
 # Option 1: Command line
 aws s3 ls --region us-east-1
@@ -246,24 +258,28 @@ aws configure --profile myprofile
 ### MFA Required
 
 **Error:**
+
 ```
 [ERROR] User: ... is not authorized to perform: sts:AssumeRole
 because no MFA device is associated with this user.
 ```
 
 **Solution:**
+
 1. Provide `--serial-number` and `--token-code` to `assume-role`
 2. Or first get session token: `aws sts get-session-token --serial-number ... --token-code ...`
 
 ### NoCredentialProviders
 
 **Error:**
+
 ```
 [ERROR] Unable to locate credentials. You can configure credentials
 by running "aws configure".
 ```
 
 **Solution:**
+
 1. Check credential chain: `aws sts get-caller-identity`
 2. Run `aws configure` to add credentials
 3. Or set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` env vars

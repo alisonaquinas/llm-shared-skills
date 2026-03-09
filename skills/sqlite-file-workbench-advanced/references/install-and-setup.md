@@ -47,12 +47,14 @@ sudo install -m 755 sqlite3_rsync /usr/local/bin/
 
 ### Windows
 
-1. Download `sqlite-tools-win32-x86-*.zip` (or x64 for 64-bit) from https://www.sqlite.org/download.html
+1. Download `sqlite-tools-win32-x86-*.zip` (or x64 for 64-bit) from <https://www.sqlite.org/download.html>
 2. Extract to a directory (e.g., `C:\sqlite`)
 3. Add to PATH:
+
    ```powershell
    [Environment]::SetEnvironmentVariable("PATH", "$env:PATH;C:\sqlite", "User")
    ```
+
 4. Verify: Open new PowerShell and run `sqlite3 --version`
 
 ## Post-Install Configuration
@@ -142,12 +144,15 @@ sqlite3 db3.db < changes.sql
 ## Troubleshooting
 
 ### "sqldiff: command not found"
+
 - Not installed. Try: `brew install sqlite` (macOS) or `apt install sqlite3-tools` (Linux)
 - Or download prebuilt from sqlite.org
 
 ### "sqlite3_rsync: command not found"
-- Only available via download/build from https://www.sqlite.org/download.html
+
+- Only available via download/build from <https://www.sqlite.org/download.html>
 - Build from source:
+
   ```bash
   curl -L https://www.sqlite.org/src/raw/sqlite3_rsync.c -o sqlite3_rsync.c
   gcc -O2 sqlite3_rsync.c -o sqlite3_rsync
@@ -155,8 +160,10 @@ sqlite3 db3.db < changes.sql
   ```
 
 ### sqldiff output shows "PRAGMA" errors
+
 - Old sqlite3 version. Upgrade: `brew upgrade sqlite` (macOS) or `apt upgrade sqlite3` (Linux)
 
 ### "Permission denied" when running binaries
+
 - Check permissions: `ls -la /path/to/binary`
 - Fix: `chmod +x /path/to/binary`
