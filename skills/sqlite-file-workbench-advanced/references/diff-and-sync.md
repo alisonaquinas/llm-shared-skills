@@ -123,7 +123,7 @@ scripts/sqlite_sync.sh \
 
 When origin and replica have both diverged from a common ancestor:
 
-```
+```text
 Ancestor (initial state):
   Table: users (id=1, Alice)
 

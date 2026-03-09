@@ -13,7 +13,7 @@ docker logout myregistry.example.com
 
 ## Image Naming
 
-```
+```text
 [registry/][namespace/]repository[:tag][@digest]
 
 nginx                                    # Docker Hub official, latest

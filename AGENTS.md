@@ -15,7 +15,7 @@ format — that extend LLM agent capabilities. Skills work identically in both
 
 ## Repo Layout
 
-```
+```text
 llm-shared-skills/
 ├── .claude-plugin/plugin.json   # Claude Code plugin registration (ignored by Codex)
 ├── skills/                      # One subdirectory per skill

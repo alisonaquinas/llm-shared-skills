@@ -13,7 +13,7 @@ The Silver Searcher respects ignore files in this order (first match wins):
 
 Create `.ignore` in project root:
 
-```
+```text
 vendor/
 node_modules/
 build/

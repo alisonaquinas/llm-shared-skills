@@ -10,7 +10,7 @@ This machine has **Git LFS 3.7.0** installed with LFS filters configured globall
 
 ## How LFS Works
 
-```
+```text
 Without LFS:   repo/binary.psd  →  150 MB in every clone
 With LFS:      repo/binary.psd  →  text pointer (134 bytes) in repo
                                    150 MB file on LFS server, fetched on checkout
@@ -18,7 +18,7 @@ With LFS:      repo/binary.psd  →  text pointer (134 bytes) in repo
 
 The pointer file looks like:
 
-```
+```text
 version https://git-lfs.github.com/spec/v1
 oid sha256:4d7a214614ab2935c943f9e0ff69d22eadbb8f32b1258daaa5e2ca24d17e2393
 size 12345
@@ -70,7 +70,7 @@ git lfs track --filename "specific-file.dat"
 
 **What goes in .gitattributes after tracking:**
 
-```
+```text
 *.psd filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 models/*.bin filter=lfs diff=lfs merge=lfs -text
@@ -202,7 +202,7 @@ git lfs unlock --force design/hero.psd
 
 **Configure .gitattributes for locking:**
 
-```
+```text
 *.psd filter=lfs diff=lfs merge=lfs -text lockable
 ```
 

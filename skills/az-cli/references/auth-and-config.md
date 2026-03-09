@@ -21,7 +21,7 @@ az login --use-device-code
 
 Returns device code and URL:
 
-```
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 and enter the code XXXXXX to authenticate.
 ```
@@ -188,7 +188,7 @@ Benefits:
 
 **Error:**
 
-```
+```output
 [ERROR] AADSTS50058: Silent sign-in request failed.
 User may need to reauthenticate.
 ```
@@ -204,7 +204,7 @@ az login
 
 **Error:**
 
-```
+```output
 [ERROR] Could not find subscription matching: <name-or-id>
 ```
 
@@ -222,7 +222,7 @@ az account set --subscription "<subscription-id>"
 
 **Error:**
 
-```
+```output
 [ERROR] The user does not have permission to perform action
 'Microsoft.Compute/virtualMachines/read' over scope
 ```
@@ -237,7 +237,7 @@ az account set --subscription "<subscription-id>"
 
 **Error:**
 
-```
+```output
 [ERROR] Multiple subscriptions with the same ID found
 in different tenants
 ```
@@ -253,7 +253,7 @@ az account set --subscription "<subscription-id>" --tenant "<tenant-id>"
 
 **Error:**
 
-```
+```output
 [ERROR] Could not create configuration directory: ~/.azure
 ```
 

@@ -24,7 +24,7 @@ touch ~/.agignore
 
 Add common ignore patterns to `~/.agignore`:
 
-```
+```text
 # Version control
 .git
 .gitignore

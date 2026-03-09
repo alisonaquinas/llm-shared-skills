@@ -6,7 +6,7 @@ GitLab organizes repositories and resources in a hierarchical namespace structur
 
 ### Namespace Paths
 
-```
+```text
 group/                    # Group (can contain projects)
 group/project1            # Project in group
 group/subgroup/           # Nested subgroup
@@ -31,7 +31,7 @@ user/my-project           # Personal project in user namespace
 
 Projects under your user namespace:
 
-```
+```text
 @username/my-project
 ```
 
@@ -239,7 +239,7 @@ variables:
 
 **Error:**
 
-```
+```output
 [ERROR] Host mismatch. Expected: gitlab.com, Got: gitlab.example.com
 ```
 
@@ -255,7 +255,7 @@ glab auth login --hostname gitlab.example.com
 
 **Error:**
 
-```
+```output
 [ERROR] project not found
 ```
 
@@ -269,7 +269,7 @@ glab auth login --hostname gitlab.example.com
 
 **Error:**
 
-```
+```output
 [ERROR] You do not have permission to push code to this project
 ```
 

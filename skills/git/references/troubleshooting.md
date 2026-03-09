@@ -6,7 +6,7 @@
 
 ### Reading Conflict Markers
 
-```
+```text
 <<<<<<< HEAD
 your version of the conflicting code
 =======
@@ -112,7 +112,7 @@ git diff --check                        # show whitespace errors
 
 **Spurious CRLF warnings on commit:**
 
-```
+```output
 warning: LF will be replaced by CRLF in src/app.js
 ```
 

@@ -10,7 +10,7 @@ Understanding git's three trees is the key to choosing the right undo command:
 
 ## The Three Trees Visualized
 
-```
+```text
 Working Tree    Index (Stage)    HEAD (last commit)
 ─────────────   ──────────────   ──────────────────
  your edits  →   git add      →   git commit
@@ -82,7 +82,7 @@ git reset --hard origin/main            # match exactly what's on remote
 
 **Relative commit notation:**
 
-```
+```text
 HEAD       = current commit
 HEAD~1     = one commit back (parent)
 HEAD~3     = three commits back

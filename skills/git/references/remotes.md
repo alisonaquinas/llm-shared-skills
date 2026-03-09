@@ -144,7 +144,7 @@ git push --force-with-lease          # update your fork's feature branch
 A refspec maps local refs to remote refs. Usually you don't write them manually,
 but understanding them helps with advanced fetch/push.
 
-```
+```text
 Format: [+]<src>:<dst>
 + = allow non-fast-forward updates
 

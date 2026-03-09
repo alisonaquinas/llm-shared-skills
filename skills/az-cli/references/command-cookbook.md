@@ -113,7 +113,7 @@ az deployment group create \
 
 `main.bicep`:
 
-```
+```bicep
 param vmName string
 param location string
 param vmSize string = 'Standard_B2s'

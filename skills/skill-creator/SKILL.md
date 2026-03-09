@@ -31,7 +31,7 @@ justify its token cost?" Prefer concise examples over verbose explanations.
 
 ### Anatomy of a Skill
 
-```
+```text
 skill-name/
 ├── SKILL.md (required)             — frontmatter + instructions
 ├── agents/
@@ -115,7 +115,7 @@ Optional fields: `icon_small`, `icon_large`, `brand_color`. See `references/skil
 
 ### Claude Code Plugin Structure (when publishing as Claude plugin)
 
-```
+```text
 my-plugin/
 ├── .claude-plugin/
 │   └── plugin.json      # {"name": "...", "description": "...", "author": {...}}

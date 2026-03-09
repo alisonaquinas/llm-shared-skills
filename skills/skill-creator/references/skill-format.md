@@ -88,7 +88,7 @@ Claude Code scans the `skills/` directory inside a plugin root and auto-discover
 
 ## Directory Structure Conventions
 
-```
+```text
 skill-name/
 ├── SKILL.md                    (required)
 ├── agents/
@@ -117,7 +117,7 @@ skill-name/
 
 ## Progressive Disclosure Patterns
 
-**Pattern 1: Intent Router**
+### Pattern 1: Intent Router
 
 ```markdown
 ## Intent Router
@@ -126,7 +126,7 @@ skill-name/
 Load only the file matching the user's chosen provider.
 ```
 
-**Pattern 2: Conditional details**
+### Pattern 2: Conditional details
 
 ```markdown
 ## Creating Documents

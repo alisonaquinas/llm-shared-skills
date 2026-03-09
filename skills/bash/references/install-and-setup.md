@@ -44,7 +44,7 @@ bash --version
 
 ### Windows
 
-**Option 1: WSL2 (full Linux environment)**
+#### Option 1: WSL2 (full Linux environment)
 
 ```powershell
 # Install WSL2
@@ -55,7 +55,7 @@ sudo apt update
 sudo apt install bash
 ```
 
-**Option 2: Git Bash (Windows-native)**
+#### Option 2: Git Bash (Windows-native)
 
 - Download from <https://git-scm.com/download/win>
 - Includes bash, git, and Unix tools (awk, grep, etc.)

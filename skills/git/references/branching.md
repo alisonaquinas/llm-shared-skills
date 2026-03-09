@@ -68,7 +68,7 @@ commit that:
 - Makes it easy to revert an entire feature with `git revert -m 1 <merge-commit>`
 - Shows when a feature was integrated, not just when each commit was made
 
-```
+```text
 Fast-forward:    A──B──C──D──E       (no record of feature/auth branch)
 --no-ff:         A──B─────────E      (merge commit E references D)
                       \──C──D/

@@ -223,7 +223,7 @@ aws s3 ls --endpoint-url http://localhost:4566 --profile local
 
 **Error:**
 
-```
+```output
 [ERROR] ExpiredToken: The provided token has expired.
 ```
 
@@ -237,7 +237,7 @@ aws s3 ls --endpoint-url http://localhost:4566 --profile local
 
 **Error:**
 
-```
+```output
 [ERROR] You must specify a region. You can also configure
 your region by running "aws configure".
 ```
@@ -259,7 +259,7 @@ aws configure --profile myprofile
 
 **Error:**
 
-```
+```output
 [ERROR] User: ... is not authorized to perform: sts:AssumeRole
 because no MFA device is associated with this user.
 ```
@@ -273,7 +273,7 @@ because no MFA device is associated with this user.
 
 **Error:**
 
-```
+```output
 [ERROR] Unable to locate credentials. You can configure credentials
 by running "aws configure".
 ```

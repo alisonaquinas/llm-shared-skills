@@ -75,7 +75,7 @@ docker run -d --name dev-api \
 
 ## Container States & Lifecycle
 
-```
+```text
 Created → Running → Paused
                  ↓
               Stopped → Removed

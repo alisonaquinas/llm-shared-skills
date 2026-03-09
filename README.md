@@ -75,7 +75,7 @@ Follow the `skill-creator` skill's guidance for best practices.
 
 ## Structure
 
-```
+```text
 llm-shared-skills/
 ├── .claude-plugin/
 │   └── plugin.json                  # Claude Code plugin registration

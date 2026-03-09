@@ -52,7 +52,7 @@ git rebase -i origin/main       # edit all commits not yet in origin/main
 
 **The editor opens with a list like:**
 
-```
+```text
 pick abc1234 feat: initial login form
 pick def5678 wip: debugging
 pick ghi9012 wip: more debugging
@@ -70,7 +70,7 @@ pick jkl3456 fix: null check
 
 **Common transforms:**
 
-```
+```text
 # Squash 3 WIP commits into the first:
 pick abc1234 feat: initial login form
 fixup def5678 wip: debugging

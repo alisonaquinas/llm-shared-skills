@@ -72,7 +72,7 @@ ssh -T git@github.com
 
 Create `~/.gitignore_global` for patterns to ignore everywhere:
 
-```
+```text
 .DS_Store
 Thumbs.db
 *.swp
