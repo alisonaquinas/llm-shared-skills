@@ -1,6 +1,7 @@
 {
   "name": "llm-shared-skills",
-  "description": "Cross-compatible skills for Claude Code and Codex: docker, bash, powershell, git, and skill-creator.",
+  "version": "1.0.0",
+  "description": "Cross-compatible LLM skills for Claude Code and Codex: ag-search, aws-cli, az-cli, bash, docker, git, glab-cli, markdownlint-cli2-enforcer, powershell, sqlite-file-workbench, sqlite-file-workbench-advanced, zoxide-navigation, and skill-creator.",
   "author": {
     "name": "Local"
   }
