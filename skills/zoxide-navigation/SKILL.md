@@ -1,11 +1,32 @@
 ---
 name: zoxide-navigation
-description: Efficient terminal directory navigation with zoxide (`z`, `zi`, and `zoxide query`). Use when users ask to jump to frequently used directories, select directories by keywords, troubleshoot zoxide shell setup, or resolve ranked directory matches for scripts.
+description: >
+  Efficient terminal directory navigation with zoxide (`z`, `zi`, and `zoxide query`).
+  Use when users ask to jump to frequently used directories, select directories by keywords,
+  set up or troubleshoot zoxide shell integration, resolve ranked directory matches for scripts,
+  migrate from z/autojump/fasd, configure fzf interactive mode, or investigate database location.
 ---
 
 # Zoxide Navigation
 
 Use zoxide-first navigation when the target directory is implied by keywords or history instead of a fixed absolute path.
+
+## Intent Router
+
+| Request | Reference | Load When |
+|---|---|---|
+| Shell setup, fzf config, migration | `references/zoxide-setup-and-config.md` | User needs init commands, database location, or fzf setup |
+| Preflight and environment | `scripts/probe-zoxide.sh` | Verify shell integration and check database status |
+
+## Quick Setup
+
+```bash
+# Initialize in shell startup file (~/.bashrc, ~/.zshrc, etc.)
+eval "$(zoxide init bash)"
+
+# Or for zsh:
+eval "$(zoxide init zsh)"
+```
 
 ## Workflow
 1. Confirm intent:
@@ -28,6 +49,15 @@ Use zoxide-first navigation when the target directory is implied by keywords or 
 4. Validate destination before risky operations:
 - Print `pwd` after jump, or inspect with `zoxide query -l <keywords>` first.
 
+## Safety and Guardrails
+
+| Operation | Guardrail | Why |
+|---|---|---|
+| **Interactive jump** | Use `zi` or verify with `zoxide query -l` first | Multiple matches may not be what expected |
+| **Destructive ops** | Validate target with `pwd` after jump | Verify correct directory before rm/move |
+| **Scripts** | Use `zoxide query` not `z` | `z` depends on shell integration; not reliable in subshells |
+| **High-impact** | Resolve and inspect with `zoxide query -l <keywords>` before proceeding | Confirm directory explicitly |
+
 ## Automation Guardrails
 - Prefer deterministic path resolution in scripts:
 ```bash
@@ -36,6 +66,7 @@ cd "$target"
 ```
 - Use `zoxide query` in automation instead of `z`, because `z` depends on shell integration and interactive session state.
 - For destructive or high-impact work, resolve with `query -l` and verify the chosen directory explicitly.
+- Run probe script first: `scripts/probe-zoxide.sh` to verify shell integration and database status
 
 ## Troubleshooting
 - `z` or `zi` missing: initialize shell integration with `zoxide init <shell>` and load it from shell startup files.

@@ -145,13 +145,8 @@ For each concrete example, identify what reusable resource would help:
 
 ### Step 3: Initialize the Skill
 
-Create the directory structure. For Codex, use `scripts/init_skill.py` if available:
+Create the directory structure manually:
 
-```bash
-scripts/init_skill.py my-skill --path skills/ --resources scripts,references
-```
-
-Otherwise, create manually:
 ```bash
 mkdir -p my-skill/{agents,references,scripts,assets}
 touch my-skill/SKILL.md my-skill/agents/openai.yaml
@@ -200,6 +195,40 @@ Use the skill on real tasks; iterate based on what the agent struggled with.
 Do not create extraneous files: `README.md`, `INSTALLATION_GUIDE.md`, `QUICK_REFERENCE.md`,
 `CHANGELOG.md`. The skill exists for the agent, not for humans. Only include files that
 directly support the agent's execution of the skill.
+
+---
+
+## Anti-Patterns — What NOT to Do
+
+### 1. Platform-Specific Language
+
+❌ **Bad:** "In Claude Code, use this syntax..." or "Codex does X differently"
+✅ **Good:** Use "the agent" or omit platform references entirely
+
+### 2. Absolute Paths in Scripts
+
+❌ **Bad:** `export PATH="/Users/alice/my-tools:$PATH"`
+✅ **Good:** `export PATH="<path-to-my-tools>:$PATH"` or prompt user for PATH setup
+
+### 3. Extra Frontmatter Fields
+
+❌ **Bad:** `---\nname: foo\ndescription: bar\nicon: pizza\n---`
+✅ **Good:** `---\nname: foo\ndescription: bar\n---` (only `name` and `description`)
+
+### 4. Dangling References
+
+❌ **Bad:** Mentioning scripts, references, or assets that don't exist
+✅ **Good:** Every file mentioned in Intent Router or instructions actually exists
+
+### 5. Putting Auxiliary Docs in Skill Directory
+
+❌ **Bad:** `my-skill/IMPLEMENTATION.md`, `my-skill/CHANGELOG.md`
+✅ **Good:** Keep only `SKILL.md`, `agents/`, `scripts/`, `references/`, `assets/`
+
+### 6. Inconsistent Intent Router
+
+❌ **Bad:** Skill mentions loading references that aren't mapped in Intent Router
+✅ **Good:** Intent Router lists every reference file and when to load it
 
 ---
 

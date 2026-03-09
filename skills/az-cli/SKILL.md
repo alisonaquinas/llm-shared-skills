@@ -5,6 +5,13 @@ description: Operate Azure CLI (`az`) for authentication checks, subscription/co
 
 # Azure CLI
 
+## Intent Router
+
+| Request | Reference | Load When |
+|---|---|---|
+| Command patterns, ARM/Bicep | `references/command-cookbook.md` | User needs resource patterns, ARM deployment, AKS, Key Vault, or RBAC examples |
+| Authentication, subscriptions | `references/auth-and-config.md` | User needs login setup, service principal, multi-tenant, or sovereign cloud configuration |
+
 ## Workflow
 1. Run preflight before any Azure command workflow.
 2. Check authentication and subscription context.

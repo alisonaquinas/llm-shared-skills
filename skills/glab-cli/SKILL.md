@@ -5,6 +5,13 @@ description: Operate GitLab CLI (`glab`) for authentication checks, host and rep
 
 # GitLab CLI
 
+## Intent Router
+
+| Request | Reference | Load When |
+|---|---|---|
+| Command patterns, workflows | `references/command-cookbook.md` | User needs MR/issue/CI/release patterns or workflow examples |
+| GitLab concepts, organization | `references/gitlab-concepts.md` | User asks about groups/projects, namespaces, runners, visibility, or CI variables |
+
 ## Workflow
 1. Run preflight before GitLab CLI workflows.
 2. Check auth status and active host context.

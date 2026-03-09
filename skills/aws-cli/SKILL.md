@@ -5,6 +5,13 @@ description: Operate AWS CLI (`aws`) for authentication checks, profile and regi
 
 # AWS CLI
 
+## Intent Router
+
+| Request | Reference | Load When |
+|---|---|---|
+| Command patterns, JMESPath | `references/command-cookbook.md` | User needs S3/EC2/IAM/Lambda patterns, query syntax, or command examples |
+| Authentication, credentials, SSO | `references/auth-and-config.md` | User needs credential chain info, SSO setup, MFA, or troubleshooting auth errors |
+
 ## Workflow
 1. Run preflight before AWS CLI workflows.
 2. Check authentication and identity (`sts get-caller-identity`).

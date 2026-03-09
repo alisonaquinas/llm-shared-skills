@@ -5,7 +5,6 @@ DEFAULT_CONFIGS=(
   "./curvecapture/markdownlint-cli2.jsonc"
   "./markdownlint-cli2.jsonc"
   "./.markdownlint-cli2.jsonc"
-  "/Users/allisonaquinas/curvecapture/markdownlint-cli2.jsonc"
 )
 USE_FIX=false
 CONFIG_FILE=""

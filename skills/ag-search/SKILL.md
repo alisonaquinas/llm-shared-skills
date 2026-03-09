@@ -1,11 +1,23 @@
 ---
 name: ag-search
-description: High-speed repository and document text search with The Silver Searcher (`ag`). Use when the user asks for `ag`/Silver Searcher explicitly, or when tasks need fast recursive matching, filename filtering, match counting, ignore-aware scanning (`.gitignore`/`.hgignore`/`.ignore`/`$HOME/.agignore`), or script-friendly result lists.
+description: >
+  High-speed repository and document text search with The Silver Searcher (`ag`).
+  Use when the user asks for `ag`/Silver Searcher explicitly, or when tasks need fast
+  recursive matching, filename filtering, match counting, ignore-aware scanning
+  (`.gitignore`/`.hgignore`/`.ignore`/`$HOME/.agignore`), context extraction, script-friendly
+  result lists, multi-file search, file type filtering, or performance-critical searching.
 ---
 
 # Ag Search
 
 Use `ag` to find text across code and documents quickly with the right scope, output mode, and ignore behavior.
+
+## Intent Router
+
+| Request | Reference | Load When |
+|---|---|---|
+| Output modes, file filtering, patterns | `references/ag-patterns.md` | User needs ignore file info, output format details, or complex filtering |
+| Preflight and environment | `scripts/probe-ag.sh` | Verify ag availability and features before workflows |
 
 ## Workflow
 1. Confirm search goal: matching lines, matching files, counts, filename search, or inverse match.
@@ -52,11 +64,21 @@ Overrides:
 ag -l -0 '<pattern>' . | xargs -0 <command>
 ```
 
+## Safety and Guardrails
+
+| Operation | Guardrail | Why |
+|---|---|---|
+| **Recursive search** | Always use `--ignore` or check `.gitignore` | Avoid unintended vendor/node_modules search blowup |
+| **Script output** | Use `-0` (null separator) with `xargs -0` | Safe with filenames containing spaces/newlines |
+| **Large codebases** | Start with `-l`, `-c`, or `--depth` | Prevent output flood; control volume |
+| **Pattern safety** | Quote patterns to avoid shell expansion | `'pattern'` not `pattern` |
+
 ## Practical Guardrails
 - Quote patterns to avoid shell expansion.
 - For machine-readable output, add `--nocolor` and optionally `--nogroup`.
 - For very large trees, start with `-l`, `-c`, or `--depth` to control output volume.
 - Runtime defaults can vary by build/version; check `ag --help` on this machine when behavior differs.
+- Run probe script first: `scripts/probe-ag.sh` to verify ag availability and features
 
 ## Sources
 - Official repository: https://github.com/ggreer/the_silver_searcher

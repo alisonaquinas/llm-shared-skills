@@ -73,7 +73,7 @@ done
 
 if ! command -v sqldiff >/dev/null 2>&1; then
   echo "[ERROR] sqldiff not found on PATH" >&2
-  echo "[HINT] export PATH=\"/Users/allisonaquinas/SQLite-tools:\$PATH\"" >&2
+  echo "[HINT] export PATH=\"<path-to-sqlite-toolkit>:\$PATH\"" >&2
   exit 1
 fi
 

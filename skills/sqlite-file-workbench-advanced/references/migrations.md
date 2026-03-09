@@ -6,7 +6,7 @@ Validate migration SQL on a cloned database to avoid mutating the source file.
 ## Standard Run
 
 ```bash
-scripts/sqlite_migration_validate.sh --db app.db --migration migrations/20260304_add_index.sql
+scripts/sqlite_migration_validate.sh --db app.db --migration migrations/YYYYMMDD_<description>.sql
 ```
 
 ## With Seed Data
@@ -15,7 +15,7 @@ scripts/sqlite_migration_validate.sh --db app.db --migration migrations/20260304
 scripts/sqlite_migration_validate.sh \
   --db app.db \
   --seed fixtures/seed_before_migration.sql \
-  --migration migrations/20260304_add_index.sql \
+  --migration migrations/YYYYMMDD_<description>.sql \
   --out-dir artifacts/migration-validation
 ```
 

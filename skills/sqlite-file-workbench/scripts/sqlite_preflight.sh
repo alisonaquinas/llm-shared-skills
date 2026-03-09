@@ -75,7 +75,7 @@ done
 if [[ ${#missing[@]} -gt 0 ]]; then
   echo "[ERROR] Missing required tool(s) on PATH: ${missing[*]}" >&2
   echo "[HINT] Add local SQLite toolkit to PATH:" >&2
-  echo "       export PATH=\"/Users/allisonaquinas/SQLite-tools:\$PATH\"" >&2
+  echo "       export PATH=\"<path-to-sqlite-toolkit>:\$PATH\"" >&2
   exit 1
 fi
 

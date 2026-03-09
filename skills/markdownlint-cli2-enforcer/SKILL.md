@@ -1,9 +1,21 @@
 ---
 name: markdownlint-cli2-enforcer
-description: Run markdownlint-cli2 to lint and optionally fix Markdown files using project-specific rules. Use when asked to enforce Markdown linting rules, apply Markdown fixes, validate README/AGENTS/docs formatting, or run Markdown quality checks with curvecapture/markdownlint-cli2.jsonc or local markdownlint-cli2 config files.
+description: >
+  Run markdownlint-cli2 to lint and fix Markdown files using project-specific rules.
+  Use when enforcing Markdown linting rules, applying fixes to documentation, validating
+  README/AGENTS/docs formatting, checking configuration file compliance, understanding
+  Markdown lint violations, disabling specific rules, or running quality checks against
+  curvecapture/markdownlint-cli2.jsonc or local `.markdownlint-cli2.jsonc` config files.
 ---
 
 # Markdownlint CLI2 Enforcer
+
+## Intent Router
+
+| Request | Reference | Load When |
+|---|---|---|
+| Rule reference, config format | `references/rules-and-config.md` | User asks about specific rules, how to disable/configure rules, or understand violations |
+| Quick command patterns | (Inline below) | Standard lint/fix workflows |
 
 ## Overview
 
@@ -51,6 +63,15 @@ Run and auto-fix:
 ```bash
 ./skills/markdownlint-cli2-enforcer/scripts/run-markdownlint-cli2.sh --fix README.md AGENTS.md
 ```
+
+## Safety and Guardrails
+
+| Action | Guardrail | Why |
+|---|---|---|
+| **Lint check** | Always run without `--fix` first | Verify violations before modifying files |
+| **Report violations** | List failed rules and affected files before auto-fixing | Operator visibility; manual review of what changed |
+| **Apply fixes** | Only when user explicitly requests `--fix` or task requires it | Prevent unintended modifications |
+| **Verify after fix** | Re-run lint check to ensure clean result | Confirm fixes were effective |
 
 ## Resources
 
