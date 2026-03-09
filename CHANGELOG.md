@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-03-09
+
+### Fixed
+
+- **Markdown linting compliance**: Added `.markdownlint-cli2.jsonc` configuration with sensible defaults
+- **44 markdown formatting issues**: Auto-fixed blank lines around code fences, headings, and lists across 88 files
+- **Code block language specification**: Added language identifiers to all 40 bare code blocks (using `text`, `output`, `bicep`)
+- **Emphasis-as-heading errors**: Converted 4 instances of bold text used as headings to proper markdown headings
+- **Duplicate heading**: Renamed duplicate "Examples" heading to "Performance Examples" in ag-patterns.md
+
+### Technical Details
+
+- Markdownlint configuration disables overly strict rules: `line-length`, `no-trailing-punctuation`, `no-inline-html`, `table-column-style`
+- All markdown files now pass linting validation (0 errors)
+
 ## [1.0.0] - 2026-03-09
 
 ### Added
@@ -34,5 +49,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-install checks: scripts verify if tools are already installed and skip installation if current version meets requirements
 - Post-install verification: all scripts confirm successful installation and print setup hints
 
-[Unreleased]: https://github.com/anthropics/llm-shared-skills/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/anthropics/llm-shared-skills/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/anthropics/llm-shared-skills/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/anthropics/llm-shared-skills/releases/tag/v1.0.0
