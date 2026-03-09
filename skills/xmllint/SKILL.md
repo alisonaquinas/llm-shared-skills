@@ -1,66 +1,54 @@
 ---
-name: xmllint-command
-description: "Validate, format, and query XML with `xmllint`. Use when users ask for XML schema validation, XPath extraction, or normalized XML formatting checks."
+name: xmllint
+description: Validate and format XML documents. Use when the agent needs to extract, analyze, or transform document and file metadata.
 ---
 
-# xmllint Command Skill
+# Xmllint
 
-## Purpose
+Validate and format XML documents
 
-Use `xmllint` for XML well-formedness checks, XPath queries, and schema validation.
+## Quick Start
 
-## Quick start
+1. Verify `xmllint` is available: `xmllint --version` or `man xmllint`
+2. Establish the command surface: `man xmllint` or `xmllint --help`
+3. Start with a read-only probe: `xmllint file`
 
-```bash
+## Intent Router
 
-xmllint --help
+- `references/install-and-setup.md` — Installing xmllint
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify xmllint is available: `xmllint --version`
+2. Inspect file: `xmllint file`
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Check well-formed XML without output
-
-```bash
-
-xmllint --noout data.xml
-
-```
-
-Fast parse validation catches malformed XML early.
-
-1. Pretty-print XML for review
+## Quick Command Reference
 
 ```bash
-
-xmllint --format data.xml > data.formatted.xml
-
+xmllint --version                       # Check version
+xmllint --help                          # Show help
+xmllint file                            # Basic usage
+man xmllint                             # Full manual
 ```
 
-Formatting helps visual diff and manual inspection.
+## Safety Notes
 
-1. Validate against an XSD schema
+| Area | Guardrail |
+| --- | --- |
+| **File validation** | Verify files are in expected format. |
+| **Output handling** | Validate output before processing further. |
+| **Large files** | Test with smaller files first. |
 
-```bash
+## Source Policy
 
-xmllint --noout --schema schema.xsd data.xml
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Schema checks enforce structural constraints beyond well-formedness.
-
-## Guardrails
-
-- Be explicit with namespaces in XPath queries; defaults can miss matches.
-
-- Use `--noout` in validation pipelines to avoid mixing output with diagnostics.
-
-- Do not rely on formatted output as proof of schema correctness.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

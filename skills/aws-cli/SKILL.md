@@ -8,7 +8,7 @@ description: Operate AWS CLI (`aws`) for authentication checks, profile and regi
 ## Intent Router
 
 | Request | Reference | Load When |
-|---|---|---|
+| --- | --- | --- |
 | Install tool, first-time setup | `references/install-and-setup.md` | User needs to install AWS CLI or do initial configuration |
 | Command patterns, JMESPath | `references/command-cookbook.md` | User needs S3/EC2/IAM/Lambda patterns, query syntax, or command examples |
 | Authentication, credentials, SSO | `references/auth-and-config.md` | User needs credential chain info, SSO setup, MFA, or troubleshooting auth errors |

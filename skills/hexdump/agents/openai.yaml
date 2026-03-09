@@ -1,4 +1,4 @@
 interface:
-  display_name: "hexdump Command"
-  short_description: "Safe, reproducible workflows for hexdump"
-  default_prompt: "Use $hexdump-command to plan and run reliable hexdump commands for this task."
+  display_name: "hexdump"
+  short_description: "Display file contents in hexadecimal and ASCII formats"
+  default_prompt: "Use $hexdump to inspect binary file contents in hex format."

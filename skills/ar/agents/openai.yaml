@@ -1,4 +1,4 @@
 interface:
-  display_name: "ar Command"
-  short_description: "Safe, reproducible workflows for ar"
-  default_prompt: "Use $ar-command to plan and run reliable ar commands for this task."
+  display_name: "ar"
+  short_description: "Manage static library archives with symbol table updates"
+  default_prompt: "Use $ar to create and modify static library archives, rebuilding symbol tables for correct linkage."

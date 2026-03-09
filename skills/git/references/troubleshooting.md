@@ -272,7 +272,7 @@ git submodule add <url> <path>          # add fresh
 ## Common Error Messages Quick Reference
 
 | Error | Likely Cause | Fix |
-|-------|-------------|-----|
+| --- | --- | --- |
 | `Your local changes would be overwritten by merge` | Uncommitted changes conflict with incoming | `git stash` then pull |
 | `error: failed to push some refs` | Remote is ahead | `git pull --rebase` then push |
 | `nothing to commit, working tree clean` | Nothing staged | Check `git status`; add files first |

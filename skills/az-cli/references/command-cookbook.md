@@ -253,7 +253,7 @@ az vm list \
 ### Output Formats
 
 | Format | Use |
-|---|---|
+| --- | --- |
 | `json` | Scripting, parsing |
 | `table` | Human review |
 | `tsv` | CSV-like parsing |

@@ -1,4 +1,4 @@
 interface:
-  display_name: "diff Command"
-  short_description: "Safe, reproducible workflows for diff"
-  default_prompt: "Use $diff-command to plan and run reliable diff commands for this task."
+  display_name: "diff"
+  short_description: "Line-by-line file and directory comparison with patch generation"
+  default_prompt: "Use $diff to compare files, detect changes, and generate unified patches for version control and review."

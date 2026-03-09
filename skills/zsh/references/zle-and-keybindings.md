@@ -97,7 +97,7 @@ bindkey '^[h' my_widget
 ### Available Widget Hooks
 
 | Variable | Meaning |
-|---|---|
+| --- | --- |
 | `LBUFFER` | Text to the left of cursor |
 | `RBUFFER` | Text to the right of cursor |
 | `BUFFER` | Entire command line |
@@ -119,7 +119,7 @@ Press `Alt-d` to insert today's date at the cursor.
 ## Useful Built-In Widgets
 
 | Widget | Effect |
-|---|---|
+| --- | --- |
 | `clear-screen` | Clear the screen and redraw the prompt |
 | `history-incremental-search-backward` | Search history backward |
 | `history-incremental-search-forward` | Search history forward |

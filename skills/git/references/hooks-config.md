@@ -7,7 +7,7 @@
 Git config is layered. Lower levels override higher ones:
 
 | Level | Scope | File | Flag |
-|-------|-------|------|------|
+| --- | --- | --- | --- |
 | `system` | All users on machine | `C:\Program Files\Git\etc\gitconfig` | `--system` |
 | `global` | Current user | `~/.gitconfig` | `--global` |
 | `local` | Current repo | `.git/config` | `--local` (default) |
@@ -69,7 +69,7 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 This machine has `core.autocrlf=true`. Here's what each value means:
 
 | Value | On checkout | On commit | Best for |
-|-------|------------|-----------|----------|
+| --- | --- | --- | --- |
 | `true` | LF → CRLF | CRLF → LF | Windows-only repos |
 | `input` | No conversion | CRLF → LF | Cross-platform repos on Windows |
 | `false` | No conversion | No conversion | Linux/Mac, or managed via .gitattributes |
@@ -196,7 +196,7 @@ They're not committed to the repo (except via hook managers like Husky or pre-co
 ### Hook Types & When They Run
 
 | Hook | Trigger | Common Use |
-|------|---------|-----------|
+| --- | --- | --- |
 | `pre-commit` | Before commit is created | Lint, format, run tests |
 | `prepare-commit-msg` | After message template is generated | Add ticket numbers, formatting |
 | `commit-msg` | After message is typed, before commit | Enforce commit message format |

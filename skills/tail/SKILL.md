@@ -1,66 +1,67 @@
 ---
-name: tail-command
-description: "Inspect trailing lines and follow live updates with `tail`. Use when users ask for log monitoring, end-of-file sampling, or follow-mode behavior."
+name: tail
+description: Sample file endings and monitor growing logs with tail for real-time log viewing, end-of-file inspection, and live log following. Use when the agent needs the last N lines or bytes, follow-mode monitoring of append-only files, or track log file rotation.
 ---
 
-# tail Command Skill
+# tail
 
-## Purpose
+Sample and monitor file endings and live-updating streams.
 
-Use `tail` to inspect file endings and monitor append-only logs in near real time.
+## Quick Start
 
-## Quick start
+1. Verify `tail` is available: `tail --version` or `man tail`
+2. Establish the command surface: `man tail` or `tail --help`
+3. Start with a read-only probe: `tail -n 10 file.txt`
 
-```bash
+## Intent Router
 
-tail --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing tail (GNU, BSD) on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common flags, line/byte counts, follow mode, multiple files
+- `references/advanced-usage.md` — GNU vs BSD differences, log rotation handling, large files, performance
+- `references/troubleshooting.md` — Follow mode issues, file rotation, encoding, exit codes
 
-## Common workflows
+## Core Workflow
 
-1. Read the last 100 lines of a log
+1. Verify tail version and variant (GNU vs BSD): `tail --version` or `man tail`
+2. Specify count explicitly: `-n <N>` for lines or `-c <N>` for bytes
+3. Use `-F` for logs (follows by filename, survives rotation)
+4. Use `-f` for regular files (follows by file descriptor)
+5. Set bounded startup context before follow mode
 
-```bash
-
-tail -n 100 app.log
-
-```
-
-Use explicit line counts for reproducible context windows.
-
-1. Follow a rotating log file reliably
-
-```bash
-
-tail -n 50 -F /var/log/app.log
-
-```
-
-Use `-F` when log files are rotated or recreated.
-
-1. Follow multiple logs with clear boundaries
+## Quick Command Reference
 
 ```bash
-
-tail -n 20 -f api.log worker.log
-
+tail --version                          # Check version (GNU vs BSD)
+tail -n 10 file.txt                    # Last 10 lines (explicit count)
+tail -c 1024 file.bin                  # Last 1024 bytes (explicit count)
+tail -n +10 file.txt                   # All lines from line 10 onward
+tail -f app.log                        # Follow (append-only, not rotation)
+tail -F /var/log/app.log               # Follow with rotation support
+tail -n 50 -F app.log                  # Last 50 lines, then follow
+tail -q -n 5 file1.txt file2.txt      # Last 5 lines, no headers
+man tail                               # Full manual and options
 ```
 
-Headers identify which file each new line comes from.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Explicit counts** | Always use `-n` or `-c` with explicit numbers; defaults (10 lines) may not match intent. |
+| **Log rotation** | Use `-F` for logs that rotate; `-f` alone may lose updates when file is replaced. |
+| **Multiple files** | Follow mode (`-f`) on multiple files prints clear headers; verify file source before processing. |
+| **GNU vs BSD** | GNU supports `-n +N` (from line N); BSD uses same syntax but behavior may differ. Test on target platform. |
+| **Large files** | tail seeks to end (efficient), but reads backward for line boundaries; very large files may be slow. |
+| **Incomplete lines** | When using `-c`, output may end mid-line; subsequent processing may fail if expecting complete records. |
 
-- Use `-F` for rotated logs; `-f` alone may stop following after file replacement.
+## Source Policy
 
-- Set bounded startup context (`-n`) before follow mode to avoid overwhelming output.
+- Treat the installed `tail` behavior and `man tail` as runtime truth.
+- Use GNU Coreutils documentation (gnu.org/software/coreutils) for GNU-specific extensions.
+- Use BSD manual for BSD variant behavior differences.
 
-- Avoid using `tail` where exact ordering across multiple asynchronous files is required.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install tail (GNU, BSD, or POSIX variant) on macOS or Linux.
+- `scripts/install.ps1` — Install tail on Windows or any platform via PowerShell.

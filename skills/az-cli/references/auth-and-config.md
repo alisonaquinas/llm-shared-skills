@@ -84,7 +84,7 @@ Useful for:
 ## Environment Variables Reference
 
 | Variable | Purpose | Example |
-|---|---|---|
+| --- | --- | --- |
 | `AZURE_SUBSCRIPTION_ID` | Default subscription | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
 | `AZURE_TENANT_ID` | Directory tenant | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
 | `AZURE_CLIENT_ID` | Service principal app ID | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
@@ -159,7 +159,7 @@ az cloud set --name AzureCloud
 ### Endpoints by Cloud
 
 | Cloud | Portal | Endpoint |
-|---|---|---|
+| --- | --- | --- |
 | Public | portal.azure.com | <https://management.azure.com> |
 | China | portal.azure.cn | <https://management.chinacloudapi.cn> |
 | GovCloud | portal.azure.us | <https://management.usgovcloudapi.net> |

@@ -9,7 +9,7 @@
 ## Tools Overview
 
 | Tool | Purpose | Availability |
-|------|---------|--------------|
+| --- | --- | --- |
 | `sqlite3` | SQL shell, query execution | Package managers (always) |
 | `sqldiff` | Compare two database files | Homebrew (macOS), download, build from source |
 | `sqlite3_rsync` | Sync replicas, incremental backup | Download prebuilt, build from source only |

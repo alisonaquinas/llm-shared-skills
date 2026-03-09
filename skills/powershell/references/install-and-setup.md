@@ -8,7 +8,7 @@
 ## Install by Platform
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Windows |
-|-------|---------------|-------------|---------|
+| --- | --- | --- | --- |
 | `brew install powershell` | See Linux note | `dnf install powershell` | `winget install Microsoft.PowerShell` |
 
 **Debian/Ubuntu:** Add Microsoft apt repository:

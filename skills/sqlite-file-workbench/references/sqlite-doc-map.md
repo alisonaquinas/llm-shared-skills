@@ -23,7 +23,7 @@ The official SQLite docs: <https://www.sqlite.org/docs.html>
 ## Essential PRAGMAs
 
 | PRAGMA | Values | Purpose | Example |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `journal_mode` | DELETE / WAL / TRUNCATE | Write strategy | `PRAGMA journal_mode=WAL;` |
 | `cache_size` | -N (KB) | Memory pool for pages | `PRAGMA cache_size=-64000;` |
 | `synchronous` | OFF / NORMAL / FULL | Disk sync behavior | `PRAGMA synchronous=NORMAL;` |
@@ -37,7 +37,7 @@ The official SQLite docs: <https://www.sqlite.org/docs.html>
 Use these in `sqlite3` interactive shell:
 
 | Command | Purpose | Example |
-|---|---|---|
+| --- | --- | --- |
 | `.databases` | List attached databases | Shows main, temp, etc. |
 | `.tables` | List all tables | Shows table names |
 | `.schema` | Show table definitions | Full schema structure |

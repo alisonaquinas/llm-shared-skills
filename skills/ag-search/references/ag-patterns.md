@@ -29,7 +29,7 @@ ag "pattern" --ignore="node_modules" --ignore="build"
 ## Output Modes Reference
 
 | Mode | Flag | Output | Use Case |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Default | (none) | filename:linenumber:match | Interactive review |
 | List files only | `-l` | Matching filenames only | Pipe to xargs |
 | Count matches | `-c` | filename:count | Quick stats |
@@ -84,7 +84,7 @@ ag --file-search-regex "^src/.*\.tsx$"
 ## Context Control
 
 | Flag | Effect | Example |
-|---|---|---|
+| --- | --- | --- |
 | `-B N` | N lines before | `ag -B 2 "pattern"` |
 | `-A N` | N lines after | `ag -A 3 "pattern"` |
 | `-C N` | N lines before and after | `ag -C 1 "pattern"` |
@@ -147,7 +147,7 @@ ag --json "pattern"  # May not be available on all installations
 ## Performance Flags
 
 | Flag | Effect | Use Case |
-|---|---|---|
+| --- | --- | --- |
 | `--workers N` | Use N threads | Huge codebases (default ~CPU count) |
 | `--depth N` | Max directory depth | Avoid deep nested searches |
 | `--skip-vcs-ignores` | Don't read .gitignore | Force search of ignored files |

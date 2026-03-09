@@ -8,7 +8,7 @@ description: Operate Azure CLI (`az`) for authentication checks, subscription/co
 ## Intent Router
 
 | Request | Reference | Load When |
-|---|---|---|
+| --- | --- | --- |
 | Install tool, first-time setup | `references/install-and-setup.md` | User needs to install Azure CLI or do initial configuration |
 | Command patterns, ARM/Bicep | `references/command-cookbook.md` | User needs resource patterns, ARM deployment, AKS, Key Vault, or RBAC examples |
 | Authentication, subscriptions | `references/auth-and-config.md` | User needs login setup, service principal, multi-tenant, or sovereign cloud configuration |

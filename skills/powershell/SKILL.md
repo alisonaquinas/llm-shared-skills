@@ -101,7 +101,7 @@ Trace-Command -Name ParameterBinding -Expression { <command> } -PSHost
 ## Safety Notes
 
 | Area | Guardrail |
-|---|---|
+| --- | --- |
 | Execution policy | Explain that process-level `-ExecutionPolicy` does not persist and only applies on Windows. |
 | Remoting | Confirm transport and prerequisites before proposing `Enter-PSSession` or `Invoke-Command`. |
 | Native commands | Be explicit about which shell is parsing the command line first. |

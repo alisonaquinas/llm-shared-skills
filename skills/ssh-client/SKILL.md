@@ -1,52 +1,63 @@
 ---
-name: ssh-client-command
-description: "Use OpenSSH client tools for strict host verification, connectivity checks, and known_hosts management."
-category: command
-version: 1.0.0
-requires_git: true
-safety_tier: moderate
-execution_mode: mutating
-labels:
-  - ssh
-  - git
-  - security
+name: ssh-client
+description: Establish secure SSH connections with strict host verification and key management. Use when the agent needs remote access, Git-over-SSH operations, or key pair validation.
 ---
 
-# ssh Client Command Skill
+# ssh (client)
 
-## Purpose
+Secure remote access with strict host key verification and known_hosts management.
 
-Use `ssh`, `ssh-keyscan`, and host-key workflows to establish secure Git-over-SSH connectivity.
+## Quick Start
 
-## Quick start
+1. Verify `ssh` is available: `ssh -V` or `man ssh`
+2. Establish the command surface: `man ssh` or `ssh -h`
+3. Start with connectivity check: `ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new host`
 
-```bash
-ssh -V
-```
+## Intent Router
 
-## Common workflows
+Load only the reference file needed for the active request.
 
-1. Add host keys before first SSH connection
+- `references/install-and-setup.md` — Installing OpenSSH on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, authentication, host key management
+- `references/advanced-usage.md` — Strict verification, key forwarding, config files
+- `references/troubleshooting.md` — Authentication errors, host key issues, permission problems
 
-```bash
-ssh-keyscan -p 22 github.com >> ~/.ssh/known_hosts
-chmod 600 ~/.ssh/known_hosts
-```
+## Core Workflow
 
-Host keys should be captured before cloning over SSH.
+1. Verify ssh is available: `ssh -V`
+2. Capture host keys before first connection: `ssh-keyscan host >> ~/.ssh/known_hosts`
+3. Use strict host checking: `ssh -o StrictHostKeyChecking=accept-new user@host`
+4. Debug with verbose logging: `ssh -vvv user@host`
 
-1. Probe strict SSH connectivity
-
-```bash
-ssh -o BatchMode=yes -o StrictHostKeyChecking=yes git@github.com
-```
-
-Strict host checking prevents silent trust-on-first-use behavior.
-
-1. Debug authentication and host verification
+## Quick Command Reference
 
 ```bash
-ssh -vvv -o StrictHostKeyChecking=yes git@github.com
+ssh -V                                 # Check version
+ssh-keyscan -p 22 github.com >> ~/.ssh/known_hosts  # Capture host keys
+ssh -o StrictHostKeyChecking=accept-new user@host   # Connect with verification
+ssh -o StrictHostKeyChecking=yes user@host          # Strict verification
+ssh -vvv user@host                     # Verbose debugging (3x)
+ssh-keygen -R hostname                 # Remove hostname from known_hosts
+man ssh                                # Full manual
 ```
 
-Verbose logs help isolate key, agent, and trust issues.
+## Safety Notes
+
+| Area | Guardrail |
+| --- | --- |
+| **Host key verification** | Always use StrictHostKeyChecking=accept-new or yes. Never use no. Prevents MITM attacks. |
+| **Private key permissions** | Restrict to 600 (chmod 600 ~/.ssh/id_rsa). SSH refuses keys with wrong permissions. |
+| **known_hosts management** | Verify host keys before adding. Use ssh-keyscan carefully from trusted networks only. |
+| **Key passphrase** | Protect private keys with strong passphrases. Use ssh-agent for convenient access. |
+| **Agent forwarding** | Be cautious with -A. Forwarding agent is high-risk on untrusted hosts. |
+| **Config file** | Restrict permissions (chmod 600 ~/.ssh/config). May contain sensitive information. |
+
+## Source Policy
+
+- Treat the installed `ssh` behavior and `man ssh` as runtime truth.
+- Use OpenSSH documentation for security best practices.
+
+## Resource Index
+
+- `scripts/install.sh` — Install OpenSSH on macOS or Linux.
+- `scripts/install.ps1` — Install OpenSSH on Windows or any platform via PowerShell.

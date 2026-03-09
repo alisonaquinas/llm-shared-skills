@@ -41,7 +41,7 @@ PRAGMA foreign_key_list(orders);
 ## Pragma Reference Table
 
 | PRAGMA | Purpose | Example | Effect |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `journal_mode` | Write strategy | `PRAGMA journal_mode=WAL;` | Better concurrency, uses .wal file |
 | `cache_size` | Memory for pages | `PRAGMA cache_size=-64000;` | Negative value = KB; improves performance |
 | `synchronous` | Disk sync level | `PRAGMA synchronous=NORMAL;` | FULL = safest, NORMAL = balanced, OFF = fastest |

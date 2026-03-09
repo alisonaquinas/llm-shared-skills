@@ -8,7 +8,7 @@
 ## Install by Platform
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Arch Linux | Windows |
-|-------|---------------|-------------|-----------|---------|
+| --- | --- | --- | --- | --- |
 | `brew install the_silver_searcher` | `apt install silversearcher-ag` | `dnf install the_silver_searcher` | `pacman -S the_silver_searcher` | `winget install ggreer.ag` |
 
 ## Post-Install Configuration

@@ -10,7 +10,7 @@ Run advanced SQLite workflows with explicit guardrails.
 ## Intent Router
 
 | Request | Reference | Load When |
-|---|---|---|
+| --- | --- | --- |
 | Install tool, first-time setup | `references/install-and-setup.md` | User needs to install sqlite3, sqldiff, or sqlite3_rsync, or do initial configuration |
 
 ## Workflow

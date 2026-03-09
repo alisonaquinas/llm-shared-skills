@@ -1,4 +1,4 @@
 interface:
-  display_name: "cmp Command"
-  short_description: "Safe, reproducible workflows for cmp"
-  default_prompt: "Use $cmp-command to plan and run reliable cmp commands for this task."
+  display_name: "cmp"
+  short_description: "Byte-level file comparison with position reporting"
+  default_prompt: "Use $cmp to compare files byte-by-byte."

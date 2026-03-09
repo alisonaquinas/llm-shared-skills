@@ -20,7 +20,7 @@ wait
 Common signal reference:
 
 | Signal | Number | Default action | Notes |
-|--------|--------|----------------|-------|
+| --- | --- | --- | --- |
 | SIGHUP | 1 | Terminate | Terminal hangup; often used to reload config |
 | SIGINT | 2 | Terminate | Ctrl-C from terminal |
 | SIGTERM | 15 | Terminate | Graceful shutdown request; can be trapped |

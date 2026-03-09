@@ -1,66 +1,54 @@
 ---
-name: exiftool-command
-description: "Read and edit file metadata with `exiftool`. Use when users ask for EXIF/IPTC/XMP inspection, metadata cleanup, or structured metadata export."
+name: exiftool
+description: Extract and edit metadata from files. Use when the agent needs to extract, analyze, or transform document and file metadata.
 ---
 
-# exiftool Command Skill
+# Exiftool
 
-## Purpose
+Extract and edit metadata from files
 
-Use `exiftool` to inspect, normalize, and edit metadata across images, media, and documents.
+## Quick Start
 
-## Quick start
+1. Verify `exiftool` is available: `exiftool --version` or `man exiftool`
+2. Establish the command surface: `man exiftool` or `exiftool --help`
+3. Start with a read-only probe: `exiftool file`
 
-```bash
+## Intent Router
 
-exiftool -ver
+- `references/install-and-setup.md` — Installing exiftool
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify exiftool is available: `exiftool --version`
+2. Inspect file: `exiftool file`
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Inspect all metadata for a file
-
-```bash
-
-exiftool photo.jpg
-
-```
-
-Comprehensive metadata view is useful before modifications.
-
-1. Export metadata in JSON
+## Quick Command Reference
 
 ```bash
-
-exiftool -json photo.jpg
-
+exiftool --version                       # Check version
+exiftool --help                          # Show help
+exiftool file                            # Basic usage
+man exiftool                             # Full manual
 ```
 
-JSON mode supports deterministic downstream processing.
+## Safety Notes
 
-1. Remove all metadata from an image
+| Area | Guardrail |
+| --- | --- |
+| **File validation** | Verify files are in expected format. |
+| **Output handling** | Validate output before processing further. |
+| **Large files** | Test with smaller files first. |
 
-```bash
+## Source Policy
 
-exiftool -all= -overwrite_original photo.jpg
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Strip operation is common for privacy-sensitive sharing.
-
-## Guardrails
-
-- By default exiftool creates backups; use `-overwrite_original` only when that is intended.
-
-- Apply metadata edits to copies during testing to avoid irreversible loss.
-
-- Different formats support different tag sets; verify writes actually persist.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

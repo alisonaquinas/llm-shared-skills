@@ -13,7 +13,7 @@ description: >
 ## Intent Router
 
 | Request | Reference | Load When |
-|---|---|---|
+| --- | --- | --- |
 | Install tool, first-time setup | `references/install-and-setup.md` | User needs to install markdownlint-cli2 or do initial configuration |
 | Rule reference, config format | `references/rules-and-config.md` | User asks about specific rules, how to disable/configure rules, or understand violations |
 | Quick command patterns | (Inline below) | Standard lint/fix workflows |
@@ -73,7 +73,7 @@ Run and auto-fix:
 ## Safety and Guardrails
 
 | Action | Guardrail | Why |
-|---|---|---|
+| --- | --- | --- |
 | **Lint check** | Always run without `--fix` first | Verify violations before modifying files |
 | **Report violations** | List failed rules and affected files before auto-fixing | Operator visibility; manual review of what changed |
 | **Apply fixes** | Only when user explicitly requests `--fix` or task requires it | Prevent unintended modifications |

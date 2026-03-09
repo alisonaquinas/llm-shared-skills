@@ -48,7 +48,7 @@ echo "Exit: $?"
 ## Path translation patterns
 
 | Direction | Tool | Example |
-|-----------|------|---------|
+| --- | --- | --- |
 | Linux → Windows | `wslpath -w` | `wsl.exe wslpath -w "$PWD"` (from pwsh) |
 | Windows → Linux | `wslpath -u` | `wslpath -u 'C:\Users\user'` (from bash) |
 | Relative → absolute | `wslpath -a` | `wslpath -a '../file'` |

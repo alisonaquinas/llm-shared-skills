@@ -1,4 +1,4 @@
 interface:
-  display_name: "exiftool Command"
-  short_description: "Safe, reproducible workflows for exiftool"
-  default_prompt: "Use $exiftool-command to plan and run reliable exiftool commands for this task."
+  display_name: "exiftool"
+  short_description: "Extract and edit metadata from files"
+  default_prompt: "Use $exiftool to analyze and extract metadata from files."

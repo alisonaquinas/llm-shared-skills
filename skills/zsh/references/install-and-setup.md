@@ -163,7 +163,7 @@ PROMPT='%n@%m:%~$ '
 ### Startup File Load Order
 
 | File | Loaded | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | `.zshenv` | Every shell | Environment variables, PATH, module loads |
 | `.zprofile` | Login shells only | Login-specific setup (PATH extensions, functions) |
 | `.zshrc` | Interactive shells only | Interactive settings (aliases, completion, keybindings) |

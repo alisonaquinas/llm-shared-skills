@@ -56,7 +56,7 @@ source ~/.local/share/nushell/init-zoxide.nu
 Zoxide stores ranked directory data in a SQLite database:
 
 | OS | Default Path | Override |
-|---|---|---|
+| --- | --- | --- |
 | Linux | `~/.local/share/zoxide/db.zo` | `$_ZO_DATA_DIR` |
 | macOS | `~/Library/Application Support/zoxide/db.zo` | `$_ZO_DATA_DIR` |
 | Windows | `%APPDATA%\zoxide\db.zo` | `$_ZO_DATA_DIR` |
@@ -94,7 +94,7 @@ zoxide query --interactive
 ## Environment Variables Reference
 
 | Variable | Default | Effect |
-|---|---|---|
+| --- | --- | --- |
 | `_ZO_DATA_DIR` | Platform-specific (see above) | Directory containing `db.zo` |
 | `_ZO_ECHO` | `0` | Set to `1` to print new directory on `cd` |
 | `_ZO_EXCLUDE_DIRS` | `.git` | Colon-separated dirs to exclude from ranking |

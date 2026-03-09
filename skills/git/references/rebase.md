@@ -5,7 +5,7 @@
 ## Rebase vs Merge — When to Use Each
 
 | Situation | Use |
-|-----------|-----|
+| --- | --- |
 | Integrating a finished feature into main | `merge --no-ff` (preserves merge topology) |
 | Keeping a feature branch up to date with main | `rebase main` (stay linear, avoid merge commits) |
 | Cleaning up messy WIP commits before a PR | `rebase -i HEAD~N` (squash/fixup) |

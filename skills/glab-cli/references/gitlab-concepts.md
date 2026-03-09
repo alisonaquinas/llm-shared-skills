@@ -183,7 +183,7 @@ glab runner list
 ## Visibility Levels
 
 | Level | Who Can See | Use Case |
-|---|---|---|
+| --- | --- | --- |
 | Public | Anyone on internet | Open source projects |
 | Internal | Authenticated users | Team-internal projects |
 | Private | Project members only | Confidential projects |
@@ -203,7 +203,7 @@ glab project update group/project --visibility internal
 ### Built-in Variables (Automatically Provided)
 
 | Variable | Value | Example |
-|---|---|---|
+| --- | --- | --- |
 | `CI_PROJECT_ID` | Numeric project ID | `12345` |
 | `CI_PROJECT_PATH` | Full project path | `group/subgroup/project` |
 | `CI_JOB_TOKEN` | Job-scoped token | Auto-provided, short-lived |

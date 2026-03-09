@@ -1,4 +1,4 @@
 interface:
-  display_name: "tail Command"
-  short_description: "Safe, reproducible workflows for tail"
-  default_prompt: "Use $tail-command to plan and run reliable tail commands for this task."
+  display_name: "tail"
+  short_description: "Sample file endings and monitor growing logs"
+  default_prompt: "Use $tail to view file endings, follow live log updates with rotation support, and monitor append-only files."

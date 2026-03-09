@@ -1,4 +1,4 @@
 interface:
-  display_name: "tree Command"
-  short_description: "Safe, reproducible workflows for tree"
-  default_prompt: "Use $tree-command to plan and run reliable tree commands for this task."
+  display_name: "tree"
+  short_description: "Display directory structure in tree format"
+  default_prompt: "Use $tree to display directory structure."

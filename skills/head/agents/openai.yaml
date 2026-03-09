@@ -1,4 +1,4 @@
 interface:
-  display_name: "head Command"
-  short_description: "Safe, reproducible workflows for head"
-  default_prompt: "Use $head-command to plan and run reliable head commands for this task."
+  display_name: "head"
+  short_description: "Sample file beginnings with line or byte limits"
+  default_prompt: "Use $head to quickly preview the start of files, validate headers, and sample large files with explicit line or byte counts."

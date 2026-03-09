@@ -1,4 +1,4 @@
 interface:
-  display_name: "xmllint Command"
-  short_description: "Safe, reproducible workflows for xmllint"
-  default_prompt: "Use $xmllint-command to plan and run reliable xmllint commands for this task."
+  display_name: "xmllint"
+  short_description: "Validate and format XML documents"
+  default_prompt: "Use $xmllint to analyze and extract metadata from files."

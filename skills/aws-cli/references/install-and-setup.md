@@ -9,7 +9,7 @@
 ## Install by Platform
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Windows |
-|-------|---------------|-------------|---------|
+| --- | --- | --- | --- |
 | `brew install awscli` | See Linux note | See Linux note | `winget install Amazon.AWSCLI` |
 
 **Linux:** AWS recommends the official installer:

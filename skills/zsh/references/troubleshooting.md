@@ -284,7 +284,7 @@ myfunc() {
 ## Common Errors Reference
 
 | Error Message | Cause | Fix |
-|---|---|---|
+| --- | --- | --- |
 | `zsh: command not found: compinit` | `compinit` not found in `$fpath` | Ensure `autoload -Uz compinit` is called |
 | `zsh: no matches found: *.txt` | No files match glob | Enable `setopt NULL_GLOB` or use `^` for excluded patterns |
 | `parse error: bad substitution` | Syntax error in expansion | Check `${...}` syntax; test with `zsh -n` |

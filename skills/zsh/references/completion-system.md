@@ -61,7 +61,7 @@ zstyle 'context' setting value
 ### Common Contexts
 
 | Context | Applies To |
-|---|---|
+| --- | --- |
 | `:completion:*` | All completions |
 | `:completion:*:commands` | Command name completions |
 | `:completion:*:descriptions` | Descriptions in listings |

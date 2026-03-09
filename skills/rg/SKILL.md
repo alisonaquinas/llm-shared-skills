@@ -1,66 +1,54 @@
 ---
-name: rg-command
-description: "Search text and code with `rg` for speed and precise filters. Use when users ask for ripgrep syntax, scoped recursive matching, or machine-parsable search output."
+name: rg
+description: Fast regex search with recursive directory support. Use when the agent needs to search, filter, or transform data efficiently.
 ---
 
-# rg Command Skill
+# Rg
 
-## Purpose
+Fast regex search with recursive directory support
 
-Use `rg` for high-performance recursive search with strong filtering and output control.
+## Quick Start
 
-## Quick start
+1. Verify `rg` is available: `rg --version` or `man rg`
+2. Establish the command surface: `man rg` or `rg --help`
+3. Start with basic usage: `rg [options] [input]`
 
-```bash
+## Intent Router
 
-rg --help
+- `references/install-and-setup.md` — Installing rg
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify rg is available: `rg --version`
+2. Test with sample data first
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Search for API key usage with line numbers
-
-```bash
-
-rg -n 'API_KEY' src
-
-```
-
-Default recursive behavior is fast and ignore-aware.
-
-1. Restrict search to selected file globs
+## Quick Command Reference
 
 ```bash
-
-rg -n --glob '*.ts' --glob '*.tsx' 'useEffect' src
-
+rg --version                       # Check version
+rg --help                          # Show help
+rg [options] [input]               # Basic usage
+man rg                             # Full manual
 ```
 
-Use explicit globs to reduce false positives.
+## Safety Notes
 
-1. Emit JSON lines for tool-driven processing
+| Area | Guardrail |
+| --- | --- |
+| **Input validation** | Verify input data format before processing. |
+| **Output handling** | Validate output structure. |
+| **Large files** | Test with smaller samples first. |
 
-```bash
+## Source Policy
 
-rg --json 'ERROR' logs
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-JSON output is reliable for downstream automation.
-
-## Guardrails
-
-- Use `--hidden` and `--no-ignore` only when you intentionally need ignored content.
-
-- Prefer fixed strings (`-F`) when regex is unnecessary to avoid pattern mistakes.
-
-- Constrain search scope to avoid scanning vendor/build artifacts.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

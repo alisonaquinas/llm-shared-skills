@@ -34,7 +34,7 @@ Without `-L`, `setopt` changes persist after the script exits.
 ### Common Script Options
 
 | Option | Effect |
-|---|---|
+| --- | --- |
 | `ERR_EXIT` | Exit on first error (like `set -e` in bash) |
 | `EXTENDED_GLOB` | Enable `^`, `~`, `#` glob operators |
 | `PIPE_FAIL` | Return error if any command in pipeline fails |

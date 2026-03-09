@@ -1,4 +1,4 @@
 interface:
-  display_name: "7z Command"
-  short_description: "Safe, reproducible workflows for 7z"
-  default_prompt: "Use $7z-command to plan and run reliable 7z commands for this task."
+  display_name: "7z"
+  short_description: "High-compression archive creation with encryption and solid archive support"
+  default_prompt: "Use $7z to create and extract 7z archives with maximum compression, encryption, and safe path validation."

@@ -1,4 +1,4 @@
 interface:
-  display_name: "tar Command"
-  short_description: "Safe, reproducible workflows for tar"
-  default_prompt: "Use $tar-command to plan and run reliable tar commands for this task."
+  display_name: "tar"
+  short_description: "Create and extract archives with safe path validation and compression"
+  default_prompt: "Use $tar to create and extract archives with explicit compression flags and safe extraction to controlled directories."

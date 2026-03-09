@@ -10,7 +10,7 @@ Run safe, repeatable SQLite file operations from the command line.
 ## Intent Router
 
 | Request | Reference | Load When |
-|---|---|---|
+| --- | --- | --- |
 | Install tool, first-time setup | `references/install-and-setup.md` | User needs to install sqlite3 or do initial configuration |
 
 ## Workflow

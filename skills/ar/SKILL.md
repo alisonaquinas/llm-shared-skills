@@ -1,66 +1,64 @@
 ---
-name: ar-command
-description: "Manage Unix static archives with `ar`. Use when users ask to inspect `.a` contents, add/remove object members, or repair archive symbol indexes."
+name: ar
+description: Manage Unix static library archives for build systems with ar. Use when the agent needs to inspect or modify .a library contents, rebuild symbol tables, or manage object file members.
 ---
 
-# ar Command Skill
+# ar
 
-## Purpose
+Create and manage static library archives for C/C++ compilation.
 
-Use `ar` to create, inspect, and update static library archive members.
+## Quick Start
 
-## Quick start
+1. Verify `ar` is available: `ar --version` or `man ar`
+2. Establish the command surface: `man ar` or `ar --help`
+3. Start with list-only operation: `ar t libexample.a`
 
-```bash
+## Intent Router
 
-ar --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing ar (GNU binutils) on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common operations, member listing, symbol table management
+- `references/advanced-usage.md` — Archive format details, symbol handling, GNU vs BSD differences
+- `references/troubleshooting.md` — Symbol table issues, member conflicts, build errors
 
-## Common workflows
+## Core Workflow
 
-1. List archive members
+1. Verify ar is available: `ar --version`
+2. List archive contents (safe, read-only): `ar t libexample.a`
+3. Extract specific members if needed: `ar x libexample.a module.o`
+4. Rebuild with new members and refresh symbol table: `ar rcs libexample.a module1.o module2.o`
 
-```bash
-
-ar t libexample.a
-
-```
-
-Start by enumerating objects before making changes.
-
-1. Extract a specific member
-
-```bash
-
-ar x libexample.a module.o
-
-```
-
-Extraction supports isolated symbol/debug inspection.
-
-1. Create or replace archive contents
+## Quick Command Reference
 
 ```bash
-
-ar rcs libexample.a module1.o module2.o
-
+ar --version                           # Check version
+ar t libexample.a                      # List archive members (contents)
+ar tv libexample.a                     # List with details and timestamps
+ar x libexample.a                      # Extract all members
+ar x libexample.a module.o             # Extract specific member
+ar rcs libexample.a module1.o module2.o # Replace/create and rebuild symbol table
+ar d libexample.a module.o             # Delete member from archive
+ar s libexample.a                      # Rebuild symbol table only
+man ar                                 # Full manual and options
 ```
 
-Use `rcs` to add members and refresh index in one step.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Symbol table** | Always use `s` flag or `rcs` to rebuild symbol table after modifications. Linker depends on accurate index. |
+| **Member ordering** | Some linkers depend on member sequence. Verify link order matches expectations after modifications. |
+| **Architecture compatibility** | Verify object files target same architecture as archive (32-bit vs 64-bit). Use `file` to check. |
+| **Backups** | Create backup before modifying existing archives. Archive damage can break builds. |
+| **Member names** | Object file names are limited to 16 characters in archive. Longer names may be truncated. |
 
-- Rebuild the symbol index (`s` flag) after modifying archives.
+## Source Policy
 
-- Preserve member ordering when linkers depend on archive sequence.
+- Treat the installed `ar` behavior and `man ar` as runtime truth.
+- Use GNU binutils documentation for GNU ar specifics.
 
-- Verify architecture compatibility of inserted object files.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install ar (GNU binutils) on macOS or Linux.
+- `scripts/install.ps1` — Install ar on Windows or any platform via PowerShell.

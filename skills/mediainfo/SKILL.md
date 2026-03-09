@@ -1,66 +1,54 @@
 ---
-name: mediainfo-command
-description: "Inspect media container and stream metadata with `mediainfo`. Use when users ask for codec details, duration/bitrate checks, or machine-readable media metadata export."
+name: mediainfo
+description: Display comprehensive media file information. Use when the agent needs to extract, analyze, or transform document and file metadata.
 ---
 
-# mediainfo Command Skill
+# Mediainfo
 
-## Purpose
+Display comprehensive media file information
 
-Use `mediainfo` to report container, audio, and video metadata for diagnostics and QA checks.
+## Quick Start
 
-## Quick start
+1. Verify `mediainfo` is available: `mediainfo --version` or `man mediainfo`
+2. Establish the command surface: `man mediainfo` or `mediainfo --help`
+3. Start with a read-only probe: `mediainfo file`
 
-```bash
+## Intent Router
 
-mediainfo --Help
+- `references/install-and-setup.md` — Installing mediainfo
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify mediainfo is available: `mediainfo --version`
+2. Inspect file: `mediainfo file`
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Show standard human-readable media summary
-
-```bash
-
-mediainfo sample.mp4
-
-```
-
-Baseline output covers container, stream, and bitrate details.
-
-1. Export metadata as JSON
+## Quick Command Reference
 
 ```bash
-
-mediainfo --Output=JSON sample.mp4
-
+mediainfo --version                       # Check version
+mediainfo --help                          # Show help
+mediainfo file                            # Basic usage
+man mediainfo                             # Full manual
 ```
 
-JSON output is best for automation and diffable checks.
+## Safety Notes
 
-1. Extract selected fields with custom template
+| Area | Guardrail |
+| --- | --- |
+| **File validation** | Verify files are in expected format. |
+| **Output handling** | Validate output before processing further. |
+| **Large files** | Test with smaller files first. |
 
-```bash
+## Source Policy
 
-mediainfo --Inform='Video;%CodecID% %Width%x%Height%' sample.mp4
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Template mode emits targeted values for scripts/reports.
-
-## Guardrails
-
-- Container metadata does not guarantee decode success on every player/codec stack.
-
-- Use consistent output mode (`text` or `JSON`) across comparisons.
-
-- For batch jobs, capture tool version to avoid template/output drift.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

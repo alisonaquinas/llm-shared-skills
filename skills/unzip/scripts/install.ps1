@@ -1,0 +1,51 @@
+# unzip installer
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
+function Get-Platform {
+  if ($IsWindows) { return "windows" }
+  elseif ($IsMacOS) { return "macos" }
+  elseif ($IsLinux) { return "linux" }
+  else { return "unknown" }
+}
+
+function Main {
+  $platform = Get-Platform
+
+  if (Get-Command unzip -ErrorAction SilentlyContinue) {
+    Write-Host "[OK] unzip is already available"
+    return 0
+  }
+
+  switch ($platform) {
+    "windows" {
+      Write-Host "[INFO] Windows 10+ has native Expand-Archive"
+      Write-Host "[HINT] Or install unzip via chocolatey or WSL2"
+      exit 1
+    }
+    "macos" {
+      if (Get-Command brew -ErrorAction SilentlyContinue) {
+        & brew install unzip
+        Write-Host "[OK] unzip installed"
+      }
+      else {
+        Write-Host "[HINT] Install Homebrew first"
+        exit 1
+      }
+    }
+    "linux" {
+      & sudo apt-get update
+      & sudo apt-get install -y unzip
+      Write-Host "[OK] unzip installed"
+    }
+    default {
+      Write-Host "[ERROR] Unsupported platform"
+      exit 1
+    }
+  }
+
+  Write-Host "[HINT] See references/install-and-setup.md for details"
+}
+
+Main

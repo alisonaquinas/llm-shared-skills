@@ -9,7 +9,7 @@
 ## Install by Platform
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Windows |
-|-------|---------------|-------------|---------|
+| --- | --- | --- | --- |
 | `brew install glab` | See Linux note | `dnf install glab` | `winget install --id=glab-cli.glab` |
 
 **Debian/Ubuntu:** Add GitLab apt repository:

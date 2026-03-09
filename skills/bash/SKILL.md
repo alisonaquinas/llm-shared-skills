@@ -102,7 +102,7 @@ cmd.exe /c dir
 ## Safety Notes
 
 | Area | Guardrail |
-|---|---|
+| --- | --- |
 | Startup files | Prefer `bash --noprofile --norc` before editing `~/.bashrc` or login profiles. |
 | Strict mode | Explain `set -euo pipefail` precisely; do not claim it makes scripts universally safe. |
 | Quoting | Call out word splitting and glob expansion explicitly before suggesting unquoted variables. |

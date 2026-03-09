@@ -8,7 +8,7 @@ description: Operate GitLab CLI (`glab`) for authentication checks, host and rep
 ## Intent Router
 
 | Request | Reference | Load When |
-|---|---|---|
+| --- | --- | --- |
 | Install tool, first-time setup | `references/install-and-setup.md` | User needs to install glab or do initial authentication |
 | Command patterns, workflows | `references/command-cookbook.md` | User needs MR/issue/CI/release patterns or workflow examples |
 | GitLab concepts, organization | `references/gitlab-concepts.md` | User asks about groups/projects, namespaces, runners, visibility, or CI variables |

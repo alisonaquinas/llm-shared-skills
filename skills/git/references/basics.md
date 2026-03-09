@@ -30,7 +30,7 @@ git status --porcelain      # machine-readable short format
 **Status flags (short format):**
 
 | Code | Meaning |
-|------|---------|
+| --- | --- |
 | `M` | Modified and staged |
 | `M` | Modified, not staged |
 | `A` | New file, staged |

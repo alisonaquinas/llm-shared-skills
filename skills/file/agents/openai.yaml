@@ -1,4 +1,4 @@
 interface:
-  display_name: "file Command"
-  short_description: "Safe, reproducible workflows for file"
-  default_prompt: "Use $file-command to plan and run reliable file commands for this task."
+  display_name: "file"
+  short_description: "Identify file types using magic numbers and content analysis"
+  default_prompt: "Use $file to identify file types and content."

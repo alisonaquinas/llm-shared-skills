@@ -3,7 +3,7 @@
 ## Network Drivers
 
 | Driver | Use case | Notes |
-|---|---|---|
+| --- | --- | --- |
 | `bridge` | Default for standalone containers | Isolated on host; containers talk via IP or name |
 | `host` | Maximum performance on Linux | Shares host network stack; not available on Docker Desktop |
 | `overlay` | Multi-host (Swarm) | Connects containers across different hosts |

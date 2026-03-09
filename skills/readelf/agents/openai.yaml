@@ -1,4 +1,4 @@
 interface:
-  display_name: "readelf Command"
-  short_description: "Safe, reproducible workflows for readelf"
-  default_prompt: "Use $readelf-command to plan and run reliable readelf commands for this task."
+  display_name: "readelf"
+  short_description: "Analyze ELF executable and shared object files"
+  default_prompt: "Use $readelf to inspect ELF file structure."

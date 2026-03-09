@@ -1,66 +1,54 @@
 ---
-name: jq-command
-description: "Query and transform JSON with `jq` filters. Use when users ask for JSON field extraction, reshaping, validation, or compact machine-readable transformations."
+name: jq
+description: Query and transform JSON data. Use when the agent needs to search, filter, or transform data efficiently.
 ---
 
-# jq Command Skill
+# Jq
 
-## Purpose
+Query and transform JSON data
 
-Use `jq` to parse, filter, and transform JSON data with composable expressions.
+## Quick Start
 
-## Quick start
+1. Verify `jq` is available: `jq --version` or `man jq`
+2. Establish the command surface: `man jq` or `jq --help`
+3. Start with basic usage: `jq [options] [input]`
 
-```bash
+## Intent Router
 
-jq --help
+- `references/install-and-setup.md` — Installing jq
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify jq is available: `jq --version`
+2. Test with sample data first
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Pretty-print JSON for inspection
-
-```bash
-
-jq . payload.json
-
-```
-
-Baseline formatting confirms JSON validity and structure.
-
-1. Extract fields from array entries
+## Quick Command Reference
 
 ```bash
-
-jq -r '.items[] | [.id, .status] | @tsv' payload.json
-
+jq --version                       # Check version
+jq --help                          # Show help
+jq [options] [input]               # Basic usage
+man jq                             # Full manual
 ```
 
-Raw output mode is convenient for shell pipelines.
+## Safety Notes
 
-1. Filter objects by condition
+| Area | Guardrail |
+| --- | --- |
+| **Input validation** | Verify input data format before processing. |
+| **Output handling** | Validate output structure. |
+| **Large files** | Test with smaller samples first. |
 
-```bash
+## Source Policy
 
-jq '.events[] | select(.severity == "error")' events.json
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Predicate filters keep downstream results focused.
-
-## Guardrails
-
-- Use `-r` only when raw strings are needed; keep JSON output for structured chaining.
-
-- Validate assumptions about null/missing fields to avoid silent data loss.
-
-- Quote filters in single quotes to prevent shell interpolation issues.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

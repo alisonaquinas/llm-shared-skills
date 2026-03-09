@@ -1,4 +1,4 @@
 interface:
-  display_name: "strings Command"
-  short_description: "Safe, reproducible workflows for strings"
-  default_prompt: "Use $strings-command to plan and run reliable strings commands for this task."
+  display_name: "strings"
+  short_description: "Extract readable text strings from binary files"
+  default_prompt: "Use $strings to extract text from binary files."

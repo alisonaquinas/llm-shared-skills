@@ -3,7 +3,7 @@
 ## Volume Types
 
 | Type | Syntax | Use case |
-|---|---|---|
+| --- | --- | --- |
 | Named volume | `myvolume:/path` | Persistent data (databases, uploads) — managed by Docker |
 | Bind mount | `./local:/path` | Development (hot reload, config files) |
 | tmpfs | `--tmpfs /path` | Sensitive temp data (in memory, doesn't persist) |

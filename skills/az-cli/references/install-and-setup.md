@@ -9,7 +9,7 @@
 ## Install by Platform
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Windows |
-|-------|---------------|-------------|---------|
+| --- | --- | --- | --- |
 | `brew install azure-cli` | See Linux note | `dnf install azure-cli` | `winget install Microsoft.AzureCLI` |
 
 **Debian/Ubuntu:** Add Microsoft apt repository:

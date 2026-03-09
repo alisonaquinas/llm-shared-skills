@@ -102,7 +102,7 @@ zparseopts -D -E -- opt1 opt2=ARG   # parse script flags
 ## Safety Notes
 
 | Area | Guardrail |
-|---|---|
+| --- | --- |
 | Startup files | `.zshenv` loads for every shell; `.zshrc` interactive only; `.zprofile` login only. Prefer `zsh -f` to skip all startup files when isolating. |
 | Option side-effects | `setopt GLOB_DOTS`, `NULL_GLOB`, `EXTENDED_GLOB` change globbing globally; test with `zsh -f -O <option>` to verify behavior before adding to `.zshrc`. |
 | Completion init | Call `compinit` only once per session; duplicate calls cause slowness. Use `~/.zcompdump*` caching. |

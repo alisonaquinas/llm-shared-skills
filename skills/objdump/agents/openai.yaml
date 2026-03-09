@@ -1,4 +1,4 @@
 interface:
-  display_name: "objdump Command"
-  short_description: "Safe, reproducible workflows for objdump"
-  default_prompt: "Use $objdump-command to plan and run reliable objdump commands for this task."
+  display_name: "objdump"
+  short_description: "Display and disassemble object file information"
+  default_prompt: "Use $objdump to disassemble and analyze object files."

@@ -1,4 +1,4 @@
 interface:
-  display_name: "unzip Command"
-  short_description: "Safe, reproducible workflows for unzip"
-  default_prompt: "Use $unzip-command to plan and run reliable unzip commands for this task."
+  display_name: "unzip"
+  short_description: "Extract and test ZIP archives with integrity checks and path validation"
+  default_prompt: "Use $unzip to list, test, and extract ZIP archives safely with destination control and overwrite policies."

@@ -1,66 +1,59 @@
 ---
-name: file-command
-description: "Identify file formats with `file` and MIME signatures. Use when users ask to classify unknown files, verify content type, or detect binary-vs-text inputs safely."
+name: file
+description: Identify file types using magic numbers and content analysis. Use when the agent needs to inspect, analyze, or extract information from binary files or data structures.
 ---
 
-# file Command Skill
+# File
 
-## Purpose
+Identify file types using magic numbers and content analysis
 
-Use `file` to classify unknown files quickly before selecting downstream tooling.
+## Quick Start
 
-## Quick start
+1. Verify `file` is available: `file --version` or `man file`
+2. Establish the command surface: `man file` or `file --help`
+3. Start with a read-only probe: `file file`
 
-```bash
+## Intent Router
 
-file --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing file on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, output formats, usage patterns
+- `references/advanced-usage.md` — Advanced patterns, performance optimization
+- `references/troubleshooting.md` — Common errors, exit codes, platform differences
 
-## Common workflows
+## Core Workflow
 
-1. Classify a single file
+1. Verify file is available: `file --version`
+2. Start with safe, read-only operation: `file [options] file`
+3. Validate output on test data before processing at scale
+4. Document exact command and flags for reproducibility
 
-```bash
-
-file sample.bin
-
-```
-
-Start here before parsing unknown content.
-
-1. Get MIME type for automation
-
-```bash
-
-file --mime-type upload.dat
-
-```
-
-MIME output is easier to branch on in scripts.
-
-1. Scan many files in a directory
+## Quick Command Reference
 
 ```bash
-
-find artifacts -type f -maxdepth 1 -print0 | xargs -0 file
-
+file --version                       # Check version
+file --help                          # Show help
+file file                            # Basic usage
+file file | head                     # Limit output
+man file                             # Full manual
 ```
 
-Batch classification highlights unexpected formats.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Untrusted input** | Validate files from untrusted sources before processing. |
+| **Large files** | May consume memory on large files. Test with smaller samples first. |
+| **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
+| **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
 
-- Treat `file` results as heuristic signatures, not cryptographic guarantees.
+## Source Policy
 
-- Use `-L` intentionally when symlink dereferencing behavior matters.
+- Treat the installed `file` behavior and `man file` as runtime truth.
+- Use upstream documentation for semantics.
 
-- Run `file` before opening unknown data in interactive pagers or editors.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install file on macOS or Linux.
+- `scripts/install.ps1` — Install file on Windows or any platform via PowerShell.

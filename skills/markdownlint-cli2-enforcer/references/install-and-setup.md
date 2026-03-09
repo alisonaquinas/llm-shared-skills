@@ -11,7 +11,7 @@
 ### Install Node.js
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Windows |
-|-------|---------------|-------------|---------|
+| --- | --- | --- | --- |
 | `brew install node` | `apt install nodejs npm` | `dnf install nodejs` | `winget install OpenJS.NodeJS` |
 
 Verify: `node --version && npm --version`

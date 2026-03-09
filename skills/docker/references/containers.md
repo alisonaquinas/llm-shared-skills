@@ -197,7 +197,7 @@ docker container prune -f                      # Skip confirmation
 ## Exit Code Reference
 
 | Code | Meaning | Common cause |
-|---|---|---|
+| --- | --- | --- |
 | 0 | Clean exit | App finished normally |
 | 1 | General error | App threw an uncaught exception |
 | 137 | SIGKILL (128+9) | OOM killed or `docker kill` |

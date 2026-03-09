@@ -235,7 +235,7 @@ aws ec2 describe-instances --no-cli-pager --output json
 ### Common Output Formats
 
 | Format | Use |
-|---|---|
+| --- | --- |
 | `json` | Scripting, CI/CD |
 | `table` | Human review |
 | `text` | Column parsing |

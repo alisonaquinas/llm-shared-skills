@@ -1,0 +1,30 @@
+# pdftotext Advanced Usage
+
+## Common Usage Patterns
+
+Refer to man page for detailed usage.
+
+## Performance Optimization
+
+For batch processing large files:
+
+```bash
+# Process multiple files efficiently
+for file in *.pdf; do
+  pdftotext "$file"
+done
+```
+
+## Output Handling
+
+```bash
+# Redirect output to file
+pdftotext input > output.txt
+
+# Or combine with other tools
+pdftotext input | grep "pattern"
+```
+
+## Resources
+
+- Manual: man pdftotext

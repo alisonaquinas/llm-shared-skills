@@ -8,7 +8,7 @@
 ## Install by Platform
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Windows |
-|-------|---------------|-------------|---------|
+| --- | --- | --- | --- |
 | `brew install git` | `apt install git` | `dnf install git` | `winget install Git.Git` |
 
 ## Post-Install Configuration

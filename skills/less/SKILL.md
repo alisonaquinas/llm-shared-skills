@@ -1,66 +1,54 @@
 ---
-name: less-command
-description: "Navigate large text output with `less` using reproducible flags for search, paging, and follow mode. Use when users ask for pager workflows, interactive log review, or `less` key behavior."
+name: less
+description: Paginate and search text files interactively. Use when the agent needs to search, filter, or transform data efficiently.
 ---
 
-# less Command Skill
+# Less
 
-## Purpose
+Paginate and search text files interactively
 
-Use `less` to inspect large text outputs interactively with precise navigation, search, and follow mode.
+## Quick Start
 
-## Quick start
+1. Verify `less` is available: `less --version` or `man less`
+2. Establish the command surface: `man less` or `less --help`
+3. Start with basic usage: `less [options] [input]`
 
-```bash
+## Intent Router
 
-less --help
+- `references/install-and-setup.md` — Installing less
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify less is available: `less --version`
+2. Test with sample data first
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Open a large log with line numbers and no wrapping
-
-```bash
-
-less -N -S app.log
-
-```
-
-This keeps long lines intact and makes line references reproducible.
-
-1. Follow a growing log stream
+## Quick Command Reference
 
 ```bash
-
-less +F /var/log/system.log
-
+less --version                       # Check version
+less --help                          # Show help
+less [options] [input]               # Basic usage
+man less                             # Full manual
 ```
 
-Press `Ctrl+C` to pause and inspect, then `F` to resume follow mode.
+## Safety Notes
 
-1. Page colored diff output from a pipeline
+| Area | Guardrail |
+| --- | --- |
+| **Input validation** | Verify input data format before processing. |
+| **Output handling** | Validate output structure. |
+| **Large files** | Test with smaller samples first. |
 
-```bash
+## Source Policy
 
-git diff --color=always | less -R
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Use `-R` so ANSI color escapes render correctly.
-
-## Guardrails
-
-- Use `file <path>` before opening unknown files to avoid binary noise in the pager.
-
-- Avoid `less` in non-interactive scripts; use tools like `head`, `tail`, `sed`, or `awk` instead.
-
-- Capture whether flags like `-N`, `-S`, or `-R` were used so navigation behavior is reproducible.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

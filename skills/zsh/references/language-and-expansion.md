@@ -7,14 +7,14 @@ Zsh's parameter expansion uses flag syntax `${(flags)parameter}` to modify value
 ### Case Modifiers
 
 | Flag | Effect |
-|---|---|
+| --- | --- |
 | `(U)` | Convert to uppercase: `print ${(U)var}` |
 | `(L)` | Convert to lowercase: `print ${(L)VAR}` |
 
 ### Array Modifiers
 
 | Flag | Effect |
-|---|---|
+| --- | --- |
 | `(o)` | Sort array: `print ${(o)arr}` |
 | `(O)` | Sort in reverse: `print ${(O)arr}` |
 | `(j:sep:)` | Join array with separator: `print ${(j:,)arr}` |
@@ -23,14 +23,14 @@ Zsh's parameter expansion uses flag syntax `${(flags)parameter}` to modify value
 ### Type Modifiers
 
 | Flag | Effect |
-|---|---|
+| --- | --- |
 | `(k)` | Array keys (indices/keys): `print ${(k)assoc}` |
 | `(v)` | Array values: `print ${(v)assoc}` |
 
 ### Escaping
 
 | Flag | Effect |
-|---|---|
+| --- | --- |
 | `(q)` | Quote for shell: `print ${(q)var}` |
 | `(Q)` | Remove quotes: `print ${(Q)var}` |
 
@@ -69,7 +69,7 @@ print ${(k)assoc}  # key1 key2
 Requires `setopt EXTENDED_GLOB`:
 
 | Pattern | Effect |
-|---|---|
+| --- | --- |
 | `^pattern` | Exclude pattern: `ls ^*.txt` |
 | `pattern1~pattern2` | Match pattern1 but exclude pattern2: `ls *(py)~test* |
 | `#pattern` | Match zero or more repetitions |
@@ -80,7 +80,7 @@ Requires `setopt EXTENDED_GLOB`:
 Glob qualifiers are applied with `(qualifiers)` at the end of a glob pattern. Requires `setopt EXTENDED_GLOB` for some.
 
 | Qualifier | Effect |
-|---|---|
+| --- | --- |
 | `.` | Regular files only: `ls *(.)` |
 | `/` | Directories only: `ls *(/)` |
 | `*` | Executable files: `ls *(*)` |
@@ -186,7 +186,7 @@ print $(( sqrt(16) ))       # 4.0 (with zsh/mathfunc module)
 ### Common Operators
 
 | Operator | Effect |
-|---|---|
+| --- | --- |
 | `+` `-` `*` `/` `%` | Basic arithmetic |
 | `**` `^` | Exponentiation |
 | `&&` `\|\|` | Logical AND, OR |
@@ -247,7 +247,7 @@ myfunc() {
 Zsh's `print` is more powerful than `echo`:
 
 | Flag | Effect |
-|---|---|
+| --- | --- |
 | `-n` | No trailing newline |
 | `-r` | Raw: interpret backslashes literally |
 | `-l` | One item per line (useful for arrays) |

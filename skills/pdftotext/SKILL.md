@@ -1,66 +1,54 @@
 ---
-name: pdftotext-command
-description: "Extract text from PDFs with `pdftotext` and layout controls. Use when users ask for searchable text output, page-range extraction, or plain-text PDF conversion."
+name: pdftotext
+description: Convert PDF documents to plain text. Use when the agent needs to extract, analyze, or transform document and file metadata.
 ---
 
-# pdftotext Command Skill
+# Pdftotext
 
-## Purpose
+Convert PDF documents to plain text
 
-Use `pdftotext` to convert PDF page content into text for search, indexing, or review.
+## Quick Start
 
-## Quick start
+1. Verify `pdftotext` is available: `pdftotext --version` or `man pdftotext`
+2. Establish the command surface: `man pdftotext` or `pdftotext --help`
+3. Start with a read-only probe: `pdftotext file`
 
-```bash
+## Intent Router
 
-pdftotext -h
+- `references/install-and-setup.md` — Installing pdftotext
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify pdftotext is available: `pdftotext --version`
+2. Inspect file: `pdftotext file`
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Extract full document text to file
-
-```bash
-
-pdftotext report.pdf report.txt
-
-```
-
-Default extraction is suitable for basic indexing and grep workflows.
-
-1. Preserve approximate page layout
+## Quick Command Reference
 
 ```bash
-
-pdftotext -layout report.pdf report-layout.txt
-
+pdftotext --version                       # Check version
+pdftotext --help                          # Show help
+pdftotext file                            # Basic usage
+man pdftotext                             # Full manual
 ```
 
-Layout mode keeps columns and spacing closer to visual structure.
+## Safety Notes
 
-1. Extract a specific page range
+| Area | Guardrail |
+| --- | --- |
+| **File validation** | Verify files are in expected format. |
+| **Output handling** | Validate output before processing further. |
+| **Large files** | Test with smaller files first. |
 
-```bash
+## Source Policy
 
-pdftotext -f 5 -l 8 report.pdf section.txt
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Range extraction limits output to relevant sections.
-
-## Guardrails
-
-- Scanned image PDFs may need OCR before text extraction produces useful output.
-
-- Layout-preserving mode can still lose complex table semantics.
-
-- Record encoding and page-range flags for reproducibility.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

@@ -1,66 +1,59 @@
 ---
-name: readelf-command
-description: "Inspect ELF metadata safely with `readelf`. Use when users ask for headers, sections, symbols, relocations, or dynamic information in Linux binaries."
+name: readelf
+description: Analyze ELF executable and shared object files. Use when the agent needs to inspect, analyze, or extract information from binary files or data structures.
 ---
 
-# readelf Command Skill
+# Readelf
 
-## Purpose
+Analyze ELF executable and shared object files
 
-Use `readelf` to extract ELF structure details without executing binaries.
+## Quick Start
 
-## Quick start
+1. Verify `readelf` is available: `readelf --version` or `man readelf`
+2. Establish the command surface: `man readelf` or `readelf --help`
+3. Start with a read-only probe: `readelf file`
 
-```bash
+## Intent Router
 
-readelf --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing readelf on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, output formats, usage patterns
+- `references/advanced-usage.md` — Advanced patterns, performance optimization
+- `references/troubleshooting.md` — Common errors, exit codes, platform differences
 
-## Common workflows
+## Core Workflow
 
-1. Inspect ELF header and architecture
+1. Verify readelf is available: `readelf --version`
+2. Start with safe, read-only operation: `readelf [options] file`
+3. Validate output on test data before processing at scale
+4. Document exact command and flags for reproducibility
 
-```bash
-
-readelf -h ./app
-
-```
-
-Start with headers to confirm class, machine, and endianness.
-
-1. List program and section headers
-
-```bash
-
-readelf -l -S ./app
-
-```
-
-These views show memory layout and named sections.
-
-1. Review symbol and dynamic dependency data
+## Quick Command Reference
 
 ```bash
-
-readelf -Ws -d ./app
-
+readelf --version                       # Check version
+readelf --help                          # Show help
+readelf file                            # Basic usage
+readelf file | head                     # Limit output
+man readelf                             # Full manual
 ```
 
-Symbols and dynamic tags help troubleshoot linkage issues.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Untrusted input** | Validate files from untrusted sources before processing. |
+| **Large files** | May consume memory on large files. Test with smaller samples first. |
+| **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
+| **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
 
-- Use `readelf` over executing unknown binaries when triaging untrusted artifacts.
+## Source Policy
 
-- Match architecture assumptions before interpreting addresses and flags.
+- Treat the installed `readelf` behavior and `man readelf` as runtime truth.
+- Use upstream documentation for semantics.
 
-- Keep command output scoped to needed sections to avoid overwhelming logs.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install readelf on macOS or Linux.
+- `scripts/install.ps1` — Install readelf on Windows or any platform via PowerShell.

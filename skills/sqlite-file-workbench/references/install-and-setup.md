@@ -9,7 +9,7 @@
 ## Install by Platform
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Windows |
-|-------|---------------|-------------|---------|
+| --- | --- | --- | --- |
 | `brew install sqlite` | `apt install sqlite3` | `dnf install sqlite` | Download from sqlite.org or `winget install SQLite.SQLite` |
 
 **Additional tools:**

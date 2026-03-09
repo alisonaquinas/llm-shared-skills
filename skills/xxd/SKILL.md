@@ -1,66 +1,59 @@
 ---
-name: xxd-command
-description: "Create and reverse hex dumps with `xxd`. Use when users ask for byte-level inspection, patch-style hex editing, or converting binary to/from plain hex."
+name: xxd
+description: Create and reverse hexadecimal dumps. Use when the agent needs to inspect, analyze, or extract information from binary files or data structures.
 ---
 
-# xxd Command Skill
+# Xxd
 
-## Purpose
+Create and reverse hexadecimal dumps
 
-Use `xxd` for readable hex views and reversible binary-to-hex transformations.
+## Quick Start
 
-## Quick start
+1. Verify `xxd` is available: `xxd --version` or `man xxd`
+2. Establish the command surface: `man xxd` or `xxd --help`
+3. Start with a read-only probe: `xxd file`
 
-```bash
+## Intent Router
 
-xxd -h
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing xxd on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, output formats, usage patterns
+- `references/advanced-usage.md` — Advanced patterns, performance optimization
+- `references/troubleshooting.md` — Common errors, exit codes, platform differences
 
-## Common workflows
+## Core Workflow
 
-1. Generate a canonical hex dump
+1. Verify xxd is available: `xxd --version`
+2. Start with safe, read-only operation: `xxd [options] file`
+3. Validate output on test data before processing at scale
+4. Document exact command and flags for reproducibility
 
-```bash
-
-xxd sample.bin | head -n 40
-
-```
-
-Hex + ASCII columns are useful for quick visual inspection.
-
-1. Dump only a bounded byte range
-
-```bash
-
-xxd -s 0x200 -l 128 firmware.bin
-
-```
-
-Offset/length controls keep reviews focused.
-
-1. Rebuild binary from hex dump
+## Quick Command Reference
 
 ```bash
-
-xxd -r patch.hex > restored.bin
-
+xxd --version                       # Check version
+xxd --help                          # Show help
+xxd file                            # Basic usage
+xxd file | head                     # Limit output
+man xxd                             # Full manual
 ```
 
-Reverse mode supports deterministic binary reconstruction.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Untrusted input** | Validate files from untrusted sources before processing. |
+| **Large files** | May consume memory on large files. Test with smaller samples first. |
+| **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
+| **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
 
-- When using `-r`, ensure offsets and formatting are valid or reconstruction will fail.
+## Source Policy
 
-- Prefer bounded dumps (`-l`, `-s`) on large binaries to avoid massive output.
+- Treat the installed `xxd` behavior and `man xxd` as runtime truth.
+- Use upstream documentation for semantics.
 
-- Do not edit hex manually without preserving byte count and alignment expectations.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install xxd on macOS or Linux.
+- `scripts/install.ps1` — Install xxd on Windows or any platform via PowerShell.

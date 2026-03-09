@@ -247,7 +247,7 @@ docker load < myapp.tar.gz
 ## Base Image Selection Guide
 
 | Runtime | Recommended base | Notes |
-|---|---|---|
+| --- | --- | --- |
 | Node.js | `node:22-alpine` | ~50MB; use `-slim` (Debian) if alpine causes issues |
 | Python | `python:3.12-slim` | Debian slim; alpine can cause issues with C extensions |
 | Go | `gcr.io/distroless/static` | Near-zero size for static binaries |

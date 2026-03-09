@@ -43,7 +43,7 @@ rules:
 ## Common Rules Reference
 
 | ID | Rule | Detects | How to Configure |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | MD001 | heading-increment | Non-sequential heading levels | Disable: `MD001: false` |
 | MD003 | heading-style | Inconsistent heading syntax | `{ "style": "consistent" \| "atx" \| "setext" }` |
 | MD004 | ul-style | Inconsistent unordered list markers | `{ "style": "consistent" \| "-" \| "*" \| "+" }` |
@@ -137,7 +137,7 @@ Use double space at end of line to break lines
 ### Exit Code Meanings
 
 | Code | Meaning | Action |
-|---|---|---|
+| --- | --- | --- |
 | 0 | All files pass | No action needed |
 | 1 | Violations found | Review config and fix violations |
 | 2 | Invalid arguments or config error | Check command syntax and config validity |

@@ -1,66 +1,59 @@
 ---
-name: strings-command
-description: "Extract printable sequences from binaries with `strings`. Use when users ask for quick binary triage, embedded URL discovery, or text hints inside executables."
+name: strings
+description: Extract readable text strings from binary files. Use when the agent needs to inspect, analyze, or extract information from binary files or data structures.
 ---
 
-# strings Command Skill
+# Strings
 
-## Purpose
+Extract readable text strings from binary files
 
-Use `strings` to surface human-readable fragments from binary files for rapid triage.
+## Quick Start
 
-## Quick start
+1. Verify `strings` is available: `strings --version` or `man strings`
+2. Establish the command surface: `man strings` or `strings --help`
+3. Start with a read-only probe: `strings file`
 
-```bash
+## Intent Router
 
-strings --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing strings on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, output formats, usage patterns
+- `references/advanced-usage.md` — Advanced patterns, performance optimization
+- `references/troubleshooting.md` — Common errors, exit codes, platform differences
 
-## Common workflows
+## Core Workflow
 
-1. Extract default printable strings
+1. Verify strings is available: `strings --version`
+2. Start with safe, read-only operation: `strings [options] file`
+3. Validate output on test data before processing at scale
+4. Document exact command and flags for reproducibility
 
-```bash
-
-strings sample.bin | head -n 50
-
-```
-
-Initial sampling helps determine whether deeper analysis is needed.
-
-1. Increase minimum string length
-
-```bash
-
-strings -n 8 firmware.bin | head -n 100
-
-```
-
-Longer thresholds reduce noise in dense binaries.
-
-1. Show offsets for extracted strings
+## Quick Command Reference
 
 ```bash
-
-strings -t x sample.bin | head -n 40
-
+strings --version                       # Check version
+strings --help                          # Show help
+strings file                            # Basic usage
+strings file | head                     # Limit output
+man strings                             # Full manual
 ```
 
-Offsets help correlate strings with hex dumps and sections.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Untrusted input** | Validate files from untrusted sources before processing. |
+| **Large files** | May consume memory on large files. Test with smaller samples first. |
+| **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
+| **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
 
-- Remember output can include false positives; validate findings with context.
+## Source Policy
 
-- Use explicit minimum lengths (`-n`) to control noise levels in large files.
+- Treat the installed `strings` behavior and `man strings` as runtime truth.
+- Use upstream documentation for semantics.
 
-- Do not infer program behavior from isolated strings without corroborating evidence.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install strings on macOS or Linux.
+- `scripts/install.ps1` — Install strings on Windows or any platform via PowerShell.

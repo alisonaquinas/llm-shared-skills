@@ -1,66 +1,59 @@
 ---
-name: hexdump-command
-description: "Inspect raw bytes with `hexdump` format controls. Use when users ask for canonical hex views, custom byte formatting, or offset-limited binary inspection."
+name: hexdump
+description: Display file contents in hexadecimal and ASCII formats. Use when the agent needs to inspect, analyze, or extract information from binary files or data structures.
 ---
 
-# hexdump Command Skill
+# Hexdump
 
-## Purpose
+Display file contents in hexadecimal and ASCII formats
 
-Use `hexdump` for low-level byte inspection and custom output formatting.
+## Quick Start
 
-## Quick start
+1. Verify `hexdump` is available: `hexdump --version` or `man hexdump`
+2. Establish the command surface: `man hexdump` or `hexdump --help`
+3. Start with a read-only probe: `hexdump file`
 
-```bash
+## Intent Router
 
-hexdump --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing hexdump on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, output formats, usage patterns
+- `references/advanced-usage.md` — Advanced patterns, performance optimization
+- `references/troubleshooting.md` — Common errors, exit codes, platform differences
 
-## Common workflows
+## Core Workflow
 
-1. Display canonical hex + ASCII view
+1. Verify hexdump is available: `hexdump --version`
+2. Start with safe, read-only operation: `hexdump [options] file`
+3. Validate output on test data before processing at scale
+4. Document exact command and flags for reproducibility
 
-```bash
-
-hexdump -C sample.bin | head -n 40
-
-```
-
-Canonical output is easy to correlate with offsets.
-
-1. Inspect a bounded slice by offset
-
-```bash
-
-hexdump -C -s 1024 -n 256 sample.bin
-
-```
-
-Offset and length limits prevent oversized output.
-
-1. Emit compact hex stream
+## Quick Command Reference
 
 ```bash
-
-hexdump -v -e '1/1 "%02x"' sample.bin
-
+hexdump --version                       # Check version
+hexdump --help                          # Show help
+hexdump file                            # Basic usage
+hexdump file | head                     # Limit output
+man hexdump                             # Full manual
 ```
 
-Custom format expressions support script-friendly output.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Untrusted input** | Validate files from untrusted sources before processing. |
+| **Large files** | May consume memory on large files. Test with smaller samples first. |
+| **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
+| **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
 
-- Prefer `-C` for human review unless a custom format is explicitly required.
+## Source Policy
 
-- Be careful with format strings (`-e`); validate on small samples first.
+- Treat the installed `hexdump` behavior and `man hexdump` as runtime truth.
+- Use upstream documentation for semantics.
 
-- Document offset and length bounds when reporting observations.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install hexdump on macOS or Linux.
+- `scripts/install.ps1` — Install hexdump on Windows or any platform via PowerShell.

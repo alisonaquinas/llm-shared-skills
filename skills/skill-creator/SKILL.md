@@ -24,7 +24,7 @@ justify its token cost?" Prefer concise examples over verbose explanations.
 ### Set Appropriate Degrees of Freedom
 
 | Freedom level | When to use | How |
-|---|---|---|
+| --- | --- | --- |
 | High | Multiple valid approaches, context-dependent | Text-based instructions |
 | Medium | Preferred pattern, some variation OK | Pseudocode or parameterized scripts |
 | Low | Fragile operations, consistency critical | Specific scripts, few parameters |
@@ -92,7 +92,7 @@ Do not include "When to Use This Skill" sections in the body — that content be
 Both Claude Code and Codex use the same SKILL.md format. The differences are additive:
 
 | Feature | Claude Code | Codex |
-|---|---|---|
+| --- | --- | --- |
 | Core format | `SKILL.md` with YAML frontmatter | Same |
 | UI metadata | Not required | `agents/openai.yaml` |
 | Plugin registration | `.claude-plugin/plugin.json` at plugin root | Not applicable |

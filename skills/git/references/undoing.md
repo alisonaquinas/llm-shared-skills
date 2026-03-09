@@ -115,7 +115,7 @@ git commit -m "revert: undo last 3 commits"
 **Choosing between reset and revert:**
 
 | Situation | Use |
-|-----------|-----|
+| --- | --- |
 | Undo commits on a **private** branch | `git reset` (clean history) |
 | Undo commits on a **shared** branch | `git revert` (safe, non-destructive) |
 | Remove a specific old commit from history | `git revert <sha>` |

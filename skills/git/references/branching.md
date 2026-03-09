@@ -110,7 +110,7 @@ See `references/troubleshooting.md` for detailed conflict resolution patterns.
 ## Rebasing vs Merging
 
 | | Merge (`--no-ff`) | Rebase |
-|---|---|---|
+| --- | --- | --- |
 | History | Preserves exact timeline + topology | Rewrites commits to be linear |
 | Merge commit | Yes | No |
 | Safe on shared branches | Yes | **No** |
@@ -128,7 +128,7 @@ See `references/rebase.md` for full rebase documentation.
 Recommended patterns (compatible with git-flow prefixes):
 
 | Purpose | Pattern | Example |
-|---------|---------|---------|
+| --- | --- | --- |
 | Feature | `feature/<short-description>` | `feature/user-auth` |
 | Bug fix | `fix/<issue-or-description>` | `fix/null-session-crash` |
 | Hotfix | `hotfix/<version>` | `hotfix/v1.2.1` |

@@ -75,7 +75,7 @@ No startup files are loaded.
 ## High-Value Flags
 
 | Flag | Purpose |
-|---|---|
+| --- | --- |
 | `-x` | Enable execution tracing (`set -x`) — shows each command as it's executed |
 | `-n` | Syntax check only; do not execute (like `bash -n`) |
 | `-c` | Execute command: `zsh -c 'print "hello"'` |
@@ -109,7 +109,7 @@ Comprehensive reference covering invocation, options, and overview.
 Use `man` for topic-specific information:
 
 | Man Page | Subject |
-|---|---|
+| --- | --- |
 | `zshbuiltins` | All Zsh builtins (cd, print, autoload, etc.) |
 | `zshoptions` | All shell options (setopt/unsetopt) |
 | `zshexpn` | Parameter expansion, history expansion, globbing |

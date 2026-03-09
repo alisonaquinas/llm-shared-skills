@@ -1,4 +1,4 @@
 interface:
-  display_name: "binwalk Command"
-  short_description: "Safe, reproducible workflows for binwalk"
-  default_prompt: "Use $binwalk-command to plan and run reliable binwalk commands for this task."
+  display_name: "binwalk"
+  short_description: "Scan files for embedded filesystems and data signatures"
+  default_prompt: "Use $binwalk to analyze embedded filesystems."

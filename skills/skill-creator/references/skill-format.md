@@ -7,7 +7,7 @@ Canonical specification for the SKILL.md format and platform-specific extensions
 ## SKILL.md Frontmatter
 
 | Field | Required | Type | Notes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `name` | Yes | string | kebab-case, lowercase, digits, hyphens only; max 64 chars; matches folder name |
 | `description` | Yes | string | Primary trigger mechanism; include all "when to use" info; ~100–300 words |
 
@@ -78,7 +78,7 @@ Claude Code scans the `skills/` directory inside a plugin root and auto-discover
 ## Platform Loading Behavior
 
 | Phase | Claude Code | Codex |
-|---|---|---|
+| --- | --- | --- |
 | Always in context | `name` + `description` frontmatter | Same |
 | On skill trigger | Full SKILL.md body | Same |
 | On demand | Files in `references/`, `scripts/`, `assets/` | Same |

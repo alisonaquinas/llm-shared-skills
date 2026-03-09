@@ -1,66 +1,64 @@
 ---
-name: head-command
-description: "Read leading lines or bytes with `head` using explicit limits. Use when users ask to sample large files quickly, validate headers, or preview stream prefixes."
+name: head
+description: Quickly sample the beginning of files with head for inspecting headers, previewing content, and validating file prefixes. Use when the agent needs to peek at file starts, limit output to N lines or bytes, or validate file format headers.
 ---
 
-# head Command Skill
+# head
 
-## Purpose
+Sample and display the first lines or bytes of files or streams.
 
-Use `head` to quickly inspect the beginning of files or streams without loading full content.
+## Quick Start
 
-## Quick start
+1. Verify `head` is available: `head --version` or `man head`
+2. Establish the command surface: `man head` or `head --help`
+3. Start with a read-only probe: `head -n 5 file.txt`
 
-```bash
+## Intent Router
 
-head --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing head (GNU, BSD) on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common flags, line/byte counts, multiple files, quiet/verbose output
+- `references/advanced-usage.md` — GNU vs BSD differences, large file handling, stream processing, performance
+- `references/troubleshooting.md` — Encoding issues, binary files, empty output, permission errors
 
-## Common workflows
+## Core Workflow
 
-1. Preview the first 20 lines of a file
+1. Verify head version and variant (GNU vs BSD): `head --version` or `man head`
+2. Specify count explicitly: `-n <N>` for lines or `-c <N>` for bytes
+3. Use `-q` (quiet) for multiple files to suppress file headers
+4. Run on sample data first to validate before processing at scale
 
-```bash
-
-head -n 20 server.log
-
-```
-
-Use explicit `-n` values instead of defaults to make output intent clear.
-
-1. Inspect the first bytes of a binary payload
-
-```bash
-
-head -c 64 payload.bin | xxd
-
-```
-
-Combining with `xxd` makes byte prefixes human-readable.
-
-1. Compare first lines across many files
+## Quick Command Reference
 
 ```bash
-
-head -n 1 logs/*.log
-
+head --version                      # Check version (GNU vs BSD)
+head -n 5 file.txt                 # First 5 lines (explicit count)
+head -c 1024 file.bin              # First 1024 bytes (explicit count)
+head -n -5 file.txt                # All lines except last 5 (GNU only)
+head -q -n 2 *.log                 # First 2 lines from all files, no headers
+head -v -n 3 file.txt              # First 3 lines with file header (verbose)
+man head                            # Full manual and options
 ```
 
-Useful for checking headers or timestamp format consistency.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Explicit counts** | Always use `-n` or `-c` with explicit numbers; default values (10 lines) may not match intent. |
+| **Multiple files** | When reading multiple files with `-q`, output lacks file name markers; confirm context before processing. |
+| **Binary files** | head on binary files may include non-text bytes. Pipe through `xxd` or `od` for safe hex viewing. |
+| **GNU vs BSD** | GNU head supports `-n -5` (all except last 5); BSD does not. Avoid for portability or test on target platform. |
+| **Incomplete lines** | When using `-c`, output may end mid-line; subsequent processing may fail if expecting complete records. |
+| **Large files** | head terminates early (safe) but still reads through file sequentially; not suitable for random access to large files. |
 
-- Always specify `-n` or `-c` explicitly in automation to avoid ambiguity.
+## Source Policy
 
-- Use `-q` or `-v` intentionally when reading multiple files so headers are predictable.
+- Treat the installed `head` behavior and `man head` as runtime truth.
+- Use GNU Coreutils documentation (gnu.org/software/coreutils) for GNU-specific extensions.
+- Use BSD manual for BSD variant behavior differences.
 
-- Do not treat `head` output as representative of full-file distributions without stating that limitation.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install head (GNU, BSD, or POSIX variant) on macOS or Linux.
+- `scripts/install.ps1` — Install head on Windows or any platform via PowerShell.

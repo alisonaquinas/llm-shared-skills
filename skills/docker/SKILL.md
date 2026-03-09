@@ -93,7 +93,7 @@ docker system prune                                   # Remove unused objects (s
 ## Safety Matrix
 
 | Command or Pattern | Required Guardrail |
-|---|---|
+| --- | --- |
 | `docker system prune` / `prune -a` | Run `docker system df` first; summarize what will be removed, then confirm. |
 | `docker volume rm` | Warn that volume data is permanently deleted and require explicit confirmation. |
 | `docker network rm` | Check for attached containers first and list impacted services before remove. |

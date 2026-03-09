@@ -171,7 +171,7 @@ git worktree add ../build-v2 v2.0.0
 ## Stash vs Worktree Decision Guide
 
 | Need | Use |
-|------|-----|
+| --- | --- |
 | Quick context switch, same branch later | `git stash` |
 | Switch to an unrelated branch briefly | `git stash` |
 | Work on two branches simultaneously | `git worktree` |

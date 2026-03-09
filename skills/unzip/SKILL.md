@@ -1,66 +1,66 @@
 ---
-name: unzip-command
-description: "Inspect and extract ZIP archives with `unzip`. Use when users ask for zip listing, selective extraction, overwrite controls, or archive integrity tests."
+name: unzip
+description: Extract and test ZIP archives safely with destination validation and path traversal protection. Use when the agent needs to list archive contents, test integrity, or extract files with explicit overwrite policies.
 ---
 
-# unzip Command Skill
+# unzip
 
-## Purpose
+Extract and inspect ZIP archives with safety checks and destination control.
 
-Use `unzip` to list, test, and extract ZIP archives with explicit destination behavior.
+## Quick Start
 
-## Quick start
+1. Verify `unzip` is available: `unzip -h` or `man unzip`
+2. Establish the command surface: `man unzip` or `unzip -h`
+3. Start with list-only operation: `unzip -l archive.zip`
 
-```bash
+## Intent Router
 
-unzip -h
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing unzip on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common operations, listing, testing, overwrite policies
+- `references/advanced-usage.md` — Encryption, path traversal, exclusion patterns
+- `references/troubleshooting.md` — Corruption detection, permission issues, encoding
 
-## Common workflows
+## Core Workflow
 
-1. List archive contents before extraction
+1. Verify unzip is available: `unzip -h`
+2. List archive contents first (safe, read-only): `unzip -l archive.zip`
+3. Validate no suspicious paths (../, absolute paths): `unzip -l archive.zip | grep -E '^\s*\.\.|^/'`
+4. Test integrity (without extracting): `unzip -t archive.zip`
+5. Extract to explicit directory with policy: `unzip archive.zip -d output/ -o`
 
-```bash
-
-unzip -l package.zip
-
-```
-
-Listing first catches unexpected paths or file counts.
-
-1. Extract into a target directory
-
-```bash
-
-unzip package.zip -d extracted/
-
-```
-
-Always set destination to keep workspace layout predictable.
-
-1. Test archive integrity without extracting
+## Quick Command Reference
 
 ```bash
-
-unzip -t package.zip
-
+unzip -h                               # Show help
+unzip -l archive.zip                   # List contents (read-only)
+unzip -lv archive.zip                  # List with details
+unzip -t archive.zip                   # Test integrity (no extraction)
+unzip archive.zip -d output/           # Extract to directory
+unzip -n archive.zip                   # Never overwrite existing files
+unzip -o archive.zip                   # Always overwrite
+unzip -u archive.zip                   # Update (extract only newer)
+man unzip                              # Full manual
 ```
 
-Integrity checks can fail fast before write operations.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Path traversal** | Always list before extracting. Reject archives with `../` or absolute paths. Use `-d` to extract to safe directory. |
+| **Overwrite policy** | Use explicit policy: `-n` (never), `-o` (always), `-u` (update). Don't mix. |
+| **Encryption** | Use interactive password (`-P -` or just `-P`). Never pass passwords as plain arguments. |
+| **Permissions** | ZIP may have incorrect permissions. Verify after extraction. Use `chmod` if needed. |
+| **Large files** | ZIP supports large files (>2GB). Verify disk space before extraction. |
+| **Symlinks** | ZIP info-zip preserves symlinks. Be cautious with untrusted archives. |
 
-- Choose overwrite policy explicitly (`-o` overwrite, `-n` never overwrite).
+## Source Policy
 
-- Inspect names for path traversal patterns before extraction.
+- Treat the installed `unzip` behavior and `man unzip` as runtime truth.
+- Use upstream info-zip documentation for semantics.
 
-- Avoid exposing passwords via shell history when handling encrypted zips.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install unzip on macOS or Linux.
+- `scripts/install.ps1` — Install unzip on Windows or any platform via PowerShell.

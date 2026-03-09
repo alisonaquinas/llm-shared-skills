@@ -1,66 +1,59 @@
 ---
-name: cmp-command
-description: "Perform byte-level equality checks with `cmp`. Use when users ask whether files are identical, where first binary differences occur, or fixed-prefix comparisons."
+name: cmp
+description: Byte-level file comparison with position reporting. Use when the agent needs to inspect, analyze, or extract information from binary files or data structures.
 ---
 
-# cmp Command Skill
+# Cmp
 
-## Purpose
+Byte-level file comparison with position reporting
 
-Use `cmp` for fast binary or byte-accurate file comparisons with clear exit codes.
+## Quick Start
 
-## Quick start
+1. Verify `cmp` is available: `cmp --version` or `man cmp`
+2. Establish the command surface: `man cmp` or `cmp --help`
+3. Start with a read-only probe: `cmp file`
 
-```bash
+## Intent Router
 
-cmp --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing cmp on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, output formats, usage patterns
+- `references/advanced-usage.md` — Advanced patterns, performance optimization
+- `references/troubleshooting.md` — Common errors, exit codes, platform differences
 
-## Common workflows
+## Core Workflow
 
-1. Check whether two files are identical
+1. Verify cmp is available: `cmp --version`
+2. Start with safe, read-only operation: `cmp [options] file`
+3. Validate output on test data before processing at scale
+4. Document exact command and flags for reproducibility
 
-```bash
-
-cmp file_a.bin file_b.bin
-
-```
-
-Exit code `0` means identical; non-zero indicates differences.
-
-1. Show differing byte positions
-
-```bash
-
-cmp -l file_a.bin file_b.bin | head
-
-```
-
-Byte-level output helps locate divergence quickly.
-
-1. Compare only the first N bytes
+## Quick Command Reference
 
 ```bash
-
-cmp -n 4096 image1.bin image2.bin
-
+cmp --version                       # Check version
+cmp --help                          # Show help
+cmp file                            # Basic usage
+cmp file | head                     # Limit output
+man cmp                             # Full manual
 ```
 
-Use bounded checks for header or prefix validation.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Untrusted input** | Validate files from untrusted sources before processing. |
+| **Large files** | May consume memory on large files. Test with smaller samples first. |
+| **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
+| **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
 
-- Interpret exit codes correctly: `0` equal, `1` different, `2` trouble accessing files.
+## Source Policy
 
-- Use `-s` in scripts when only status matters and no text output is desired.
+- Treat the installed `cmp` behavior and `man cmp` as runtime truth.
+- Use upstream documentation for semantics.
 
-- Do not confuse byte offset output with higher-level structure boundaries.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install cmp on macOS or Linux.
+- `scripts/install.ps1` — Install cmp on Windows or any platform via PowerShell.

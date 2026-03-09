@@ -1,66 +1,64 @@
 ---
-name: 7z-command
-description: "Work with 7z and multi-format archives using `7z`. Use when users ask for high-compression archives, encrypted archive handling, or cross-format extraction workflows."
+name: 7z
+description: Create and extract high-compression archives with 7z format supporting encryption and multiple compression methods. Use when the agent needs maximum compression ratio, encrypted archive handling, or cross-platform archive compatibility.
 ---
 
-# 7z Command Skill
+# 7z
 
-## Purpose
+High-compression archive creation with strong compression and encryption support.
 
-Use `7z` for high-compression archiving, listing, and extraction across multiple archive formats.
+## Quick Start
 
-## Quick start
+1. Verify `7z` is available: `7z --help` or `man 7z`
+2. Establish the command surface: `7z --help` or `7z l archive.7z`
+3. Start with a read-only probe: `7z l archive.7z`
 
-```bash
+## Intent Router
 
-7z --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing 7z on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common operations, compression levels, encryption
+- `references/advanced-usage.md` — Solid archive format, compression algorithms, password handling
+- `references/troubleshooting.md` — Extraction failures, corruption detection, path issues
 
-## Common workflows
+## Core Workflow
 
-1. List archive details
+1. Verify 7z is available: `7z --help`
+2. List archive contents first (safe, read-only): `7z l archive.7z`
+3. Extract to explicit destination with path validation: `7z x archive.7z -ooutput/`
+4. Test archive integrity before relying on it: `7z t archive.7z`
 
-```bash
-
-7z l bundle.7z
-
-```
-
-Listing validates file set and compression/encryption metadata.
-
-1. Extract with full directory structure
-
-```bash
-
-7z x bundle.7z -oout
-
-```
-
-Use `x` to preserve paths and set output directory explicitly.
-
-1. Create a compressed archive
+## Quick Command Reference
 
 ```bash
-
-7z a release.7z dist/
-
+7z --help                              # Show all commands and options
+7z l archive.7z                        # List archive contents (read-only)
+7z t archive.7z                        # Test archive integrity
+7z x archive.7z -ooutput/              # Extract with full path preservation
+7z a archive.7z files/                 # Create archive from directory
+7z a -mx=9 archive.7z files/           # Maximum compression level
+7z a -p archive.7z files/              # Encrypt with password prompt
+man 7z                                 # Full manual (if available)
 ```
 
-Archive creation is deterministic when source paths are controlled.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Path traversal** | Always specify output directory explicitly with `-o`. Validate paths don't traverse parent directories. Test on sample archive first. |
+| **Encryption** | Use interactive password (`-p` without argument) to avoid passwords in history/scripts. Never pass passwords as command-line arguments. |
+| **Archive validation** | Always run `7z t` before extracting untrusted archives. Check for embedded scripts or suspicious paths. |
+| **Compression algorithms** | Solid archives and certain algorithms may have edge cases. Test extraction on target platform. |
+| **Permission preservation** | 7z preserves file permissions; verify extracted permissions match expectations on target system. |
+| **Symlinks** | 7z handles symlinks; be cautious with archives from untrusted sources that may create symlinks. |
 
-- Use `x` (not `e`) when directory hierarchy must be preserved.
+## Source Policy
 
-- Avoid passing plaintext passwords directly on shared terminals.
+- Treat the installed `7z` behavior and help output as runtime truth.
+- Use upstream 7z documentation for format specifications.
 
-- Verify destination path (`-o`) before extraction to prevent clutter or overwrite.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install 7z on macOS or Linux.
+- `scripts/install.ps1` — Install 7z on Windows or any platform via PowerShell.

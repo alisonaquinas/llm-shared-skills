@@ -11,13 +11,13 @@
 ### Zoxide (required)
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Arch Linux | Windows |
-|-------|---------------|-------------|-----------|---------|
+| --- | --- | --- | --- | --- |
 | `brew install zoxide` | `apt install zoxide` | `dnf install zoxide` | `pacman -S zoxide` | `winget install ajeetdsouha.zoxide` |
 
 ### fzf (optional but recommended)
 
 | macOS | Debian/Ubuntu | Fedora/RHEL | Arch Linux | Windows |
-|-------|---------------|-------------|-----------|---------|
+| --- | --- | --- | --- | --- |
 | `brew install fzf` | `apt install fzf` | `dnf install fzf` | `pacman -S fzf` | `winget install junegunn.fzf` |
 
 ## Post-Install Configuration

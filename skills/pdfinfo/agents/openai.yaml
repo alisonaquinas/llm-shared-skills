@@ -1,4 +1,4 @@
 interface:
-  display_name: "pdfinfo Command"
-  short_description: "Safe, reproducible workflows for pdfinfo"
-  default_prompt: "Use $pdfinfo-command to plan and run reliable pdfinfo commands for this task."
+  display_name: "pdfinfo"
+  short_description: "Extract metadata from PDF files"
+  default_prompt: "Use $pdfinfo to analyze and extract metadata from files."

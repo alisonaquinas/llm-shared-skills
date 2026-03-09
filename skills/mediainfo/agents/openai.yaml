@@ -1,4 +1,4 @@
 interface:
-  display_name: "mediainfo Command"
-  short_description: "Safe, reproducible workflows for mediainfo"
-  default_prompt: "Use $mediainfo-command to plan and run reliable mediainfo commands for this task."
+  display_name: "mediainfo"
+  short_description: "Display comprehensive media file information"
+  default_prompt: "Use $mediainfo to analyze and extract metadata from files."

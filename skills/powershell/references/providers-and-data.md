@@ -53,7 +53,7 @@ Set variables that persist across sessions:
 ### Scope Table
 
 | Scope | Persistence | Effect | Requires Admin |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Process` | Current session only | Immediately visible in $env: | No |
 | `User` | User registry hive (persistent) | Visible in new PowerShell sessions for this user | No |
 | `Machine` | HKEY_LOCAL_MACHINE registry (persistent) | Visible for ALL users on machine | Yes |
@@ -81,7 +81,7 @@ $env:PATH
 ### Comparison: $env: vs Registry vs setx
 
 | Method | Command | Persistence | When Visible | Platform |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | `$env:VAR =` | `$env:PATH = ...` | Session only | Immediate in current shell | All |
 | `SetEnvironmentVariable` | `[System.Environment]::SetEnvironmentVariable('VAR', 'value', 'User')` | Persistent (User/Machine) | Next new session | Windows/Linux/macOS |
 | `setx` | `setx MYVAR value` | User-persistent | Next new cmd.exe only | Windows |

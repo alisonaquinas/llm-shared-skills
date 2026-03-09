@@ -28,7 +28,7 @@ Load the relevant reference file when you need depth on a specific domain. For s
 queries the inline quick reference below is usually sufficient.
 
 | Topic | File | Load when... |
-|-------|------|--------------|
+| --- | --- | --- |
 | Install & setup | `references/install-and-setup.md` | User needs to install git or do initial configuration |
 | Basics — init, clone, add, commit, diff | `references/basics.md` | init/clone/add/commit/diff/status/.gitignore questions |
 | Branching & merging | `references/branching.md` | branch/switch/merge/tag/checkout/--no-ff questions |
@@ -161,7 +161,7 @@ git branch -d hotfix/fix-null-crash
 Always verify before running destructive operations. Suggest the safe alternative first.
 
 | Command | Risk | Action |
-|---------|------|--------|
+| --- | --- | --- |
 | `git reset --hard` | Discards all working tree + staged changes | Confirm explicitly; suggest `git stash` first |
 | `git push --force` | Overwrites remote history | **Never suggest bare `--force`** — use `--force-with-lease` |
 | `git branch -D` | Deletes branch without merge check | Confirm branch is merged or intentionally abandoned |

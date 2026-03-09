@@ -61,7 +61,7 @@ grep $'\r' script.sh
 ## Common Error Messages and Causes
 
 | Error | Cause | Fix |
-|---|---|---|
+| --- | --- | --- |
 | `command not found` | Command not on PATH or typo | Check `type <cmd>` or full path |
 | `$'\r': command not found` | CRLF line endings (Windows → Unix) | Convert: `dos2unix script.sh` or `sed -i 's/\r$//' script.sh` |
 | `binary operator expected` | Missing quotes in [ ] test | Quote variables: `[ -z "$var" ]` not `[ -z $var ]` |
@@ -75,7 +75,7 @@ grep $'\r' script.sh
 ## Quoting Anti-Patterns
 
 | ❌ Wrong | ✅ Correct | Why |
-|---|---|---|
+| --- | --- | --- |
 | `echo $var` | `echo "$var"` | Unquoted var splits on whitespace and globs |
 | `[ $x = $y ]` | `[ "$x" = "$y" ]` | Empty vars crash unquoted tests |
 | `for f in *.txt; do rm $f; done` | `for f in *.txt; do rm "$f"; done` | Unquoted expands if name has spaces |

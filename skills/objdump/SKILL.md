@@ -1,66 +1,59 @@
 ---
-name: objdump-command
-description: "Disassemble and inspect object metadata with `objdump`. Use when users ask for instruction listings, section dumps, or symbol-level binary introspection."
+name: objdump
+description: Display and disassemble object file information. Use when the agent needs to inspect, analyze, or extract information from binary files or data structures.
 ---
 
-# objdump Command Skill
+# Objdump
 
-## Purpose
+Display and disassemble object file information
 
-Use `objdump` for disassembly and low-level object inspection across executable formats.
+## Quick Start
 
-## Quick start
+1. Verify `objdump` is available: `objdump --version` or `man objdump`
+2. Establish the command surface: `man objdump` or `objdump --help`
+3. Start with a read-only probe: `objdump file`
 
-```bash
+## Intent Router
 
-objdump --help
+Load only the reference file needed for the active request.
 
-```
+- `references/install-and-setup.md` — Installing objdump on macOS, Linux, Windows
+- `references/cheatsheet.md` — Common options, output formats, usage patterns
+- `references/advanced-usage.md` — Advanced patterns, performance optimization
+- `references/troubleshooting.md` — Common errors, exit codes, platform differences
 
-## Common workflows
+## Core Workflow
 
-1. Disassemble executable code sections
+1. Verify objdump is available: `objdump --version`
+2. Start with safe, read-only operation: `objdump [options] file`
+3. Validate output on test data before processing at scale
+4. Document exact command and flags for reproducibility
 
-```bash
-
-objdump -d ./app | less -S
-
-```
-
-Section-aware disassembly provides address-anchored instruction flow.
-
-1. Inspect headers and section metadata
-
-```bash
-
-objdump -x ./app
-
-```
-
-Header dump is useful for relocation and linkage context.
-
-1. Disassemble with source interleave when debug info exists
+## Quick Command Reference
 
 ```bash
-
-objdump -dS ./app | less -S
-
+objdump --version                       # Check version
+objdump --help                          # Show help
+objdump file                            # Basic usage
+objdump file | head                     # Limit output
+man objdump                             # Full manual
 ```
 
-Source interleave helps map machine code back to source lines.
+## Safety Notes
 
-## Guardrails
+| Area | Guardrail |
+| --- | --- |
+| **Untrusted input** | Validate files from untrusted sources before processing. |
+| **Large files** | May consume memory on large files. Test with smaller samples first. |
+| **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
+| **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
 
-- Disassembly can be very large; always scope output or page it through `less`.
+## Source Policy
 
-- Use architecture-appropriate syntax options (`-M`) when comparing outputs.
+- Treat the installed `objdump` behavior and `man objdump` as runtime truth.
+- Use upstream documentation for semantics.
 
-- Do not treat disassembly labels as authoritative high-level control flow without validation.
+## Resource Index
 
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install objdump on macOS or Linux.
+- `scripts/install.ps1` — Install objdump on Windows or any platform via PowerShell.

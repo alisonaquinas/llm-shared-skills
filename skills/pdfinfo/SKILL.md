@@ -1,66 +1,54 @@
 ---
-name: pdfinfo-command
-description: "Inspect PDF metadata and page characteristics with `pdfinfo`. Use when users ask for page counts, PDF producer metadata, or encryption/permission details."
+name: pdfinfo
+description: Extract metadata from PDF files. Use when the agent needs to extract, analyze, or transform document and file metadata.
 ---
 
-# pdfinfo Command Skill
+# Pdfinfo
 
-## Purpose
+Extract metadata from PDF files
 
-Use `pdfinfo` to quickly report PDF document metadata and structural properties.
+## Quick Start
 
-## Quick start
+1. Verify `pdfinfo` is available: `pdfinfo --version` or `man pdfinfo`
+2. Establish the command surface: `man pdfinfo` or `pdfinfo --help`
+3. Start with a read-only probe: `pdfinfo file`
 
-```bash
+## Intent Router
 
-pdfinfo -h
+- `references/install-and-setup.md` — Installing pdfinfo
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify pdfinfo is available: `pdfinfo --version`
+2. Inspect file: `pdfinfo file`
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Read document-level metadata
-
-```bash
-
-pdfinfo report.pdf
-
-```
-
-Provides title, author, page count, and producer info.
-
-1. Inspect a page range
+## Quick Command Reference
 
 ```bash
-
-pdfinfo -f 1 -l 3 report.pdf
-
+pdfinfo --version                       # Check version
+pdfinfo --help                          # Show help
+pdfinfo file                            # Basic usage
+man pdfinfo                             # Full manual
 ```
 
-Page-range mode helps spot section-specific dimensions/boxes.
+## Safety Notes
 
-1. Display raw date fields
+| Area | Guardrail |
+| --- | --- |
+| **File validation** | Verify files are in expected format. |
+| **Output handling** | Validate output before processing further. |
+| **Large files** | Test with smaller files first. |
 
-```bash
+## Source Policy
 
-pdfinfo -rawdates report.pdf
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Raw dates avoid locale conversion ambiguity.
-
-## Guardrails
-
-- Use `pdfinfo` for metadata only; it does not extract full page text.
-
-- If PDF is encrypted, note permission constraints before further processing.
-
-- Capture page range flags used when reporting partial document properties.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

@@ -1,66 +1,54 @@
 ---
-name: ldd-command
-description: "Inspect dynamic library dependencies with `ldd`. Use when users ask why binaries fail to load shared objects, or need dependency resolution checks."
+name: ldd
+description: List dynamic library dependencies of binaries. Use when the agent needs to search, filter, or transform data efficiently.
 ---
 
-# ldd Command Skill
+# Ldd
 
-## Purpose
+List dynamic library dependencies of binaries
 
-Use `ldd` to enumerate runtime shared-library dependencies and identify missing links.
+## Quick Start
 
-## Quick start
+1. Verify `ldd` is available: `ldd --version` or `man ldd`
+2. Establish the command surface: `man ldd` or `ldd --help`
+3. Start with basic usage: `ldd [options] [input]`
 
-```bash
+## Intent Router
 
-ldd --help
+- `references/install-and-setup.md` — Installing ldd
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify ldd is available: `ldd --version`
+2. Test with sample data first
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. List linked shared libraries
-
-```bash
-
-ldd ./app
-
-```
-
-Baseline output reveals resolved library paths and load addresses.
-
-1. Find missing dependencies quickly
+## Quick Command Reference
 
 ```bash
-
-ldd ./app | rg 'not found'
-
+ldd --version                       # Check version
+ldd --help                          # Show help
+ldd [options] [input]               # Basic usage
+man ldd                             # Full manual
 ```
 
-Filter for unresolved entries to prioritize fixes.
+## Safety Notes
 
-1. Get verbose version/dependency details
+| Area | Guardrail |
+| --- | --- |
+| **Input validation** | Verify input data format before processing. |
+| **Output handling** | Validate output structure. |
+| **Large files** | Test with smaller samples first. |
 
-```bash
+## Source Policy
 
-ldd -v ./app
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Verbose mode can expose versioned symbol requirements.
-
-## Guardrails
-
-- Avoid running `ldd` on untrusted executables in high-risk environments.
-
-- Remember static binaries may not produce useful dependency lists.
-
-- Capture target environment context since linker paths differ by host/container.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

@@ -19,14 +19,14 @@ Designed by Vincent Driessen (2010) for versioned software with discrete release
 ### Two Permanent Branches
 
 | Branch | Purpose | Rule |
-|--------|---------|------|
+| --- | --- | --- |
 | `main` (or `master`) | Production-ready code | Every commit here = a release |
 | `develop` | Integration branch | Latest delivered development changes |
 
 ### Supporting Branches (Temporary)
 
 | Type | Branch from | Merge back to | Naming |
-|------|------------|--------------|--------|
+| --- | --- | --- | --- |
 | Feature | `develop` | `develop` | `feature/*` |
 | Bugfix | `develop` | `develop` | `bugfix/*` |
 | Release | `develop` | `main` + `develop` | `release/*` |
@@ -270,7 +270,7 @@ git push origin main develop --tags
 ## Common git-flow Mistakes
 
 | Mistake | Fix |
-|---------|-----|
+| --- | --- |
 | Forgot to back-merge release into develop | `git switch develop && git merge --no-ff release/x.y.z` |
 | Pushed to main directly | Revert on main, apply to develop properly |
 | Feature branch too long-lived (many conflicts) | Rebase feature onto develop regularly: `git rebase develop` |

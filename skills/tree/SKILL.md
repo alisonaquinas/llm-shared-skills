@@ -1,66 +1,54 @@
 ---
-name: tree-command
-description: "Render directory trees with `tree` for fast structure audits. Use when users ask for hierarchical file overviews, depth-limited snapshots, or ignore-pattern directory reports."
+name: tree
+description: Display directory structure in tree format. Use when the agent needs to search, filter, or transform data efficiently.
 ---
 
-# tree Command Skill
+# Tree
 
-## Purpose
+Display directory structure in tree format
 
-Use `tree` to visualize directory hierarchy with controllable depth, filters, and metadata.
+## Quick Start
 
-## Quick start
+1. Verify `tree` is available: `tree --version` or `man tree`
+2. Establish the command surface: `man tree` or `tree --help`
+3. Start with basic usage: `tree [options] [input]`
 
-```bash
+## Intent Router
 
-tree --help
+- `references/install-and-setup.md` — Installing tree
+- `references/cheatsheet.md` — Common options and patterns
+- `references/advanced-usage.md` — Advanced techniques
+- `references/troubleshooting.md` — Common errors and solutions
 
-```
+## Core Workflow
 
-## Common workflows
+1. Verify tree is available: `tree --version`
+2. Test with sample data first
+3. Validate output before batch processing
+4. Document exact commands for reproducibility
 
-1. Generate a shallow project map
-
-```bash
-
-tree -L 2
-
-```
-
-Depth limiting keeps output readable on large repositories.
-
-1. Show directories only
+## Quick Command Reference
 
 ```bash
-
-tree -d -L 3
-
+tree --version                       # Check version
+tree --help                          # Show help
+tree [options] [input]               # Basic usage
+man tree                             # Full manual
 ```
 
-Useful for architecture overviews without file noise.
+## Safety Notes
 
-1. Exclude build artifacts
+| Area | Guardrail |
+| --- | --- |
+| **Input validation** | Verify input data format before processing. |
+| **Output handling** | Validate output structure. |
+| **Large files** | Test with smaller samples first. |
 
-```bash
+## Source Policy
 
-tree -I 'node_modules|dist|.git'
+- Treat installed behavior and man page as truth.
 
-```
+## Resource Index
 
-Use ignore patterns to focus on source assets.
-
-## Guardrails
-
-- Always bound depth (`-L`) on large trees to avoid excessive output.
-
-- Use `-I` to suppress generated directories that can drown relevant structure.
-
-- Do not treat `tree` output as authoritative permissions/ownership audit data.
-
-## Reproducibility and reporting
-
-- Record the exact command, flags, input paths, and working directory.
-
-- Capture relevant environment details when they affect behavior (OS, tool version, locale, or shell).
-
-- Summarize key output lines and explicitly note filters, truncation, or assumptions.
+- `scripts/install.sh` — Install on macOS or Linux.
+- `scripts/install.ps1` — Install on Windows or any platform.

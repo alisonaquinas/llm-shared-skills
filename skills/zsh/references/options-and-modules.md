@@ -30,7 +30,7 @@ setopt HIST_IGNORE_DUPS  # Ignore duplicate commands in history
 ## Commonly-Used Options
 
 | Option | Effect |
-|---|---|
+| --- | --- |
 | `AUTO_CD` | Type a directory name to `cd` into it |
 | `CORRECT` | Suggest corrections for misspelled commands |
 | `GLOB_DOTS` | Include hidden files (`.`) when globbing |
@@ -51,7 +51,7 @@ setopt HIST_IGNORE_DUPS  # Ignore duplicate commands in history
 ### Side Effects of Common Options
 
 | Option | Caution |
-|---|---|
+| --- | --- |
 | `GLOB_DOTS` | Now `*` includes hidden files; use `setopt GLOB_DOTS` with caution |
 | `NULL_GLOB` | Non-matching globs become empty, not an error; can hide glob mistakes |
 | `EXTENDED_GLOB` | Changes glob syntax; `^`, `~`, `#` now have special meaning |
@@ -94,7 +94,7 @@ zmodload -l zsh/datetime && echo "Loaded" || echo "Not loaded"
 ## Useful Modules
 
 | Module | Purpose |
-|---|---|
+| --- | --- |
 | `zsh/datetime` | Date and time functions (`strftime`, `strptime`) |
 | `zsh/files` | File manipulation functions |
 | `zsh/mathfunc` | Math functions (`sin`, `cos`, `sqrt`, `log`, etc.) |

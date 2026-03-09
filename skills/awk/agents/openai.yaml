@@ -1,4 +1,4 @@
 interface:
-  display_name: "awk Command"
-  short_description: "Safe, reproducible workflows for awk"
-  default_prompt: "Use $awk-command to plan and run reliable awk commands for this task."
+  display_name: "awk"
+  short_description: "Field extraction, filtering, and aggregation on structured text"
+  default_prompt: "Use $awk to extract columns, filter rows, and compute aggregations on text data with proper field separators and pattern matching."

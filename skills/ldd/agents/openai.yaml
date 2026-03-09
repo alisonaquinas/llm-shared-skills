@@ -1,4 +1,4 @@
 interface:
-  display_name: "ldd Command"
-  short_description: "Safe, reproducible workflows for ldd"
-  default_prompt: "Use $ldd-command to plan and run reliable ldd commands for this task."
+  display_name: "ldd"
+  short_description: "List dynamic library dependencies of binaries"
+  default_prompt: "Use $ldd to analyze binary dependencies."
