@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-03-09
+
+### Added
+
+- **Complete agent file coverage** — Added `claude.yaml` to all 13 core and CLI skills that were missing them
+  - Ensures cross-platform compatibility for Claude Code, Codex, and other Claude-based systems
+  - Skills: ag, aws, az, bash, docker, git, glab, markdownlint, powershell, skill-creator, sqlite, zoxide, zsh
+
 ## [1.1.0] - 2026-03-09
 
 ### Added
