@@ -27,6 +27,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 | `powershell` | Codex | PowerShell 7 scripting, remoting, modules, Windows/Linux/macOS |
 | `zsh` | Claude | Zsh interactive shell, completion system, ZLE, globbing, scripting |
 | `git` | Claude | Git workflows, branching, rebasing, LFS, history recovery |
+| `changelog` | Claude | Maintain keepachangelog-format CHANGELOG.md files with structured entries and releases |
 | `skill-creator` | Merged (Claude + Codex)* | Create and update cross-LLM skills |
 | `ag` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
 | `aws` | Codex | AWS CLI auth, profile context, and safe service commands |
