@@ -1,5 +1,27 @@
 # Installation Guide
 
+**Version:** 1.0.0 (see [CHANGELOG.md](CHANGELOG.md) for release details)
+
+## Quick Start: Clone from Release
+
+The easiest way to get started is to clone the repository and link it locally:
+
+### Git Clone (Latest or Specific Version)
+
+```bash
+# Clone the latest version
+git clone https://github.com/alisonaquinas/llm-shared-skills.git
+cd llm-shared-skills
+
+# Or clone a specific version (v1.0.0)
+git clone --branch v1.0.0 https://github.com/alisonaquinas/llm-shared-skills.git
+cd llm-shared-skills
+```
+
+Then follow the appropriate setup below for Claude Code or Codex.
+
+---
+
 ## Claude Code
 
 Claude Code discovers skills via its plugin system. To use this repo as a local plugin:
@@ -31,7 +53,7 @@ If you have a plugin already set up, symlink the `skills/` directories into it:
 ```powershell
 $repo = "C:\Users\aaqui\llm-shared-skills\skills"
 $pluginSkills = "C:\path\to\your\plugin\skills"
-foreach ($skill in "docker","bash","powershell","git","skill-creator") {
+foreach ($skill in "ag-search","aws-cli","az-cli","bash","docker","git","glab-cli","markdownlint-cli2-enforcer","powershell","sqlite-file-workbench","sqlite-file-workbench-advanced","zoxide-navigation","skill-creator") {
     New-Item -ItemType Junction -Path "$pluginSkills\$skill" -Target "$repo\$skill" -Force
 }
 ```
@@ -61,7 +83,7 @@ foreach ($skill in "docker","bash","powershell","git","skill-creator") {
 
 ```bash
 REPO="$HOME/llm-shared-skills/skills"  # adjust path as needed
-for skill in docker bash powershell git skill-creator; do
+for skill in ag-search aws-cli az-cli bash docker git glab-cli markdownlint-cli2-enforcer powershell sqlite-file-workbench sqlite-file-workbench-advanced zoxide-navigation skill-creator; do
     target="$HOME/.codex/skills/$skill"
     if [ -e "$target" ]; then
         echo "Skipping $skill (already exists)"
