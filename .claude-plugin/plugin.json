@@ -1,6 +1,6 @@
 {
   "name": "llm-shared-skills",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cross-compatible LLM skills for Claude Code and Codex: ag, aws, az, bash, docker, git, glab, markdownlint, powershell, sqlite, zoxide, and skill-creator.",
   "author": {
     "name": "Local"

@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-03-09
+
+### Added
+
+- **32 command-line utility skills upgraded to mature quality standard**:
+  - Restructured SKILL.md with 7-section format: Intent Router, Safety Notes table, Quick Command Reference
+  - Added 3 new reference files per skill: install-and-setup, advanced-usage, troubleshooting
+  - Added cross-platform install scripts for all 32 skills (install.sh for Bash, install.ps1 for PowerShell)
+  - Enhanced openai.yaml with tool-specific metadata and descriptions
+  - Tools upgraded: awk, diff, head, sed, tail, 7z, ar, tar, unzip, binwalk, cmp, file, hexdump, nm, objdump, od, readelf, strings, xxd, exiftool, mediainfo, pdfinfo, pdftotext, xmllint, openssl, ssh-client, ssh-keygen, rg, less, ldd, jq, tree
+
+### Changed
+
+- **Skill naming standardization** — Removed unnecessary postfixes for cleaner names:
+  - ag-search → ag
+  - aws-cli → aws
+  - az-cli → az
+  - glab-cli → glab
+  - markdownlint-cli2-enforcer → markdownlint
+  - zoxide-navigation → zoxide
+
+- **SQLite skills consolidation** — Merged two complementary skills into single unified interface:
+  - sqlite-file-workbench + sqlite-file-workbench-advanced → sqlite
+  - Combined 8 reference files covering core workflows through advanced operations (diffing, sync, migrations, integration)
+  - Expanded Intent Router to guide users to appropriate references for their task level
+
+### Fixed
+
+- **Frontmatter violations** — ssh-client and ssh-keygen: removed 6 extra prohibited fields (category, version, requires_git, safety_tier, execution_mode, labels)
+- **Markdown linting** — All 32 upgraded skills pass 100% linting validation (0 errors)
+
+### Technical Details
+
+- All 32 command skills now follow the same architecture as mature skills (bash, powershell, zsh, git, docker)
+- Install scripts validated with bash -n syntax checking
+- 288 total files created/modified for skill upgrades
+- 84 files changed for naming standardization and consolidation
+- Documentation synchronized across README, CHANGELOG, INSTALL, and plugin.json
+
 ## [1.0.1] - 2026-03-09
 
 ### Fixed
