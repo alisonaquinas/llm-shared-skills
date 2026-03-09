@@ -1,0 +1,4 @@
+interface:
+  display_name: "tail Command"
+  short_description: "Safe, reproducible workflows for tail"
+  default_prompt: "Use $tail-command to plan and run reliable tail commands for this task."

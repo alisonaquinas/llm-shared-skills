@@ -1,0 +1,4 @@
+interface:
+  display_name: "od Command"
+  short_description: "Safe, reproducible workflows for od"
+  default_prompt: "Use $od-command to plan and run reliable od commands for this task."

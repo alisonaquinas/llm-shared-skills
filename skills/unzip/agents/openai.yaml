@@ -1,0 +1,4 @@
+interface:
+  display_name: "unzip Command"
+  short_description: "Safe, reproducible workflows for unzip"
+  default_prompt: "Use $unzip-command to plan and run reliable unzip commands for this task."

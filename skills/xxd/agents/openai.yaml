@@ -1,0 +1,4 @@
+interface:
+  display_name: "xxd Command"
+  short_description: "Safe, reproducible workflows for xxd"
+  default_prompt: "Use $xxd-command to plan and run reliable xxd commands for this task."

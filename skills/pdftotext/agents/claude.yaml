@@ -1,0 +1,4 @@
+interface:
+  display_name: "pdftotext Command"
+  short_description: "Safe, reproducible workflows for pdftotext"
+  default_prompt: "Use $pdftotext-command to plan and run reliable pdftotext commands for this task."

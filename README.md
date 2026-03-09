@@ -27,6 +27,38 @@ them loadable by either agent without modification.
 | `sqlite-file-workbench` | Codex | Core SQLite file ops with preflight, queries, and backups |
 | `sqlite-file-workbench-advanced` | Codex | SQLite diff, sync, migration validation, and smoke tests |
 | `zoxide-navigation` | Codex | Fast directory jumps with zoxide |
+| `7z` | vibe-coding | 7z archive creation, extraction, listing, and compression |
+| `ar` | vibe-coding | Static library (`.a`) inspection, member extraction, and manipulation |
+| `awk` | vibe-coding | Text processing with field extraction, pattern matching, and filtering |
+| `binwalk` | vibe-coding | Binary firmware analysis, file signatures, and embedded data extraction |
+| `cmp` | vibe-coding | Byte-by-byte file comparison and binary difference detection |
+| `diff` | vibe-coding | Text file comparison, unified diffs, and line-by-line changes |
+| `exiftool` | vibe-coding | EXIF/metadata extraction from images, videos, and documents |
+| `file` | vibe-coding | File type detection using magic numbers and content analysis |
+| `head` | vibe-coding | Display first lines of files for quick previews and header inspection |
+| `hexdump` | vibe-coding | Hex dump generation, byte visualization, and binary data inspection |
+| `jq` | vibe-coding | JSON querying, filtering, transformation, and pretty-printing |
+| `ldd` | vibe-coding | Dynamic library dependency analysis for ELF binaries |
+| `less` | vibe-coding | Interactive paging, search, and navigation of large text files |
+| `mediainfo` | vibe-coding | Audio/video metadata extraction and multimedia file analysis |
+| `nm` | vibe-coding | Symbol table inspection from object files and binaries |
+| `objdump` | vibe-coding | Disassembly, section analysis, and low-level binary inspection |
+| `od` | vibe-coding | Octal/hex dumps with custom formatting for binary analysis |
+| `openssl` | vibe-coding | Cryptography, SSL/TLS, certificate generation, and data hashing |
+| `pdfinfo` | vibe-coding | PDF metadata extraction and document property inspection |
+| `pdftotext` | vibe-coding | PDF text extraction and conversion to plain text |
+| `readelf` | vibe-coding | ELF binary analysis, headers, sections, symbols, and relocations |
+| `rg` | vibe-coding | Fast ripgrep-based search with regex, file filtering, and counting |
+| `sed` | vibe-coding | Stream editing with regex substitution, filtering, and transformations |
+| `ssh-client` | vibe-coding | SSH connections, remote command execution, and secure tunneling |
+| `ssh-keygen` | vibe-coding | SSH key generation, conversion, and management |
+| `strings` | vibe-coding | Printable string extraction from binary files for analysis |
+| `tail` | vibe-coding | Display last lines of files with real-time monitoring (`-f`) |
+| `tar` | vibe-coding | Tape archive creation, extraction, and multi-format support |
+| `tree` | vibe-coding | Directory tree visualization with filtering and depth control |
+| `unzip` | vibe-coding | ZIP archive extraction and listing with encryption support |
+| `xmllint` | vibe-coding | XML validation, formatting, and XPath query processing |
+| `xxd` | vibe-coding | Hex dump and binary reverse engineering with custom formatting |
 
 **\* About skill-creator:** This skill is built from the combined interfaces of Claude Code and
 Codex tools—it's a synthesis of both platforms' capabilities. We make no claim to ownership or

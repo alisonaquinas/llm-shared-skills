@@ -1,0 +1,4 @@
+interface:
+  display_name: "mediainfo Command"
+  short_description: "Safe, reproducible workflows for mediainfo"
+  default_prompt: "Use $mediainfo-command to plan and run reliable mediainfo commands for this task."

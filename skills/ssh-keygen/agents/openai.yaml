@@ -1,0 +1,4 @@
+interface:
+  display_name: "ssh-keygen Command"
+  short_description: "Generate and import SSH keys with safe permissions"
+  default_prompt: "Use $ssh-keygen-command to generate or import SSH keys, verify fingerprints, and enforce secure file modes."

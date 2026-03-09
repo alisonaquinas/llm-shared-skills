@@ -1,0 +1,4 @@
+interface:
+  display_name: "ldd Command"
+  short_description: "Safe, reproducible workflows for ldd"
+  default_prompt: "Use $ldd-command to plan and run reliable ldd commands for this task."

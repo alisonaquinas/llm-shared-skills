@@ -1,0 +1,4 @@
+interface:
+  display_name: "nm Command"
+  short_description: "Safe, reproducible workflows for nm"
+  default_prompt: "Use $nm-command to plan and run reliable nm commands for this task."

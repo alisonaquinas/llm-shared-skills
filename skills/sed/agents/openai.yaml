@@ -1,0 +1,4 @@
+interface:
+  display_name: "sed Command"
+  short_description: "Safe, reproducible workflows for sed"
+  default_prompt: "Use $sed-command to plan and run reliable sed commands for this task."

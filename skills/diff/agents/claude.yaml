@@ -1,0 +1,4 @@
+interface:
+  display_name: "diff Command"
+  short_description: "Safe, reproducible workflows for diff"
+  default_prompt: "Use $diff-command to plan and run reliable diff commands for this task."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "less Command"
+  short_description: "Safe, reproducible workflows for less"
+  default_prompt: "Use $less-command to plan and run reliable less commands for this task."

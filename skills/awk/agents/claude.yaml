@@ -1,0 +1,4 @@
+interface:
+  display_name: "awk Command"
+  short_description: "Safe, reproducible workflows for awk"
+  default_prompt: "Use $awk-command to plan and run reliable awk commands for this task."

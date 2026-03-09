@@ -1,0 +1,4 @@
+interface:
+  display_name: "xmllint Command"
+  short_description: "Safe, reproducible workflows for xmllint"
+  default_prompt: "Use $xmllint-command to plan and run reliable xmllint commands for this task."
