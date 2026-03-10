@@ -9,7 +9,7 @@ them loadable by either agent without modification.
 > it's a living collection that may benefit from human review before production use.
 > The install scripts and references have been tested, but your feedback is welcome! 🚀
 
-## What's New in v1.3.0
+## What's New in v1.4.0
 
 - **Comprehensive skill linting and validation system** — Automated quality assurance for all skills
   - **12-rule linting** (`linting/`) — Structural correctness checks: frontmatter, file structure, YAML syntax, markdown linting, platform compatibility
