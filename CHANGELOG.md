@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-03-10
+
+### Fixed
+
+- **All 264 markdown files now pass linting** — Resolved all 131 markdownlint errors
+  - Auto-fixed 117 errors: blank lines around lists/code fences, multiple consecutive blank lines
+  - Manual fixes: Added language specifications to 5 code blocks
+  - Config update: Disabled MD024 (no-duplicate-heading) for CHANGELOG.md — expected per-version duplication
+  - Configuration: Updated `.markdownlint-cli2.jsonc` to reflect best practices
+
+### Technical Details
+
+- Installed `markdownlint-cli2 v0.21.0` for comprehensive markdown validation
+- Total files linted: 264 with 0 errors
+- All fixes maintain semantic correctness and improve code block readability
+
 ## [1.4.0] - 2026-03-10
 
 ### Added

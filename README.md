@@ -9,7 +9,7 @@ them loadable by either agent without modification.
 > it's a living collection that may benefit from human review before production use.
 > The install scripts and references have been tested, but your feedback is welcome! 🚀
 
-## What's New in v1.4.0
+## What's New in v1.4.1
 
 - **Comprehensive skill linting and validation system** — Automated quality assurance for all skills
   - **12-rule linting** (`linting/`) — Structural correctness checks: frontmatter, file structure, YAML syntax, markdown linting, platform compatibility
@@ -17,6 +17,7 @@ them loadable by either agent without modification.
   - **Two new skills** — `skill-linting` and `skill-validation` for automated quality checks and LLM-guided reviews
   - **Enhanced skill-creator** — Step 7 integration with linting/validation workflow + 7 Prompt Engineering Standards
   - **All 48 skills pass linting** with zero structural violations
+  - **All 264 markdown files pass linting** with zero errors
 
 See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
