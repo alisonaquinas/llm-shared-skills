@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integrated with v1.4.1 linting and validation system
 - All 45 skills pass structural linting with zero violations
 - All 269 markdown files pass linting with zero errors
+
 ## [1.4.1] - 2026-03-10
 
 ### Fixed
@@ -97,8 +98,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integration ready: Pre-commit hook instructions in AGENTS.md
 - 24 files modified/created for this release
 
-<<<<<<< HEAD
-=======
 ## [1.2.0] - 2026-03-09
 
 ### Added

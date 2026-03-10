@@ -12,7 +12,9 @@
         "no-trailing-punctuation": false,
         "no-inline-html": false,
         "table-column-style": false,
-        "no-duplicate-heading": false
+        "no-duplicate-heading": false,
+        // Makefile recipe examples require hard tabs inside code blocks
+        "no-hard-tabs": { "code_blocks": false }
     },
     "overrides": [
         {

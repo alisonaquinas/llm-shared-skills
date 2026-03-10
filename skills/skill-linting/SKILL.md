@@ -49,7 +49,7 @@ Exits 0 if all skills pass; 1 if any skill has failures.
 | L06 | Body line count | WARN/≥450, FAIL/≥500 | Under 500 lines |
 | L07 | No dangling references | FAIL | All mentioned `references/*.md` exist |
 | L08 | Script syntax | FAIL | All `scripts/*.sh` pass `bash -n` |
-| L09 | No platform language | FAIL | No "Claude Code" or "Codex" in prose |
+| L09 | No platform language | FAIL | No platform-specific agent names in prose |
 | L10 | No forbidden files | FAIL | No README.md, CHANGELOG.md, etc. |
 | L11 | No second-person | WARN | No "You should", "You can", etc. |
 | L12 | Markdownlint | FAIL | Pass markdownlint-cli2 checks |
@@ -69,7 +69,7 @@ Fix in this order:
 5. **L05 (short_description)** — Truncate descriptions >64 chars; expand <25 chars
 6. **L07 (Dangling references)** — Create missing reference files or remove mentions
 7. **L08 (Script syntax)** — Fix bash syntax errors in `scripts/*.sh`
-8. **L09 (Platform language)** — Replace "Claude Code"/"Codex" with "the agent"
+8. **L09 (Platform language)** — Replace platform-specific agent names with "the agent"
 9. **L10 (Forbidden files)** — Delete README.md, CHANGELOG.md, etc.
 10. **L12 (Markdownlint)** — Run `markdownlint-cli2 --fix "skills/<name>/**/*.md"`
 

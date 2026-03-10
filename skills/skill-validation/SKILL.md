@@ -91,15 +91,15 @@ the user wants to rebase onto main, create feature branches, or recover lost com
 
 ```markdown
 ## Intent Router
-- `references/aws.md` — AWS deployment patterns
-- `references/gcp.md` — GCP deployment patterns
+- `refs/aws.md` — AWS deployment patterns
+- `refs/gcp.md` — GCP deployment patterns
 ```
 
 → Fix: Add Intent Router section; list all reference files with load conditions.
 
 ### V03: Workflows Only in References
 
-**FAIL example:** SKILL.md is mostly "see references/workflows.md" with no examples.
+**FAIL example:** SKILL.md is mostly "see the workflows reference" with no examples.
 
 **PASS example:** SKILL.md has quick examples inline; references provide depth for
 advanced scenarios.

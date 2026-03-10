@@ -2,10 +2,9 @@
 name: skill-creator
 description: >
   Guide for creating, updating, and improving skills that extend LLM agent capabilities
-  (compatible with both Claude Code and Codex). Use when the user wants to create a new
-  skill from scratch, update or optimize an existing skill, write a SKILL.md, improve a
-  skill description, understand skill structure and progressive disclosure, or make a skill
-  work across both Claude Code and Codex.
+  across platforms. Use when the user wants to create a new skill from scratch, update or
+  optimize an existing skill, write a SKILL.md, improve a skill description, understand
+  skill structure and progressive disclosure, or make a skill work across multiple agents.
 ---
 
 # Skill Creator
@@ -77,8 +76,8 @@ The description is how the agent decides whether to use the skill. Include:
 - Specific triggers / keywords / user phrases
 - Concrete scenarios
 
-**Claude Code:** Use third-person — "This skill should be used when the user wants to..."
-**Codex:** Either first or third person works; specificity matters most.
+**Claude agents:** Use third-person — "This skill should be used when the user wants to..."
+**OpenAI agents:** Either first or third person works; specificity matters most.
 
 ### Body
 
@@ -89,20 +88,20 @@ Do not include "When to Use This Skill" sections in the body — that content be
 
 ## Platform Compatibility
 
-Both Claude Code and Codex use the same SKILL.md format. The differences are additive:
+Both Claude-based and OpenAI-based agents use the same SKILL.md format. The differences are additive:
 
-| Feature | Claude Code | Codex |
+| Feature | Claude | OpenAI |
 | --- | --- | --- |
 | Core format | `SKILL.md` with YAML frontmatter | Same |
 | UI metadata | Not required | `agents/openai.yaml` |
 | Plugin registration | `.claude-plugin/plugin.json` at plugin root | Not applicable |
-| Skill discovery | Via plugin `skills/` directory | Via `~/.codex/skills/` directory |
+| Skill discovery | Via plugin `skills/` directory | Via the OpenAI skills directory |
 | Additional plugin dirs | `commands/`, `agents/`, `hooks/` | Not applicable |
 | System skills | Not applicable | `.system/` prefix (protected) |
 
-**For cross-compatible skills:** Include `agents/openai.yaml` and ensure SKILL.md works for both. The `agents/openai.yaml` is silently ignored by Claude Code.
+**For cross-compatible skills:** Include `agents/openai.yaml` and ensure SKILL.md works for both. The `agents/openai.yaml` is silently ignored by Claude-based agents.
 
-### agents/openai.yaml (Codex UI metadata)
+### agents/openai.yaml (OpenAI agent metadata)
 
 ```yaml
 interface:
@@ -113,7 +112,7 @@ interface:
 
 Optional fields: `icon_small`, `icon_large`, `brand_color`. See `references/skill-format.md`.
 
-### Claude Code Plugin Structure (when publishing as Claude plugin)
+### Claude Plugin Structure (when publishing as a Claude plugin)
 
 ```text
 my-plugin/
@@ -177,7 +176,7 @@ Check:
 
 - [ ] YAML frontmatter is valid (`name` and `description` present, no extra fields)
 - [ ] `agents/openai.yaml` exists and has `display_name`, `short_description`, `default_prompt`
-- [ ] No "Codex" or "Claude" platform-specific language in the body (use "the agent")
+- [ ] No platform-specific agent names in the body (use "the agent")
 - [ ] Body is under 500 lines
 - [ ] All referenced files in Intent Router actually exist
 - [ ] Destructive operations have explicit guardrails
@@ -226,7 +225,7 @@ directly support the agent's execution of the skill.
 
 ### 1. Platform-Specific Language
 
-❌ **Bad:** "In Claude Code, use this syntax..." or "Codex does X differently"
+❌ **Bad:** Platform-specific language like "in this agent, use this syntax" or "this agent does X differently"
 ✅ **Good:** Use "the agent" or omit platform references entirely
 
 ### 2. Absolute Paths in Scripts

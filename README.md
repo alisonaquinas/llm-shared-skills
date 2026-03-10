@@ -12,6 +12,7 @@ them loadable by either agent without modification.
 ## What's New
 
 **New in v1.4.2:**
+
 - **yq skill** — Process YAML, XML, and TOML with jq-like filtering syntax
   - 4 references: install-and-setup, quick-reference, usage-patterns, examples-and-recipes
   - Supports format conversion, filtering, in-place editing, and roundtrip mode
@@ -21,6 +22,7 @@ them loadable by either agent without modification.
   - llm-shared-skills now focuses on general-purpose system utilities (45 skills)
 
 **From v1.4.1:**
+
 - **Comprehensive skill linting and validation system** — Automated quality assurance for all skills
   - **12-rule linting** (`linting/`) — Structural correctness checks: frontmatter, file structure, YAML syntax, markdown linting, platform compatibility
   - **8-criterion validation** (`validation/`) — LLM-guided quality scoring: description effectiveness, intent routing, example quality, safety coverage, prompt engineering alignment

@@ -6,8 +6,8 @@
 # Helper: emit a result with ID and severity
 _emit() {
   local severity=$1 id=$2 msg=$3
-  eval "RESULT_${id}='${severity}'"
-  eval "MSG_${id}='${msg}'"
+  printf -v "RESULT_${id}" '%s' "${severity}"
+  printf -v "MSG_${id}" '%s' "${msg}"
 }
 
 # Helper: strip YAML frontmatter from file (lines after line 3 until end)
