@@ -18,11 +18,22 @@ format — that extend LLM agent capabilities. Skills work identically in both
 ```text
 llm-shared-skills/
 ├── .claude-plugin/plugin.json   # Claude Code plugin registration (ignored by Codex)
+├── linting/                     # Skill linting system (12 automated checks)
+│   ├── lib/
+│   │   └── checks.sh            # Check functions library
+│   ├── lint-skill.sh            # Lint one skill directory
+│   ├── lint-all.sh              # Lint all skills
+│   └── rules.md                 # Rule specifications and override mechanism
+├── validation/                  # Skill quality validation (8-criterion rubric)
+│   ├── validate-skill.sh        # Automated pre-flight context generator
+│   ├── rubric.md                # LLM scoring rubric
+│   └── public-references.md     # Anthropic/OpenAI/academic standards
 ├── skills/                      # One subdirectory per skill
 │   └── <skill-name>/
 │       ├── SKILL.md             # Required: frontmatter + instructions
 │       ├── agents/
-│       │   └── openai.yaml      # Codex UI metadata (ignored by Claude Code)
+│       │   ├── openai.yaml      # Codex UI metadata (ignored by Claude Code)
+│       │   └── claude.yaml      # Claude Code UI metadata (ignored by Codex)
 │       ├── references/          # Deep docs, loaded on demand
 │       ├── scripts/             # Executable helpers
 │       └── assets/              # Templates and output files
@@ -94,15 +105,40 @@ Remove the entire `skills/<name>/` directory and delete its row from the `README
 
 ---
 
+## Linting and Validation
+
+Before committing any new or modified skill, run:
+
+```bash
+bash linting/lint-skill.sh skills/<name>
+```
+
+All FAIL items must be resolved before committing. WARN items should be addressed.
+To lint all skills: `bash linting/lint-all.sh`
+
+For qualitative validation of skill effectiveness:
+
+```bash
+bash validation/validate-skill.sh skills/<name>
+```
+
+Then load `validation/rubric.md` and score each criterion using the `skill-validation` skill.
+
+Reference files:
+- `linting/rules.md` — full rule specifications
+- `validation/rubric.md` — 8-criterion scoring rubric
+- `validation/public-references.md` — public documentation standards
+
+---
+
 ## Commit Conventions
 
 - Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`
 - Scope to the skill name when relevant: `feat(docker): add cloud-and-remote reference`
 - Do not amend published commits — create new ones.
-- Do not commit without running a quick sanity check:
-  - Each modified skill still has valid YAML frontmatter
-  - `agents/openai.yaml` exists and is valid YAML
-  - No platform-specific language leaked into SKILL.md body
+- Do not commit without running linting:
+  - All L01–L12 FAILs must be resolved (see `bash linting/lint-skill.sh skills/<name>`)
+  - No platform-specific language leaked into SKILL.md body (L09 check)
 
 ---
 

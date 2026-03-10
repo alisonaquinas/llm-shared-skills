@@ -30,6 +30,8 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 | `git` | Claude | Git workflows, branching, rebasing, LFS, history recovery |
 | `changelog` | Claude | Maintain keepachangelog-format CHANGELOG.md files with structured entries and releases |
 | `skill-creator` | Merged (Claude + Codex)* | Create and update cross-LLM skills |
+| `skill-linting` | Claude | Lint skills for structural correctness and rule compliance |
+| `skill-validation` | Claude | Validate skill quality, effectiveness, and prompt engineering alignment |
 | `ag` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
 | `aws` | Codex | AWS CLI auth, profile context, and safe service commands |
 | `az` | Codex | Azure CLI auth, subscription context, and safe ARM commands |

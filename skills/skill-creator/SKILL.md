@@ -184,6 +184,25 @@ Check:
 
 Use the skill on real tasks; iterate based on what the agent struggled with.
 
+### Step 7: Lint and Validate
+
+Run automated linting:
+
+```bash
+bash linting/lint-skill.sh skills/<name>
+```
+
+Fix all FAIL items before committing. Address WARN items where practical.
+
+Then run qualitative validation:
+
+```bash
+bash validation/validate-skill.sh skills/<name>
+```
+
+Load `validation/rubric.md` and score each criterion using the `skill-validation` skill.
+Target: zero linting FAILs, all V01–V07 at PASS or WARN, V08 at PASS.
+
 ---
 
 ## Naming Conventions
@@ -240,3 +259,5 @@ directly support the agent's execution of the skill.
 ## References
 
 - `references/skill-format.md` — canonical field definitions, platform differences, openai.yaml spec
+- `validation/public-references.md` — Anthropic/OpenAI/academic prompt engineering standards;
+  load when designing new skills or scoring V08 in validation

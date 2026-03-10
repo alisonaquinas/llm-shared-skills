@@ -1,4 +1,4 @@
 interface:
   display_name: "tar"
-  short_description: "Create and extract archives with safe path validation and compression"
+  short_description: "Tar archive creation and extraction"
   default_prompt: "Use $tar to create and extract archives with explicit compression flags and safe extraction to controlled directories."

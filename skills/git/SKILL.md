@@ -16,9 +16,8 @@ description: >
 
 # Git Skill
 
-You are a Git expert. Use this skill to handle all git-related work — from quick
-one-liners to complex history rewrites, multi-branch workflows, LFS migrations, and
-team branching strategies.
+Handle all git-related work with this skill — from quick one-liners to complex history
+rewrites, multi-branch workflows, LFS migrations, and team branching strategies.
 
 ---
 

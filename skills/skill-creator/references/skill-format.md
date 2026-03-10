@@ -140,3 +140,85 @@ For tracked changes: see references/redlining.md
 - Keep references one level deep from SKILL.md
 - For reference files >100 lines, include a table of contents at the top
 - Never duplicate information across SKILL.md and a reference file; choose one location
+
+---
+
+## Prompt Engineering Standards
+
+Apply these 7 principles when writing any new skill. They reflect standards from
+Anthropic, OpenAI, and academic research on effective LLM prompting.
+
+### 1. Specificity over Generality
+
+Write concrete, specific instructions instead of vague ones.
+
+- ✓ "Run `git diff --staged` to see what's in the index"
+- ✗ "Check what's staged"
+
+Use exact command-line syntax, flags, and expected output format.
+
+### 2. Concrete, Diverse Examples
+
+Provide 2–3 realistic, runnable examples per major workflow. Cover happy path,
+gotchas, and error recovery.
+
+- Example 1: common case
+- Example 2: edge case or gotcha
+- Example 3: error recovery
+
+Examples should be copy-paste-ready.
+
+### 3. Step-by-Step Numbered Workflows
+
+Use ordered lists (1, 2, 3) for multi-step procedures. Each step is atomic and verifiable.
+
+```markdown
+1. Fetch the latest: `git fetch origin main`
+2. Start rebase: `git rebase -i origin/main`
+3. Verify: `git log origin/main..HEAD` (should show your commits)
+```
+
+### 4. Verification Steps After Actions
+
+Always include a step to verify success after each action.
+
+```markdown
+1. Create the file: `touch my-file.txt`
+2. Verify: `ls -la my-file.txt` (should list the file)
+```
+
+### 5. Explicit Failure Modes
+
+Document common errors and how to recover.
+
+```markdown
+If you get "Permission denied":
+1. Check permissions: `ls -la <path>`
+2. Add write permission: `chmod u+w <path>`
+3. Retry the operation
+```
+
+### 6. Single Responsibility
+
+Define what the skill covers and what it does NOT cover.
+
+```markdown
+This skill covers: creating branches, rebasing, undoing commits
+This skill does NOT cover: GitHub PR workflows (see `gh` skill)
+```
+
+### 7. Specify Output Format
+
+Always specify what output the agent should expect or produce.
+
+```markdown
+The command outputs status like:
+  On branch main
+  Your branch is ahead by 3 commits
+
+Parse this to extract branch name and commit count.
+```
+
+---
+
+See `validation/public-references.md` for full academic references and integration checklist.

@@ -1,4 +1,4 @@
 interface:
   display_name: "7z"
-  short_description: "High-compression archive creation with encryption and solid archive support"
+  short_description: "7z archive creation and extraction with encryption"
   default_prompt: "Use $7z to create and extract 7z archives with maximum compression, encryption, and safe path validation."
