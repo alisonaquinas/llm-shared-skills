@@ -1,6 +1,6 @@
 # Installation Guide
 
-**Version:** 1.1.1 (see [CHANGELOG.md](CHANGELOG.md) for release details)
+**Version:** 1.3.0 (see [CHANGELOG.md](CHANGELOG.md) for release details)
 
 ## Quick Start: Clone from Release
 
@@ -97,6 +97,38 @@ done
 ### Verify
 
 After linking, confirm Codex sees the skills by running `/skills` in the Codex TUI.
+
+---
+
+## Quality Assurance: Linting and Validation
+
+This repo includes automated tools for ensuring skill quality:
+
+### Linting (Structural Checks)
+
+Run automated structural validation on skills:
+
+```bash
+# Lint a single skill
+bash linting/lint-skill.sh skills/git
+
+# Lint all skills
+bash linting/lint-all.sh
+```
+
+**12 checks** validate: frontmatter, file structure, YAML syntax, required files, name format, character limits, markdown linting, and platform compatibility. See `linting/rules.md` for full specifications.
+
+### Validation (Quality Scoring)
+
+Generate structured context for LLM-guided quality review:
+
+```bash
+bash validation/validate-skill.sh skills/git
+```
+
+Load `validation/rubric.md` and score 8 criteria: description effectiveness, intent routing, example quality, safety coverage, and alignment with prompt engineering standards.
+
+See `validation/public-references.md` for academic and industry best practices.
 
 ---
 

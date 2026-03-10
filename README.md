@@ -9,13 +9,14 @@ them loadable by either agent without modification.
 > it's a living collection that may benefit from human review before production use.
 > The install scripts and references have been tested, but your feedback is welcome! 🚀
 
-## What's New in v1.2.0
+## What's New in v1.3.0
 
-- **New `changelog` skill** — Maintain CHANGELOG.md files in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format with structured entries, release workflows, and semantic versioning
-  - 4 comprehensive reference files: format specification, setup guides, CI/CD automation, troubleshooting
-  - Cross-platform install scripts for optional git-cliff integration
-  - Safety guardrails to prevent vague entries and enforce consistency
-  - Support for both manual curation and automated changelog generation
+- **Comprehensive skill linting and validation system** — Automated quality assurance for all skills
+  - **12-rule linting** (`linting/`) — Structural correctness checks: frontmatter, file structure, YAML syntax, markdown linting, platform compatibility
+  - **8-criterion validation** (`validation/`) — LLM-guided quality scoring: description effectiveness, intent routing, example quality, safety coverage, prompt engineering alignment
+  - **Two new skills** — `skill-linting` and `skill-validation` for automated quality checks and LLM-guided reviews
+  - **Enhanced skill-creator** — Step 7 integration with linting/validation workflow + 7 Prompt Engineering Standards
+  - **All 48 skills pass linting** with zero structural violations
 
 See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 

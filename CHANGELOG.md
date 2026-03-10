@@ -7,6 +7,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-03-10
+
+### Added
+
+- **Comprehensive skill linting and validation system** — Automated quality gates for all skills
+  - **Linting system** (`linting/`) with 12 automated checks (L01–L12):
+    - Frontmatter validation, file structure, YAML field requirements, name format validation
+    - Required file presence (SKILL.md, agents/openai.yaml, agents/claude.yaml)
+    - Character limits, syntax validation, dangling reference detection
+    - Platform language detection, forbidden file detection, markdown linting
+  - **Validation system** (`validation/`) with 8-criterion LLM scoring rubric (V01–V08):
+    - Description effectiveness, intent router completeness, quick reference coverage
+    - Safety documentation, example quality, reference depth, LLM usability
+    - Alignment with Anthropic/OpenAI/academic prompt engineering standards
+  - **Two new agent-facing skills**:
+    - `skill-linting` — Lint skills for structural correctness
+    - `skill-validation` — Validate skill quality and effectiveness
+  - **Enhanced skill-creator** — Integrated Step 7 (Lint and Validate) workflow
+  - **Prompt Engineering Standards** — 7 principles added to skill-creator reference
+
+- **Documentation updates**:
+  - AGENTS.md: Added "Linting and Validation" section with command references
+  - README.md: Updated "What's New" for v1.3.0 features
+  - INSTALL.md: Added Quality Assurance section with linting and validation instructions
+  - New files: `linting/rules.md`, `validation/rubric.md`, `validation/public-references.md`
+
+### Fixed
+
+- **6 known violations resolved**:
+  - `sqlite`: short_description reduced from 86 to 54 characters (both openai.yaml and claude.yaml)
+  - `7z`: short_description reduced from 75 to 43 characters
+  - `unzip`: short_description reduced from 71 to 38 characters
+  - `tar`: short_description reduced from 69 to 34 characters
+  - `openssl`: short_description reduced from 65 to 54 characters
+  - `git`: Removed second-person language ("You are a Git expert" → imperative form)
+
+- **All 48 skills now pass linting** with zero FAIL conditions (L01–L12 checks)
+
+### Technical Details
+
+- Linting system: 4 files, 12 portable shell check functions
+- Validation system: 3 files, 8-criterion rubric with LLM guidance
+- Cross-platform compatibility: All scripts tested on macOS and Linux
+- Integration ready: Pre-commit hook instructions in AGENTS.md
+- 24 files modified/created for this release
+
 ## [1.2.0] - 2026-03-09
 
 ### Added
