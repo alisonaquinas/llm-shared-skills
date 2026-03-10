@@ -88,6 +88,7 @@ the user wants to rebase onto main, create feature branches, or recover lost com
 **FAIL example:** No Intent Router section; references mentioned inline only.
 
 **PASS example:**
+
 ```markdown
 ## Intent Router
 - `references/aws.md` — AWS deployment patterns
@@ -110,6 +111,7 @@ advanced scenarios.
 **FAIL example:** `git push --force` mentioned without warning or alternatives.
 
 **PASS example:**
+
 ```markdown
 Use `git push --force-with-lease` instead of `--force`.
 This is safer because it aborts if someone pushed while you were rebasing.
@@ -122,6 +124,7 @@ This is safer because it aborts if someone pushed while you were rebasing.
 **FAIL example:** "To rebase, use the rebase command."
 
 **PASS example:**
+
 ```bash
 git rebase -i origin/main  # editor opens; reorder commits
 # After editing, git push origin <branch> --force-with-lease

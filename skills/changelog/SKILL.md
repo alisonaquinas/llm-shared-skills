@@ -56,7 +56,6 @@ All entries go under `[Unreleased]`, under the appropriate type heading:
 
 **Entry types** (from most to least common):
 
-
 - **Added** — new features, new dependencies
 - **Changed** — behavior changes, improvements to existing features
 - **Deprecated** — features marked for removal in a future version
@@ -110,7 +109,6 @@ git-cliff --tag v1.2.3 --output CHANGELOG.md  # cut a release
 head -20 CHANGELOG.md && tail -10 CHANGELOG.md
 ```
 
-
 ---
 
 ## Safety Notes
@@ -124,7 +122,6 @@ head -20 CHANGELOG.md && tail -10 CHANGELOG.md
 | **Ensure compare links point to real diffs** | Broken links confuse users | Double-check GitHub/GitLab compare URLs before committing |
 | **Categorize correctly** | A vague "Fixed: stuff" wastes reader time | Load the cheatsheet and check entry-type definitions |
 
-
 ---
 
 ## Source Policy
@@ -134,7 +131,6 @@ The canonical references are:
 - [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) — format, entry types, versioning
 - [Semantic Versioning](https://semver.org/) — version semantics (MAJOR.MINOR.PATCH rules)
 - **git-cliff** (optional) — automated changelog generation from commit messages
-
 
 ---
 
@@ -148,5 +144,3 @@ The canonical references are:
 | `scripts/install.ps1` | Check or install git-cliff (optional) | PowerShell (Windows, macOS, Linux) |
 
 Both scripts are optional helpers. The skill works without any tools installed.
-
-

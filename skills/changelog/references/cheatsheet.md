@@ -230,7 +230,6 @@ At the bottom of the file, link each version to the diff on GitHub/GitLab:
 
 ❌ **Bad:**
 
-
 ```markdown
 ### Fixed
 - Fixed bugs
@@ -248,7 +247,6 @@ At the bottom of the file, link each version to the diff on GitHub/GitLab:
 
 ### One Entry Per Line
 
-
 ❌ **Bad:**
 
 ```markdown
@@ -264,7 +262,6 @@ At the bottom of the file, link each version to the diff on GitHub/GitLab:
 ```
 
 ### Group Related Changes
-
 
 ❌ **Bad:**
 
@@ -311,5 +308,3 @@ At the bottom of the file, link each version to the diff on GitHub/GitLab:
 - [ ] No vague entries ("fixed bugs", "updated stuff")
 - [ ] Old versions are kept, not deleted
 - [ ] No git log messages copied as entries
-
-

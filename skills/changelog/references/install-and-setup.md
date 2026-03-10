@@ -20,7 +20,6 @@ The changelog skill works entirely without external tools. Simply:
 into structured entries. This is optional and most useful in projects with consistent
 commit conventions.
 
-
 ### Install on macOS
 
 ```bash
@@ -30,7 +29,6 @@ brew install git-cliff
 # Verify
 git-cliff --version
 ```
-
 
 ### Install on Linux
 
@@ -75,7 +73,6 @@ sudo mv git-cliff /usr/local/bin/
 git-cliff --version
 ```
 
-
 ### Install on Windows
 
 **Using winget:**
@@ -113,7 +110,6 @@ npx keep-a-changelog validate
 
 ## Basic git-cliff Workflow
 
-
 ### Generate a Changelog
 
 ```bash
@@ -130,7 +126,6 @@ git-cliff --tag v1.2.3 >> CHANGELOG.md
 ```
 
 Appends a new release section for tag `v1.2.3`.
-
 
 ### Use a Config File
 
@@ -190,7 +185,6 @@ git-cliff --config cliff.toml
 
 ## When to Use git-cliff
 
-
 **Use git-cliff if:**
 
 - Your project uses conventional commits (`feat:`, `fix:`, etc.)
@@ -210,5 +204,3 @@ git-cliff --config cliff.toml
 - Read `cheatsheet.md` for the full format specification
 - See `advanced-usage.md` for CI/CD integration
 - Check `troubleshooting.md` for common issues
-
-

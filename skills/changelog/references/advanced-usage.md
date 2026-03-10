@@ -6,7 +6,6 @@
 
 ### Release Script (Bash)
 
-
 ```bash
 #!/bin/bash
 set -e
@@ -59,7 +58,6 @@ echo "   Next: git push && git push --tags"
 ```bash
 bash release.sh 1.2.3
 ```
-
 
 ### Release Script (PowerShell)
 
@@ -134,7 +132,6 @@ Write-Host "   Next: git push && git push --tags"
 ---
 
 ## CI/CD Integration
-
 
 ### GitHub Actions
 
@@ -219,7 +216,6 @@ my-monorepo/
 │       └── CHANGELOG.md
 ```
 
-
 ### Root Changelog Structure
 
 ```markdown
@@ -302,7 +298,6 @@ awk "/^## \[$VERSION\]/,/^## \[/" CHANGELOG.md | head -n -1
 
 Or in PowerShell:
 
-
 ```powershell
 param([string]$Version)
 $pattern = "^## \[$Version\]"
@@ -315,7 +310,6 @@ $content[$start..($end-1)]
 ---
 
 ## Linting Changelog in Pre-commit Hook
-
 
 Create `.git/hooks/pre-commit`:
 
@@ -367,5 +361,3 @@ awk "/^## \[$VERSION\]/,/^## \[/" CHANGELOG.md |
 
 echo "Generated release-$VERSION.md"
 ```
-
-

@@ -12,10 +12,12 @@ LLM skill design and prompt engineering.
 Write concrete, specific instructions. Generic instructions lead to vague outputs.
 
 **Principle:**
+
 - ✓ "Run `git diff --staged` to see what's in the index"
 - ✗ "Check what's staged" (too vague)
 
 **Application to skills:**
+
 - Use exact command-line syntax where possible
 - Include flags and options relevant to the task
 - Show the output format the user can expect
@@ -30,12 +32,14 @@ Write concrete, specific instructions. Generic instructions lead to vague output
 Examples teach the agent through demonstration. Diverse examples cover edge cases.
 
 **Principle:**
+
 - Provide 2–3 realistic, runnable examples per major workflow
 - Cover the happy path AND common edge cases
 - Show both successful and error cases (what to do when X fails)
 - Examples should be copy-paste-ready or near-identical to real use
 
 **Application to skills:**
+
 - Example 1: common case (e.g., `git rebase` on a clean branch)
 - Example 2: gotcha case (e.g., `git rebase` with merge conflicts)
 - Example 3: error recovery (e.g., abort and start over)
@@ -50,11 +54,13 @@ Examples teach the agent through demonstration. Diverse examples cover edge case
 Numbered steps signal sequence and provide checkpoints for verification.
 
 **Principle:**
+
 - Use ordered lists (1, 2, 3, ...) for multi-step procedures
 - Each step is atomic and verifiable
 - Include verification steps ("Confirm X succeeded before proceeding")
 
 **Application to skills:**
+
 ```markdown
 ### Example Workflow: Rebase onto main
 
@@ -74,11 +80,13 @@ Numbered steps signal sequence and provide checkpoints for verification.
 Always include a step after an action to verify success.
 
 **Principle:**
+
 - After writing data, read it back
 - After executing a command, show how to check its result
 - Provide explicit success/failure indicators
 
 **Application to skills:**
+
 ```markdown
 1. Create the file: `touch my-file.txt`
 2. Verify it was created: `ls -la my-file.txt` (should list the file)
@@ -94,11 +102,13 @@ Always include a step after an action to verify success.
 Document what to do when commands fail, not only when they succeed.
 
 **Principle:**
+
 - Describe common failure scenarios (permission denied, file not found, etc.)
 - Provide recovery steps for each failure mode
 - Include examples of error messages and what they mean
 
 **Application to skills:**
+
 ```markdown
 ### If you get "Permission denied"
 
@@ -117,11 +127,13 @@ This means the file or directory is not writable. Try:
 Skills should have a narrow, well-defined scope.
 
 **Principle:**
+
 - One skill = one tool or closely-related set of operations
 - Explicitly state what the skill does NOT cover
 - Reference other skills for related but distinct tasks
 
 **Application to skills:**
+
 ```markdown
 ## Scope
 
@@ -144,11 +156,13 @@ This skill does NOT cover:
 Always specify what output the agent should expect or produce.
 
 **Principle:**
+
 - Describe the format of command output before showing examples
 - If the skill produces artifacts, specify their structure
 - Use structured examples (tables, JSON, code blocks) consistently
 
 **Application to skills:**
+
 ```markdown
 ### Output Format
 
@@ -172,11 +186,13 @@ Parse this to extract:
 Critical information must be early, not buried in the middle.
 
 **Principle:**
+
 - Front-load the most important information
 - Use progressive disclosure: quick start → detailed workflows → edge cases
 - Indent rarely-used content under collapsible sections (if the platform supports it)
 
 **Application to skills:**
+
 1. **Intent Router** at the very top: which reference to load when
 2. **Quick Reference** next: the 80% case in <20 lines
 3. **Workflows** after: detailed step-by-step for 3–4 major tasks
@@ -212,6 +228,7 @@ When designing a new skill or validating an existing one, verify:
 ## When to Load This File
 
 Load this reference when:
+
 - Designing a new skill from scratch (Step 2: Plan Bundled Resources)
 - Reviewing skill quality and effectiveness (validation rubric criterion V08)
 - Struggling with how to phrase a workflow or example

@@ -122,7 +122,7 @@ grep -n "\\bYou (should|can|need|must|will|are)\\b" skills/SKILL.md
 
 A skill can suppress specific rule IDs in `.lintignore`:
 
-```
+```text
 # skills/skill-creator/.lintignore
 L09
 L11

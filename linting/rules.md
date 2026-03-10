@@ -38,6 +38,7 @@ add to the context window and diverge from the standard SKILL.md contract.
 **Fail condition:** Frontmatter has extra fields or is missing one of these two.
 
 **Typical fix:**
+
 ```yaml
 # WRONG:
 ---
@@ -63,6 +64,7 @@ description: >
 ### L02: name Format
 
 **Check:** `name` field is:
+
 - lowercase kebab-case (digits, hyphens, lowercase letters only)
 - ≤64 characters
 - matches the skill directory name
@@ -98,6 +100,7 @@ folder: skills/git, name: git
 ### L03: Required Files
 
 **Check:** All three required files exist:
+
 - `SKILL.md`
 - `agents/openai.yaml`
 - `agents/claude.yaml`
@@ -110,6 +113,7 @@ both agent YAML files enable the skill to work in Claude Code and Codex UIs.
 **Fail condition:** Any file missing.
 
 **Typical fix:**
+
 ```bash
 touch agents/openai.yaml agents/claude.yaml
 # Then populate with required fields (see L04)
@@ -122,6 +126,7 @@ touch agents/openai.yaml agents/claude.yaml
 ### L04: Agent YAML Fields
 
 **Check:** Both `agents/openai.yaml` and `agents/claude.yaml` contain:
+
 - `display_name` — human-readable title
 - `short_description` — 25–64 char summary
 - `default_prompt` — suggested usage prompt
@@ -133,6 +138,7 @@ touch agents/openai.yaml agents/claude.yaml
 **Fail condition:** Either file is missing any of the three fields.
 
 **Typical fix:**
+
 ```yaml
 interface:
   display_name: "Git"
@@ -154,10 +160,12 @@ and gets truncated in Codex. The 25–64 range is optimized for readability.
 **Pass condition:** Both descriptions are 25–64 chars.
 
 **Fail condition:**
+
 - **FAIL:** Description >64 chars (exceeds UI width)
 - **WARN:** Description <25 chars (too vague)
 
 **Typical fix:**
+
 ```yaml
 # WRONG: too long (86 chars)
 short_description: "Complete SQLite workflows including queries, backups, schema diffing, and migrations"
@@ -184,6 +192,7 @@ documentation into `references/`.
 **Fail condition:** Body ≥500 lines.
 
 **Typical fix:**
+
 ```bash
 # Count current body lines:
 tail -n +4 SKILL.md | wc -l
@@ -197,7 +206,8 @@ tail -n +4 SKILL.md | wc -l
 
 **Known exceptions:** Some complex skills (e.g., `docker`) may justifiably exceed 450.
 If warranted, add to `.lintignore`:
-```
+
+```text
 L06
 ```
 
@@ -215,6 +225,7 @@ on disk.
 **Fail condition:** One or more referenced files are missing.
 
 **Typical fix:**
+
 ```bash
 # Find dangling references:
 grep -o 'references/[a-z0-9._-]\+\.md' SKILL.md | sort -u
@@ -240,6 +251,7 @@ from shipping.
 **Fail condition:** Any `.sh` file has syntax errors.
 
 **Typical fix:**
+
 ```bash
 # Check syntax:
 bash -n scripts/my-script.sh
@@ -265,6 +277,7 @@ reusable across Claude Code and Codex without modification.
 **Fail condition:** Any mention found outside code blocks.
 
 **Typical fix:**
+
 ```markdown
 # WRONG:
 In Claude Code, you can use the following syntax...
@@ -280,7 +293,8 @@ this check strips code fences before scanning.
 
 **Known exceptions:** The `skill-creator` skill legitimately documents both platforms.
 Add `.lintignore`:
-```
+
+```text
 L09
 ```
 
@@ -289,6 +303,7 @@ L09
 ### L10: No Forbidden Files
 
 **Check:** Skill directory doesn't contain auxiliary documentation:
+
 - `README.md` — belongs in repo root or references/
 - `CHANGELOG.md` — use repo-level CHANGELOG
 - `INSTALLATION_GUIDE.md` — use repo INSTALL.md
@@ -303,6 +318,7 @@ unnecessary files to the skill folder.
 **Fail condition:** Any of these files found.
 
 **Typical fix:**
+
 ```bash
 # Remove auxiliary files:
 rm skills/my-skill/README.md
@@ -321,6 +337,7 @@ rm skills/my-skill/CHANGELOG.md
 "You will", or "You are".
 
 **Why:** Second-person language is indirect and vague. Imperative form is clearer:
+
 - "Use `git rebase`" (imperative) beats "You should use `git rebase`" (second-person)
 - "Run the script" beats "You can run the script"
 
@@ -331,6 +348,7 @@ rm skills/my-skill/CHANGELOG.md
 **Fail condition:** None (this is a WARN only).
 
 **Typical fix:**
+
 ```markdown
 # WRONG:
 You should run this command. You can configure it like this.
@@ -341,7 +359,8 @@ Run this command. Configure it like this.
 
 **Known exceptions:** Some skills may use second-person naturally in examples or dialogue.
 If abundant, add `.lintignore`:
-```
+
+```text
 L11
 ```
 
@@ -359,6 +378,7 @@ L11
 **Fail condition:** Any linting errors found.
 
 **Typical fix:**
+
 ```bash
 # Install markdownlint-cli2:
 npm install -g @markdownlint/cli2
@@ -382,7 +402,8 @@ A skill can suppress specific rule IDs by creating a `.lintignore` file in the s
 **Format:** One rule ID per line.
 
 **Example:**
-```
+
+```text
 # .lintignore in skills/skill-creator/
 L09
 L11

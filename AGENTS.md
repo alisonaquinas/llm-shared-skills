@@ -125,6 +125,7 @@ bash validation/validate-skill.sh skills/<name>
 Then load `validation/rubric.md` and score each criterion using the `skill-validation` skill.
 
 Reference files:
+
 - `linting/rules.md` — full rule specifications
 - `validation/rubric.md` — 8-criterion scoring rubric
 - `validation/public-references.md` — public documentation standards

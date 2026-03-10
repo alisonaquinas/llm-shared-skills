@@ -77,7 +77,6 @@ All notable changes...
 
 **Problem:** Entries like "fixed bugs", "updated stuff", "refactored code".
 
-
 **Why it's wrong:** Users don't know what actually changed.
 
 **Fix:** Be specific and complete:
@@ -92,7 +91,6 @@ All notable changes...
 ---
 
 ### 5. Entries in the wrong section
-
 
 **Problem:** "Added support for dark mode" under `### Fixed` instead of `### Added`.
 
@@ -110,7 +108,6 @@ All notable changes...
 ---
 
 ### 6. Deleted old versions
-
 
 **Problem:** Removed old version entries like `## [1.0.0]` to "clean up".
 
@@ -153,7 +150,6 @@ But the URL returns 404.
 ---
 
 ### 8. No blank line between sections
-
 
 **Problem:**
 
@@ -238,6 +234,7 @@ Cut and paste the bullet point to the correct section header.
 ### Fix: Vague entry
 
 Rewrite with specifics:
+
 - From: "Fixed performance issue"
 - To: "Fixed 100ms latency spike on homepage by optimizing image loading"
 
@@ -258,7 +255,6 @@ tail -20 CHANGELOG.md           # Check compare links
 
 ### markdownlint
 
-
 Lint Markdown syntax:
 
 ```bash
@@ -275,7 +271,6 @@ Configure in `.markdownlint-cli2.jsonc` to ignore line-length:
 
 ### keep-a-changelog (npm)
 
-
 Validate structure:
 
 ```bash
@@ -284,7 +279,6 @@ npx keep-a-changelog validate
 ```
 
 ### Git Hook (Pre-commit)
-
 
 Add to `.git/hooks/pre-commit`:
 
@@ -307,7 +301,6 @@ fi
 A: Always use `[Unreleased]` — it's the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) standard.
 
 ### Q: Can I have multiple `[Unreleased]` sections?
-
 
 A: No. There should be exactly one, at the top, before all released versions.
 
@@ -333,6 +326,4 @@ A: Yes, it's helpful. Use the first release as the tag (not a compare): `[1.0.0]
 
 ### Q: Do I need a v prefix in tags but not in section headers?
 
-
 A: Exactly. Tags are usually `v1.2.3`, but section headers are `## [1.2.3]`.
-

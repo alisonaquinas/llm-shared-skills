@@ -19,6 +19,7 @@ An 8-criterion scoring guide for qualitative evaluation of LLM skills. Used alon
 | V08 | Public Docs Alignment | Reflects Anthropic/OpenAI/academic prompting standards | One or two gaps; mostly aligned | Misses major standards (e.g., no examples) |
 
 **Scoring:**
+
 - **PASS:** All criteria at PASS or WARN; V01–V07 averaged to ≥75%
 - **REVISE:** Some criteria FAIL; fixable issues; resubmit after fixes
 - **REJECT:** Multiple criteria FAIL; fundamental rework needed; not ready for release
@@ -34,22 +35,26 @@ It must be comprehensive and specific.
 
 **PASS condition:**
 All four elements present and specific:
+
 1. **What it does** — "Git workflows, branching, rebasing" ✓ (not "Git tools")
 2. **Specific user phrases** — "Use when the user wants to rebase", "mentions git flow"
 3. **Concrete scenarios** — "interactive rebase with fixup", "squashing commits"
 4. **Not just topic** — "Git" alone is insufficient; include trigger keywords
 
 **WARN condition:**
+
 - Vague triggers: "Use when users work with version control" (which tool?)
 - Generic topic: "Docker containers" without specific scenarios
 - Missing one element
 
 **FAIL condition:**
+
 - No triggers ("Provides git functionality" only)
 - Extremely generic ("A utility for development")
 - Fewer than 2 concrete examples or use cases
 
 **How to Fix:**
+
 ```yaml
 # WRONG:
 description: Git version control
@@ -73,28 +78,34 @@ description: >
 each type of request. It must be comprehensive and unambiguous.
 
 **PASS condition:**
+
 - Intent Router section exists and lists all reference files
 - Each reference has a specific condition for loading:
+
   ```markdown
   ## Intent Router
   - `references/aws.md` — AWS deployment patterns
   - `references/gcp.md` — GCP deployment patterns
   Load only the file matching the user's chosen provider.
   ```
+
 - No dangling references (every file listed exists)
 - No missing references (every `references/*.md` is listed)
 
 **WARN condition:**
+
 - Intent Router exists but is vague: "Load references as needed"
 - Some conditions missing: listed files but no explanation
 - Reference files exist but some are not mentioned in Intent Router
 
 **FAIL condition:**
+
 - No Intent Router section
 - Intent Router lists non-existent files
 - SKILL.md mentions references that aren't in Intent Router
 
 **How to Fix:**
+
 ```markdown
 # WRONG: Vague Intent Router
 ## References
@@ -117,22 +128,26 @@ for each major use case?
 without loading references. This keeps the context window tight.
 
 **PASS condition:**
+
 - SKILL.md inline covers the common cases: "the happy path" + 1 variant
 - Examples in SKILL.md are runnable without reference files
 - Workflows in SKILL.md are self-contained (references are for depth, not prerequisites)
 - ~80% of realistic requests can be answered without loading references
 
 **WARN condition:**
+
 - 50–80% of requests require references
 - Some workflows half-complete without reference context
 - Common variants missing from SKILL.md (e.g., error recovery only in references)
 
 **FAIL condition:**
+
 - <50% of realistic requests covered inline
 - Major workflows absent from SKILL.md
 - SKILL.md is mostly "see references/X.md" with no actual content
 
 **How to Fix:**
+
 ```markdown
 # WRONG: Underspecified SKILL.md
 For detailed workflows, see references/workflows.md
@@ -154,6 +169,7 @@ For complex rebasing scenarios with merge conflicts, see references/troubleshoot
 have explicit guardrails. The agent must understand the risks.
 
 **PASS condition:**
+
 - All destructive operations are documented in SKILL.md or in a Safety section
 - Each destructive op includes:
   1. What could go wrong
@@ -162,16 +178,19 @@ have explicit guardrails. The agent must understand the risks.
 - Examples show safe variants (e.g., `--force-with-lease` instead of `--force`)
 
 **WARN condition:**
+
 - Some destructive ops documented; others mentioned casually
 - Safety guidance exists but is scattered or brief
 - Recovery steps are vague ("you can fix it" without specifics)
 
 **FAIL condition:**
+
 - Dangerous operations documented without guards (e.g., "rm -rf /" without warning)
 - No mention of common failure modes
 - No recovery instructions for destructive actions
 
 **How to Fix:**
+
 ```markdown
 # WRONG: Unsafe
 git push origin <branch> --force
@@ -195,23 +214,27 @@ or overwriting data?
 realistic, and cover edge cases.
 
 **PASS condition:**
+
 - 2–3 examples per major workflow
 - Each example is copy-paste-ready (or near-identical to real use)
 - Examples cover happy path, 1 gotcha, 1 error case
 - Example output is shown (so agent knows what success looks like)
 
 **WARN condition:**
+
 - 1 example per workflow (insufficient for learning)
 - Some examples generic ("run command X") without context
 - Example output missing or vague
 - No edge case examples
 
 **FAIL condition:**
+
 - No examples, or examples are pseudocode/impossible
 - Examples don't match actual command syntax
 - Examples don't show output or how to verify success
 
 **How to Fix:**
+
 ```markdown
 # WRONG: No examples or pseudocode
 To rebase, use the rebase command.
@@ -242,22 +265,26 @@ understand exactly what happens)?
 not need to switch back to SKILL.md while reading a reference.
 
 **PASS condition:**
+
 - Each reference file is self-contained
 - Enough detail to execute the task without external docs (e.g., curl man page)
 - References don't say "see SKILL.md for context"
 - Examples in references are complete and runnable
 
 **WARN condition:**
+
 - Some hand-waving: "configure your API key" without showing how
 - Minor forward-references: "discussed in SKILL.md" (should not be needed)
 - One reference could absorb content from another
 
 **FAIL condition:**
+
 - References are incomplete (e.g., "see the docs for flag details")
 - References refer back to SKILL.md for essential context
 - Assumes knowledge from other references without linkage
 
 **How to Fix:**
+
 ```markdown
 # WRONG: Incomplete reference
 To use the API, set your token in your environment.
@@ -283,22 +310,26 @@ SKILL.md or other references?
 **Purpose:** A skill is only useful if agents can follow it and succeed.
 
 **PASS condition:**
+
 - Agent following SKILL.md instructions succeeds at the core task
 - No ambiguity or contradictions in the text
 - Instructions are in imperative form ("Run X") not questions ("Should you run X?")
 - Examples are clear and unambiguous
 
 **WARN condition:**
+
 - Agent mostly succeeds but occasionally gets stuck
 - One or two places where interpretation is unclear
 - Some instructions are wordy or could be more direct
 
 **FAIL condition:**
+
 - Agent frequently fails or gets confused
 - Instructions are contradictory
 - Ambiguous wording leads to incorrect execution
 
 **How to Fix:**
+
 ```markdown
 # WRONG: Ambiguous
 You might want to rebase or merge depending on the situation.
@@ -322,6 +353,7 @@ without confusion?
 (Anthropic, OpenAI, academic research).
 
 **PASS condition:**
+
 - Reflects 6+ of the 8 standards in `validation/public-references.md`:
   1. Specificity over generality ✓
   2. Concrete, diverse examples ✓
@@ -333,11 +365,13 @@ without confusion?
   8. Context window efficiency ✓
 
 **WARN condition:**
+
 - Reflects 4–5 standards; missing 1–2
 - Examples exist but aren't diverse (e.g., only happy path, no edge cases)
 - Workflows exist but lack verification steps
 
 **FAIL condition:**
+
 - Reflects <4 standards
 - No examples or examples are generic/impossible
 - Instructions are second-person ("You should") instead of imperative
@@ -345,6 +379,7 @@ without confusion?
 
 **How to Fix:**
 Use `validation/public-references.md` as a checklist. Before submission, verify:
+
 - [ ] Specific examples (not generic instructions)
 - [ ] 2–3 examples per workflow
 - [ ] Numbered, atomic steps
@@ -413,6 +448,7 @@ Use this template when submitting a skill for validation:
 ## When to Load This File
 
 Load this rubric when:
+
 - Evaluating a new skill before merging to main
 - Scoring an existing skill for quality improvements
 - Reviewing a skill PR
