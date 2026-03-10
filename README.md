@@ -9,15 +9,22 @@ them loadable by either agent without modification.
 > it's a living collection that may benefit from human review before production use.
 > The install scripts and references have been tested, but your feedback is welcome! 🚀
 
-## What's New in v1.4.1
+## What's New
 
+**New in [Unreleased]:**
+- **yq skill** — Process YAML, XML, and TOML with jq-like filtering syntax
+  - 4 references: install-and-setup, quick-reference, usage-patterns, examples-and-recipes
+  - Supports format conversion, filtering, in-place editing, and roundtrip mode
+  - ~900 lines of comprehensive documentation and examples
+
+**From v1.4.1:**
 - **Comprehensive skill linting and validation system** — Automated quality assurance for all skills
   - **12-rule linting** (`linting/`) — Structural correctness checks: frontmatter, file structure, YAML syntax, markdown linting, platform compatibility
   - **8-criterion validation** (`validation/`) — LLM-guided quality scoring: description effectiveness, intent routing, example quality, safety coverage, prompt engineering alignment
   - **Two new skills** — `skill-linting` and `skill-validation` for automated quality checks and LLM-guided reviews
   - **Enhanced skill-creator** — Step 7 integration with linting/validation workflow + 7 Prompt Engineering Standards
-  - **All 48 skills pass linting** with zero structural violations
-  - **All 264 markdown files pass linting** with zero errors
+  - **All 45 skills pass linting** with zero structural violations
+  - **All 269 markdown files pass linting** with zero errors
 
 See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
@@ -73,6 +80,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 | `unzip` | vibe-coding | ZIP archive extraction and listing with encryption support |
 | `xmllint` | vibe-coding | XML validation, formatting, and XPath query processing |
 | `xxd` | vibe-coding | Hex dump and binary reverse engineering with custom formatting |
+| `yq` | Claude | Process YAML, XML, and TOML with jq-like filtering; format conversion and in-place editing |
 
 **\* About skill-creator:** This skill is built from the combined interfaces of Claude Code and
 Codex tools—it's a synthesis of both platforms' capabilities. We make no claim to ownership or

@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **yq skill** — Process YAML, XML, and TOML with jq-like filtering
+  - 4 reference docs: install-and-setup.md, quick-reference.md, usage-patterns.md, examples-and-recipes.md
+  - Content: Installation on multiple platforms, common command flags and options, format conversion (YAML/JSON/TOML/XML), filtering and selection patterns, in-place file editing, string and array operations, multi-file processing, roundtrip mode for tag preservation, Kubernetes manifest processing, configuration management workflows, practical examples and recipes
+  - ~900 lines of comprehensive documentation
+
+### Removed
+
+- **4 skills moved to llm-ci-dev** — Consolidated CI/CD-specific skills into dedicated repo
+  - `docker` — Container and Docker tooling (now in llm-ci-dev/skills/)
+  - `aws` — AWS CLI operations (now in llm-ci-dev/skills/)
+  - `az` — Azure CLI operations (now in llm-ci-dev/skills/)
+  - `glab` — GitLab CLI workflows (now in llm-ci-dev/skills/)
+
+  **Rationale**: These 4 skills are primarily CI/CD-focused and now reside in the specialized llm-ci-dev
+  collection alongside platform-specific CI/CD workflow and runner/agent management skills. This improves
+  skill discoverability and maintains thematic coherence. llm-shared-skills now focuses on general-purpose
+  system utilities and development tools (45 skills with yq).
+
+### Updated
+
+- Updated README to reflect new skill count (45 with yq, previously 44)
 ## [1.4.1] - 2026-03-10
 
 ### Fixed
@@ -69,6 +92,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integration ready: Pre-commit hook instructions in AGENTS.md
 - 24 files modified/created for this release
 
+<<<<<<< HEAD
+=======
 ## [1.2.0] - 2026-03-09
 
 ### Added
