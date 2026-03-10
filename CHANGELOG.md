@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.3] - 2026-03-10
+
+### Added
+
+- GitHub Actions `Lint` workflow (`.github/workflows/lint.yml`) — three parallel jobs:
+  - **Markdown**: `DavidAnson/markdownlint-cli2-action` with inline PR annotations
+  - **YAML**: `ibiqlik/action-yamllint` with inline PR annotations; new `.yamllint.yml` config
+  - **Skills**: per-skill `linting/lint-skill.sh` run with `::error::`/`::warning::` annotations,
+    job summary pass/fail table, and 14-day log artifact upload
+
+### Fixed
+
+- `linting/lib/checks.sh`: replaced `eval`-based variable assignment in `_emit()` with
+  `printf -v` — prevents crash when L09 failure message contains single quotes
+- `skills/skill-creator/SKILL.md`: removed prose mentions of platform names that triggered L09;
+  replaced with generic terms throughout frontmatter description, Platform Compatibility section,
+  headings, checklist, and anti-pattern example
+- `skills/skill-linting/SKILL.md`: rephrased L09 rule description to avoid self-referential trigger
+- `skills/skill-validation/SKILL.md`: renamed example `references/` paths in code fences to avoid
+  false L07 dangling-reference failures
+- `CHANGELOG.md`: resolved orphaned merge conflict markers (`<<<<<<< HEAD` / `=======`)
+- `README.md`: added blank lines before bullet lists (MD032)
+
 ## [1.4.2] - 2026-03-10
 
 ### Added
