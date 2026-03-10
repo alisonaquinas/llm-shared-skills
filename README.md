@@ -11,11 +11,14 @@ them loadable by either agent without modification.
 
 ## What's New
 
-**New in [Unreleased]:**
+**New in v1.4.2:**
 - **yq skill** — Process YAML, XML, and TOML with jq-like filtering syntax
   - 4 references: install-and-setup, quick-reference, usage-patterns, examples-and-recipes
   - Supports format conversion, filtering, in-place editing, and roundtrip mode
   - ~900 lines of comprehensive documentation and examples
+- **Skill migrations** — 4 skills consolidated into dedicated llm-ci-dev repository
+  - Moved: docker, aws, az, glab (now CI/CD-focused in specialized repo)
+  - llm-shared-skills now focuses on general-purpose system utilities (45 skills)
 
 **From v1.4.1:**
 - **Comprehensive skill linting and validation system** — Automated quality assurance for all skills

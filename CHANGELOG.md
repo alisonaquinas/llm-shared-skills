@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-03-10
+
 ### Added
 
 - **yq skill** — Process YAML, XML, and TOML with jq-like filtering
@@ -30,6 +32,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 
 - Updated README to reflect new skill count (45 with yq, previously 44)
+- Integrated with v1.4.1 linting and validation system
+- All 45 skills pass structural linting with zero violations
+- All 269 markdown files pass linting with zero errors
 ## [1.4.1] - 2026-03-10
 
 ### Fixed
