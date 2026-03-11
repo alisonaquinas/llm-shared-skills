@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex CLI Docs"
+  short_description: "Look up official OpenAI Codex CLI documentation"
+  default_prompt: "Use $codex-cli-docs to find the documentation for [installation/CLI flags/slash commands/features/etc.]."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenAI Codex Docs"
+  short_description: "Look up official OpenAI Codex agent documentation"
+  default_prompt: "Use $codex-docs to find the documentation for [configuration/concepts/AGENTS.md/automation/integrations/etc.]."

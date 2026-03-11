@@ -1,0 +1,4 @@
+interface:
+  display_name: "ChatGPT / OpenAI Docs"
+  short_description: "Look up official OpenAI platform API documentation"
+  default_prompt: "Use $chatgpt-docs to find the documentation for [models/function calling/API reference/Assistants/etc.]."

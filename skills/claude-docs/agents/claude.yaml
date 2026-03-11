@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude API Docs"
+  short_description: "Look up official Anthropic Claude API documentation"
+  default_prompt: "Use $claude-docs to find the documentation for [models/tool use/prompt engineering/API reference/etc.]."
