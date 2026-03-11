@@ -1,6 +1,6 @@
 # Installation Guide
 
-**Version:** 1.4.2 (see [CHANGELOG.md](CHANGELOG.md) for release details)
+**Version:** 1.5.1 (see [CHANGELOG.md](CHANGELOG.md) for release details)
 
 ## Quick Start: Clone from Release
 

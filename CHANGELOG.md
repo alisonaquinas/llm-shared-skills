@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-03-11
+
+### Added
+
+- `skills/claude-docs`: documentation-lookup skill for Anthropic Claude API (platform.claude.com/docs) — covers models, prompt engineering, tool use, extended thinking, Agent SDK, and REST API reference
+- `skills/chatgpt-docs`: documentation-lookup skill for OpenAI platform API (platform.openai.com/docs) — covers models, API reference, function calling, Assistants, and guides
+- `skills/codex-docs`: documentation-lookup skill for OpenAI Codex agent (developers.openai.com/codex) — covers concepts, AGENTS.md, MCP, interfaces, and automation/SDK
+- `skills/claude-cli-docs`: documentation-lookup skill for Claude Code CLI (code.claude.com/docs) — covers installation, CLI reference, CLAUDE.md, MCP, hooks, skills, workflows, and integrations
+- `skills/codex-cli-docs`: documentation-lookup skill for OpenAI Codex CLI (developers.openai.com/codex/cli) — covers installation, features, CLI flags, and slash commands
+
 ## [1.4.4] - 2026-03-11
 
 ### Changed
