@@ -143,6 +143,19 @@ Reference files:
 
 ---
 
+## Versioning and Releases
+
+- The canonical version lives in the **git tag** (e.g. `v1.4.3`).
+- When setting or bumping the version, always:
+  1. Set `.claude-plugin/plugin.json` `"version"` to match the git tag (strip the leading `v`).
+  2. Add a new dated entry to `CHANGELOG.md` under `## [<version>] - <YYYY-MM-DD>` **before** tagging.
+     Move all items from `## [Unreleased]` into the new entry.
+  3. Tag the commit: `git tag v<version>`.
+- Never set `plugin.json` version manually to a value that does not match the latest git tag.
+- The `CHANGELOG.md` **must** be updated as part of every release — do not tag without it.
+
+---
+
 ## Installing Skills (for agents setting up a new environment)
 
 See `INSTALL.md` for full instructions. The short version:

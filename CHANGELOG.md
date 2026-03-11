@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.4] - 2026-03-11
+
+### Changed
+
+- `LICENSE.md`: added author name (Alison Aquinas) to copyright line
+- `.claude-plugin/plugin.json`: set `author.name` to Alison Aquinas; corrected `version` to match git tag
+- `AGENTS.md`: added Versioning and Releases section — documents that `plugin.json` version must match the git tag and that `CHANGELOG.md` must be updated before every release
+
 ## [1.4.3] - 2026-03-10
 
 ### Added
