@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.1] - 2026-03-13
+
 ### Changed
 
 - `skills/edit-files`: documented a concrete fallback workflow for repeated non-diagnostic `apply_patch` failures, including smaller-scope retries, repo-relative retry guidance, alternate local edit methods, and closeout reporting expectations
@@ -285,7 +287,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-install checks: scripts verify if tools are already installed and skip installation if current version meets requirements
 - Post-install verification: all scripts confirm successful installation and print setup hints
 
-[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.3...HEAD
+[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.6.1...HEAD
+[1.6.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.6.0...v1.6.1
 [1.5.3]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.2...v1.5.3
 [1.5.2]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.4...v1.5.1
