@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `skills/curl`: new shared skill for safe curl-based HTTP requests, downloads, uploads, redirects, authentication, and API inspection workflows
 - `skills/wget`: new shared skill for wget-based file retrieval, resume, timestamping, recursive mirroring, and crawl-scope control workflows
+- `skills/edit-files`: new shared skill for disciplined, tool-agnostic file editing with planning, patch-first changes, structured-data editing guidance, and verification templates
 
 ### Changed
 

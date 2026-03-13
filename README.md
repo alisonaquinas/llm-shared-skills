@@ -35,7 +35,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 47 shared skills.
+This repository currently contains 48 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
@@ -53,6 +53,7 @@ This repository currently contains 47 shared skills.
 | `az` | Codex | Azure CLI auth, subscription context, and safe ARM commands |
 | `glab` | Codex | GitLab CLI auth, MR/issue/CI workflows, and safe commands |
 | `markdownlint` | Codex | Lint and fix Markdown with markdownlint |
+| `edit-files` | Codex | Safe generic file editing with planning, patches, and verification |
 | `sqlite` | Codex | Complete SQLite workflows from queries and backups to diffing and migrations |
 | `zoxide` | Codex | Fast directory jumps with zoxide |
 | `7z` | vibe-coding | 7z archive creation, extraction, listing, and compression |
