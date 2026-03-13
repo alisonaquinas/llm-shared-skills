@@ -35,6 +35,8 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
+This repository currently contains 47 shared skills.
+
 | Skill | Source | Description |
 |---|---|---|
 | `docker` | Merged (Claude + Codex) | Containers, Compose, Buildx, AI tooling, Windows Desktop |
@@ -58,6 +60,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 | `awk` | vibe-coding | Text processing with field extraction, pattern matching, and filtering |
 | `binwalk` | vibe-coding | Binary firmware analysis, file signatures, and embedded data extraction |
 | `cmp` | vibe-coding | Byte-by-byte file comparison and binary difference detection |
+| `curl` | Codex | HTTP requests, API calls, downloads, uploads, redirects, and TLS-aware transfer control |
 | `diff` | vibe-coding | Text file comparison, unified diffs, and line-by-line changes |
 | `exiftool` | vibe-coding | EXIF/metadata extraction from images, videos, and documents |
 | `file` | vibe-coding | File type detection using magic numbers and content analysis |
@@ -83,6 +86,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 | `tar` | vibe-coding | Tape archive creation, extraction, and multi-format support |
 | `tree` | vibe-coding | Directory tree visualization with filtering and depth control |
 | `unzip` | vibe-coding | ZIP archive extraction and listing with encryption support |
+| `wget` | Codex | File downloads, resume, mirroring, timestamping, and recursive retrieval controls |
 | `xmllint` | vibe-coding | XML validation, formatting, and XPath query processing |
 | `xxd` | vibe-coding | Hex dump and binary reverse engineering with custom formatting |
 | `yq` | Claude | Process YAML, XML, and TOML with jq-like filtering; format conversion and in-place editing |

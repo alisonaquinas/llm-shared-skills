@@ -164,3 +164,12 @@ See `INSTALL.md` for full instructions. The short version:
 into `skills/<name>` in this repo.
 
 **Claude Code** — register this directory as a local plugin source in `~/.claude/settings.json`.
+
+---
+
+## Editing Lessons
+
+- In this Windows workspace, the `apply_patch` tool can reject large or path-heavy diffs without a useful error message.
+- If `apply_patch` fails repeatedly, stop retrying the same patch shape.
+- Prefer smaller edits and repo-relative paths first.
+- If the patch tool still rejects the change, switch promptly to a reliable local file-edit method instead of burning turns on the same failed diff strategy.

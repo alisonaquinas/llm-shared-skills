@@ -1,0 +1,4 @@
+interface:
+  display_name: "wget"
+  short_description: "File downloads, resume, mirroring, and crawl controls."
+  default_prompt: "Use $wget to plan a safe wget command for file download, resume, mirroring, timestamping, or recursive retrieval."
