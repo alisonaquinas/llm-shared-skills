@@ -35,7 +35,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 48 shared skills.
+This repository currently contains 61 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
@@ -88,7 +88,9 @@ This repository currently contains 48 shared skills.
 | `tree` | vibe-coding | Directory tree visualization with filtering and depth control |
 | `unzip` | vibe-coding | ZIP archive extraction and listing with encryption support |
 | `wget` | Codex | File downloads, resume, mirroring, timestamping, and recursive retrieval controls |
-| `xmllint` | vibe-coding | XML validation, formatting, and XPath query processing |
+| `xml2` | vibe-coding | XML to flat line format for pipeline processing; reconstruct XML with `2xml` |
+| `xq` | vibe-coding | XML querying and transformation with jq-compatible filter syntax |
+| `xmllint` | vibe-coding | XML parsing, validation (DTD/XSD/RelaxNG), XPath querying, formatting, and XXE-safe processing |
 | `xxd` | vibe-coding | Hex dump and binary reverse engineering with custom formatting |
 | `yq` | Claude | Process YAML, XML, and TOML with jq-like filtering; format conversion and in-place editing |
 

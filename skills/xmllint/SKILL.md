@@ -1,54 +1,86 @@
 ---
 name: xmllint
-description: Validate and format XML documents. Use when the agent needs to extract, analyze, or transform document and file metadata.
+description: >
+  Parse, validate, format, and query XML documents using xmllint from libxml2.
+  Use when the task involves checking XML well-formedness, validating against a
+  DTD or XML Schema (XSD), validating against RelaxNG or Schematron, running
+  XPath queries to extract values from XML, pretty-printing or reformatting XML,
+  or recovering structure from malformed XML. Also use when processing untrusted
+  XML and network access must be blocked to prevent XXE attacks.
 ---
 
-# Xmllint
+# xmllint
 
-Validate and format XML documents
-
-## Quick Start
-
-1. Verify `xmllint` is available: `xmllint --version` or `man xmllint`
-2. Establish the command surface: `man xmllint` or `xmllint --help`
-3. Start with a read-only probe: `xmllint file`
+Parse, validate, format, and query XML documents. Part of the libxml2 toolset.
 
 ## Intent Router
 
-- `references/install-and-setup.md` — Installing xmllint
-- `references/cheatsheet.md` — Common options and patterns
-- `references/advanced-usage.md` — Advanced techniques
-- `references/troubleshooting.md` — Common errors and solutions
+| Request | Reference | Load When |
+| --- | --- | --- |
+| Install xmllint | `references/install-and-setup.md` | Setting up on a new system |
+| Flags, options, one-liners | `references/cheatsheet.md` | Need quick command lookup |
+| XPath queries, schema workflows | `references/advanced-usage.md` | Complex validation or extraction tasks |
+| Errors, exit codes, common failures | `references/troubleshooting.md` | Something is failing or output is unexpected |
+
+## Quick Reference
+
+```bash
+# Check well-formedness (exit 0 = valid)
+xmllint --noout file.xml
+
+# Pretty-print / reformat
+xmllint --format file.xml
+
+# Custom indentation (tab)
+XMLLINT_INDENT=$'\t' xmllint --format file.xml
+
+# Validate against XML Schema
+xmllint --noout --schema schema.xsd file.xml
+
+# Validate against DTD embedded in document
+xmllint --noout --valid file.xml
+
+# XPath query
+xmllint --xpath '//book/title/text()' file.xml
+
+# Block network access (safe for untrusted XML)
+xmllint --nonet --noout file.xml
+
+# Attempt recovery from malformed XML
+xmllint --recover file.xml
+```
 
 ## Core Workflow
 
-1. Verify xmllint is available: `xmllint --version`
-2. Inspect file: `xmllint file`
-3. Validate output before batch processing
-4. Document exact commands for reproducibility
+1. Check availability: `xmllint --version`
+2. Verify well-formedness: `xmllint --noout file.xml`
+3. Validate against schema if available: `xmllint --noout --schema schema.xsd file.xml`
+4. Query specific values: `xmllint --xpath 'expression' file.xml`
+5. Format for readability: `xmllint --format file.xml`
 
-## Quick Command Reference
+## Security: XXE Prevention
+
+By default, `xmllint` fetches external DTDs and entities from the network. When
+processing untrusted XML, always add `--nonet`:
 
 ```bash
-xmllint --version                       # Check version
-xmllint --help                          # Show help
-xmllint file                            # Basic usage
-man xmllint                             # Full manual
+# Safe invocation for untrusted input
+xmllint --nonet --noout file.xml
+xmllint --nonet --schema schema.xsd file.xml
 ```
+
+`--nonet` blocks all network access during parsing and validation.
 
 ## Safety Notes
 
 | Area | Guardrail |
 | --- | --- |
-| **File validation** | Verify files are in expected format. |
-| **Output handling** | Validate output before processing further. |
-| **Large files** | Test with smaller files first. |
-
-## Source Policy
-
-- Treat installed behavior and man page as truth.
+| **Untrusted XML** | Always use `--nonet` to prevent XXE (XML External Entity) attacks. |
+| **Validation output** | Use `--noout` to suppress the parsed tree — show only errors. |
+| **Large files** | Test with `--noout` first; full output of large files can be verbose. |
+| **Recovery mode** | `--recover` may produce incomplete or structurally incorrect output. Validate the result. |
 
 ## Resource Index
 
-- `scripts/install.sh` — Install on macOS or Linux.
-- `scripts/install.ps1` — Install on Windows or any platform.
+- `scripts/install.sh` — Install libxml2-utils on macOS or Linux
+- `scripts/install.ps1` — Install on Windows via Chocolatey

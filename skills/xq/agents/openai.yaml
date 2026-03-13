@@ -1,0 +1,4 @@
+interface:
+  display_name: "xq"
+  short_description: "Query and transform XML with jq syntax"
+  default_prompt: "Use $xq to query and transform XML documents using jq-compatible filter syntax."

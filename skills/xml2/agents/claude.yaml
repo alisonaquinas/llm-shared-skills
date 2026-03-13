@@ -1,0 +1,4 @@
+interface:
+  display_name: "xml2 / 2xml"
+  short_description: "Convert XML to flat format for pipeline processing"
+  default_prompt: "Use $xml2 to flatten XML for grep/sed/awk pipelines and reconstruct with 2xml."

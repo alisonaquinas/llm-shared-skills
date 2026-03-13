@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `skills/claude-cli`: new shared skill for installing, configuring, managing, and troubleshooting the Claude Code CLI binary — covers install, update, auth, CLAUDE.md, permissions, MCP servers, scripting, and troubleshooting; defers to `claude-cli-docs` for deep documentation lookups
 - `skills/codex-cli`: new shared skill for installing, configuring, managing, and troubleshooting the OpenAI Codex CLI binary — covers install, update, auth (browser and API key), AGENTS.md, approval modes, scripting, and troubleshooting; defers to `codex-cli-docs` for deep documentation lookups
+- `skills/xml2`: new shared skill covering `xml2` (XML→flat line format) and `2xml` (flat→XML) for Unix pipeline processing — includes cheatsheet with flat format anatomy and common pipeline patterns, and examples-and-recipes with 8 practical recipes
+- `skills/xq`: new shared skill for jq-syntax XML querying via the `xq` binary (from `pip install yq`) — includes cheatsheet with full flag table and XML-to-JSON mapping, and advanced-usage covering streaming large files, roundtrip XML, and format conversion
+
+### Changed
+
+- `skills/xmllint`: major overhaul — rewrote SKILL.md with accurate description, table-format Intent Router, and inline Quick Reference covering `--noout`, `--format`, `--xpath`, `--schema`, `--valid`, and `--nonet`; added dedicated XXE security section; rewrote all four reference files with correct install package names (`libxml2-utils` / `libxml2`), full flag table with `XMLLINT_INDENT` env var, comprehensive XPath and schema validation examples, and full exit code table with common error explanations
 
 ## [1.5.3] - 2026-03-13
 

@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
+# Install xmllint (part of libxml2-utils / libxml2)
+
 set -euo pipefail
 
-detect_platform() {
-  local system=$(uname -s)
-  [[ "$system" == "Darwin" ]] && echo "macos" && return
-  [[ "$system" == "Linux" ]] && [[ -f /etc/os-release ]] && source /etc/os-release && echo "${ID:-linux}" && return
-  echo "unknown"
-}
+if command -v xmllint &>/dev/null; then
+  echo "[OK] xmllint already available: $(xmllint --version 2>&1 | head -1)"
+  exit 0
+fi
 
-main() {
-  command -v xmllint >/dev/null && echo "[OK] xmllint is available" && return 0
-  
-  local platform=$(detect_platform)
-  case "$platform" in
-    macos) brew install xmllint 2>/dev/null && echo "[OK] xmllint installed" || echo "[HINT] Install Homebrew" ;;
-    debian|ubuntu) apt-get update && apt-get install -y xmllint && echo "[OK] xmllint installed" ;;
-    fedora|rhel|centos) dnf install -y xmllint && echo "[OK] xmllint installed" ;;
-    arch) pacman -S --noconfirm xmllint && echo "[OK] xmllint installed" ;;
-    alpine) apk add --no-cache xmllint && echo "[OK] xmllint installed" ;;
-    *) echo "[ERROR] Unsupported platform: $platform"; exit 1 ;;
-  esac
-}
+if command -v apt-get &>/dev/null; then
+  apt-get update && apt-get install -y libxml2-utils
+elif command -v brew &>/dev/null; then
+  brew install libxml2
+elif command -v dnf &>/dev/null; then
+  dnf install -y libxml2
+elif command -v pacman &>/dev/null; then
+  pacman -S --noconfirm libxml2
+elif command -v apk &>/dev/null; then
+  apk add --no-cache libxml2-utils
+else
+  echo "No supported package manager found. Install libxml2-utils manually." >&2
+  exit 1
+fi
 
-main "$@"
+echo "[OK] Installed: $(xmllint --version 2>&1 | head -1)"

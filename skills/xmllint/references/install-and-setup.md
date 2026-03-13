@@ -1,49 +1,61 @@
 # xmllint Installation and Setup
 
-## Overview
-
-xmllint is a specialized utility for document and metadata handling.
+`xmllint` is part of the `libxml2` utilities package.
 
 ## Platform-Specific Installation
-
-### macOS
-
-```bash
-brew install xmllint
-```
 
 ### Debian / Ubuntu
 
 ```bash
 apt-get update
-apt-get install -y xmllint
+apt-get install -y libxml2-utils
 ```
+
+### macOS (Homebrew)
+
+```bash
+brew install libxml2
+```
+
+`xmllint` may also already be present on macOS — check with `xmllint --version`.
 
 ### Fedora / RHEL / CentOS
 
 ```bash
-dnf install -y xmllint
+dnf install -y libxml2
 ```
 
 ### Arch Linux
 
 ```bash
-pacman -S xmllint
+pacman -S libxml2
 ```
 
 ### Alpine Linux
 
 ```bash
-apk add --no-cache xmllint
+apk add --no-cache libxml2-utils
 ```
+
+### Windows (Chocolatey)
+
+```powershell
+choco install xsltproc
+```
+
+The `xsltproc` Chocolatey package includes `xmllint`.
+
+Alternatively, download pre-built Windows binaries maintained at:
+<https://www.zlatkovic.com/libxml.en.html>
 
 ## Verification
 
 ```bash
-which xmllint
-xmllint --version 2>/dev/null || xmllint --help | head -3
+xmllint --version
+# Expected: xmllint: using libxml version XXXXX
 ```
 
-## Resources
+## References
 
-- Manual: man xmllint
+- libxml2 project: <https://gnome.pages.gitlab.gnome.org/libxml2/>
+- xmllint manual: <https://gnome.pages.gitlab.gnome.org/libxml2/xmllint.html>

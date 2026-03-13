@@ -1,23 +1,13 @@
-Set-StrictMode -Version Latest
-$ErrorActionPreference = 'Stop'
+# Install xmllint on Windows via Chocolatey (includes libxml2)
+#
+# Requires Chocolatey: https://chocolatey.org/install
 
-function Main {
-  if (Get-Command xmllint -ErrorAction SilentlyContinue) {
-    Write-Host "[OK] xmllint is available"
-    return
-  }
-  
-  if ($IsWindows) {
-    Write-Host "[HINT] Use WSL2, Chocolatey, or package manager"
-    exit 1
-  } elseif ($IsMacOS) {
-    & brew install xmllint
-    Write-Host "[OK] xmllint installed"
-  } elseif ($IsLinux) {
-    & sudo apt-get update
-    & sudo apt-get install -y xmllint
-    Write-Host "[OK] xmllint installed"
-  }
-}
+Write-Host "Installing xsltproc (includes xmllint) via Chocolatey..."
+choco install xsltproc -y
 
-Main
+Write-Host ""
+Write-Host "Verify installation:"
+Write-Host "  xmllint --version"
+Write-Host ""
+Write-Host "Alternative: download Windows binaries from:"
+Write-Host "  https://www.zlatkovic.com/libxml.en.html"
