@@ -9,7 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+## [1.5.2] - 2026-03-13
+
+### Added
+
 - GitHub Actions release workflow that creates GitHub releases from changelog entries and triggers `alisonaquinas/llm-skills` to rebuild static marketplace artifacts, including the combined RSS feed
+
+### Changed
+
+- `.claude-plugin/plugin.json`: bumped the published plugin version to `1.5.2` so the release tag, plugin metadata, and GitHub release workflow stay in sync
+- `CHANGELOG.md`: refreshed compare links so `Unreleased` and recent release entries point at the correct GitHub diffs
 
 ## [1.5.1] - 2026-03-11
 
@@ -20,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `skills/codex-docs`: documentation-lookup skill for OpenAI Codex agent (developers.openai.com/codex) - covers concepts, AGENTS.md, MCP, interfaces, and automation/SDK
 - `skills/claude-cli-docs`: documentation-lookup skill for Claude Code CLI (code.claude.com/docs) - covers installation, CLI reference, CLAUDE.md, MCP, hooks, skills, workflows, and integrations
 - `skills/codex-cli-docs`: documentation-lookup skill for OpenAI Codex CLI (developers.openai.com/codex/cli) - covers installation, features, CLI flags, and slash commands
+
 ## [1.4.4] - 2026-03-11
 
 ### Changed
@@ -241,10 +251,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-install checks: scripts verify if tools are already installed and skip installation if current version meets requirements
 - Post-install verification: all scripts confirm successful installation and print setup hints
 
-[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.2...HEAD
+[1.5.2]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.1...v1.5.2
+[1.5.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.4...v1.5.1
+[1.4.4]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.3...v1.4.4
+[1.4.3]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.2...v1.4.3
+[1.4.2]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.1...v1.4.2
+[1.4.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.0...v1.4.1
+[1.4.0]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.2.0...v1.4.0
 [1.2.0]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.1.1...v1.2.0
 [1.1.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/alisonaquinas/llm-shared-skills/releases/tag/v1.0.0
-
