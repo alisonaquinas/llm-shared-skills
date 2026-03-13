@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+- Replaced the placeholder `CLAUDE.md` content with a valid markdown stub that points contributors at `AGENTS.md`.
+
+### Fixed
+
+- Added an explicit `text` language tag to the release-workflow failure example so repository markdownlint checks pass cleanly.
+
 ## [1.5.2] - 2026-03-13
 
 ### Added
