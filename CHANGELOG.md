@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.3] - 2026-03-13
+
 ### Added
 
 - `skills/curl`: new shared skill for safe curl-based HTTP requests, downloads, uploads, redirects, authentication, and API inspection workflows
@@ -16,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Replaced the placeholder `CLAUDE.md` content with a valid markdown stub that points contributors at `AGENTS.md`.
+- `.claude-plugin/plugin.json`: bumped the published plugin version to `1.5.3` so the release tag and plugin metadata stay in sync
+- `CHANGELOG.md`: moved unreleased entries into the `1.5.3` release section and refreshed compare links for the new tag
 
 ### Fixed
 
@@ -263,7 +267,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-install checks: scripts verify if tools are already installed and skip installation if current version meets requirements
 - Post-install verification: all scripts confirm successful installation and print setup hints
 
-[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.2...HEAD
+[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.3...HEAD
+[1.5.3]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.2...v1.5.3
 [1.5.2]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.4...v1.5.1
 [1.4.4]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.4.3...v1.4.4
