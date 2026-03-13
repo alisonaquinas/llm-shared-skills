@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-03-13
+
 ### Added
 
 - `skills/claude-cli`: new shared skill for installing, configuring, managing, and troubleshooting the Claude Code CLI binary — covers install, update, auth, CLAUDE.md, permissions, MCP servers, scripting, and troubleshooting; defers to `claude-cli-docs` for deep documentation lookups
@@ -17,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - `skills/xmllint`: major overhaul — rewrote SKILL.md with accurate description, table-format Intent Router, and inline Quick Reference covering `--noout`, `--format`, `--xpath`, `--schema`, `--valid`, and `--nonet`; added dedicated XXE security section; rewrote all four reference files with correct install package names (`libxml2-utils` / `libxml2`), full flag table with `XMLLINT_INDENT` env var, comprehensive XPath and schema validation examples, and full exit code table with common error explanations
+- `.claude-plugin/plugin.json`: bumped the published plugin version to `1.6.0`
 
 ## [1.5.3] - 2026-03-13
 
