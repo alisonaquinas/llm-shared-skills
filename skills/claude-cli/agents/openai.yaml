@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude Code CLI"
+  short_description: "Install, configure, and troubleshoot Claude Code CLI"
+  default_prompt: "Use $claude-cli to [install/update/configure/troubleshoot] the Claude Code CLI."

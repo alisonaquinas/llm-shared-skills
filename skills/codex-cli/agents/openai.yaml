@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex CLI"
+  short_description: "Install, configure, and troubleshoot Codex CLI"
+  default_prompt: "Use $codex-cli to [install/update/configure/troubleshoot] the OpenAI Codex CLI."

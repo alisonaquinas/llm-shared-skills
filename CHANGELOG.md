@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `skills/claude-cli`: new shared skill for installing, configuring, managing, and troubleshooting the Claude Code CLI binary — covers install, update, auth, CLAUDE.md, permissions, MCP servers, scripting, and troubleshooting; defers to `claude-cli-docs` for deep documentation lookups
+- `skills/codex-cli`: new shared skill for installing, configuring, managing, and troubleshooting the OpenAI Codex CLI binary — covers install, update, auth (browser and API key), AGENTS.md, approval modes, scripting, and troubleshooting; defers to `codex-cli-docs` for deep documentation lookups
+
 ## [1.5.3] - 2026-03-13
 
 ### Added
