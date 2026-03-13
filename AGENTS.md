@@ -170,6 +170,8 @@ into `skills/<name>` in this repo.
 ## Editing Lessons
 
 - In this Windows workspace, the `apply_patch` tool can reject large or path-heavy diffs without a useful error message.
-- If `apply_patch` fails repeatedly, stop retrying the same patch shape.
 - Prefer smaller edits and repo-relative paths first.
-- If the patch tool still rejects the change, switch promptly to a reliable local file-edit method instead of burning turns on the same failed diff strategy.
+- If `apply_patch` fails repeatedly without actionable diagnostics, treat that as an environment or tooling issue rather than as proof that the requested edit is wrong.
+- Stop retrying the same patch shape after one smaller-scope retry and one repo-relative retry.
+- If the patch tool still rejects the change, switch promptly to the safest reliable local file-edit method allowed by the environment instead of burning turns on the same failed diff strategy.
+- In your closeout, document that the fallback edit path was triggered by tool failure so reviewers understand why a non-patch edit method was used.

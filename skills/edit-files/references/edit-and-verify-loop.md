@@ -23,6 +23,17 @@ Treat the loop as mandatory for any meaningful file change. Deterministic verifi
 - Review the diff before moving on to the next checkpoint.
 - Stop broadening scope once the requested behavior is satisfied.
 
+## Patch Failure Fallback
+
+When generic patch tooling fails, treat it as a workflow problem to route around, not as a reason to abandon disciplined editing.
+
+1. Retry once with a smaller, more tightly scoped patch.
+2. Retry once with repo-relative path targeting if the first attempt used a longer or more complex path shape.
+3. If `apply_patch` still returns only a generic failure with no actionable diagnostics, stop retrying the same patch pattern.
+4. Switch to the safest reliable local edit method allowed by the environment.
+5. Continue the same verify-and-review loop after the fallback edit.
+6. Summarize that the alternate edit path was triggered by tool failure, not by request scope.
+
 ## Small Changes
 
 For a small change:
@@ -86,5 +97,6 @@ After edits:
 - run focused tests for affected behavior
 - run broader regression checks when the change radius justifies it
 - summarize the exact checks performed
+- explain any fallback editing path taken because generic patch tooling failed silently
 
 If validation cannot run, say so explicitly and note the remaining risk.

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `skills/edit-files`: documented a concrete fallback workflow for repeated non-diagnostic `apply_patch` failures, including smaller-scope retries, repo-relative retry guidance, alternate local edit methods, and closeout reporting expectations
+
 ## [1.6.0] - 2026-03-13
 
 ### Added
