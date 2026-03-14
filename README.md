@@ -35,11 +35,10 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 61 shared skills.
+This repository currently contains 57 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
-| `docker` | Merged (Claude + Codex) | Containers, Compose, Buildx, AI tooling, Windows Desktop |
 | `bash` | Codex | Bash scripting, WSL2 interop, pipelines, debugging |
 | `powershell` | Codex | PowerShell 7 scripting, remoting, modules, Windows/Linux/macOS |
 | `zsh` | Claude | Zsh interactive shell, completion system, ZLE, globbing, scripting |
@@ -49,9 +48,6 @@ This repository currently contains 61 shared skills.
 | `skill-linting` | Claude | Lint skills for structural correctness and rule compliance |
 | `skill-validation` | Claude | Validate skill quality, effectiveness, and prompt engineering alignment |
 | `ag` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
-| `aws` | Codex | AWS CLI auth, profile context, and safe service commands |
-| `az` | Codex | Azure CLI auth, subscription context, and safe ARM commands |
-| `glab` | Codex | GitLab CLI auth, MR/issue/CI workflows, and safe commands |
 | `markdownlint` | Codex | Lint and fix Markdown with markdownlint |
 | `edit-files` | Codex | Safe generic file editing with planning, patches, and verification |
 | `sqlite` | Codex | Complete SQLite workflows from queries and backups to diffing and migrations |

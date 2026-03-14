@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.4] - 2026-03-14
+
+### Changed
+
+- removed the duplicated `aws`, `az`, `docker`, and `glab` skills so `llm-shared-skills` now defers to `llm-ci-dev` as the canonical home for those CI/CD-focused tools
+
 ## [1.6.3] - 2026-03-14
 
 ### Fixed
