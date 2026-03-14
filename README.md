@@ -35,7 +35,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 57 shared skills.
+This repository currently contains 58 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
@@ -47,6 +47,14 @@ This repository currently contains 57 shared skills.
 | `skill-creator` | Merged (Claude + Codex)* | Create and update cross-LLM skills |
 | `skill-linting` | Claude | Lint skills for structural correctness and rule compliance |
 | `skill-validation` | Claude | Validate skill quality, effectiveness, and prompt engineering alignment |
+| `skill-test-drive` | Claude | Test-drive a skill by designing live scenarios, executing them, and reporting usability gaps |
+| `chatgpt-docs` | Claude | Look up official OpenAI platform documentation at platform.openai.com/docs |
+| `claude-docs` | Claude | Look up official Anthropic Claude API documentation at platform.claude.com/docs |
+| `claude-cli` | Claude | Install, configure, manage, and troubleshoot the Claude Code CLI binary |
+| `claude-cli-docs` | Claude | Look up official Claude Code documentation at code.claude.com/docs |
+| `codex-docs` | Claude | Look up official OpenAI Codex documentation at developers.openai.com/codex |
+| `codex-cli` | Claude | Install, configure, manage, and troubleshoot the OpenAI Codex CLI binary |
+| `codex-cli-docs` | Claude | Look up official OpenAI Codex CLI documentation at developers.openai.com/codex/cli |
 | `ag` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
 | `markdownlint` | Codex | Lint and fix Markdown with markdownlint |
 | `edit-files` | Codex | Safe generic file editing with planning, patches, and verification |
