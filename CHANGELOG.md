@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.3] - 2026-03-14
+
+### Fixed
+
+- restored trailing newlines in the `curl` agent manifests and removed an unused import from `scripts/verify_built_zips.py` so both the CI YAML job and the Python lint job pass on GitHub
+
 ## [1.6.2] - 2026-03-14
 
 ### Changed
