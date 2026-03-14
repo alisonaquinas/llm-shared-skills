@@ -104,16 +104,28 @@ After linking, confirm Codex sees the skills by running `/skills` in the Codex T
 
 This repo includes automated tools for ensuring skill quality:
 
+### Canonical Local Workflow
+
+Use Make as the primary entrypoint:
+
+```bash
+make lint
+make test
+make build
+make verify
+```
+
+This runs the shared baseline across Markdown, YAML, Python, skill linting,
+skill validation, stdlib-only unit tests, and ZIP verification. Release-ready
+artifacts are written to `built/`.
+
 ### Linting (Structural Checks)
 
 Run automated structural validation on skills:
 
 ```bash
-# Lint a single skill
-bash linting/lint-skill.sh skills/git
-
-# Lint all skills
-bash linting/lint-all.sh
+python scripts/lint_skills.py git
+python scripts/lint_skills.py
 ```
 
 **12 checks** validate: frontmatter, file structure, YAML syntax, required files, name format, character limits, markdown linting, and platform compatibility. See `linting/rules.md` for full specifications.
@@ -123,12 +135,20 @@ bash linting/lint-all.sh
 Generate structured context for LLM-guided quality review:
 
 ```bash
-bash validation/validate-skill.sh skills/git
+python scripts/validate_skills.py git
 ```
 
 Load `validation/rubric.md` and score 8 criteria: description effectiveness, intent routing, example quality, safety coverage, and alignment with prompt engineering standards.
 
 See `validation/public-references.md` for academic and industry best practices.
+
+The legacy shell entrypoints remain available as compatibility shims:
+
+```bash
+bash linting/lint-skill.sh skills/git
+bash linting/lint-all.sh
+bash validation/validate-skill.sh skills/git
+```
 
 ---
 

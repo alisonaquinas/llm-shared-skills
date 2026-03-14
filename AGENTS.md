@@ -110,16 +110,30 @@ Remove the entire `skills/<name>/` directory and delete its row from the `README
 Before committing any new or modified skill, run:
 
 ```bash
-bash linting/lint-skill.sh skills/<name>
+make lint
+```
+
+When you need a tighter loop for one skill, use:
+
+```bash
+python scripts/lint_skills.py <skill-name>
+python scripts/validate_skills.py <skill-name>
 ```
 
 All FAIL items must be resolved before committing. WARN items should be addressed.
-To lint all skills: `bash linting/lint-all.sh`
+
+Compatibility wrappers remain available for one release cycle:
+
+```bash
+bash linting/lint-skill.sh skills/<name>
+bash linting/lint-all.sh
+bash validation/validate-skill.sh skills/<name>
+```
 
 For qualitative validation of skill effectiveness:
 
 ```bash
-bash validation/validate-skill.sh skills/<name>
+python scripts/validate_skills.py <skill-name>
 ```
 
 Then load `validation/rubric.md` and score each criterion using the `skill-validation` skill.
@@ -137,9 +151,11 @@ Reference files:
 - Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`
 - Scope to the skill name when relevant: `feat(docker): add cloud-and-remote reference`
 - Do not amend published commits — create new ones.
-- Do not commit without running linting:
-  - All L01–L12 FAILs must be resolved (see `bash linting/lint-skill.sh skills/<name>`)
-  - No platform-specific language leaked into SKILL.md body (L09 check)
+- Do not commit without running the baseline quality gate:
+  - `make test`
+  - `make build`
+  - `make verify`
+  - or the narrow Python equivalents when you are changing one skill in isolation
 
 ---
 
@@ -153,6 +169,7 @@ Reference files:
   3. Tag the commit: `git tag v<version>`.
 - Never set `plugin.json` version manually to a value that does not match the latest git tag.
 - The `CHANGELOG.md` **must** be updated as part of every release — do not tag without it.
+- The release workflow runs `make test`, then `make all`, attaches `built/*.zip`, and skips marketplace dispatch cleanly when the token is absent.
 
 ---
 
