@@ -41,8 +41,6 @@ verification after each meaningful change.
 - Use `jq` as the default option for JSON edits.
 - Use `yq` for YAML, XML, and TOML edits.
 - Fall back to generic patch-style editing when no safer structured path exists.
-- When using generic patch editing, start with small, repo-relative patches.
-- If `apply_patch` fails repeatedly without actionable diagnostics, stop retrying the same patch shape and switch to the safest reliable local edit method permitted by the environment.
 
 1. Make the smallest viable patch.
 
@@ -52,6 +50,7 @@ verification after each meaningful change.
 1. Verify immediately.
 
 - Run repo-native formatters, linters, tests, and targeted checks after each meaningful change.
+- If Git commands fail with "detected dubious ownership", treat that as a repository trust issue that requires `safe.directory`, not as evidence that the edit or patch approach is wrong.
 - Review the diff before considering the task complete.
 
 1. Summarize clearly.
@@ -65,10 +64,10 @@ verification after each meaningful change.
 | **Scoping** | Keep edits tightly bounded to the request and the files that implement it. | Small changes are easier to verify and review. |
 | **Planning** | Analyze before editing for any non-trivial task. | Reduces wrong-file edits and architectural drift. |
 | **Patch shape** | Prefer targeted patches over full-file rewrites. | Preserves intent and reduces accidental deletion. |
-| **Patch failures** | Retry generic patch edits only with a smaller scope or repo-relative path; if the tool still fails non-diagnostically, switch to a reliable alternate edit method. | Prevents wasted turns on tooling failures while preserving a safe editing workflow. |
 | **Structured data** | Prefer `jq` or `yq` over raw text edits when the file format allows it. | Format-aware changes are safer than freeform substitutions. |
 | **Repo rules** | Follow `AGENTS.md`, repo docs, and existing validation commands. | Repo-local conventions outrank invented ones. |
 | **Validation** | Re-run focused checks after each meaningful change. | Deterministic tools catch errors faster than review alone. |
+| **Git trust failures** | Separate Git `safe.directory` / "dubious ownership" failures from editing failures and unblock them before relying on Git-based verification. | Prevents misdiagnosing repo trust policy as a bad patch or bad content change. |
 | **Diff review** | Inspect the resulting diff before finishing. | Prevents unnoticed collateral edits. |
 
 ## Safety Matrix
@@ -87,7 +86,6 @@ verification after each meaningful change.
 - Explain the intended scope before editing when the task is not trivial.
 - Report the exact files changed and why each file mattered.
 - State which validation steps ran and what they proved.
-- If generic patch tooling failed, say that the fallback was triggered by tool behavior rather than by the request being too broad.
 - Call out any remaining uncertainty, skipped checks, or follow-up risk.
 
 ## Assets
