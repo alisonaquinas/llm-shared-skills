@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.5] - 2026-03-14
+
 ### Added
 
 - `skills/skill-test-drive`: new meta-skill for test-driving other skills by designing live scenarios, executing them with the target skill's guidance, and reporting usability gaps and missing examples before release
