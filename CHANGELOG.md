@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.6] - 2026-03-15
+
+### Added
+
+- `skills/skill-development`: new meta-skill orchestrating the full 7-phase SDLC for authoring LLM agent skills — covers ideation, authoring via skill-creator, structural linting via skill-linting, qualitative validation via skill-validation, live scenario testing via skill-test-drive, iteration loops, and final commit and ship; includes five reference files and two rounds of live test-drive fixes
+
 ## [1.6.5] - 2026-03-14
 
 ### Added
