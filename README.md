@@ -45,6 +45,7 @@ This repository currently contains 58 shared skills.
 | `git` | Claude | Git workflows, branching, rebasing, LFS, history recovery |
 | `changelog` | Claude | Maintain keepachangelog-format CHANGELOG.md files with structured entries and releases |
 | `skill-creator` | Merged (Claude + Codex)* | Create and update cross-LLM skills |
+| `skill-development` | Claude | Orchestrate the full end-to-end SDLC for authoring a new LLM agent skill |
 | `skill-linting` | Claude | Lint skills for structural correctness and rule compliance |
 | `skill-validation` | Claude | Validate skill quality, effectiveness, and prompt engineering alignment |
 | `skill-test-drive` | Claude | Test-drive a skill by designing live scenarios, executing them, and reporting usability gaps |

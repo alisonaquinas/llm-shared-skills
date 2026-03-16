@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Development"
+  short_description: "End-to-end SDLC for authoring LLM skills"
+  default_prompt: "Use $skill-development to guide the full skill development lifecycle."
