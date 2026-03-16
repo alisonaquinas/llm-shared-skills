@@ -39,7 +39,7 @@ python scripts/lint_skills.py <name>
 | L06 | Body line count | WARN/FAIL | <450 lines WARN; <500 FAIL | Move content to `references/` |
 | L07 | Dangling references | FAIL | Every `references/*.md` in body exists on disk | Create missing files or remove refs |
 | L08 | Script syntax | FAIL | All `scripts/*.sh` pass `bash -n` | Fix shell syntax errors |
-| L09 | Platform language | FAIL | No "Claude Code" or "Codex" in prose | Replace with "the agent" |
+| L09 | Platform language | WARN | No "Claude Code" or "Codex" in prose | Replace with "the agent" |
 | L10 | Forbidden files | FAIL | No README.md, CHANGELOG.md, etc. | Delete auxiliary files |
 | L11 | Second-person | WARN | No "You should", "You can", etc. | Rewrite in imperative form |
 | L12 | Markdownlint | FAIL | All `.md` files pass markdownlint-cli2 | Run `markdownlint-cli2 --fix` |

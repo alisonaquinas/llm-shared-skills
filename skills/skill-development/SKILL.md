@@ -117,10 +117,18 @@ Phase 3; never skip linting after editing files.
 
 ### Phase 7: Ship
 
-Confirm the quality gates pass:
+Confirm the quality gates pass. Requires Node.js 20+:
 
 ```bash
 make lint && make test && make build
+```
+
+If `make` is unavailable or Node < 20 is installed, use the bash fallbacks:
+
+```bash
+bash linting/lint-skill.sh skills/<name>
+bash linting/lint-all.sh
+bash validation/validate-skill.sh skills/<name>
 ```
 
 Update the `README.md` skill table first, then commit inside the skill's repository

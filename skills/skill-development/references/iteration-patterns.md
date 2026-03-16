@@ -59,6 +59,7 @@ completed phase:
 3. Did the last lint run exit 0 with zero FAILs? → Phase 3 (Linting) is done.
    **Conservative default:** if no session memory of a prior lint run exists, assume
    Phase 3 incomplete and re-run `bash linting/lint-skill.sh skills/<name>`.
+   If the re-run exits 0, mark Phase 3 complete and continue to Phase 4.
 4. Does a validation report exist with APPROVE verdict? → Phase 4 is done.
 5. Does a friction report exist with ≥5 scenarios? → Phase 5 is done.
 
