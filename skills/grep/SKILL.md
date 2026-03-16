@@ -93,7 +93,7 @@ man grep                            # Full manual
 | --- | --- |
 | **Regex vs fixed string** | Dots, brackets, and other regex metacharacters in search patterns have special meaning. Use `-F` (grep) or `-Q` (ag) for literal string searches. |
 | **Binary files** | grep and ag skip or warn on binary files by default. Use `grep -a` to force text treatment; be aware output may be garbled. |
-| **Exit codes** | Exit 0 = match found, 1 = no match, 2 = error. Scripts must distinguish no-match (expected) from error. Use `grep ... || true` when no-match is acceptable. |
+| **Exit codes** | Exit 0 = match found, 1 = no match, 2 = error. Scripts must distinguish no-match (expected) from error. Use `grep ... \|\| true` when no-match is acceptable. |
 | **Sensitive data in patterns** | Search patterns appear in process listings. Avoid embedding secrets in grep/ag arguments. |
 | **`.gitignore` respect** | `ag` respects `.gitignore` automatically; `grep -r` does not. Add `--exclude-dir=.git` or use `git grep` when searching repos with grep. |
 

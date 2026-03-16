@@ -71,6 +71,7 @@ xxd unknown.bin | less              # Paginated hex view
 ```
 
 To restore a corrupted terminal:
+
 ```bash
 reset                               # Full terminal reset
 printf '\033c'                      # ESC-c: soft terminal reset

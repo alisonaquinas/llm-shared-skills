@@ -51,6 +51,7 @@ permission  links owner group size  date/time    filename
 ```
 
 Permission string breakdown: `[type][owner][group][other]`
+
 - Type: `-` file, `d` directory, `l` symlink, `p` pipe, `s` socket
 - Each triplet: `r` read, `w` write, `x` execute, `-` not set
 

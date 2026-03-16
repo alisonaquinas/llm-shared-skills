@@ -3,6 +3,7 @@
 ## ag-specific features
 
 ### Smart case
+
 ag uses smart-case by default: if the pattern contains any uppercase, the
 search is case-sensitive; otherwise it is case-insensitive:
 
@@ -14,7 +15,9 @@ ag -i "Error"       # Force case-insensitive
 ```
 
 ### File type filters
+
 ag has built-in file type definitions:
+
 ```bash
 ag --list-file-types            # Show all known types
 ag --python "import os"         # Python source only
@@ -24,11 +27,13 @@ ag --yaml "host:"               # YAML only
 ```
 
 ### Search hidden files
+
 ```bash
 ag --hidden "pattern"           # Include .dotfiles and .dotdirs
 ```
 
 ### Searching within a git repo with ag
+
 ```bash
 ag "TODO"                       # Skips .git/ and all .gitignored paths
 ag --skip-vcs-ignores "TODO"    # Include gitignored files

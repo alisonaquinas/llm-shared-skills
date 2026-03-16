@@ -5,6 +5,7 @@
 **Symptom:** `ls` shows plain text with no colour highlighting.
 
 **Causes and fixes:**
+
 ```bash
 # Check if colour is configured
 echo $LS_COLORS                     # Should be non-empty on Linux

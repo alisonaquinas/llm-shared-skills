@@ -45,6 +45,7 @@ cat file | sed 's/a/b/'          sed 's/a/b/' file
 ```
 
 `cat` is appropriate when:
+
 - Concatenating multiple files: `cat a b c > out`
 - The command genuinely reads from stdin only and has no filename argument
 - You are explicitly feeding a single file into a pipeline for clarity

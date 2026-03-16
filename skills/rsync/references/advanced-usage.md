@@ -77,6 +77,7 @@ rsync -av \
 ```
 
 Rules:
+
 - `+` include
 - `-` exclude
 - `H` hide (like exclude but does not delete from dest)

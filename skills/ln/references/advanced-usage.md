@@ -3,12 +3,14 @@
 ## Relative vs absolute symlinks
 
 **Absolute symlinks** embed the full path and break when the tree is moved:
+
 ```bash
 ln -s /home/alice/projects/app/config.json /home/alice/config.json
 # If the tree moves to /srv/app, the link breaks
 ```
 
 **Relative symlinks** are portable — they survive directory moves:
+
 ```bash
 ln -s ../projects/app/config.json /home/alice/config.json
 # Still works after the whole tree is relocated
@@ -29,6 +31,7 @@ mv -T /path/.tmp-link /path/link-name   # GNU mv -T: overwrite atomically
 ```
 
 Or with GNU `ln`:
+
 ```bash
 ln -snf /new/target link-name
 ```
@@ -65,7 +68,8 @@ ls -lai | awk '$1==INODE'                   # All names sharing an inode
 ## Cross-filesystem gotchas
 
 Hard links cannot cross filesystems or mount points. Attempting it produces:
-```
+
+```text
 ln: failed to create hard link 'b': Invalid cross-device link
 ```
 

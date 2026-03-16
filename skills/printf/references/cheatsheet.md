@@ -30,7 +30,7 @@
 
 ## Width and Precision Modifiers
 
-```
+```text
 %-20s    Left-aligned string, min 20 chars wide
 %20s     Right-aligned string, min 20 chars wide
 %05d     Integer, zero-padded to 5 digits
@@ -62,7 +62,7 @@ printf '%s\n' "err" >&2                # Write to stderr
 
 ## Field Width Quick Reference
 
-```
+```text
 %Ns    right-align string in N chars
 %-Ns   left-align string in N chars
 %.Ns   truncate string to N chars

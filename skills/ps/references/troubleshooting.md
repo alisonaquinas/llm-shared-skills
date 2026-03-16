@@ -13,6 +13,7 @@ pgrep -a foo                            # Show full command lines
 ## Process shows but kill has no effect
 
 **Causes:**
+
 - Process is in `D` (uninterruptible sleep, usually waiting on I/O or kernel call) — SIGKILL will not work until the kernel operation completes
 - Process is a zombie (`Z`) — already dead, cannot be killed; reap via the parent
 - Insufficient permissions — you do not own the process

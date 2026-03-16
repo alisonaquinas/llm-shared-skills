@@ -5,6 +5,7 @@
 **Symptom:** Destination file is replaced without warning.
 
 `cp` overwrites by default. To prevent this:
+
 ```bash
 cp -i source dest           # Interactive: prompt before overwrite
 cp -n source dest           # No-clobber: skip if dest exists
@@ -49,6 +50,7 @@ cp -r src/ dest/
 **Symptom:** Symlink is replaced by the file it points to, not a link.
 
 By default `cp` follows symlinks. Use `-P` to copy the link itself:
+
 ```bash
 cp -P symlink dest/         # Copy the link, not the target
 cp -a src/ dest/            # Archive mode preserves symlinks

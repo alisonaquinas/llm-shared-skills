@@ -13,6 +13,7 @@ ps aux | grep '[f]oo'                   # Bracket trick: regex does not match it
 ## No results when a match is expected
 
 **Cause candidates:**
+
 1. Special characters in pattern not escaped
 2. Case mismatch
 3. Binary file silently skipped

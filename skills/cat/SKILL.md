@@ -56,7 +56,7 @@ man cat                             # Full manual
 | **Overwrite with `>`** | `cat a > b` overwrites `b` silently. Use `>>` to append. Confirm destination path before redirecting. |
 | **Binary files** | `cat` will send raw binary bytes to the terminal, which can corrupt terminal state. Check with `file` first; use `xxd` or `hexdump` for binary inspection. |
 | **Large files** | `cat` on a large file floods the terminal. Use `head`, `tail`, `less`, or `grep` for targeted inspection. |
-| **Useless use of cat** | `cat file | grep pattern` is better written as `grep pattern file`. Eliminating unnecessary `cat` reduces process overhead and clarifies intent. |
+| **Useless use of cat** | `cat file \| grep pattern` is better written as `grep pattern file`. Eliminating unnecessary `cat` reduces process overhead and clarifies intent. |
 | **Truncation via redirect** | `cat /dev/null > file` or `> file` immediately truncates `file` to zero bytes. This is irreversible without a backup. |
 
 ## Source Policy

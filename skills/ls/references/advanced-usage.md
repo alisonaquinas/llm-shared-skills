@@ -13,6 +13,7 @@ macOS ships BSD `ls`. Many GNU flags are absent. Key differences:
 | Human sizes | `-h` (requires `-l`) | `-h` (requires `-l`) |
 
 Install GNU coreutils on macOS for GNU behaviour:
+
 ```bash
 brew install coreutils
 # then use gls instead of ls

@@ -54,7 +54,7 @@ man ps                          # Full manual
 | --- | --- |
 | **Read-only** | `ps` never modifies processes. All listings are safe to run. |
 | **Before killing** | Always confirm PID, owner, and command string before passing output to `kill`. A wrong PID can terminate critical system processes. |
-| **grep false matches** | `ps aux | grep foo` will match the `grep foo` process itself. Use `grep -v grep` or `pgrep foo` to filter it out. |
+| **grep false matches** | `ps aux \| grep foo` will match the `grep foo` process itself. Use `grep -v grep` or `pgrep foo` to filter it out. |
 | **Snapshot timing** | `ps` captures a point-in-time snapshot. Short-lived processes may not appear. Use `top` or `htop` for continuous monitoring. |
 | **macOS vs Linux** | macOS uses BSD `ps`. Column names and some flags differ. `--forest` and `--sort` are GNU-only. Use `pstree` or Activity Monitor on macOS for trees. |
 | **Permissions** | Non-root users may see truncated command lines for processes owned by other users. |
