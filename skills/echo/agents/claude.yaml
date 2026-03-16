@@ -1,0 +1,4 @@
+interface:
+  display_name: "echo"
+  short_description: "Print strings to stdout; prefer printf for portable escaping."
+  default_prompt: "Use $echo or printf to output the required text, quoting variables and choosing printf for portability."

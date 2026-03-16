@@ -65,25 +65,35 @@ This repository currently contains 58 shared skills.
 | `ar` | vibe-coding | Static library (`.a`) inspection, member extraction, and manipulation |
 | `awk` | vibe-coding | Text processing with field extraction, pattern matching, and filtering |
 | `binwalk` | vibe-coding | Binary firmware analysis, file signatures, and embedded data extraction |
+| `cat` | Claude | Concatenate and display file contents; feed files into pipelines |
+| `cp` | Claude | Copy files and directories with permission and metadata control |
 | `cmp` | vibe-coding | Byte-by-byte file comparison and binary difference detection |
 | `curl` | Codex | HTTP requests, API calls, downloads, uploads, redirects, and TLS-aware transfer control |
 | `diff` | vibe-coding | Text file comparison, unified diffs, and line-by-line changes |
+| `echo` | Claude | Print strings and variables to stdout; use printf for portable escape handling |
 | `exiftool` | vibe-coding | EXIF/metadata extraction from images, videos, and documents |
+| `grep` | Claude | Search files and pipelines by pattern; prefer ag for recursive code search when available |
 | `file` | vibe-coding | File type detection using magic numbers and content analysis |
 | `head` | vibe-coding | Display first lines of files for quick previews and header inspection |
 | `hexdump` | vibe-coding | Hex dump generation, byte visualization, and binary data inspection |
 | `jq` | vibe-coding | JSON querying, filtering, transformation, and pretty-printing |
 | `ldd` | vibe-coding | Dynamic library dependency analysis for ELF binaries |
+| `ln` | Claude | Create symbolic and hard links between files and directories |
+| `ls` | Claude | List directory contents with permissions, sizes, timestamps, and sorting |
 | `less` | vibe-coding | Interactive paging, search, and navigation of large text files |
+| `mv` | Claude | Move or rename files and directories safely |
 | `mediainfo` | vibe-coding | Audio/video metadata extraction and multimedia file analysis |
 | `nm` | vibe-coding | Symbol table inspection from object files and binaries |
 | `objdump` | vibe-coding | Disassembly, section analysis, and low-level binary inspection |
 | `od` | vibe-coding | Octal/hex dumps with custom formatting for binary analysis |
 | `openssl` | vibe-coding | Cryptography, SSL/TLS, certificate generation, and data hashing |
+| `printf` | Claude | Portable formatted output with escape sequences, columns, and cross-shell consistency |
+| `ps` | Claude | Inspect running processes, PIDs, CPU, memory, and process trees |
 | `pdfinfo` | vibe-coding | PDF metadata extraction and document property inspection |
 | `pdftotext` | vibe-coding | PDF text extraction and conversion to plain text |
 | `readelf` | vibe-coding | ELF binary analysis, headers, sections, symbols, and relocations |
 | `rg` | vibe-coding | Fast ripgrep-based search with regex, file filtering, and counting |
+| `rsync` | Claude | Efficient, resumable file sync locally or over SSH with exclusion and dry-run support |
 | `sed` | vibe-coding | Stream editing with regex substitution, filtering, and transformations |
 | `ssh-client` | vibe-coding | SSH connections, remote command execution, and secure tunneling |
 | `ssh-keygen` | vibe-coding | SSH key generation, conversion, and management |

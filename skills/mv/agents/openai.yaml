@@ -1,0 +1,4 @@
+interface:
+  display_name: "mv"
+  short_description: "Move or rename files and directories safely."
+  default_prompt: "Use $mv to move or rename the file or directory, with appropriate overwrite protection."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "cat"
+  short_description: "Concatenate and display files; feed contents into pipelines."
+  default_prompt: "Use $cat to display or concatenate files, or feed a file into a pipeline command."

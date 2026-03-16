@@ -1,0 +1,4 @@
+interface:
+  display_name: "ps"
+  short_description: "Inspect running processes, PIDs, CPU, memory, and process trees."
+  default_prompt: "Use $ps to list or inspect running processes and their attributes."

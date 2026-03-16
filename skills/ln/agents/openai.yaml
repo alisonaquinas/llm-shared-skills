@@ -1,0 +1,4 @@
+interface:
+  display_name: "ln"
+  short_description: "Create symbolic and hard links between files and directories."
+  default_prompt: "Use $ln to create a symlink or hard link for the file or directory in question."

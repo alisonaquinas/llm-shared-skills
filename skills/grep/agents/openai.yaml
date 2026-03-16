@@ -1,0 +1,4 @@
+interface:
+  display_name: "grep"
+  short_description: "Search files by pattern; prefer ag for recursive code search."
+  default_prompt: "Use $grep (or ag if installed) to search for the pattern in files or pipeline output."

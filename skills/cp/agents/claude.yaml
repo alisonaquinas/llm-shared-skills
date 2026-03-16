@@ -1,0 +1,4 @@
+interface:
+  display_name: "cp"
+  short_description: "Copy files and directories with permission and metadata control."
+  default_prompt: "Use $cp to copy a file or directory tree safely, preserving the required metadata."

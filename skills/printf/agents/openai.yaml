@@ -1,0 +1,4 @@
+interface:
+  display_name: "printf"
+  short_description: "Portable formatted output with escape sequences and columns."
+  default_prompt: "Use $printf to produce the required formatted output portably across all POSIX shells."

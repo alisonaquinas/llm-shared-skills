@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.7] - 2026-03-16
+
+### Added
+
+- `skills/cat`: display and concatenate file contents; covers tac, heredoc alternatives, and "useless use of cat" guidance
+- `skills/cp`: copy files and directories with metadata/permission preservation, archive mode, and safe overwrite patterns
+- `skills/echo`: print strings to stdout with portability notes; defers to `$printf` for escape handling in scripts
+- `skills/grep`: search files and pipelines by pattern; prefers ag (The Silver Searcher) for recursive code search when installed; includes ag flags, when-to-use table, and PCRE notes
+- `skills/ln`: create hard and symbolic links; covers atomic symlink replacement, relative vs absolute targets, and cross-filesystem limits
+- `skills/ls`: list directory contents; covers GNU vs BSD flag differences, sorting options, colour output, and safe scripting alternatives
+- `skills/mv`: move and rename files and directories; covers atomic same-filesystem rename, cross-filesystem copy-then-delete, and overwrite protection
+- `skills/printf`: portable formatted output; covers format specifiers, field widths, ANSI colour, `printf -v`, null-delimited output, and the "never pass variable as format string" safety rule
+- `skills/ps`: inspect running processes; covers BSD/POSIX syntax differences, custom output columns, process trees, and top/htop alternatives
+- `skills/rsync`: sync files locally or over SSH; emphasises dry-run-first workflow, trailing-slash semantics, `--delete` warning, and bandwidth/checksum options
+
 ## [1.6.6] - 2026-03-15
 
 ### Added

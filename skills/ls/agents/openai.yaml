@@ -1,0 +1,4 @@
+interface:
+  display_name: "ls"
+  short_description: "List directory contents with permissions, sizes, and timestamps."
+  default_prompt: "Use $ls to list the contents of a directory with relevant flags for the task."
