@@ -146,6 +146,14 @@ Reference files:
 
 ---
 
+## Git Workflow
+
+This repo uses **trunk-based development**. The developer works alone.
+
+- Commit directly to `main`. Do not create feature branches or open pull requests.
+- Push directly: `git push origin main`.
+- For releases, tag the commit on `main` and push the tag.
+
 ## Commit Conventions
 
 - Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`
