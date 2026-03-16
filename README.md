@@ -11,31 +11,20 @@ them loadable by either agent without modification.
 
 ## What's New
 
-**New in v1.4.2:**
+**New in v1.6.7:**
 
-- **yq skill** — Process YAML, XML, and TOML with jq-like filtering syntax
-  - 4 references: install-and-setup, quick-reference, usage-patterns, examples-and-recipes
-  - Supports format conversion, filtering, in-place editing, and roundtrip mode
-  - ~900 lines of comprehensive documentation and examples
-- **Skill migrations** — 4 skills consolidated into dedicated llm-ci-dev repository
-  - Moved: docker, aws, az, glab (now CI/CD-focused in specialized repo)
-  - llm-shared-skills now focuses on general-purpose system utilities (45 skills)
-
-**From v1.4.1:**
-
-- **Comprehensive skill linting and validation system** — Automated quality assurance for all skills
-  - **12-rule linting** (`linting/`) — Structural correctness checks: frontmatter, file structure, YAML syntax, markdown linting, platform compatibility
-  - **8-criterion validation** (`validation/`) — LLM-guided quality scoring: description effectiveness, intent routing, example quality, safety coverage, prompt engineering alignment
-  - **Two new skills** — `skill-linting` and `skill-validation` for automated quality checks and LLM-guided reviews
-  - **Enhanced skill-creator** — Step 7 integration with linting/validation workflow + 7 Prompt Engineering Standards
-  - **All 45 skills pass linting** with zero structural violations
-  - **All 269 markdown files pass linting** with zero errors
+- **10 new POSIX/GNU command skills** — `cat`, `cp`, `echo`, `grep`, `ln`, `ls`, `mv`, `printf`, `ps`, `rsync`
+  - Each includes a cheatsheet, advanced-usage, and troubleshooting reference
+  - `grep` skill recommends ag (The Silver Searcher) over grep for recursive code search when installed
+  - `rsync` emphasises dry-run-first workflow and trailing-slash semantics
+  - `printf` covers `printf -v` for subshell-free variable assignment and locale-stable numeric output
+- **Meta-skills added** — `skill-development`, `skill-test-drive`, `skill-linting`, `skill-validation`
 
 See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 58 shared skills.
+This repository currently contains 69 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
