@@ -171,11 +171,11 @@ This repo uses **trunk-based development**. The developer works alone.
 
 - The canonical version lives in the **git tag** (e.g. `v1.4.4`).
 - When setting or bumping the version, always:
-  1. Set `.claude-plugin/plugin.json` `"version"` to match the git tag (strip the leading `v`).
+  1. Set `.claude-plugin/plugin.json` `"version"` to match the git tag (strip the leading `v`). **This is enforced by CI** — the release workflow checks that `GITHUB_REF_NAME` (e.g. `v1.6.7`) equals `plugin.json version` (e.g. `1.6.7`). A mismatch aborts the run immediately: `ERROR: tag v1.6.7 does not match plugin.json version v1.6.6`.
   2. Add a new dated entry to `CHANGELOG.md` under `## [<version>] - <YYYY-MM-DD>` **before** tagging.
      Move all items from `## [Unreleased]` into the new entry.
-  3. Tag the commit: `git tag v<version>`.
-- Never set `plugin.json` version manually to a value that does not match the latest git tag.
+  3. Commit both files, then tag: `git tag -a v<version> -m "Release v<version>"`.
+- Never tag before updating `plugin.json` — the tag triggers CI and a stale version will fail the gate.
 - The `CHANGELOG.md` **must** be updated as part of every release — do not tag without it.
 - The release workflow runs `make test`, then `make all`, attaches `built/*.zip`, and skips marketplace dispatch cleanly when the token is absent.
 
