@@ -50,8 +50,8 @@ python scripts/lint_skills.py <name>
 
 Resolve in this order to avoid cascading failures:
 
-1. FAILs first: L01, L02, L03, L04, L05, L07, L08, L09, L10, L12
-2. WARNs next: L06 (body length), L11 (second-person)
+1. FAILs first: L01, L02, L03, L04, L05, L07, L08, L10, L12
+2. WARNs next: L06 (body length), L09 (platform language), L11 (second-person)
 3. Re-lint after each batch of fixes
 
 ---
@@ -102,4 +102,4 @@ Linting phase is complete when:
 
 - `lint-skill.sh` exits 0
 - Zero FAIL items in output
-- WARN items addressed or suppressed with documented `.lintignore` entries
+- WARN items addressed or suppressed with a documented `.lintignore` entry (not required to block ship)

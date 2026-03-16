@@ -23,7 +23,7 @@ Answer these questions in order to find the correct re-entry point:
 | Failure Mode | Re-Entry Point | Phases to Skip |
 |---|---|---|
 | Lint FAIL (L01–L12) | Phase 3 | 1, 2 (file content unchanged) |
-| Validation FAIL (V01–V07) | Phase 2 (Authoring) | 1 (ideation already done) |
+| Validation FAIL (V01–V07) | Phase 2 (Authoring) — bring the FAIL criterion from `phase-validation.md` | 1 (ideation already done) |
 | Validation FAIL (V08 only) | Phase 4 (re-score after fixes) | 1–3 (no structural change) |
 | Test drive FAIL | Phase 2 (Authoring) | 1 |
 | Test drive PARTIAL (fixable) | Phase 4 (re-validate after fixes) | 1–3 |

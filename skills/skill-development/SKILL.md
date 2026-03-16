@@ -76,8 +76,9 @@ Load `references/phase-linting.md` for the full 12-rule table and fix recipes.
 bash linting/lint-skill.sh skills/<name>
 ```
 
-Fix FAILs in order L01 → L12, then address WARNs L06 and L11. Re-lint after each
-batch of fixes. Gate: `lint-skill.sh` exits 0 with zero FAILs.
+Fix FAILs in order L01 → L12, then address WARNs. Re-lint after each batch of fixes.
+Gate: `lint-skill.sh` exits 0 with zero FAILs; WARNs may ship if suppressed with a
+documented `.lintignore` entry.
 
 ### Phase 4: Validation
 
@@ -127,7 +128,6 @@ If `make` is unavailable or Node < 20 is installed, use the bash fallbacks:
 
 ```bash
 bash linting/lint-skill.sh skills/<name>
-bash linting/lint-all.sh
 bash validation/validate-skill.sh skills/<name>
 ```
 
@@ -164,7 +164,7 @@ git commit -m "chore(submodules): bump <submodule> with <name> skill"
 - Record all BLOCKED scenarios; they document hidden dependencies, not dismissible failures.
 - When V07 (LLM Usability) fails twice in a row, treat it as a scope signal — load
   `references/iteration-patterns.md` for escalation guidance.
-- Never ship with lint FAILs; WARN items may ship if suppressed with a documented `.lintignore`.
+- Never ship with lint FAILs; WARN items may ship if suppressed with a documented `.lintignore` entry.
 
 ## Resource Index
 
