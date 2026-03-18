@@ -57,6 +57,12 @@ and whether error responses are informative and follow the JSON-RPC error format
 - Missing `isError`: add `isError: true` to all error response objects
 - Uninformative message: include the error type and affected parameter in the message
 
+**FastMCP note:** In Python FastMCP, raising an exception inside a tool handler
+automatically produces `isError: true`. Catching the exception and returning a
+plain string produces `isError: false` (content only). To get M03 PASS with
+FastMCP, either `raise` exceptions or explicitly use `mcp.types.TextContent` with
+`isError: true` in the response.
+
 ---
 
 ## M04: Documentation

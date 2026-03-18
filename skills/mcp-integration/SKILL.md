@@ -101,6 +101,16 @@ For servers using HTTP/SSE transport, use the `url` field instead of `command`:
 }
 ```
 
+## Gate
+
+mcp-integration is complete when:
+- The server appears in the client's connected MCP servers list
+- All declared tools are visible in the client UI
+- At least one tool call succeeds end-to-end through the real client
+
+Proceed to mcp-validation only after tools are confirmed visible and callable
+in the target client.
+
 ## Safety Notes
 
 Use absolute paths in `command` and `args` — relative paths cause "spawn ENOENT"

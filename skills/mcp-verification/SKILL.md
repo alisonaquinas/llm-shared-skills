@@ -24,19 +24,24 @@ Load reference files on demand — only when the corresponding topic is active:
 
 ## Quick Start — Verification Checklist
 
-Run through this checklist before proceeding to mcp-integration:
+Run through this checklist before proceeding to mcp-integration.
+Items marked **(static)** can be checked by reading source code.
+Items marked **(Inspector)** require a running server and the MCP Inspector.
 
 ```
-[ ] Server starts without errors (exit code 0 on clean startup)
-[ ] tools/list response contains all declared tools
-[ ] Each tool has valid name, description, and inputSchema
-[ ] inputSchema passes JSON Schema Draft 7 (root must be {"type": "object"})
-[ ] Every property in inputSchema has a "description" field
-[ ] "required" array only references properties that exist in "properties"
-[ ] Server responds to tools/call with content array format
-[ ] Error responses use {content: [{type:"text", text:"Error:..."}], isError:true}
-[ ] SSE servers: health endpoint responds (if applicable)
-[ ] stdio servers: no non-JSON output on stdout
+Static checks (source code only):
+[ ] (static)    Each tool has valid name, description, and inputSchema
+[ ] (static)    inputSchema root is {"type": "object"}
+[ ] (static)    Every property in inputSchema has a "description" field
+[ ] (static)    "required" array only references properties in "properties"
+[ ] (static)    stdio servers: no print()/console.log() writing to stdout
+
+Live checks (run Inspector first):
+[ ] (Inspector) Server starts without errors
+[ ] (Inspector) tools/list returns all declared tools
+[ ] (Inspector) tools/call returns content array format
+[ ] (Inspector) Error inputs return isError:true with descriptive message
+[ ] (Inspector) SSE servers: health endpoint responds (if applicable)
 ```
 
 Gate: all items PASS before moving to mcp-integration.

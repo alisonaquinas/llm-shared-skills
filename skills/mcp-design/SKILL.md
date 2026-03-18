@@ -100,6 +100,15 @@ Tool descriptions are read by language models to route tool selection.
 - Use the model's vocabulary — avoid internal jargon
 - Differentiate tools with similar purposes by domain, input type, or return type
 
+## Gate
+
+mcp-design is complete when:
+- Every tool in the capability inventory has a validated `inputSchema`
+- Interface contract document is written (tool names, parameter types, return types)
+- No tool name is listed as TBD
+
+Proceed to mcp-creation only after all schemas pass ajv or jsonschema validation.
+
 ## Safety Notes
 
 JSON Schema errors in `inputSchema` silently cause tool registration failures in

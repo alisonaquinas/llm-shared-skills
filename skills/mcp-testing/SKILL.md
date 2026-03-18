@@ -33,6 +33,12 @@ Load reference files on demand — only when the corresponding topic is active:
 Start at the unit layer. Reach integration testing before mcp-verification.
 E2E testing belongs in mcp-test-drive.
 
+**Install test dependencies first:**
+```bash
+npm install --save-dev vitest          # TypeScript
+pip install pytest pytest-asyncio      # Python
+```
+
 ## TypeScript Unit Test Pattern
 
 Separate handler logic from transport wiring to enable direct imports:
@@ -110,6 +116,16 @@ Every tool must be tested for these error cases before mcp-verification:
 [ ] Resource not found → descriptive error message returned
 [ ] Empty string parameter → handled without crash
 ```
+
+## Gate
+
+mcp-testing is complete when:
+- All unit tests pass (`npm run test:run` or `pytest`)
+- Error case checklist above is fully covered
+- Inspector shows all tools and at least one tool call returns a valid response
+
+Proceed to mcp-verification only after unit tests pass and Inspector confirms
+tool registration.
 
 ## Safety Notes
 

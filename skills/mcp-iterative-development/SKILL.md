@@ -51,6 +51,12 @@ Answer these questions in order to find the correct re-entry point:
 6. **Did test drive return mostly PARTIAL?** → Re-enter **mcp-validation** for re-scoring
 7. **Did M01 fail twice after design fixes?** → Re-enter **mcp-planning** (scope split)
 
+**Multiple simultaneous FAILs:** When several dimensions fail together, apply the
+re-entry in the highest-priority order above. Fix code issues first (M03/M05/M06
+via mcp-creation), then re-run mcp-verification and re-score mcp-validation. Fix
+documentation (M04) last — after code fixes pass validation — since documentation
+changes do not require another verification run.
+
 Load `references/re-entry-decision-tree.md` for the extended version with rationale
 and partial completion recovery checklist.
 

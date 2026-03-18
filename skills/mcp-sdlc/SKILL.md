@@ -32,7 +32,7 @@ Load reference files on demand — only when the corresponding phase is active:
 
 | # | Phase | Primary Skill | Gate Criterion | On Failure |
 |---|---|---|---|---|
-| 1 | Planning | mcp-planning | Purpose + capability inventory + transport decision written | Clarify scope |
+| 1 | Planning | mcp-planning | Purpose + capability inventory + transport decision + client notes written | Clarify scope |
 | 2 | Design | mcp-design | All tool schemas valid; interface contract documented | Revise schemas |
 | 3 | Creation | mcp-creation | Server starts; tools/list returns all declared tools | Fix handlers; rebuild |
 | 4 | Testing | mcp-testing | Unit tests pass; Inspector shows all tools | Fix test failures |

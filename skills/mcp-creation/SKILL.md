@@ -95,6 +95,16 @@ Handle SIGINT for clean shutdown. Never exit on a tool error — only exit on fa
 
 **SSE:** Bind to an HTTP port; accept connections from clients; handle SIGINT to release the port.
 
+## Gate
+
+mcp-creation is complete when:
+- Server process starts without errors
+- `tools/list` (via Inspector or manual JSON-RPC call) returns all tools declared
+  in the capability inventory
+- No tool handler throws an uncaught exception on valid input
+
+Proceed to mcp-testing only after the Inspector confirms all tools are registered.
+
 ## Safety Notes
 
 **Critical:** In stdio servers, stdout is the JSON-RPC protocol channel. Any non-JSON

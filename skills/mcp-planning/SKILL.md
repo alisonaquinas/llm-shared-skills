@@ -60,6 +60,11 @@ List every tool, resource, and prompt the server will expose. Use this table:
 | prompt   | summarize_file    | Template: summarize the file at {path}   | No       |
 ```
 
+The **Required** column means required for the server's primary purpose (not by
+the MCP spec). Mark tools that must exist for the server to be useful as Yes;
+mark optional enhancements as No. Required=No items may be deferred to a later
+iteration.
+
 Limit: if the inventory exceeds 10 tools, consider splitting into two servers.
 Resources and prompts are optional — most servers expose only tools.
 
