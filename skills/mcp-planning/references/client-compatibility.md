@@ -36,6 +36,7 @@ when it must support multiple clients simultaneously.
 ```
 
 Key constraints:
+
 - `command` must be an absolute path or a binary on the system PATH
 - `args` elements must be strings
 - `env` values must be strings (not numbers or booleans)
@@ -86,6 +87,7 @@ When the consuming client is custom-built (not Claude Code or Claude Desktop):
 2. The client must send an `initialize` request before any tool calls
 3. The client must respect the `capabilities` returned in the `initialize` response
 4. Tool call responses follow the `content` array format:
+
    ```json
    {
      "content": [{"type": "text", "text": "result"}],

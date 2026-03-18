@@ -34,6 +34,7 @@ Start at the unit layer. Reach integration testing before mcp-verification.
 E2E testing belongs in mcp-test-drive.
 
 **Install test dependencies first:**
+
 ```bash
 npm install --save-dev vitest          # TypeScript
 pip install pytest pytest-asyncio      # Python
@@ -109,7 +110,7 @@ run without the Inspector browser UI.
 
 Every tool must be tested for these error cases before mcp-verification:
 
-```
+```text
 [ ] Missing required parameter → returns error content, not exception
 [ ] Wrong parameter type → handled gracefully
 [ ] Handler throws exception → caught and returned as isError: true
@@ -120,6 +121,7 @@ Every tool must be tested for these error cases before mcp-verification:
 ## Gate
 
 mcp-testing is complete when:
+
 - All unit tests pass (`npm run test:run` or `pytest`)
 - Error case checklist above is fully covered
 - Inspector shows all tools and at least one tool call returns a valid response

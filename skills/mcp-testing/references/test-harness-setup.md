@@ -36,7 +36,7 @@ export default defineConfig({
 
 ### Test File Structure
 
-```
+```text
 src/
   index.ts          ← server entry point
   tools/
@@ -100,14 +100,15 @@ testpaths = ["tests"]
 ```
 
 Or use requirements-dev.txt:
-```
+
+```text
 pytest>=8.0.0
 pytest-asyncio>=0.23.0
 ```
 
 ### Project Structure
 
-```
+```text
 server.py           ← or src/my_server/server.py
 tools/
   echo.py           ← handler functions (importable)

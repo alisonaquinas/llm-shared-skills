@@ -52,7 +52,7 @@ the agent to call this server's tools?
 
 List every tool, resource, and prompt the server will expose. Use this table:
 
-```
+```text
 | Type     | Name              | Description (≤15 words)                  | Required |
 |----------|-------------------|------------------------------------------|----------|
 | tool     | read_file         | Read a file from the local filesystem    | Yes      |
@@ -73,6 +73,7 @@ Resources and prompts are optional — most servers expose only tools.
 Load `references/transport-selection.md` for the full decision matrix.
 
 Quick rule:
+
 - **stdio** — local process, local desktop client, default choice
 - **SSE** — remote deployment, multi-client access, requires HTTP infrastructure
 

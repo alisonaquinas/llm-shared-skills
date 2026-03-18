@@ -8,6 +8,7 @@ or reviewing Phase 6.
 ## Pre-Entry Checklist
 
 Before starting Phase 6:
+
 - [ ] Phase 5 gate passed: verification checklist all PASS
 - [ ] Build is current and server binary exists
 - [ ] Absolute path to server entry point is known
@@ -41,6 +42,7 @@ Add to `~/.claude/settings.json` (user scope) or `.claude/settings.json` (projec
 Start a new session after saving for the config to take effect.
 
 For Python:
+
 ```json
 {
   "mcpServers": {

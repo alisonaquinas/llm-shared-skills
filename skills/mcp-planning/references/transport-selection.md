@@ -59,6 +59,7 @@ Answer these questions in order:
 ```
 
 For Python:
+
 ```json
 {
   "mcpServers": {

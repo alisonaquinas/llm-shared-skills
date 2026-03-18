@@ -40,6 +40,7 @@ Add to `~/.claude/settings.json` (user scope) or `.claude/settings.json` (projec
 ```
 
 For a Python server:
+
 ```json
 {
   "mcpServers": {
@@ -104,6 +105,7 @@ For servers using HTTP/SSE transport, use the `url` field instead of `command`:
 ## Gate
 
 mcp-integration is complete when:
+
 - The server appears in the client's connected MCP servers list
 - All declared tools are visible in the client UI
 - At least one tool call succeeds end-to-end through the real client

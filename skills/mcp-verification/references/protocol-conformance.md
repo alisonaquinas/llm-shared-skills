@@ -12,7 +12,7 @@ The protocol version as of 2024 is `2024-11-05`.
 
 ### Message Flow (stdio)
 
-```
+```text
 Client                          Server
   │                               │
   │── initialize request ────────>│
@@ -115,6 +115,7 @@ No `id` field — notifications do not expect responses.
 ## tools/call Response Shape
 
 ### Success
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -129,6 +130,7 @@ No `id` field — notifications do not expect responses.
 ```
 
 ### Tool-level error (handler returned an error, not a crash)
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -143,6 +145,7 @@ No `id` field — notifications do not expect responses.
 ```
 
 ### Protocol-level error (method not found, parse error, etc.)
+
 ```json
 {
   "jsonrpc": "2.0",

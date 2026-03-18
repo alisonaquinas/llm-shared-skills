@@ -13,7 +13,7 @@ and accessed via the `resources/read` protocol method.
 
 Resources use URI templates (RFC 6570 subset) with `{param}` placeholders:
 
-```
+```text
 file://{path}                  → one required param
 db://{table}/{row_id}          → two required params
 config://{env}/{key}           → two required params
@@ -44,6 +44,7 @@ server.resource(
 | Blob | `blob` | `image/png`, `application/pdf`, `application/octet-stream` | Binary data (base64-encoded) |
 
 Text example:
+
 ```json
 {
   "uri": "file:///path/to/file.txt",
@@ -53,6 +54,7 @@ Text example:
 ```
 
 Blob example:
+
 ```json
 {
   "uri": "image:///path/to/image.png",
@@ -135,11 +137,13 @@ Most prompt templates use a single `user` role message.
 ### When to Define Prompts
 
 Define prompts when:
+
 - There is a common, reusable way to start a task with this server's tools
 - The task requires a specific phrasing to get good results
 - The client UI can surface prompts as a menu or palette
 
 Do not define prompts for:
+
 - Ad-hoc interactions that vary too much to template
 - Simple tool wrappers (prompts should add value beyond just calling a tool)
 

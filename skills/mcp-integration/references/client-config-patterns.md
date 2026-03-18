@@ -100,6 +100,7 @@ Use double backslashes in JSON strings, or forward slashes (both work on Windows
 ```
 
 If using `uv`:
+
 ```json
 {
   "mcpServers": {
@@ -187,6 +188,7 @@ For servers using HTTP/SSE transport:
 ```
 
 With authentication header:
+
 ```json
 {
   "mcpServers": {

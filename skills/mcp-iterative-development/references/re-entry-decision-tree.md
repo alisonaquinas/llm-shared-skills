@@ -126,6 +126,7 @@ unless the scope itself has changed.
 **When M01 (Discoverability) fails repeatedly after two full mcp-design re-entries:**
 
 The server is attempting to do too many distinct things. Characteristics:
+
 - Tool descriptions overlap or conflict
 - Tools from different domains are in the same server
 - The "purpose statement" from mcp-planning covers more than one domain

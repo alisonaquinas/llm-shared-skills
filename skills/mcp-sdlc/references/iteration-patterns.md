@@ -57,12 +57,14 @@ Answer these questions in order to find the correct re-entry point:
 ## Iterate vs Ship
 
 **Ship when:**
+
 - Phase 5 verification checklist: all items PASS
 - Phase 7 validation verdict: APPROVE (≥5 PASS, 0 FAIL, M05 PASS)
 - Phase 8 test drive: ≥5 attempted, ≥3 PASS, friction report written
 - All BLOCKED scenarios documented with infrastructure requirements
 
 **Iterate when:**
+
 - Any Phase 5 item is FAIL
 - Phase 7 verdict: REVISE or REJECT
 - Fewer than 3 Phase 8 scenarios PASS
@@ -94,6 +96,7 @@ regression reaching a client is high.
 ## Escalation
 
 When M01 (Discoverability) fails repeatedly after two Phase 2 re-entries:
+
 - The server is doing too many distinct things
 - Split the capability inventory into two narrower servers
 - Re-enter Phase 1 and define tighter, single-domain scope for each server

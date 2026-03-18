@@ -8,6 +8,7 @@ or reviewing Phase 7.
 ## Pre-Entry Checklist
 
 Before starting Phase 7:
+
 - [ ] Phase 6 gate passed: client connects, tools visible, at least one call succeeds
 - [ ] mcp-verification checklist all PASS (re-run if any code has changed since Phase 5)
 - [ ] Capability inventory from Phase 1 is accessible for M02 comparison

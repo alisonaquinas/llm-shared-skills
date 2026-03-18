@@ -73,6 +73,7 @@ npx @modelcontextprotocol/inspector python server.py
 ```
 
 In the Inspector UI:
+
 1. Open the **Tools** tab
 2. Select the tool for each scenario
 3. Fill in the parameter form with the Live Action inputs
@@ -80,6 +81,7 @@ In the Inspector UI:
 5. Record the response in the outcome column
 
 For resource scenarios:
+
 1. Open the **Resources** tab
 2. Locate the resource URI
 3. Click **Read Resource**

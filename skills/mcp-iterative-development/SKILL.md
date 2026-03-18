@@ -63,12 +63,14 @@ and partial completion recovery checklist.
 ## Iterate vs Ship
 
 **Ship when:**
+
 - mcp-verification checklist: all items PASS
 - mcp-validation verdict: APPROVE (≥5 PASS, 0 FAIL, M05 PASS)
 - mcp-test-drive: ≥5 scenarios attempted, ≥3 PASS, friction report written
 - All BLOCKED scenarios documented with infrastructure requirements
 
 **Iterate when:**
+
 - Any mcp-verification item is FAIL
 - mcp-validation verdict: REVISE or REJECT
 - Fewer than 3 test-drive scenarios PASS

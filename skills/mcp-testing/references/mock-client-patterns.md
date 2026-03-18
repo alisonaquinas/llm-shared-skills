@@ -114,6 +114,7 @@ async def test_call_echo():
 The MCP protocol uses JSON-RPC 2.0. These are the message shapes relevant to testing:
 
 ### initialize request (client → server)
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -128,6 +129,7 @@ The MCP protocol uses JSON-RPC 2.0. These are the message shapes relevant to tes
 ```
 
 ### initialize response (server → client)
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -141,6 +143,7 @@ The MCP protocol uses JSON-RPC 2.0. These are the message shapes relevant to tes
 ```
 
 ### tools/call request
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -154,6 +157,7 @@ The MCP protocol uses JSON-RPC 2.0. These are the message shapes relevant to tes
 ```
 
 ### tools/call response (success)
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -166,6 +170,7 @@ The MCP protocol uses JSON-RPC 2.0. These are the message shapes relevant to tes
 ```
 
 ### JSON-RPC error response
+
 ```json
 {
   "jsonrpc": "2.0",

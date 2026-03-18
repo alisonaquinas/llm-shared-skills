@@ -17,6 +17,7 @@ to correctly select and invoke the right tool.
 | FAIL | Generic names (`process`, `handle`, `do_thing`); descriptions missing, one-word, or misleading; tools with identical or near-identical descriptions |
 
 **Fix recipes:**
+
 - Generic name: rename to `verb_noun` pattern (`process` → `transform_text`)
 - Vague description: rewrite to state action, output, and side effect explicitly
 - Duplicate descriptions: differentiate by stating input type or domain clearly
@@ -35,6 +36,7 @@ documented in the capability inventory from the planning phase.
 | FAIL | Core tools missing; server cannot perform its primary function; >2 planned items absent |
 
 **Fix recipes:**
+
 - Missing tool: implement the handler and register it in `ListToolsRequestSchema`
 - Missing resource: implement `ReadResourceRequestSchema` handler for that URI
 - Return to mcp-design to update the capability inventory if scope has changed
@@ -53,6 +55,7 @@ and whether error responses are informative and follow the JSON-RPC error format
 | FAIL | Uncaught exceptions crash the server or disconnect the transport; error messages are missing or uninformative; `isError` field absent from error responses |
 
 **Fix recipes:**
+
 - Uncaught exception: wrap handler body in try/catch; return `{content: [{type: "text", text: "Error: ..."}], isError: true}`
 - Missing `isError`: add `isError: true` to all error response objects
 - Uninformative message: include the error type and affected parameter in the message
@@ -77,6 +80,7 @@ sufficient for a new user to install, configure, and use the server.
 | FAIL | No README; README present but has no usage examples or tool list; tool descriptions in `inputSchema` are missing or single-word |
 
 **Fix recipes:**
+
 - Missing README: create `README.md` at project root with the sections above
 - Missing examples: add one example input and output per tool
 - Missing tool list: add a table with tool name, description, and required params
@@ -95,6 +99,7 @@ path traversal, shell injection, and other security vulnerabilities.
 | FAIL | Path parameters passed directly to `fs.readFile` or `open()` without validation; user input concatenated into shell commands; API keys or tokens appear in tool response content or logs |
 
 **Fix recipes — Path Traversal:**
+
 ```typescript
 import path from "path";
 const ALLOWED_DIR = "/safe/directory";
@@ -109,6 +114,7 @@ function safePath(inputPath: string): string {
 
 **Fix recipes — Shell Injection:**
 Never concatenate user input into shell commands. Use argument arrays:
+
 ```typescript
 // Wrong
 exec(`ls ${userInput}`);
@@ -118,6 +124,7 @@ execFile("ls", [userInput]);
 ```
 
 **Fix recipes — Credential Leakage:**
+
 ```typescript
 // Wrong — API key in response
 return { content: [{ type: "text", text: `Key: ${apiKey}, result: ${data}` }] };
@@ -140,13 +147,16 @@ avoids resource leaks, and starts up promptly.
 | FAIL | Server startup takes >10 seconds; file handles or DB connections leak on repeated calls; process becomes unresponsive over time; port left bound after crash |
 
 **Fix recipes:**
+
 - Slow startup: defer heavy initialization (DB connection pooling, model loading) until first tool call
 - Resource leak: use `try/finally` to close handles; use connection pools with max size
 - No SIGINT handler (TypeScript):
+
   ```typescript
   process.on("SIGINT", async () => {
     await server.close();
     process.exit(0);
   });
   ```
+
 - No SIGINT handler (Python FastMCP): FastMCP handles this automatically via `mcp.run()`

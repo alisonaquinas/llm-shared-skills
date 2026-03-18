@@ -21,6 +21,7 @@ Every tool `inputSchema` must satisfy these requirements:
 ## Validation with ajv (TypeScript/Node)
 
 Install ajv CLI:
+
 ```bash
 npm install -g ajv-cli
 # or use npx without installing:
@@ -28,12 +29,14 @@ npx ajv validate -s schema.json -d data.json
 ```
 
 Validate a single inputSchema:
+
 ```bash
 # Save your tool's inputSchema to schema.json, then:
 npx ajv validate -s schema.json -d '{"message": "test"}' --spec=draft7
 ```
 
 Programmatic validation in a test:
+
 ```typescript
 import Ajv from "ajv";
 const ajv = new Ajv();
@@ -61,6 +64,7 @@ python -m jsonschema -i data.json schema.json
 ```
 
 Programmatic validation:
+
 ```python
 import jsonschema
 
@@ -85,6 +89,7 @@ jsonschema.validate({"message": "hello"}, schema)
 Symptom: Some MCP clients refuse to register the tool; others silently ignore it.
 
 Bad:
+
 ```json
 {
   "properties": {
@@ -95,6 +100,7 @@ Bad:
 ```
 
 Fix:
+
 ```json
 {
   "type": "object",
@@ -113,6 +119,7 @@ Symptom: `jsonschema.SchemaError: 'path' is not valid under any of the given sch
 or ajv `"required" property 'path' not found in schema`.
 
 Bad:
+
 ```json
 {
   "type": "object",
@@ -124,6 +131,7 @@ Bad:
 ```
 
 Fix: align the name (`path` → `filepath` or vice versa):
+
 ```json
 {
   "type": "object",
@@ -141,11 +149,13 @@ Fix: align the name (`path` → `filepath` or vice versa):
 Symptom: Lint WARN; LLMs may pass incorrect arguments; tool discovery is poor.
 
 Bad:
+
 ```json
 "limit": {"type": "integer"}
 ```
 
 Fix:
+
 ```json
 "limit": {
   "type": "integer",
@@ -160,6 +170,7 @@ Fix:
 Symptom: Client renders the parameter as having an unknown type; LLM cannot determine what to pass.
 
 Bad:
+
 ```json
 "value": {
   "anyOf": [{"type": "string"}, {"type": "integer"}]
@@ -167,6 +178,7 @@ Bad:
 ```
 
 Fix: choose the most common type; document the other in the description:
+
 ```json
 "value": {
   "type": "string",
@@ -181,12 +193,14 @@ Fix: choose the most common type; document the other in the description:
 Symptom: Some MCP clients reject the schema or fail to parse it.
 
 Fix: Remove the `$schema` field — MCP clients do not expect it:
+
 ```json
 {
   "type": "object",
   "properties": { ... }
 }
 ```
+
 (not `{"$schema": "http://json-schema.org/draft-07/schema#", "type": "object", ...}`)
 
 ---

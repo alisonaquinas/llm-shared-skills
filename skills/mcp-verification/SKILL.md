@@ -28,7 +28,7 @@ Run through this checklist before proceeding to mcp-integration.
 Items marked **(static)** can be checked by reading source code.
 Items marked **(Inspector)** require a running server and the MCP Inspector.
 
-```
+```text
 Static checks (source code only):
 [ ] (static)    Each tool has valid name, description, and inputSchema
 [ ] (static)    inputSchema root is {"type": "object"}
@@ -59,6 +59,7 @@ npx @modelcontextprotocol/inspector python server.py
 ```
 
 In the Inspector:
+
 1. **Tools tab** — verify all declared tools appear; check name and description
 2. **Call a tool** — verify content array returned; check `isError` field
 3. **Console tab** — inspect raw JSON-RPC messages; verify initialize handshake

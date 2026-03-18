@@ -8,6 +8,7 @@ or reviewing Phase 1.
 ## Pre-Entry Checklist
 
 Before starting Phase 1:
+
 - [ ] The server's problem domain is known (not "build a general MCP server")
 - [ ] The primary client environment is identified (Claude Code, Claude Desktop, custom)
 - [ ] At least one concrete tool use case can be described in one sentence

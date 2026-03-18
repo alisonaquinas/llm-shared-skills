@@ -8,6 +8,7 @@ or reviewing Phase 3.
 ## Pre-Entry Checklist
 
 Before starting Phase 3:
+
 - [ ] All tool schemas validated (Phase 2 gate passed)
 - [ ] Runtime chosen: TypeScript or Python
 - [ ] Transport decided: stdio or SSE
@@ -52,6 +53,7 @@ python server.py     # should not exit immediately
 ## Handler Contract
 
 Every tool handler must:
+
 - Catch all exceptions and return `{content: [{type:"text", text:"Error: ..."}], isError:true}`
 - Write all diagnostic output to stderr only
 - Never write non-JSON to stdout (stdio servers)

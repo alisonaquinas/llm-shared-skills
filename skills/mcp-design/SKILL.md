@@ -24,7 +24,7 @@ Load reference files on demand — only when the corresponding topic is active:
 
 ## Quick Start — Design Checklist
 
-```
+```text
 [ ] Tool names: snake_case, verb_noun pattern (read_file, list_directory)
 [ ] Each tool has: name, description (≤100 words), inputSchema
 [ ] inputSchema root is {"type": "object", "properties": {...}}
@@ -65,7 +65,7 @@ optional parameters, nested objects, and anti-patterns.
 
 Resources use URI templates with `{param}` placeholders:
 
-```
+```text
 file://{path}              → single required param
 db://{table}/{row_id}      → two required params
 config://{env}/{key}       → required + required
@@ -103,6 +103,7 @@ Tool descriptions are read by language models to route tool selection.
 ## Gate
 
 mcp-design is complete when:
+
 - Every tool in the capability inventory has a validated `inputSchema`
 - Interface contract document is written (tool names, parameter types, return types)
 - No tool name is listed as TBD

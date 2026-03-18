@@ -8,6 +8,7 @@ or reviewing Phase 4.
 ## Pre-Entry Checklist
 
 Before starting Phase 4:
+
 - [ ] Phase 3 gate passed: server starts, tools/list returns all tools
 - [ ] Handler functions are separated from transport wiring (importable)
 - [ ] Test framework installed (Vitest for TypeScript; pytest for Python)
@@ -45,7 +46,7 @@ npx @modelcontextprotocol/inspector python server.py
 
 ## Minimum Test Coverage Per Tool
 
-```
+```text
 [ ] Valid input → expected output type returned
 [ ] Missing required param → error content returned (not exception)
 [ ] Invalid param type → handled gracefully

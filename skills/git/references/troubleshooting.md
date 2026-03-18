@@ -341,16 +341,16 @@ GIT_TRACE=1 git status  # look for LFS filter spawn errors in trace output
 
 ### Fixes (in order of preference)
 
-**Option 1 — Upgrade Git for Windows**
+### Option 1 — Upgrade Git for Windows
 
 ```powershell
 winget upgrade Git.Git
 # Or download latest from https://gitforwindows.org/
 ```
 
-**Option 2 — Add Git to Controlled Folder Access allowed apps**
+### Option 2 — Add Git to Controlled Folder Access allowed apps
 
-```
+```text
 Windows Security → Virus & threat protection
 → Ransomware protection → Manage Controlled folder access
 → Allow an app through Controlled folder access
@@ -360,17 +360,17 @@ Windows Security → Virus & threat protection
 → Add: C:\Program Files\Git\mingw64\bin\git-lfs.exe
 ```
 
-**Option 3 — Temporarily disable real-time AV scanning for the repo path**
+### Option 3 — Temporarily disable real-time AV scanning for the repo path
 
 Add your repo root as an exclusion in Windows Security → Virus & threat protection settings →
 Exclusions. Re-enable after confirming the issue is resolved.
 
-**Option 4 — Run terminal and Git at the same integrity level**
+### Option 4 — Run terminal and Git at the same integrity level
 
 Avoid mixing elevated (Run as Administrator) terminals with normal Git operations.
 Open a fresh non-elevated terminal and retry.
 
-**Option 5 — Bypass LFS filter for the session**
+### Option 5 — Bypass LFS filter for the session
 
 ```bash
 # Disable LFS smudge filter temporarily (won't download LFS content on checkout,

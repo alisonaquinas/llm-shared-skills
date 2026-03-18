@@ -98,6 +98,7 @@ Handle SIGINT for clean shutdown. Never exit on a tool error — only exit on fa
 ## Gate
 
 mcp-creation is complete when:
+
 - Server process starts without errors
 - `tools/list` (via Inspector or manual JSON-RPC call) returns all tools declared
   in the capability inventory

@@ -9,7 +9,7 @@ or the connection drops intermittently.
 
 Work through these questions in order:
 
-```
+```text
 1. Does the server start without errors?
    ├── No  → Server startup failure (see below)
    └── Yes → continue
@@ -32,6 +32,7 @@ Work through these questions in order:
 **Cause:** The `command` in settings.json is not found on PATH or is a relative path.
 
 **Diagnostic:**
+
 ```bash
 # Verify the command resolves
 which node
@@ -41,6 +42,7 @@ python --version
 ```
 
 **Fix:** Use absolute path to the binary:
+
 ```json
 {
   "command": "/usr/local/bin/node",
@@ -49,6 +51,7 @@ python --version
 ```
 
 Or find the absolute path:
+
 ```bash
 which node   # → /usr/local/bin/node (macOS/Linux)
 where node   # → C:\Program Files\nodejs\node.exe (Windows)
@@ -61,6 +64,7 @@ where node   # → C:\Program Files\nodejs\node.exe (Windows)
 **Cause:** TypeScript source compiled but `dist/` not built, or wrong path in args.
 
 **Fix:**
+
 ```bash
 cd /path/to/my-server
 npm run build    # or: tsc
@@ -74,6 +78,7 @@ ls dist/         # Verify dist/index.js exists
 **Cause:** Unhandled exception during startup (missing env var, bad config, etc.).
 
 **Fix:** Run the server manually to see stderr output:
+
 ```bash
 node /path/to/dist/index.js
 # or
@@ -81,6 +86,7 @@ python /path/to/server.py
 ```
 
 Check stderr for the error message. Common causes:
+
 - Missing required environment variable: add it to `env` block in settings.json
 - Syntax error in compiled JS: re-run `npm run build` and check TypeScript errors
 - Missing dependency: run `npm install` in the server directory
@@ -94,6 +100,7 @@ Check stderr for the error message. Common causes:
 **Cause:** `ListToolsRequestSchema` handler not registered, or handler returns empty array.
 
 **Fix (TypeScript):** Verify both handlers are registered:
+
 ```typescript
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [...],  // must be non-empty
@@ -110,6 +117,7 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => { ... });
 **Cause:** Tool registration is conditional or fails silently for some tools.
 
 **Fix:** Run the Inspector to see exactly which tools are listed:
+
 ```bash
 npx @modelcontextprotocol/inspector node dist/index.js
 ```
@@ -125,6 +133,7 @@ Open the Tools panel and compare against the expected tool list.
 **Cause:** Client has not reloaded the server config.
 
 **Fix:**
+
 - Claude Code: Start a new conversation (config is reloaded per session)
 - Claude Desktop: Fully quit (Cmd+Q / Alt+F4) and relaunch
 
@@ -135,6 +144,7 @@ Open the Tools panel and compare against the expected tool list.
 **Cause:** Server writing non-JSON to stdout (logging, debug prints).
 
 **Fix:** Redirect all output to stderr:
+
 ```typescript
 // Wrong
 console.log("Server ready");
@@ -158,6 +168,7 @@ print("Server ready", file=sys.stderr)
 **Cause:** Handler is async but not awaited, or external dependency (DB, API) is unreachable.
 
 **Fix (TypeScript):** Ensure all async operations are awaited:
+
 ```typescript
 // Wrong
 server.setRequestHandler(CallToolRequestSchema, (req) => {
@@ -175,6 +186,7 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
 ## Reading Client Logs
 
 ### Claude Code
+
 ```bash
 # macOS/Linux
 tail -f ~/.claude/logs/mcp-*.log
@@ -184,12 +196,14 @@ Get-Content "$env:USERPROFILE\.claude\logs\mcp-*.log" -Wait
 ```
 
 ### Claude Desktop (macOS)
+
 ```bash
 tail -f ~/Library/Logs/Claude/mcp-*.log
 ```
 
 ### Claude Desktop (Windows)
-```
+
+```text
 %APPDATA%\Claude\logs\mcp-*.log
 ```
 
@@ -202,6 +216,7 @@ tail -f ~/Library/Logs/Claude/mcp-*.log
 **Cause:** HTTP server not running or listening on wrong port.
 
 **Fix:** Start the SSE server first, then configure the client:
+
 ```bash
 node dist/index.js &  # Start server in background
 # Verify it's listening:

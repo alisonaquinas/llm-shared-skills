@@ -8,6 +8,7 @@ or reviewing Phase 8.
 ## Pre-Entry Checklist
 
 Before starting Phase 8:
+
 - [ ] Phase 7 gate passed: validation verdict is APPROVE
 - [ ] Server is running locally
 - [ ] MCP Inspector is available (`npx @modelcontextprotocol/inspector --version`)

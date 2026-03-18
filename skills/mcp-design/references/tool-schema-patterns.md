@@ -41,6 +41,7 @@ Missing `"type": "object"` at root is the most common schema error.
 ## Schema Patterns by Parameter Type
 
 ### String parameter
+
 ```json
 "name": {
   "type": "string",
@@ -49,6 +50,7 @@ Missing `"type": "object"` at root is the most common schema error.
 ```
 
 ### Integer parameter
+
 ```json
 "count": {
   "type": "integer",
@@ -59,6 +61,7 @@ Missing `"type": "object"` at root is the most common schema error.
 ```
 
 ### Enum / fixed choices
+
 ```json
 "format": {
   "type": "string",
@@ -68,6 +71,7 @@ Missing `"type": "object"` at root is the most common schema error.
 ```
 
 ### Boolean parameter
+
 ```json
 "recursive": {
   "type": "boolean",
@@ -76,6 +80,7 @@ Missing `"type": "object"` at root is the most common schema error.
 ```
 
 ### Array of strings
+
 ```json
 "tags": {
   "type": "array",
@@ -85,6 +90,7 @@ Missing `"type": "object"` at root is the most common schema error.
 ```
 
 ### Optional parameter (omit from required array)
+
 ```json
 "properties": {
   "path": {"type": "string", "description": "File path (required)"},
@@ -92,9 +98,11 @@ Missing `"type": "object"` at root is the most common schema error.
 },
 "required": ["path"]
 ```
+
 `encoding` is optional because it is not listed in `required`.
 
 ### Nested object
+
 ```json
 "options": {
   "type": "object",
@@ -105,6 +113,7 @@ Missing `"type": "object"` at root is the most common schema error.
   }
 }
 ```
+
 Avoid nesting deeper than 2 levels — most clients flatten or truncate nested schemas in their UI.
 
 ---
@@ -167,6 +176,7 @@ Apply these rules to every tool description:
 - Do not repeat the tool name in the description
 
 Property descriptions:
+
 - State the expected format ("ISO 8601 date string", "Absolute POSIX path", "UUID")
 - State any constraints ("Must be between 1 and 100", "Cannot be empty")
 - State the default behavior when optional ("Defaults to utf-8 if omitted")

@@ -8,6 +8,7 @@ or reviewing Phase 2.
 ## Pre-Entry Checklist
 
 Before starting Phase 2:
+
 - [ ] Phase 1 deliverables complete (purpose statement, capability inventory, transport, client notes)
 - [ ] All tool names are finalized (snake_case, verb_noun)
 - [ ] Resources and prompts are listed in the capability inventory (even if empty)
@@ -28,6 +29,7 @@ Produce all before moving to Phase 3:
 ## Key Design Commands
 
 Validate inputSchema before Phase 3:
+
 ```bash
 # TypeScript
 npx ajv validate -s schema.json -d '{"key":"value"}' --spec=draft7
@@ -41,7 +43,8 @@ python -m jsonschema -i data.json schema.json
 ## Schema Checklist
 
 For every tool `inputSchema`:
-```
+
+```text
 [ ] Root is {"type": "object", "properties": {...}}
 [ ] Every property has a "description" field
 [ ] "required" array only references keys that exist in "properties"

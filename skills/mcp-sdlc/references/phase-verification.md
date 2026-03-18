@@ -8,6 +8,7 @@ or reviewing Phase 5.
 ## Pre-Entry Checklist
 
 Before starting Phase 5:
+
 - [ ] Phase 4 gate passed: unit tests pass, Inspector shows all tools
 - [ ] Build is current (run `npm run build` if TypeScript)
 - [ ] No pending changes to tool schemas or handler logic
@@ -26,7 +27,7 @@ Produce all before moving to Phase 6:
 
 ## Verification Checklist
 
-```
+```text
 [ ] Server starts without errors (exit code 0 on clean startup)
 [ ] tools/list returns all declared tools
 [ ] Each tool has valid name, description, and inputSchema
