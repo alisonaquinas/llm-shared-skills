@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Testing"
+  short_description: "Unit and integration tests for MCP servers"
+  default_prompt: "Use $mcp-testing to write tests for an MCP server."

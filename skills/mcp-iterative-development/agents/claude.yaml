@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Iterative Development"
+  short_description: "Re-entry decisions for MCP development cycles"
+  default_prompt: "Use $mcp-iterative-development to determine where to re-enter the MCP SDLC."

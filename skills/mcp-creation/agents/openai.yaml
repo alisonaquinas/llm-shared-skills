@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Creation"
+  short_description: "Scaffold and implement MCP server handlers"
+  default_prompt: "Use $mcp-creation to scaffold and implement an MCP server."

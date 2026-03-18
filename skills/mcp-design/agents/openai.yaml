@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Design"
+  short_description: "Tool schemas and interface design for MCP servers"
+  default_prompt: "Use $mcp-design to design the tool interface for an MCP server."

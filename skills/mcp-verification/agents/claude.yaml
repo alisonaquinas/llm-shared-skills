@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Verification"
+  short_description: "Protocol conformance and schema validation for MCP"
+  default_prompt: "Use $mcp-verification to verify MCP protocol conformance."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Test Drive"
+  short_description: "Live scenario testing against an MCP server"
+  default_prompt: "Use $mcp-test-drive to run live scenarios against an MCP server."

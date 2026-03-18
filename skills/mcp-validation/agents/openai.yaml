@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Validation"
+  short_description: "Quality rubric scoring for MCP servers"
+  default_prompt: "Use $mcp-validation to validate an MCP server's quality."

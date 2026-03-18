@@ -24,10 +24,20 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 69 shared skills.
+This repository currently contains 79 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
+| `mcp-sdlc` | Claude | Orchestrate the full end-to-end SDLC for building a production-quality MCP server |
+| `mcp-planning` | Claude | Ideation and scope planning for MCP server development |
+| `mcp-design` | Claude | Tool schemas, resource definitions, and transport architecture for MCP servers |
+| `mcp-creation` | Claude | Scaffold and implement MCP server handlers in TypeScript or Python |
+| `mcp-testing` | Claude | Unit and integration tests for MCP server handlers |
+| `mcp-verification` | Claude | Protocol conformance and schema validation before client integration |
+| `mcp-integration` | Claude | Connect MCP servers to Claude Code and other clients |
+| `mcp-validation` | Claude | Quality rubric scoring (M01-M06) for MCP servers |
+| `mcp-test-drive` | Claude | Live scenario testing against a running MCP server |
+| `mcp-iterative-development` | Claude | Re-entry decisions and loop management across MCP SDLC phases |
 | `bash` | Codex | Bash scripting, WSL2 interop, pipelines, debugging |
 | `powershell` | Codex | PowerShell 7 scripting, remoting, modules, Windows/Linux/macOS |
 | `zsh` | Claude | Zsh interactive shell, completion system, ZLE, globbing, scripting |

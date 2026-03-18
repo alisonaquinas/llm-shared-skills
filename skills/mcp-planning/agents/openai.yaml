@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Planning"
+  short_description: "Ideation and scope planning for MCP servers"
+  default_prompt: "Use $mcp-planning to plan a new MCP server."

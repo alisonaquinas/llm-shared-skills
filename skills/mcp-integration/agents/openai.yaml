@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Integration"
+  short_description: "Connect MCP servers to Claude Code and other clients"
+  default_prompt: "Use $mcp-integration to connect an MCP server to a client."

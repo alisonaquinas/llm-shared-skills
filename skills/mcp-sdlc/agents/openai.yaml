@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP SDLC"
+  short_description: "End-to-end SDLC orchestrator for MCP servers"
+  default_prompt: "Use $mcp-sdlc to guide the full MCP server development lifecycle."
