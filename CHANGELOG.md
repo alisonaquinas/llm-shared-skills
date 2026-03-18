@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.3] - 2026-03-16
+
+### Added
+
+- Added repository-wide skill agent manifest (agents/shared-skills-maintainer.md), command entries, and hooks/hooks.json for consistent skill routing across Claude and Codex clients.
+- Extended AGENTS.md with command + agent template section covering focused single-skill lint/validate loops and full skill-author workflow checklist.
+
+### Changed
+
+- Hardened scripts/verify_built_zips.py with REQUIRED_FILES invariant checks ensuring each built ZIP contains SKILL.md, agents/claude.yaml, and agents/openai.yaml.
+
 ## [1.7.2] - 2026-03-18
 
 ### Fixed

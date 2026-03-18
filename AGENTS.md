@@ -200,3 +200,29 @@ into `skills/<name>` in this repo.
 - Stop retrying the same patch shape after one smaller-scope retry and one repo-relative retry.
 - If the patch tool still rejects the change, switch promptly to the safest reliable local file-edit method allowed by the environment instead of burning turns on the same failed diff strategy.
 - In your closeout, document that the fallback edit path was triggered by tool failure so reviewers understand why a non-patch edit method was used.
+
+---
+
+## Command + Agent Templates
+
+### Command Templates
+
+```bash
+# Focused single-skill loop
+python scripts/lint_skills.py <skill-name>
+python scripts/validate_skills.py <skill-name>
+
+# Full baseline gate
+make lint
+make test
+make build
+make verify
+```
+
+### Agent Template (Reusable Tooling Domain)
+
+1. Start with `SKILL.md`; load references only when needed.
+2. Prefer runnable `scripts/` over duplicating logic.
+3. Keep cross-platform examples (`.sh` and `.ps1`) where relevant.
+4. Enforce strict frontmatter (`name`, `description` only).
+5. Never include secrets, tokens, or real credentials.
