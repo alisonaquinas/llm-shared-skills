@@ -9,8 +9,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.4] - 2026-03-18
 
+### Added
+
+- Added 10-skill MCP server development SDLC suite: `mcp-planning`, `mcp-design`,
+  `mcp-creation`, `mcp-testing`, `mcp-verification`, `mcp-integration`,
+  `mcp-validation`, `mcp-test-drive`, `mcp-iterative-development`, and `mcp-sdlc`
+  (master orchestrator). The suite covers the full lifecycle from ideation to
+  shipping a production-quality MCP server, with quality rubric M01–M06, live
+  scenario test-drive, and re-entry loop management. Added 10 new rows to README.
+- Included MCP-specific reference content: TypeScript and Python scaffold templates,
+  FastMCP patterns, MCP Inspector commands, JSON-RPC message shapes, schema
+  validation recipes, PreToolCall hook patterns for debugging and safety gating,
+  client config for Claude Code / Claude Desktop / Cursor, and a path-traversal +
+  shell-injection prevention rubric.
+
 ### Fixed
 
+- Applied 7 test-drive friction fixes to the new MCP SDLC suite: added explicit
+  Gate sections to `mcp-design`, `mcp-creation`, `mcp-testing`, and
+  `mcp-integration` (previously lacked completion criteria); split
+  `mcp-verification` checklist into static and Inspector-required groups; corrected
+  `mcp-sdlc` Phase 1 gate to include all 4 planning outputs; defined the "Required"
+  column in the capability inventory table; added test dependency install commands
+  to `mcp-testing`; added FastMCP exception-wrapping note to the M03 quality rubric;
+  added multi-FAIL sequencing guidance to `mcp-iterative-development`.
 - Extended `skills/git/references/troubleshooting.md` with a dedicated **Git-for-Windows sh.exe Win32 Error 5 (Access Denied)** section covering symptoms, root causes (Windows Defender, Controlled Folder Access, integrity level mismatch, stale Git-for-Windows, LFS filter invocation), diagnosis steps, five ordered fixes, and a Git plumbing fallback (`update-index` → `write-tree` → `commit-tree` → `update-ref`) for when high-level commands are unreliable.
 - Added three new rows to the Common Error Messages quick-reference table for the `sh.exe` signal-pipe error, `CreateFileMapping` error, and the resulting `fatal: the remote end hung up unexpectedly`.
 - Updated the Intent Router in `skills/git/SKILL.md` to route Win32 error 5 / sh.exe fatal error queries to `references/troubleshooting.md`.
