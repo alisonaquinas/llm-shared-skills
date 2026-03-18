@@ -283,3 +283,132 @@ git submodule add <url> <path>          # add fresh
 | `Untracked files in the way of merge/rebase` | Untracked file would be overwritten | `git clean -n` to preview, then `-f` |
 | `Permission denied (publickey)` | SSH key not loaded | `ssh-add ~/.ssh/id_ed25519` |
 | `Authentication failed` | Credential expired or wrong | Clear Windows Credential Manager entry, re-authenticate |
+| `sh.exe: *** fatal error - couldn't create signal pipe` | Windows blocked sh.exe IPC (Win32 error 5) | See **Git-for-Windows sh.exe Win32 Error 5** section below |
+| `sh.exe: *** fatal error - CreateFileMapping ... Win32 error 5` | Same cause — antivirus or Controlled Folder Access | See **Git-for-Windows sh.exe Win32 Error 5** section below |
+| `fatal: the remote end hung up unexpectedly` (after sh.exe error) | LFS or hook subprocess was killed mid-flight | Retry; if persistent, see sh.exe fallback section below |
+
+---
+
+## Git-for-Windows sh.exe Win32 Error 5 (Access Denied)
+
+### Symptoms
+
+Any command that spawns a shell-backed helper — `git add`, `git diff`, `git commit`,
+`git push` with LFS, or `git lfs pointer --file=...` — intermittently fails with:
+
+```text
+sh.exe: *** fatal error - couldn't create signal pipe, Win32 error 5
+sh.exe: *** fatal error - CreateFileMapping (anonymous), Win32 error 5
+fatal: the remote end hung up unexpectedly
+```
+
+Read-only plumbing (`git rev-parse`, `git ls-tree`, `git log --oneline`) usually still
+works because they do not invoke `sh.exe` or LFS filter helpers.
+
+### Root Causes
+
+Win32 error 5 is **Access Denied** — Windows refused a kernel object request from `sh.exe`:
+
+| Cause | Details |
+| --- | --- |
+| Windows Defender / third-party AV | Real-time scanner intercepts `sh.exe` spawning child processes |
+| Controlled Folder Access (CFA) | Blocks untrusted executables from creating named pipes or file mappings in protected paths |
+| Integrity level mismatch | Git runs at medium integrity but the terminal runs elevated (or vice versa) |
+| Stale Git-for-Windows installation | Older bundled `sh.exe`/`msys-2.0.dll` has known pipe-creation bugs |
+| Hook or LFS filter path | `.git/hooks/*` or LFS clean/smudge filter invoked via `sh.exe` hits the restriction |
+
+### Diagnosis
+
+```powershell
+# 1. Check Git-for-Windows and LFS versions
+git --version          # should be 2.47+ for best Windows compatibility
+git lfs version        # should be 3.5+
+
+# 2. Check if Controlled Folder Access is active
+Get-MpPreference | Select-Object EnableControlledFolderAccess
+# "Enabled" means CFA is on — this is the most common culprit
+
+# 3. Test whether sh.exe itself is blocked
+& "C:\Program Files\Git\bin\sh.exe" -c "echo ok"
+# If this fails or is silently blocked by AV, that confirms the cause
+
+# 4. Check hooks that might invoke sh.exe
+ls .git/hooks/          # any hooks without .sample extension?
+
+# 5. Test LFS filter invocation in isolation
+GIT_TRACE=1 git status  # look for LFS filter spawn errors in trace output
+```
+
+### Fixes (in order of preference)
+
+**Option 1 — Upgrade Git for Windows**
+
+```powershell
+winget upgrade Git.Git
+# Or download latest from https://gitforwindows.org/
+```
+
+**Option 2 — Add Git to Controlled Folder Access allowed apps**
+
+```
+Windows Security → Virus & threat protection
+→ Ransomware protection → Manage Controlled folder access
+→ Allow an app through Controlled folder access
+→ Add: C:\Program Files\Git\bin\sh.exe
+→ Add: C:\Program Files\Git\usr\bin\sh.exe
+→ Add: C:\Program Files\Git\cmd\git.exe
+→ Add: C:\Program Files\Git\mingw64\bin\git-lfs.exe
+```
+
+**Option 3 — Temporarily disable real-time AV scanning for the repo path**
+
+Add your repo root as an exclusion in Windows Security → Virus & threat protection settings →
+Exclusions. Re-enable after confirming the issue is resolved.
+
+**Option 4 — Run terminal and Git at the same integrity level**
+
+Avoid mixing elevated (Run as Administrator) terminals with normal Git operations.
+Open a fresh non-elevated terminal and retry.
+
+**Option 5 — Bypass LFS filter for the session**
+
+```bash
+# Disable LFS smudge filter temporarily (won't download LFS content on checkout,
+# but prevents sh.exe invocation during index operations)
+git -c filter.lfs.smudge= -c filter.lfs.process= status
+git -c filter.lfs.smudge= -c filter.lfs.process= add <file>
+git -c filter.lfs.smudge= -c filter.lfs.process= commit -m "..."
+```
+
+### Plumbing Fallback (When High-Level Commands Are Unreliable)
+
+If `git add` / `git commit` are consistently failing mid-operation, use Git's
+low-level plumbing to commit without invoking `sh.exe`:
+
+```bash
+# 1. Manually update the index for specific files (no shell helper invoked)
+git update-index --add --cacheinfo <mode>,<blob-sha>,<path>
+# e.g. for a regular file already stored as a blob:
+git update-index --add path/to/file.txt
+# For an LFS pointer file, get the existing blob SHA first:
+git ls-tree HEAD -- path/to/large.bin   # shows blob SHA of current pointer
+
+# 2. Write the current index to a tree object
+TREE=$(git write-tree)
+
+# 3. Create a commit object from the tree
+COMMIT=$(git commit-tree "$TREE" -p HEAD -m "your commit message")
+
+# 4. Advance the branch ref
+git update-ref refs/heads/main "$COMMIT"
+```
+
+After a plumbing commit the working tree may appear "dirty" to `git status`
+until the index is reconciled. Run `git checkout -- .` or `git reset HEAD` to
+sync the working tree, or just continue working — the branch ref and history
+are correct.
+
+> **Important:** This approach bypasses LFS clean/smudge filters. Only use it
+> for files that are already stored correctly in the object store (e.g., when
+> renaming or reorganizing existing LFS pointer files rather than adding new
+> LFS content).

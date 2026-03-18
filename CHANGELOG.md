@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.4] - 2026-03-18
+
+### Fixed
+
+- Extended `skills/git/references/troubleshooting.md` with a dedicated **Git-for-Windows sh.exe Win32 Error 5 (Access Denied)** section covering symptoms, root causes (Windows Defender, Controlled Folder Access, integrity level mismatch, stale Git-for-Windows, LFS filter invocation), diagnosis steps, five ordered fixes, and a Git plumbing fallback (`update-index` → `write-tree` → `commit-tree` → `update-ref`) for when high-level commands are unreliable.
+- Added three new rows to the Common Error Messages quick-reference table for the `sh.exe` signal-pipe error, `CreateFileMapping` error, and the resulting `fatal: the remote end hung up unexpectedly`.
+- Updated the Intent Router in `skills/git/SKILL.md` to route Win32 error 5 / sh.exe fatal error queries to `references/troubleshooting.md`.
+
 ## [1.7.3] - 2026-03-16
 
 ### Added

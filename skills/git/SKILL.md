@@ -40,7 +40,7 @@ queries the inline quick reference below is usually sufficient.
 | Git LFS | `references/lfs.md` | lfs/large file/binary/track/migrate/lock questions |
 | Submodules | `references/submodules.md` | submodule/nested repo/superproject questions |
 | Config, hooks & GPG | `references/hooks-config.md` | config/hooks/alias/GPG/sign/.gitattributes/autocrlf questions |
-| Troubleshooting | `references/troubleshooting.md` | conflict/detached HEAD/CRLF/error/recovery/broke questions |
+| Troubleshooting | `references/troubleshooting.md` | conflict/detached HEAD/CRLF/error/recovery/broke questions; Win32 error 5/sh.exe fatal errors on Windows |
 
 ---
 
