@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.2] - 2026-03-18
+
+### Fixed
+
+- Tightened packaging verification so built ZIPs are checked for required members under the repo-rooted path (`llm-shared-skills/skills/<skill>/...`) before release.
+- Added Windows-safe temporary directory handling and cleanup in the tooling package where needed to reduce test failures on Windows hosts.
+
+## [1.7.1] - 2026-03-18
+
+### Added
+
+- Added repository-wide skill agent and command scaffolding for all skills, including per-skill `agents/` manifests and `commands/` entries, so skill invocations can be routed consistently by both Claude and Codex clients.
+- Added `hooks/hooks.json` with preconfigured hooks for agent selection and command execution orchestration.
+
 ## [1.7.0] - 2026-03-16
 
 ### Added
@@ -347,7 +361,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-install checks: scripts verify if tools are already installed and skip installation if current version meets requirements
 - Post-install verification: all scripts confirm successful installation and print setup hints
 
-[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.6.4...HEAD
+[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.2...HEAD
+[1.7.2]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.1...v1.7.2
+[1.7.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.0...v1.7.1
 [1.6.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.6.0...v1.6.1
 [1.5.3]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.2...v1.5.3
 [1.5.2]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.5.1...v1.5.2
