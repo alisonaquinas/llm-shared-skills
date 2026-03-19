@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added 30-skill Claude workflow development suite across three full SDLC families: `claude-command-*`, `claude-hook-*`, and `claude-agent-*`. Each family includes planning, design, creation, testing, verification, integration, validation, test-drive, iterative-development, and an SDLC orchestrator skill.
+- Added cross-compatible guidance for command workflows, hook automations, and delegated agent workflows that stays runnable from both Claude and Codex while documenting runtime-specific placement and portability constraints in references.
+
 ## [1.7.4] - 2026-03-18
 
 ### Added

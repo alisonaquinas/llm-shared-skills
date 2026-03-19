@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Verification"
+  short_description: "Verification phase for hook workflows"
+  default_prompt: "Use $claude-hook-verification to guide the verification phase for a hook workflow."

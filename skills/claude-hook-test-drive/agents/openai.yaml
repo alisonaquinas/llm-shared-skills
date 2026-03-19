@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Test Drive"
+  short_description: "Live test-drive for hook workflows"
+  default_prompt: "Use $claude-hook-test-drive to guide the test-drive phase for a hook workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Creation"
+  short_description: "Creation phase for agent workflows"
+  default_prompt: "Use $claude-agent-creation to guide the creation phase for an agent workflow."

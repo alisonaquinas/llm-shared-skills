@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Verification"
+  short_description: "Verification phase for command workflows"
+  default_prompt: "Use $claude-command-verification to guide the verification phase for a command workflow."

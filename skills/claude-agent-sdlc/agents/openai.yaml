@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent SDLC"
+  short_description: "End-to-end SDLC for agent workflows"
+  default_prompt: "Use $claude-agent-sdlc to guide the full agent workflow development lifecycle."

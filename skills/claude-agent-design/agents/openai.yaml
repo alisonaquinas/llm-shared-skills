@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Design"
+  short_description: "Design phase for agent workflows"
+  default_prompt: "Use $claude-agent-design to guide the design phase for an agent workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Creation"
+  short_description: "Creation phase for hook workflows"
+  default_prompt: "Use $claude-hook-creation to guide the creation phase for a hook workflow."

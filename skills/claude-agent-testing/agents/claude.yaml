@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Testing"
+  short_description: "Testing phase for agent workflows"
+  default_prompt: "Use $claude-agent-testing to guide the testing phase for an agent workflow."

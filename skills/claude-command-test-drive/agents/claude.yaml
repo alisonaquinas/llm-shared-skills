@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Test Drive"
+  short_description: "Live test-drive for command workflows"
+  default_prompt: "Use $claude-command-test-drive to guide the test-drive phase for a command workflow."

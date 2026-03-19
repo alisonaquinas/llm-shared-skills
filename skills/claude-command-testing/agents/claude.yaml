@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Testing"
+  short_description: "Testing phase for command workflows"
+  default_prompt: "Use $claude-command-testing to guide the testing phase for a command workflow."

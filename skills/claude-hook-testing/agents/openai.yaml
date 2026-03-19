@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Testing"
+  short_description: "Testing phase for hook workflows"
+  default_prompt: "Use $claude-hook-testing to guide the testing phase for a hook workflow."

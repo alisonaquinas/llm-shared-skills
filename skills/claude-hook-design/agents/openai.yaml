@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Design"
+  short_description: "Design phase for hook workflows"
+  default_prompt: "Use $claude-hook-design to guide the design phase for a hook workflow."

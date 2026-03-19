@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Verification"
+  short_description: "Verification phase for agent workflows"
+  default_prompt: "Use $claude-agent-verification to guide the verification phase for an agent workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Planning"
+  short_description: "Planning phase for hook workflows"
+  default_prompt: "Use $claude-hook-planning to guide the planning phase for a hook workflow."

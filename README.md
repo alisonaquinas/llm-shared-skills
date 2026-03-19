@@ -13,6 +13,9 @@ them loadable by either agent without modification.
 
 **New in v1.6.7:**
 
+- **Unreleased additions:** 30 new cross-compatible Claude workflow development skills covering full SDLC suites for command workflows, hook automations, and delegated agent workflows
+  - New families: `claude-command-*`, `claude-hook-*`, and `claude-agent-*`
+  - Each family includes planning, design, creation, testing, verification, integration, validation, live test-drive, iterative development, and an SDLC orchestrator
 - **10 new POSIX/GNU command skills** — `cat`, `cp`, `echo`, `grep`, `ln`, `ls`, `mv`, `printf`, `ps`, `rsync`
   - Each includes a cheatsheet, advanced-usage, and troubleshooting reference
   - `grep` skill recommends ag (The Silver Searcher) over grep for recursive code search when installed
@@ -24,7 +27,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 79 shared skills.
+This repository currently contains 109 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
@@ -38,6 +41,36 @@ This repository currently contains 79 shared skills.
 | `mcp-validation` | Claude | Quality rubric scoring (M01-M06) for MCP servers |
 | `mcp-test-drive` | Claude | Live scenario testing against a running MCP server |
 | `mcp-iterative-development` | Claude | Re-entry decisions and loop management across MCP SDLC phases |
+| `claude-command-sdlc` | Claude | Orchestrate the full end-to-end SDLC for command workflow development |
+| `claude-command-planning` | Claude | Planning phase for command workflow development |
+| `claude-command-design` | Claude | Design phase for command workflow development |
+| `claude-command-creation` | Claude | Creation phase for command workflow development |
+| `claude-command-testing` | Claude | Testing phase for command workflow development |
+| `claude-command-verification` | Claude | Verification phase for command workflow development |
+| `claude-command-integration` | Claude | Integration phase for command workflow development |
+| `claude-command-validation` | Claude | Quality rubric scoring for command workflow development |
+| `claude-command-test-drive` | Claude | Live scenario testing for command workflow development |
+| `claude-command-iterative-development` | Claude | Re-entry decisions and loop management for command workflow development |
+| `claude-hook-sdlc` | Claude | Orchestrate the full end-to-end SDLC for hook workflow development |
+| `claude-hook-planning` | Claude | Planning phase for hook workflow development |
+| `claude-hook-design` | Claude | Design phase for hook workflow development |
+| `claude-hook-creation` | Claude | Creation phase for hook workflow development |
+| `claude-hook-testing` | Claude | Testing phase for hook workflow development |
+| `claude-hook-verification` | Claude | Verification phase for hook workflow development |
+| `claude-hook-integration` | Claude | Integration phase for hook workflow development |
+| `claude-hook-validation` | Claude | Quality rubric scoring for hook workflow development |
+| `claude-hook-test-drive` | Claude | Live scenario testing for hook workflow development |
+| `claude-hook-iterative-development` | Claude | Re-entry decisions and loop management for hook workflow development |
+| `claude-agent-sdlc` | Claude | Orchestrate the full end-to-end SDLC for agent workflow development |
+| `claude-agent-planning` | Claude | Planning phase for agent workflow development |
+| `claude-agent-design` | Claude | Design phase for agent workflow development |
+| `claude-agent-creation` | Claude | Creation phase for agent workflow development |
+| `claude-agent-testing` | Claude | Testing phase for agent workflow development |
+| `claude-agent-verification` | Claude | Verification phase for agent workflow development |
+| `claude-agent-integration` | Claude | Integration phase for agent workflow development |
+| `claude-agent-validation` | Claude | Quality rubric scoring for agent workflow development |
+| `claude-agent-test-drive` | Claude | Live scenario testing for agent workflow development |
+| `claude-agent-iterative-development` | Claude | Re-entry decisions and loop management for agent workflow development |
 | `bash` | Codex | Bash scripting, WSL2 interop, pipelines, debugging |
 | `powershell` | Codex | PowerShell 7 scripting, remoting, modules, Windows/Linux/macOS |
 | `zsh` | Claude | Zsh interactive shell, completion system, ZLE, globbing, scripting |

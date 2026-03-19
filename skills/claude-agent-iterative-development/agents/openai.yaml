@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Iterative Development"
+  short_description: "Iteration flow for agent workflows"
+  default_prompt: "Use $claude-agent-iterative-development to guide the iterative-development phase for an agent workflow."

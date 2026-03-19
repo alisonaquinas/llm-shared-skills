@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Validation"
+  short_description: "Validation phase for hook workflows"
+  default_prompt: "Use $claude-hook-validation to guide the validation phase for a hook workflow."

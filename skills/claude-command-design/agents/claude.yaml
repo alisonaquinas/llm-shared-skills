@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Design"
+  short_description: "Design phase for command workflows"
+  default_prompt: "Use $claude-command-design to guide the design phase for a command workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Integration"
+  short_description: "Integration phase for agent workflows"
+  default_prompt: "Use $claude-agent-integration to guide the integration phase for an agent workflow."

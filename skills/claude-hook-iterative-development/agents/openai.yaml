@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Iterative Development"
+  short_description: "Iteration flow for hook workflows"
+  default_prompt: "Use $claude-hook-iterative-development to guide the iterative-development phase for a hook workflow."

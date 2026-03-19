@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Integration"
+  short_description: "Integration phase for command workflows"
+  default_prompt: "Use $claude-command-integration to guide the integration phase for a command workflow."

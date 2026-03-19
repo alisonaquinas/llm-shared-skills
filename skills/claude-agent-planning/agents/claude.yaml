@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Planning"
+  short_description: "Planning phase for agent workflows"
+  default_prompt: "Use $claude-agent-planning to guide the planning phase for an agent workflow."

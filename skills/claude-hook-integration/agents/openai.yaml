@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Integration"
+  short_description: "Integration phase for hook workflows"
+  default_prompt: "Use $claude-hook-integration to guide the integration phase for a hook workflow."

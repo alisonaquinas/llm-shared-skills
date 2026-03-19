@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Creation"
+  short_description: "Creation phase for command workflows"
+  default_prompt: "Use $claude-command-creation to guide the creation phase for a command workflow."

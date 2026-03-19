@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook SDLC"
+  short_description: "End-to-end SDLC for hook workflows"
+  default_prompt: "Use $claude-hook-sdlc to guide the full hook workflow development lifecycle."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command SDLC"
+  short_description: "End-to-end SDLC for command workflows"
+  default_prompt: "Use $claude-command-sdlc to guide the full command workflow development lifecycle."

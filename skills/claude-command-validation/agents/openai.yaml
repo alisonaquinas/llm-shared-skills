@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Validation"
+  short_description: "Validation phase for command workflows"
+  default_prompt: "Use $claude-command-validation to guide the validation phase for a command workflow."

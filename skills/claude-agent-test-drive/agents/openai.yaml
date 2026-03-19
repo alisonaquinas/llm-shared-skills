@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Test Drive"
+  short_description: "Live test-drive for agent workflows"
+  default_prompt: "Use $claude-agent-test-drive to guide the test-drive phase for an agent workflow."
