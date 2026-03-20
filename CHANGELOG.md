@@ -7,10 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.5] - 2026-03-19
+
 ### Added
 
 - Added 30-skill Claude workflow development suite across three full SDLC families: `claude-command-*`, `claude-hook-*`, and `claude-agent-*`. Each family includes planning, design, creation, testing, verification, integration, validation, test-drive, iterative-development, and an SDLC orchestrator skill.
 - Added cross-compatible guidance for command workflows, hook automations, and delegated agent workflows that stays runnable from both Claude and Codex while documenting runtime-specific placement and portability constraints in references.
+
+### Fixed
+
+- Improved Wave 1 runtime guidance across 20 blocked-scenario skills: `7z`, `ag`, `binwalk`, `exiftool`, `hexdump`, `less`, `markdownlint`, `mediainfo`, `powershell`, `sqlite`, `ssh-client`, `ssh-keygen`, `tree`, `xml2`, `xmllint`, `xq`, `xxd`, `yq`, `zoxide`, and `zsh`.
+- Added early prerequisite checks, clearer install and fallback paths, stronger Quick Start sections where needed, and extra inline runnable examples so common workflows fail fast and stay actionable when a required binary is missing.
+- Updated `skills/yq` metadata and routing text so the skill validates cleanly with the new runtime-gating guidance.
 
 ## [1.7.4] - 2026-03-18
 
@@ -407,7 +415,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pre-install checks: scripts verify if tools are already installed and skip installation if current version meets requirements
 - Post-install verification: all scripts confirm successful installation and print setup hints
 
-[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.2...HEAD
+[Unreleased]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.5...HEAD
+[1.7.5]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.4...v1.7.5
 [1.7.2]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.1...v1.7.2
 [1.7.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.7.0...v1.7.1
 [1.6.1]: https://github.com/alisonaquinas/llm-shared-skills/compare/v1.6.0...v1.6.1
