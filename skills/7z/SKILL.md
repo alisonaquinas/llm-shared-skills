@@ -7,6 +7,20 @@ description: Create and extract high-compression archives with 7z format support
 
 High-compression archive creation with strong compression and encryption support.
 
+## Prerequisite Check
+
+Run this before proposing archive work:
+
+```bash
+command -v 7z >/dev/null 2>&1 || 7z --help
+```
+
+If `7z` is missing, surface that immediately and either:
+
+- run `scripts/install.sh` or `scripts/install.ps1`
+- fall back to `unzip` for ZIP extraction only
+- fall back to `tar -xf archive.tar.*` for tar-based archives
+
 ## Quick Start
 
 1. Verify `7z` is available: `7z --help` or `man 7z`
@@ -42,6 +56,15 @@ Load only the reference file needed for the active request.
 man 7z                                 # Full manual (if available)
 ```
 
+```bash
+# Verify integrity before extracting an untrusted archive
+7z t incoming.7z
+
+# Use a fallback when the archive is ZIP and 7z is unavailable
+unzip -l archive.zip
+unzip archive.zip -d output/
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -52,6 +75,8 @@ man 7z                                 # Full manual (if available)
 | **Compression algorithms** | Solid archives and certain algorithms may have edge cases. Test extraction on target platform. |
 | **Permission preservation** | 7z preserves file permissions; verify extracted permissions match expectations on target system. |
 | **Symlinks** | 7z handles symlinks; be cautious with archives from untrusted sources that may create symlinks. |
+
+Recovery note: if the runtime lacks `7z`, confirm the archive type first. Use `unzip` only for ZIP files and `tar` only for tar-based formats rather than guessing from the file extension alone.
 
 ## Source Policy
 

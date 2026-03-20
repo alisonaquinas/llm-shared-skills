@@ -7,6 +7,16 @@ description: Practical PowerShell 7 shell, scripting, remoting, debugging, and t
 
 Use this skill to keep PowerShell work grounded in the installed runtime first, then fall back to official Microsoft Learn content when local help is missing or partial.
 
+## Prerequisite Check
+
+Run this before proposing PowerShell commands:
+
+```powershell
+Get-Command pwsh,pwsh.exe,powershell,powershell.exe -ErrorAction SilentlyContinue
+```
+
+If no PowerShell host is available, surface that first and point to `scripts/install.sh` or `scripts/install.ps1`. For POSIX-compatible tasks, state clearly when `bash` or `zsh` is a better fallback than forcing PowerShell-specific syntax.
+
 ## Quick Start
 
 1. Run `scripts/probe-pwsh.ps1` first for environment truth.
@@ -107,6 +117,8 @@ Trace-Command -Name ParameterBinding -Expression { <command> } -PSHost
 | Native commands | Be explicit about which shell is parsing the command line first. |
 | Profiles | Prefer `-NoProfile` when isolating startup issues. |
 | Formatting | Avoid building automation on formatted text when objects are available. |
+
+Recovery note: if the runtime does not have `pwsh` or Windows PowerShell, stop at install guidance or switch to a non-PowerShell shell only when the requested workflow is genuinely shell-agnostic.
 
 ## Source Policy
 

@@ -7,6 +7,16 @@ description: Display file contents in hexadecimal and ASCII formats. Use when th
 
 Display file contents in hexadecimal and ASCII formats
 
+## Prerequisite Check
+
+Run this before proposing byte-level inspection:
+
+```bash
+command -v hexdump >/dev/null 2>&1 || hexdump --version
+```
+
+If `hexdump` is missing, surface that immediately and fall back to `xxd` or `od` for equivalent read-only inspection.
+
 ## Quick Start
 
 1. Verify `hexdump` is available: `hexdump --version` or `man hexdump`
@@ -39,6 +49,15 @@ hexdump file | head                     # Limit output
 man hexdump                             # Full manual
 ```
 
+```bash
+# Canonical hex + ASCII view
+hexdump -C firmware.bin | head
+
+# Fallbacks on minimal systems
+xxd -g 1 firmware.bin | head
+od -An -tx1 -v firmware.bin | head
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -47,6 +66,8 @@ man hexdump                             # Full manual
 | **Large files** | May consume memory on large files. Test with smaller samples first. |
 | **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
 | **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
+
+Recovery note: if `hexdump` is absent, prefer `xxd` for side-by-side hex plus ASCII and `od -tx1` when only POSIX core tools are available.
 
 ## Source Policy
 

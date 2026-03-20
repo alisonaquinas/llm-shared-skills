@@ -7,6 +7,16 @@ description: Display directory structure in tree format. Use when the agent need
 
 Display directory structure in tree format
 
+## Prerequisite Check
+
+Run this before proposing tree output:
+
+```bash
+command -v tree >/dev/null 2>&1 || tree --version
+```
+
+If `tree` is missing, surface that first and fall back to `find` or `ls -R`, noting that formatting and depth controls will differ.
+
 ## Quick Start
 
 1. Verify `tree` is available: `tree --version` or `man tree`
@@ -36,6 +46,15 @@ tree [options] [input]               # Basic usage
 man tree                             # Full manual
 ```
 
+```bash
+# Show a shallow directory summary
+tree -L 2 .
+
+# Fallbacks when tree is unavailable
+find . -maxdepth 2 -print
+ls -R
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -43,6 +62,8 @@ man tree                             # Full manual
 | **Input validation** | Verify input data format before processing. |
 | **Output handling** | Validate output structure. |
 | **Large files** | Test with smaller samples first. |
+
+Recovery note: when using `find` or `ls -R` as a fallback, describe the expected output difference up front because the user will not get tree-style indentation or the same ignore/depth behavior.
 
 ## Source Policy
 

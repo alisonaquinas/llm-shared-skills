@@ -12,6 +12,23 @@ description: >
 
 Use `ag` to find text across code and documents quickly with the right scope, output mode, and ignore behavior.
 
+## Prerequisite Check
+
+Run this before proposing `ag`-based search:
+
+```bash
+command -v ag >/dev/null 2>&1 || ag --version
+```
+
+If `ag` is missing, surface that first and either run `scripts/install.sh` or `scripts/install.ps1`, or fall back to `rg` and then `grep -R` when the user still needs search results in the current runtime.
+
+## Quick Start
+
+1. Confirm the binary exists: `ag --version`
+2. Start with a bounded search: `ag --numbers --column 'pattern' .`
+3. Narrow output before scaling up: `ag -l 'pattern' .` or `ag -c 'pattern' .`
+4. If `ag` is unavailable, continue with `rg 'pattern' .` or `grep -R --line-number 'pattern' .`
+
 ## Intent Router
 
 | Request | Reference | Load When |
@@ -77,6 +94,12 @@ Overrides:
 ag -l -0 '<pattern>' . | xargs -0 <command>
 ```
 
+```bash
+# Preferred fallback order when ag is unavailable
+rg --line-number '<pattern>' .
+grep -R --line-number -- '<pattern>' .
+```
+
 ## Safety and Guardrails
 
 | Operation | Guardrail | Why |
@@ -93,6 +116,7 @@ ag -l -0 '<pattern>' . | xargs -0 <command>
 - For very large trees, start with `-l`, `-c`, or `--depth` to control output volume.
 - Runtime defaults can vary by build/version; check `ag --help` on this machine when behavior differs.
 - Run probe script first: `scripts/probe-ag.sh` to verify ag availability and features
+- Recovery note: when falling back from `ag`, call out behavior differences. `rg` and `grep -R` do not match `ag`'s ignore rules and file-type flags exactly.
 
 ## Sources
 

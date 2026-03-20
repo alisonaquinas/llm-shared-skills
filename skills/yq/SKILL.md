@@ -2,9 +2,10 @@
 name: yq
 description: >
   Process YAML, XML, and TOML files using jq-like filtering syntax.
+  Use when the task involves format conversion, data extraction,
+  filtering, or in-place editing across YAML, XML, and TOML files.
   yq wraps jq to handle YAML input/output, xq handles XML transcoding,
-  and tomlq handles TOML files. Supports format conversion, data extraction,
-  filtering, and in-place file editing across multiple data formats.
+  and tomlq handles TOML files.
 ---
 
 # yq: Data Format Processor
@@ -12,7 +13,21 @@ description: >
 Process YAML, XML, and TOML files using jq-compatible filtering syntax.
 yq acts as a bridge between jq's powerful filtering and the diverse data formats used in modern development.
 
----
+## Prerequisite Check
+
+Run this before proposing `yq` filters or in-place edits:
+
+```bash
+command -v yq >/dev/null 2>&1 || yq --version
+```
+
+For the Python-wrapper form of `yq`, also verify `jq` when filters depend on it:
+
+```bash
+command -v jq >/dev/null 2>&1 || jq --version
+```
+
+If `yq` is missing, surface that first. Fall back to `jq` for JSON-only work, `xq` for XML, or plain text tools only when reduced coverage is acceptable.
 
 ## Intent Router
 
@@ -50,6 +65,15 @@ tomlq .database.host file.toml          # Process TOML with tomlq
 yq -Y -i '.description |= split("\n")' file.yml   # Preserve tags during edit
 ```
 
+```bash
+# Verify the runtime before edits
+yq --version
+jq --version
+
+# Safe read-only extraction before in-place edits
+yq -o json '.services.api.image' docker-compose.yml
+```
+
 ### Key Features
 
 - **jq-compatible filtering** — All jq syntax works on YAML/TOML/XML
@@ -58,10 +82,9 @@ yq -Y -i '.description |= split("\n")' file.yml   # Preserve tags during edit
 - **In-place editing** — `-i` flag modifies files directly, with backup if needed
 - **Streaming** — Process stdin/stdout like jq for pipeline chaining
 
----
-
 ## Related References
 
 - Load **Quick Reference** for command flags, options, and jq filter examples
 - Load **Usage Patterns** to understand filtering, modification, and format conversion techniques
 - Load **Examples & Recipes** for practical workflows and troubleshooting
+- Recovery note: when `yq` is unavailable, say which reduced path still works. `jq` covers JSON, `xq` covers XML, and shell text tools lose structural guarantees.

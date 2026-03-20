@@ -7,6 +7,24 @@ description: Complete SQLite file operations spanning core read-only queries, ba
 
 Safe, repeatable SQLite file operations from preflight checks through advanced workflows.
 
+## Prerequisite Check
+
+Run this before proposing CLI database work:
+
+```bash
+command -v sqlite3 >/dev/null 2>&1 || sqlite3 --version
+```
+
+If `sqlite3` is missing, surface that first and point to `scripts/install.sh` or `scripts/install.ps1`. If the user only needs lightweight inspection and no shell is available, say that a language runtime or GUI may be required instead of pretending the CLI examples will run.
+
+## Quick Start
+
+1. Confirm the runtime: `sqlite3 --version`
+2. Run preflight when tool availability matters: `scripts/sqlite_preflight.sh --require sqlite3`
+3. Open read-only first: `sqlite3 -readonly app.db '.tables'`
+4. Use the safe wrapper for structured output: `scripts/sqlite_safe_query.sh --db app.db --sql 'select count(*) from sqlite_master'`
+5. Verify with `PRAGMA integrity_check;` before and after risky work
+
 ## Intent Router
 
 | Request | Reference | Load When |
@@ -74,12 +92,19 @@ scripts/sqlite_backup.sh --db <file> --out <backup-file> [--vacuum-into]
 
 Use this before risky changes. Default mode uses `.backup`; `--vacuum-into` writes a compact backup.
 
+## Verification Cues
+
+- Runtime ready: `sqlite3 --version` succeeds and `scripts/sqlite_preflight.sh --require sqlite3` exits cleanly.
+- Read-only connection works: `sqlite3 -readonly app.db '.tables'` returns object names without creating side effects.
+- Recovery path is explicit: if the CLI is missing, stop and install it instead of translating shell snippets into guessed GUI steps.
+
 ## Safety Defaults
 
 - Refuse ambiguous or unsafe invocations.
 - Avoid in-place mutation in query and health workflows.
 - Require explicit output paths for artifacts.
 - Fail fast with actionable remediation text.
+- Recovery note: when `sqlite3` is unavailable, keep the fallback boundary explicit. Safe wrappers and `PRAGMA` checks depend on the CLI and should not be presented as runnable until the tool exists.
 
 ## All Available References
 

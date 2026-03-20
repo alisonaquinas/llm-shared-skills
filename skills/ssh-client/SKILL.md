@@ -7,6 +7,16 @@ description: Establish secure SSH connections with strict host verification and 
 
 Secure remote access with strict host key verification and known_hosts management.
 
+## Prerequisite Check
+
+Run this before proposing remote access steps:
+
+```bash
+command -v ssh >/dev/null 2>&1 || ssh -V
+```
+
+If `ssh` is missing, surface that first and point to `scripts/install.sh` or `scripts/install.ps1`. Do not suggest insecure fallbacks such as disabling host verification or using plaintext remote shells.
+
 ## Quick Start
 
 1. Verify `ssh` is available: `ssh -V` or `man ssh`
@@ -41,6 +51,14 @@ ssh-keygen -R hostname                 # Remove hostname from known_hosts
 man ssh                                # Full manual
 ```
 
+```bash
+# Probe connectivity without interactive password prompts
+ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new user@host true
+
+# Inspect the host key before a first connection
+ssh-keyscan -p 22 host | tee -a ~/.ssh/known_hosts
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -51,6 +69,8 @@ man ssh                                # Full manual
 | **Key passphrase** | Protect private keys with strong passphrases. Use ssh-agent for convenient access. |
 | **Agent forwarding** | Be cautious with -A. Forwarding agent is high-risk on untrusted hosts. |
 | **Config file** | Restrict permissions (chmod 600 ~/.ssh/config). May contain sensitive information. |
+
+Recovery note: if the runtime has no `ssh` client, stop at install guidance. Do not route around that by suggesting telnet-like substitutes or `StrictHostKeyChecking=no`.
 
 ## Source Policy
 

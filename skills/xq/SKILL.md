@@ -15,6 +15,16 @@ Query and transform XML using jq filter syntax. `xq` transcodes XML to JSON
 internally, then passes it through `jq`, giving full access to jq's filter
 language on XML input.
 
+## Prerequisite Check
+
+Run this before proposing `xq` filters:
+
+```bash
+command -v xq >/dev/null 2>&1 && command -v jq >/dev/null 2>&1
+```
+
+If `xq` or `jq` is missing, surface that first and point to `scripts/install.sh` or `scripts/install.ps1`. If the task only needs direct XML queries, fall back to `xmllint` instead of pretending jq-style filters are available.
+
 ## Intent Router
 
 | Request | Reference | Load When |
@@ -40,6 +50,15 @@ xq '.rss.channel.item | length' feed.xml
 
 # Filter array elements
 xq '.catalog.book[] | select(.price | tonumber > 20) | .title' books.xml
+```
+
+```bash
+# Verify the dependency chain before filtering
+xq --help
+jq --version
+
+# Fallback for direct XML extraction when xq is unavailable
+xmllint --xpath '//book/title/text()' books.xml
 ```
 
 ## How It Works
@@ -75,6 +94,8 @@ becomes:
 | **Large files** | Use `--xml-item-depth N` to stream without loading full document into memory. |
 | **jq dependency** | `jq` must be installed separately before `xq` works. Verify with `jq --version`. |
 | **Repeated elements** | XML with repeated sibling elements is converted to a JSON array. A single element produces an object, not an array — use `Arrays` or `--xml-force-list` if needed. |
+
+Recovery note: if either `xq` or `jq` is missing, keep the fallback boundary explicit. `xmllint` can query XML directly, but it does not support jq-style transformations.
 
 ## Resource Index
 

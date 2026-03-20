@@ -10,6 +10,24 @@ description: >
 
 # Markdownlint CLI2 Enforcer
 
+## Prerequisite Check
+
+Run this before proposing lint or fix commands:
+
+```bash
+command -v markdownlint-cli2 >/dev/null 2>&1 || command -v markdownlint >/dev/null 2>&1
+```
+
+If no markdownlint binary is available, surface that first and either run `scripts/install.sh` or `scripts/install.ps1`, or use the documented `npx --yes markdownlint-cli2` fallback when networked package execution is acceptable.
+
+## Quick Start
+
+1. Confirm a runner exists: `markdownlint-cli2 --version` or `npx --yes markdownlint-cli2 --version`
+2. Resolve the config before linting anything
+3. Run a check without `--fix` first
+4. Apply `--fix` only when the task requires edits
+5. Re-run the check and report the final status
+
 ## Intent Router
 
 | Request | Reference | Load When |
@@ -70,6 +88,8 @@ Run and auto-fix:
 ./skills/markdownlint-cli2-enforcer/scripts/run-markdownlint-cli2.sh --fix README.md AGENTS.md
 ```
 
+Verification cue: a clean run exits without rule violations after the final non-`--fix` pass. If the binary is missing, stop at install or `npx` guidance rather than presenting the wrapper as immediately runnable.
+
 ## Safety and Guardrails
 
 | Action | Guardrail | Why |
@@ -90,3 +110,5 @@ Use this wrapper to:
 - fall back to `markdownlint` (with mapped disabled rules) when available
 - else fall back to `npx --yes markdownlint-cli2` when binary is missing
 - apply optional `--fix`
+
+Recovery note: if local binaries are missing, state which path comes next: install script, wrapper fallback, or `npx`. Do not imply that `--fix` is safe until the lint pass has been shown first.

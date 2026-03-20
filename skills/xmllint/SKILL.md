@@ -13,6 +13,16 @@ description: >
 
 Parse, validate, format, and query XML documents. Part of the libxml2 toolset.
 
+## Prerequisite Check
+
+Run this before proposing validation or XPath workflows:
+
+```bash
+command -v xmllint >/dev/null 2>&1 || xmllint --version
+```
+
+If `xmllint` is missing, surface that first and either run `scripts/install.sh` or `scripts/install.ps1`, or fall back to `xq` for query-oriented work and `xml2` for shell-pipeline transformations.
+
 ## Intent Router
 
 | Request | Reference | Load When |
@@ -21,6 +31,14 @@ Parse, validate, format, and query XML documents. Part of the libxml2 toolset.
 | Flags, options, one-liners | `references/cheatsheet.md` | Need quick command lookup |
 | XPath queries, schema workflows | `references/advanced-usage.md` | Complex validation or extraction tasks |
 | Errors, exit codes, common failures | `references/troubleshooting.md` | Something is failing or output is unexpected |
+
+## Quick Start
+
+1. Confirm the binary: `xmllint --version`
+2. Start with a safe well-formedness check: `xmllint --nonet --noout file.xml`
+3. Add schema or DTD validation only when the schema source is known
+4. Use `--xpath` for targeted extraction instead of printing whole documents
+5. If `xmllint` is unavailable, state the fallback boundary to `xq` or `xml2`
 
 ## Quick Reference
 
@@ -71,6 +89,8 @@ xmllint --nonet --schema schema.xsd file.xml
 
 `--nonet` blocks all network access during parsing and validation.
 
+Verification cue: a safe baseline run is `xmllint --nonet --noout file.xml`. If that fails because the binary is missing, stop at install guidance instead of presenting later validation commands as runnable.
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -79,6 +99,8 @@ xmllint --nonet --schema schema.xsd file.xml
 | **Validation output** | Use `--noout` to suppress the parsed tree — show only errors. |
 | **Large files** | Test with `--noout` first; full output of large files can be verbose. |
 | **Recovery mode** | `--recover` may produce incomplete or structurally incorrect output. Validate the result. |
+
+Recovery note: when `xmllint` is unavailable, say whether the task is still answerable with `xq` or `xml2`. Neither fallback fully replaces schema validation.
 
 ## Resource Index
 

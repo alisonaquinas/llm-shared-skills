@@ -7,6 +7,16 @@ description: Scan files for embedded filesystems and data signatures. Use when t
 
 Scan files for embedded filesystems and data signatures
 
+## Prerequisite Check
+
+Run this before proposing firmware or binary scanning:
+
+```bash
+command -v binwalk >/dev/null 2>&1 || binwalk --version
+```
+
+If `binwalk` is missing, surface that first and fall back to `file`, `strings`, or `xxd` for reduced-coverage inspection until the tool is installed.
+
 ## Quick Start
 
 1. Verify `binwalk` is available: `binwalk --version` or `man binwalk`
@@ -39,6 +49,16 @@ binwalk file | head                     # Limit output
 man binwalk                             # Full manual
 ```
 
+```bash
+# Safe first pass on an unknown image
+binwalk firmware.bin
+
+# Reduced-coverage fallback when binwalk is unavailable
+file firmware.bin
+strings -n 8 firmware.bin | head
+xxd -g 1 firmware.bin | head
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -47,6 +67,8 @@ man binwalk                             # Full manual
 | **Large files** | May consume memory on large files. Test with smaller samples first. |
 | **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
 | **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
+
+Recovery note: if `binwalk` is unavailable, say explicitly that fallback tools can help identify signatures or readable strings, but they do not replace binwalk's embedded-file and offset analysis.
 
 ## Source Policy
 

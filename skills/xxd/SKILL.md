@@ -7,6 +7,16 @@ description: Create and reverse hexadecimal dumps. Use when the agent needs to i
 
 Create and reverse hexadecimal dumps
 
+## Prerequisite Check
+
+Run this before proposing forward or reverse hex workflows:
+
+```bash
+command -v xxd >/dev/null 2>&1 || xxd --version
+```
+
+If `xxd` is missing, surface that first and fall back to `od` for read-only inspection. Reverse conversion may need Vim or a machine that includes `xxd`.
+
 ## Quick Start
 
 1. Verify `xxd` is available: `xxd --version` or `man xxd`
@@ -39,6 +49,17 @@ xxd file | head                     # Limit output
 man xxd                             # Full manual
 ```
 
+```bash
+# Read-only inspection with grouped bytes
+xxd -g 1 firmware.bin | head
+
+# Reverse a hex dump back into binary
+xxd -r payload.hex restored.bin
+
+# Read-only fallback on minimal systems
+od -An -tx1 -v firmware.bin | head
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -47,6 +68,8 @@ man xxd                             # Full manual
 | **Large files** | May consume memory on large files. Test with smaller samples first. |
 | **Output handling** | Pipe output safely. Binary output may corrupt terminal. |
 | **Symlinks** | Tool may follow or skip symlinks. Check man page for behavior. |
+
+Recovery note: if `xxd` is unavailable, be explicit that `od` can replace forward inspection but not `xxd -r` round-trips.
 
 ## Source Policy
 

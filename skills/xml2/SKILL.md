@@ -14,6 +14,16 @@ description: >
 Convert XML to a flat, line-oriented format for shell pipeline processing, and
 reconstruct XML with `2xml`.
 
+## Prerequisite Check
+
+Run this before proposing flat XML workflows:
+
+```bash
+command -v xml2 >/dev/null 2>&1 && command -v 2xml >/dev/null 2>&1
+```
+
+If `xml2` or `2xml` is missing, surface that first and either run `scripts/install.sh` or `scripts/install.ps1`, or fall back to `xmllint` or `xq` when the task can stay XML-aware instead of line-oriented.
+
 ## Intent Router
 
 | Request | Reference | Load When |
@@ -36,6 +46,14 @@ xml2 < file.xml | sed 's|/config/host=.*|/config/host=newhost|' | 2xml > modifie
 
 # Round-trip (should produce equivalent XML)
 xml2 < file.xml | 2xml
+```
+
+```bash
+# Verify a round-trip with XML-aware tooling
+xml2 < file.xml | 2xml | xmllint --format -
+
+# Fallback when xml2 is unavailable
+xmllint --xpath '//item/title/text()' file.xml
 ```
 
 ## Flat Format
@@ -69,6 +87,8 @@ xml2 < file.xml | 2xml
 | **Mixed content** | Elements with both text and child elements may lose structure. Test round-trip before relying on output. |
 | **Large files** | `xml2` loads the full document into memory. Use streaming tools (e.g., `xq --xml-item-depth`) for very large files. |
 | **Encoding** | Input should be UTF-8. Non-UTF-8 files may produce garbled output. |
+
+Recovery note: when `xml2` is unavailable, keep the fallback boundary explicit. `xmllint` and `xq` can query XML, but they do not preserve the same flat line-oriented editing model.
 
 ## Resource Index
 

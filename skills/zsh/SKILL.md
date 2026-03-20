@@ -7,6 +7,16 @@ description: Practical Zsh shell, completion system, ZLE keybindings, and script
 
 Use this skill to keep Zsh work grounded in the installed shell first, then fall back to zsh.sourceforge.io and the local manual when runtime behavior needs confirmation.
 
+## Prerequisite Check
+
+Run this before proposing Zsh-specific commands:
+
+```bash
+command -v zsh >/dev/null 2>&1 || zsh --version
+```
+
+If `zsh` is missing, surface that first and point to `scripts/install.sh` or `scripts/install.ps1`. For POSIX-compatible tasks, say when `bash` is an acceptable fallback and when it is not because the request depends on Zsh-specific semantics.
+
 ## Quick Start
 
 1. Check the local Zsh version: `zsh --version`
@@ -109,6 +119,8 @@ zparseopts -D -E -- opt1 opt2=ARG   # parse script flags
 | `emulate` scope | Use `emulate -L zsh` inside functions to avoid leaking option changes to the parent shell. |
 | History | `HISTFILE` and `SAVEHIST` must both be set for history to save. `setopt SHARE_HISTORY` affects all sessions. |
 | macOS system zsh | `/bin/zsh` is 5.9 on macOS 15; Apple cannot update it. Install via Homebrew for latest features. |
+
+Recovery note: if `zsh` is unavailable, stop at install guidance unless the task is truly POSIX-only. Do not silently map Zsh completion, ZLE, or option behavior onto `bash`.
 
 ## Source Policy
 

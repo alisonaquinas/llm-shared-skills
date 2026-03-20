@@ -11,6 +11,16 @@ description: >
 
 Use zoxide-first navigation when the target directory is implied by keywords or history instead of a fixed absolute path.
 
+## Prerequisite Check
+
+Run this before proposing `z`, `zi`, or query-based navigation:
+
+```bash
+command -v zoxide >/dev/null 2>&1 || zoxide --version
+```
+
+If `zoxide` is missing, surface that first and either run `scripts/install.sh` or `scripts/install.ps1`, or fall back to ordinary `cd`, `find`, and explicit absolute paths.
+
 ## Intent Router
 
 | Request | Reference | Load When |
@@ -19,7 +29,7 @@ Use zoxide-first navigation when the target directory is implied by keywords or 
 | Shell setup, fzf config, migration | `references/zoxide-setup-and-config.md` | User needs init commands, database location, or fzf setup |
 | Preflight and environment | `scripts/probe-zoxide.sh` | Verify shell integration and check database status |
 
-## Quick Setup
+## Quick Start
 
 ```bash
 # Initialize in shell startup file (~/.bashrc, ~/.zshrc, etc.)
@@ -28,6 +38,11 @@ eval "$(zoxide init bash)"
 # Or for zsh:
 eval "$(zoxide init zsh)"
 ```
+
+1. Confirm the binary: `zoxide --version`
+2. Confirm shell integration: `type z` and `type zi`
+3. Use `zoxide query <keywords>` before destructive work
+4. If `zoxide` is unavailable, use explicit `cd <path>` or `find` instead of implied matches
 
 ## Workflow
 
@@ -79,6 +94,7 @@ cd "$target"
 - Use `zoxide query` in automation instead of `z`, because `z` depends on shell integration and interactive session state.
 - For destructive or high-impact work, resolve with `query -l` and verify the chosen directory explicitly.
 - Run probe script first: `scripts/probe-zoxide.sh` to verify shell integration and database status
+- Recovery note: when `zoxide` is unavailable, switch to explicit paths. The fallback is safer than simulating history-based ranking with guesswork.
 
 ## Troubleshooting
 

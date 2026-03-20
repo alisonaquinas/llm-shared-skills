@@ -7,6 +7,16 @@ description: Display comprehensive media file information. Use when the agent ne
 
 Display comprehensive media file information
 
+## Prerequisite Check
+
+Run this before proposing rich media inspection:
+
+```bash
+command -v mediainfo >/dev/null 2>&1 || mediainfo --version
+```
+
+If `mediainfo` is missing, surface that first and either run `scripts/install.sh` or `scripts/install.ps1`, or fall back to `file` for coarse type detection.
+
 ## Quick Start
 
 1. Verify `mediainfo` is available: `mediainfo --version` or `man mediainfo`
@@ -36,6 +46,14 @@ mediainfo file                            # Basic usage
 man mediainfo                             # Full manual
 ```
 
+```bash
+# Inspect one file and confirm the container/codec summary
+mediainfo sample.mp4
+
+# Fallback when mediainfo is unavailable
+file sample.mp4
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -43,6 +61,8 @@ man mediainfo                             # Full manual
 | **File validation** | Verify files are in expected format. |
 | **Output handling** | Validate output before processing further. |
 | **Large files** | Test with smaller files first. |
+
+Recovery note: if `mediainfo` is unavailable, say that `file` can identify the container but will not replace codec, stream, duration, or bitrate details.
 
 ## Source Policy
 

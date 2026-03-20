@@ -7,6 +7,16 @@ description: Generate and manage SSH key pairs with fingerprinting and validatio
 
 Generate, validate, and fingerprint SSH keypairs with secure file permissions.
 
+## Prerequisite Check
+
+Run this before proposing key generation or conversion:
+
+```bash
+command -v ssh-keygen >/dev/null 2>&1 || ssh-keygen -V
+```
+
+If `ssh-keygen` is missing, surface that first and point to `scripts/install.sh` or `scripts/install.ps1`. Do not suggest manual key-file fabrication as a fallback.
+
 ## Quick Start
 
 1. Verify `ssh-keygen` is available: `ssh-keygen -h` or `man ssh-keygen`
@@ -41,6 +51,14 @@ ssh-keygen -R hostname                # Remove hostname from known_hosts
 man ssh-keygen                        # Full manual
 ```
 
+```bash
+# Generate a modern keypair with a comment
+ssh-keygen -t ed25519 -C "dev@example.com" -f ~/.ssh/id_ed25519
+
+# Verify the fingerprint before distribution
+ssh-keygen -lf ~/.ssh/id_ed25519.pub
+```
+
 ## Safety Notes
 
 | Area | Guardrail |
@@ -51,6 +69,8 @@ man ssh-keygen                        # Full manual
 | **Key storage** | Store private keys in secure location (~/.ssh/). Never commit to version control. |
 | **Fingerprinting** | Always verify fingerprints when registering public keys on servers. Prevents key substitution. |
 | **Key recovery** | Keep secure backup of private keys. Loss means regeneration and server updates. |
+
+Recovery note: if the runtime lacks OpenSSH tooling, stop at install guidance instead of improvising with ad hoc key generators or copied private keys from unknown sources.
 
 ## Source Policy
 
