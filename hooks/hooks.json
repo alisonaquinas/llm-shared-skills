@@ -1,14 +1,3 @@
 {
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "prompt",
-            "prompt": "You are in llm-shared-skills. Follow shared tooling AGENTS guidance and keep skill instructions cross-platform."
-          }
-        ]
-      }
-    ]
-  }
+  "hooks": {}
 }
