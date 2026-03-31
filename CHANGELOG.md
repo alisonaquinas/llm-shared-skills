@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.7] - 2026-03-31
+
+### Fixed
+
+- Replaced broken `SessionStart` prompt hook in `hooks/hooks.json` with a working `command`-type hook that invokes the session-start script, eliminating "ToolUseContext is required for prompt hooks" startup errors.
+
 ## [1.7.6] - 2026-03-22
 
 ### Fixed
