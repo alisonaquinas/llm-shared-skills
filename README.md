@@ -1,5 +1,7 @@
 # llm-shared-skills
 
+Browse and install these skills at [llm-skills.alisonaquinas.com](https://llm-skills.alisonaquinas.com/).
+
 A single repository of cross-compatible LLM agent skills that work with both
 **Claude Code** and **Codex**. All skills use the shared `SKILL.md` format, making
 them loadable by either agent without modification.
