@@ -51,12 +51,23 @@ In `~/.claude/settings.json`:
 
 Command strings are interpreted by the user's shell. On Windows, do not copy the
 POSIX `$CLAUDE_PROJECT_DIR/...` expansion literally; use the shell's environment
-syntax instead, such as:
+syntax instead.
+
+For PowerShell:
 
 ```json
 {
   "type": "command",
   "command": "pwsh -NoProfile -File \"$env:CLAUDE_PROJECT_DIR/.claude/hooks/format.ps1\""
+}
+```
+
+For `cmd.exe`:
+
+```json
+{
+  "type": "command",
+  "command": "pwsh -NoProfile -File \"%CLAUDE_PROJECT_DIR%\\.claude\\hooks\\format.ps1\""
 }
 ```
 
