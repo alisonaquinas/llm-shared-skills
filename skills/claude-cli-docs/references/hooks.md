@@ -49,6 +49,17 @@ In `~/.claude/settings.json`:
 }
 ```
 
+Command strings are interpreted by the user's shell. On Windows, do not copy the
+POSIX `$CLAUDE_PROJECT_DIR/...` expansion literally; use the shell's environment
+syntax instead, such as:
+
+```json
+{
+  "type": "command",
+  "command": "pwsh -NoProfile -File \"$env:CLAUDE_PROJECT_DIR/.claude/hooks/format.ps1\""
+}
+```
+
 ## Hook Input
 
 Hook commands receive JSON on stdin. `CLAUDE_PROJECT_DIR` is available when the

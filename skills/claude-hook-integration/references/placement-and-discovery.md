@@ -25,3 +25,6 @@ Use this reference when wiring the rule into its target runtime.
 
 Project hook commands should prefer `$CLAUDE_PROJECT_DIR/...` or equivalent
 absolute paths so they work regardless of the process working directory.
+Adapt environment-variable expansion to the runtime shell. For example,
+PowerShell hook commands need `$env:CLAUDE_PROJECT_DIR/...`, while `cmd.exe`
+needs `%CLAUDE_PROJECT_DIR%\...`.

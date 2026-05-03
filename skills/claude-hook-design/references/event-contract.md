@@ -20,7 +20,8 @@ Use this reference when designing a hook rule around an event and matcher.
 Current hook commands receive the event payload as JSON on stdin. Do not assume
 tool details are exposed as individual environment variables. `CLAUDE_PROJECT_DIR`
 is available when the CLI spawns the hook and should be used for project-relative
-scripts.
+scripts. Express that variable using the target shell's syntax, such as
+`$env:CLAUDE_PROJECT_DIR` in PowerShell or `%CLAUDE_PROJECT_DIR%` in `cmd.exe`.
 
 ## Common Events
 
