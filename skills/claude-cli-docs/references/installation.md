@@ -24,11 +24,16 @@ curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del in
 # Homebrew (macOS/Linux) — does not auto-update
 brew install --cask claude-code
 
+# Homebrew latest channel — does not auto-update
+brew install --cask claude-code@latest
+
 # WinGet (Windows) — does not auto-update
 winget install Anthropic.ClaudeCode
 ```
 
-Note: Windows requires [Git for Windows](https://git-scm.com/downloads/win).
+Native Windows can run in PowerShell or CMD. Git for Windows is recommended so
+the Bash tool is available; WSL2 is better for Linux-native toolchains and
+sandboxed command execution.
 
 ## First Run
 
@@ -42,18 +47,30 @@ You'll be prompted to log in with your Anthropic account on first use.
 ## Requirements
 
 - A Claude subscription or Anthropic Console account
-- OR: configure a third-party provider (Bedrock, Vertex) — see <https://code.claude.com/docs/en/third-party-integrations>
+- OR: configure a third-party provider such as Bedrock, Vertex, or Microsoft Foundry:
+  <https://code.claude.com/docs/en/setup>
+- macOS 13+, Windows 10 1809+/Server 2019+, Ubuntu 20.04+, Debian 10+, or Alpine 3.19+
+- 4 GB+ RAM, x64 or ARM64 processor, and internet access
 
 ## Update
 
 Native installs auto-update in the background. For Homebrew:
 
 ```bash
+claude update
 brew upgrade claude-code
+brew upgrade claude-code@latest
 ```
 
 For WinGet:
 
 ```bash
 winget upgrade Anthropic.ClaudeCode
+```
+
+Verify after install or update:
+
+```bash
+claude --version
+claude doctor
 ```

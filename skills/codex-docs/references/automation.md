@@ -4,12 +4,11 @@
 
 | Topic | URL |
 | --- | --- |
-| Automation overview | <https://developers.openai.com/codex/automation> |
-| Non-interactive mode | <https://developers.openai.com/codex/automation/non-interactive> |
-| SDK | <https://developers.openai.com/codex/automation/sdk> |
-| App server | <https://developers.openai.com/codex/automation/app-server> |
-| MCP server | <https://developers.openai.com/codex/automation/mcp-server> |
-| GitHub Action | <https://developers.openai.com/codex/automation/github-action> |
+| Non-interactive mode | <https://developers.openai.com/codex/noninteractive> |
+| SDK | <https://developers.openai.com/codex/sdk> |
+| App server | <https://developers.openai.com/codex/app-server> |
+| MCP server subcommand | <https://developers.openai.com/codex/cli/reference> |
+| GitHub Action | <https://developers.openai.com/codex/github-action> |
 
 ## GitHub Action
 
@@ -31,19 +30,19 @@ jobs:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
 ```
 
-Full reference: <https://developers.openai.com/codex/automation/github-action>
+Full reference: <https://developers.openai.com/codex/github-action>
 
 ## Non-interactive Mode
 
 Run Codex headlessly from a script or CI pipeline:
 
 ```bash
-codex --non-interactive "write tests for src/auth.py"
+codex exec "write tests for src/auth.py"
 ```
 
 ## SDK
 
 The Codex SDK allows programmatic task submission and result retrieval:
-<https://developers.openai.com/codex/automation/sdk>
+<https://developers.openai.com/codex/sdk>
 
 Use it to build custom workflows, dashboards, or integrate Codex into existing tooling.

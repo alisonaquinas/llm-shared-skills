@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `.codex-plugin/plugin.json` so the shared skills bundle can be published through a Codex plugin marketplace.
 - Added `scripts/validate_plugin_manifests.py` and `make codex-bundle` to validate Codex/Claude manifest alignment and build `shared-skills-codex-plugin.zip`.
 
+### Changed
+
+- Refreshed Claude and Codex documentation skills against current official docs: updated Codex CLI install/auth/config guidance for `codex login`, `codex exec`, `~/.codex/config.toml`, MCP management, slash commands, sandbox/approval flags, and native Windows support; updated Claude Code CLI guidance for native Windows/CMD install, `claude update`, `claude doctor`, auth variants, setup tokens, `--bare`, newer permission modes, hooks stdin JSON, subagent placement, and workflow discovery paths.
+
 ## [1.7.7] - 2026-03-31
 
 ### Fixed

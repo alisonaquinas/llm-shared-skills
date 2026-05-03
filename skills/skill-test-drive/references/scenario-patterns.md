@@ -26,6 +26,8 @@ Use these only after the minimum coverage is present:
 - **Scale** — slightly larger fixture or repeated operation
 - **Format drift** — alternate input format, malformed input, or missing field
 - **Documentation discovery** — test whether the right guidance is easy to find
+  and whether referenced docs URLs resolve. Record the HTTP method used; prefer
+  `GET` when a provider rejects or misreports `HEAD` requests.
 
 ## Scenario Generation Method
 
