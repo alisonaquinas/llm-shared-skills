@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `.codex-plugin/plugin.json` so the shared skills bundle can be published through a Codex plugin marketplace.
+- Added `scripts/validate_plugin_manifests.py` and `make codex-bundle` to validate Codex/Claude manifest alignment and build `shared-skills-codex-plugin.zip`.
+
 ## [1.7.7] - 2026-03-31
 
 ### Fixed

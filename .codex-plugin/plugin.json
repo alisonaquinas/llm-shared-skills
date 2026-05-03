@@ -1,0 +1,25 @@
+{
+  "name": "shared-skills",
+  "version": "1.7.7",
+  "description": "Cross-compatible LLM skills for Claude Code and Codex: ag, bash, changelog, chatgpt-docs, claude-docs, claude-cli, claude-cli-docs, codex-docs, codex-cli, codex-cli-docs, git, markdownlint, powershell, skill-creator, skill-linting, skill-test-drive, skill-validation, sqlite, zoxide, and many more system utilities.",
+  "author": {
+    "name": "Alison Aquinas"
+  },
+  "repository": "https://github.com/alisonaquinas/llm-shared-skills",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Shared Skills",
+    "shortDescription": "Reusable skills for developer workflows and utilities.",
+    "longDescription": "Reusable cross-compatible skills for common developer workflows, shell utilities, skill authoring, and shared tooling.",
+    "developerName": "Alison Aquinas",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://llm-skills.alisonaquinas.com",
+    "defaultPrompt": [
+      "Use Shared Skills to help with git, shell, files, and reusable tooling workflows.",
+      "Use Shared Skills to author, lint, or validate an agent skill."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
