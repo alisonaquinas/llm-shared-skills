@@ -1,6 +1,6 @@
 ---
 name: codex-cli
-description: "Use this skill when the user wants to install, set up, update, configure, manage, or troubleshoot the OpenAI Codex CLI tool. Triggers: install codex, update codex cli, codex command not found, set OPENAI_API_KEY, configure AGENTS.md, codex auth login, set approval mode, run codex non-interactively, pipe to codex, codex won't start, change the model in codex, or any hands-on operational task with the codex CLI binary. For documentation lookups use codex-cli-docs."
+description: "Use when the user wants to install, set up, update, configure, manage, or troubleshoot the OpenAI Codex CLI tool. Triggers include install codex, update codex cli, codex command not found, set OPENAI_API_KEY, configure AGENTS.md, codex login, codex mcp, set approval or sandbox policy, run codex exec, pipe to codex, codex won't start, change the model in codex, or any hands-on operational task with the codex CLI binary. For documentation lookups use codex-cli-docs."
 ---
 
 # OpenAI Coding CLI
@@ -18,21 +18,36 @@ coding CLI binary. For deep documentation lookups, use the companion documentati
 | Update | See [Update](#update) below |
 | Auth / API key setup | See [Auth](#auth) below |
 | Configure AGENTS.md | See [Configuration](#configuration) below |
-| Approval modes | See [Approval Modes](#approval-modes) below |
+| MCP servers | See [MCP](#mcp) below |
+| Approval and sandbox policy | See [Approval & Sandbox](#approval--sandbox) below |
 | Non-interactive / scripting | See [Scripting](#scripting) below |
 | Troubleshooting | See [Troubleshooting](#troubleshooting) below |
 | Advanced / docs lookup | Use the companion documentation skill |
 
 ---
 
+## Quick Start
+
+```bash
+codex --version
+codex login status
+codex -a on-request -s workspace-write "summarize this repository"
+codex exec -a never -s workspace-write "run tests and report failures"
+```
+
+If the task asks for exact flags, config keys, MCP behavior, or current model
+availability, switch to the companion documentation skill and verify first.
+
+---
+
 ## Install
 
 ```bash
-# npm (global install) — requires Node.js 18+
+# npm (global install)
 npm install -g @openai/codex
 
-# Homebrew (macOS/Linux)
-brew install codex
+# Homebrew
+brew install --cask codex
 ```
 
 First run:
@@ -42,7 +57,8 @@ cd your-project
 codex "describe what this codebase does"
 ```
 
-System requirements: Node.js 18+, macOS/Linux or WSL on Windows.
+The CLI runs on macOS, Windows, and Linux. On Windows, use native PowerShell
+with the Windows sandbox, or WSL2 when a Linux-native toolchain is required.
 
 ---
 
@@ -50,10 +66,10 @@ System requirements: Node.js 18+, macOS/Linux or WSL on Windows.
 
 ```bash
 # npm
-npm update -g @openai/codex
+npm i -g @openai/codex@latest
 
 # Homebrew
-brew upgrade codex
+brew upgrade --cask codex
 
 # Check version
 codex --version
@@ -65,27 +81,23 @@ Release notes: use the companion documentation skill for the changelog URL.
 
 ## Auth
 
-### ChatGPT account (Plus/Pro/Team/Edu/Enterprise)
+### ChatGPT account or API key
 
 ```bash
-codex auth login    # opens browser — sign in with OpenAI account
-codex auth logout
-codex auth status
+codex login          # opens browser for ChatGPT sign-in
+codex login status   # exits 0 when credentials are present
+codex logout         # remove saved credentials
 ```
 
-### API key
+For headless hosts:
 
 ```bash
-export OPENAI_API_KEY=sk-...        # set in shell profile for persistence
-codex --api-key sk-... "your task"  # pass per-invocation
+codex login --device-auth
+printenv OPENAI_API_KEY | codex login --with-api-key
 ```
 
-Store the key in your shell profile to persist across sessions:
-
-```bash
-echo 'export OPENAI_API_KEY=sk-...' >> ~/.bashrc
-source ~/.bashrc
-```
+An `OPENAI_API_KEY` environment variable can also be used by scripts and CI.
+Never put real keys in `AGENTS.md`, shell history examples, or committed config.
 
 ---
 
@@ -112,24 +124,46 @@ For the full AGENTS.md spec, use the companion documentation skill.
 
 ### Config file
 
-Pass a custom config path with `--config <path>`. For the full config schema, use
-the companion documentation skill.
+Persistent CLI settings live in `~/.codex/config.toml`. Override values for one
+invocation with `-c key=value`, or load a named profile with `--profile`.
+
+```bash
+codex -c model=gpt-5.4 -c sandbox_mode=workspace-write "task"
+codex --profile review "review this repository"
+```
 
 ---
 
-## Approval Modes
+## MCP
+
+MCP server launchers are stored in `~/.codex/config.toml`.
 
 ```bash
-codex "task"                              # suggest (default): proposes, asks before applying
-codex --approval-mode auto "task"         # auto-approves safe file edits; prompts for shell commands
-codex --approval-mode full-auto "task"    # applies all changes and runs commands without asking
+codex mcp add docs -- npx -y @modelcontextprotocol/server-filesystem .
+codex mcp add remote --url https://mcp.example.com/mcp
+codex mcp list --json
+codex mcp get docs --json
+codex mcp remove docs
 ```
 
-| Mode | Safe for | Caution |
+Use per-server and per-tool approval settings in config when tools can write,
+mutate external systems, or call network services.
+
+---
+
+## Approval & Sandbox
+
+```bash
+codex -a on-request -s workspace-write "task"  # interactive default for most edits
+codex -a never -s workspace-write "task"       # unattended inside a sandbox
+codex --yolo "task"                            # no approvals or sandbox; only in hardened envs
+```
+
+| Control | Values | Use |
 | --- | --- | --- |
-| `suggest` | Any task | Slowest; requires manual approval |
-| `auto` | Trusted projects | Still prompts for shell commands |
-| `full-auto` | CI / trusted automation only | Runs shell commands unattended |
+| `--ask-for-approval`, `-a` | `untrusted`, `on-request`, `never` | Human approval policy |
+| `--sandbox`, `-s` | `read-only`, `workspace-write`, `danger-full-access` | Shell command containment |
+| `--yolo` | boolean | Bypass both controls; avoid unless an outer sandbox protects the host |
 
 ---
 
@@ -137,20 +171,24 @@ codex --approval-mode full-auto "task"    # applies all changes and runs command
 
 ```bash
 # Non-interactive run
-codex --non-interactive "fix all TypeScript errors"
+codex exec "fix all TypeScript errors"
 
-# Quiet output (suppress progress noise)
-codex --quiet "run the tests and report failures"
+# Non-interactive with explicit policy
+codex exec -a never -s workspace-write "run tests and fix failures"
 
 # Set working directory
-codex --cwd /path/to/project "update the README"
+codex --cd /path/to/project "update the README"
 
 # Pipe input
-cat error.log | codex "what is causing these errors?"
-git diff | codex "review these changes for issues"
+cat error.log | codex exec "what is causing these errors?"
+git diff | codex exec "review these changes for issues"
 
 # Switch model
-codex --model o3 "refactor this module"
+codex --model gpt-5.4 "refactor this module"
+
+# Resume a previous interactive session
+codex resume --last
+codex resume <session-id>
 ```
 
 ---
@@ -160,18 +198,19 @@ codex --model o3 "refactor this module"
 | Symptom | Fix |
 | --- | --- |
 | CLI binary not found | Re-run the install step (see [Install](#install)); check `$PATH` |
-| `OPENAI_API_KEY not set` | Export the key or authenticate via browser (see [Auth](#auth)) |
+| `OPENAI_API_KEY not set` | Use `codex login`, `codex login --with-api-key`, or export the key |
 | Auth loop / browser won't open | Sign out then sign in again (see [Auth](#auth)) |
-| Node.js version error | Upgrade to Node.js 18+ (`node --version`) |
 | Slow / no response | Check internet; try `--verbose` |
-| Changes not applying | Check approval mode; ensure `--non-interactive` isn't blocking |
-| Wrong AGENTS.md loaded | Run with `--verbose` to see which config files are loaded |
+| Changes not applying | Check `--ask-for-approval`, `--sandbox`, and `/permissions` |
+| Wrong AGENTS.md loaded | Use `/status` or `/debug-config` to inspect config and roots |
+| MCP tool not available | Run `codex mcp list --json`; check per-tool approval settings |
 | Model not available | Verify your OpenAI plan supports the requested model |
 
-Enable verbose logging:
+Inspect active settings inside the TUI:
 
-```bash
-codex --verbose "your task here"
+```text
+/status
+/debug-config
 ```
 
 For issues not covered here, use the companion documentation skill to look up the

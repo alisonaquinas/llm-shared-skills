@@ -1,6 +1,6 @@
 ---
 name: claude-cli
-description: "Use this skill when the user wants to install, set up, update, configure, manage, or troubleshoot the Claude Code CLI tool. Triggers: install claude code, update claude, claude command not found, set up CLAUDE.md, configure permissions, add an MCP server, claude won't start, change the model, set up hooks, run claude non-interactively, pipe to claude, resume a session, or any hands-on operational task with the claude CLI binary. For documentation lookups use claude-cli-docs."
+description: "Use when the user wants to install, set up, update, configure, manage, or troubleshoot the Claude Code CLI tool. Triggers include install claude code, update claude, claude command not found, set up CLAUDE.md, configure permissions, add an MCP server, claude won't start, change the model, set up hooks, run claude non-interactively, pipe to claude, resume a session, or any hands-on operational task with the claude CLI binary. For documentation lookups use claude-cli-docs."
 ---
 
 # Claude CLI
@@ -26,6 +26,20 @@ Operational skill for installing, configuring, managing, and troubleshooting the
 
 ---
 
+## Quick Start
+
+```bash
+claude --version || claude doctor
+claude auth status --text
+claude update
+claude -p "summarize this repository"
+```
+
+If the task asks for exact flags or evolving behavior, switch to
+**claude-cli-docs** and verify the current docs before answering.
+
+---
+
 ## Install
 
 ```bash
@@ -35,14 +49,22 @@ curl -fsSL https://claude.ai/install.sh | bash
 # Windows PowerShell (auto-updates)
 irm https://claude.ai/install.ps1 | iex
 
+# Windows CMD (auto-updates)
+curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
+
 # Homebrew (does NOT auto-update)
 brew install --cask claude-code
+
+# Homebrew latest channel (does NOT auto-update)
+brew install --cask claude-code@latest
 
 # WinGet (does NOT auto-update)
 winget install Anthropic.ClaudeCode
 ```
 
-Windows requires [Git for Windows](https://git-scm.com/downloads/win).
+Native Windows works in PowerShell or CMD. Git for Windows is recommended so the
+Bash tool is available; WSL2 is better when Linux-native tooling or sandboxing is
+required.
 
 First run:
 
@@ -58,14 +80,19 @@ claude          # prompts for login on first use
 Native installs (curl/PowerShell) auto-update in the background. Manual update:
 
 ```bash
+# Native installer
+claude update
+
 # Homebrew
 brew upgrade claude-code
+brew upgrade claude-code@latest
 
 # WinGet
 winget upgrade Anthropic.ClaudeCode
 
 # Check current version
 claude --version
+claude doctor
 ```
 
 ---
@@ -75,12 +102,20 @@ claude --version
 Login is prompted automatically on first run. To re-authenticate:
 
 ```bash
-claude auth login     # opens browser to log in
-claude auth logout    # sign out
-claude auth status    # show current auth state
+claude auth login            # opens browser to log in
+claude auth login --console  # Anthropic Console billing/API usage
+claude auth login --sso      # force SSO flow
+claude auth logout           # sign out
+claude auth status           # JSON status; add --text for human-readable output
 ```
 
-For API-key or third-party provider (Bedrock, Vertex) setup, use **claude-cli-docs**.
+For long-lived CI tokens:
+
+```bash
+claude setup-token
+```
+
+For API-key, Bedrock, Vertex, or Microsoft Foundry setup, use **claude-cli-docs**.
 
 ---
 
@@ -117,6 +152,8 @@ For the full settings schema, use **claude-cli-docs** or visit
 
 ```bash
 claude --permission-mode acceptEdits    # auto-approve file edits, prompt for commands
+claude --permission-mode auto           # auto mode classifier
+claude --permission-mode dontAsk        # avoid interactive permission prompts
 claude --permission-mode bypassPermissions  # skip all prompts (use with care)
 claude --permission-mode plan           # plan mode: propose changes, don't apply
 ```
@@ -175,6 +212,12 @@ claude -p --output-format json "list all API endpoints"
 # Resume a session
 claude --continue                    # resume most recent
 claude --resume <session-id>         # resume by ID
+
+# Faster scripted call: skip auto-discovery of hooks, skills, plugins, MCP, memory
+claude --bare -p "summarize this repo"
+
+# One-off extra instructions while preserving built-in behavior
+claude -p --append-system-prompt "Use terse bullet points" "review this diff"
 ```
 
 ---
@@ -190,12 +233,13 @@ claude --resume <session-id>         # resume by ID
 | Wrong CLAUDE.md loaded | Run `claude --verbose` to see which files are loaded |
 | MCP server not connecting | `claude mcp list`; check server logs with `--verbose` |
 | Permission denied on files | Check `--allowedTools` / `--disallowedTools` flags |
-| Hooks not firing | Verify `~/.claude/settings.json` hook config; use `--verbose` |
+| Hooks not firing | Verify settings with `/hooks`; use `--debug "hooks"` |
 
 Enable verbose logging for any issue:
 
 ```bash
 claude --verbose "your task here"
+claude --debug "api,mcp,hooks" "your task here"
 ```
 
 Official troubleshooting page: `https://code.claude.com/docs/en/troubleshooting`

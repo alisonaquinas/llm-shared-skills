@@ -4,14 +4,16 @@
 
 | Topic | URL |
 | --- | --- |
-| Config overview | <https://developers.openai.com/codex/config> |
-| AGENTS.md | <https://developers.openai.com/codex/config/agents-md> |
-| Config files | <https://developers.openai.com/codex/config/config-files> |
-| Rules | <https://developers.openai.com/codex/config/rules> |
-| MCP | <https://developers.openai.com/codex/config/mcp> |
-| Skills | <https://developers.openai.com/codex/config/skills> |
-| Speed | <https://developers.openai.com/codex/config/speed> |
-| Multi-agents config | <https://developers.openai.com/codex/config/multi-agents> |
+| Config basics | <https://developers.openai.com/codex/config-basic> |
+| Advanced config | <https://developers.openai.com/codex/config-advanced> |
+| Config reference | <https://developers.openai.com/codex/config-reference> |
+| Config sample | <https://developers.openai.com/codex/config-sample> |
+| AGENTS.md | <https://developers.openai.com/codex/guides/agents-md> |
+| Rules | <https://developers.openai.com/codex/rules> |
+| Hooks | <https://developers.openai.com/codex/hooks> |
+| MCP | <https://developers.openai.com/codex/mcp> |
+| Skills | <https://developers.openai.com/codex/skills> |
+| Subagents | <https://developers.openai.com/codex/subagents> |
 
 ## AGENTS.md
 
@@ -32,16 +34,15 @@ Codex supports MCP servers for connecting external tools and data sources:
 - Jira, Linear, Notion, GitHub, Slack
 - Custom MCP servers you build
 
-Configure MCP servers in your Codex settings or config file.
+Configure MCP servers in `~/.codex/config.toml` or with `codex mcp`.
 
 ## Skills
 
-Skills are packaged, reusable workflows that Codex can invoke. Similar to Claude
-Code's custom commands. Configure skills in your Codex config to give Codex
-repeatable task templates.
+Skills are packaged, reusable workflows that Codex can invoke. Configure skills
+and plugins so repeatable task templates stay available across sessions.
 
 ## Config Files
 
-Codex can be configured via a config file (YAML or JSON) at the repo root or in
-the Codex app settings. Controls: model selection, sandbox settings, allowed
-domains, MCP servers, and more.
+The CLI reads `~/.codex/config.toml`; project instructions live in `AGENTS.md`.
+Important controls include model selection, approval policy, sandbox mode, MCP
+servers, hooks, plugins, and web search mode.

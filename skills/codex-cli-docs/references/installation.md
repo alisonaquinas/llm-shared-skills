@@ -14,33 +14,29 @@
 # npm (global install)
 npm install -g @openai/codex
 
-# Homebrew (macOS/Linux)
-brew install codex
+# Homebrew
+brew install --cask codex
 ```
 
 ## Authentication
 
-### Sign in with ChatGPT account (Plus/Pro/Team/Edu/Enterprise)
+### Sign in with ChatGPT account or API key
 
 ```bash
-codex auth login
+codex login
 ```
 
 This opens a browser window to authenticate with your OpenAI account.
 
-### Sign in with API key
+For non-browser environments:
 
 ```bash
-export OPENAI_API_KEY=your-key-here
+codex login --device-auth
+printenv OPENAI_API_KEY | codex login --with-api-key
 ```
 
-Or pass it directly:
-
-```bash
-codex --api-key sk-... "fix the tests"
-```
-
-Full auth docs: <https://developers.openai.com/codex/auth#sign-in-with-an-api-key>
+`codex login status` exits with `0` when credentials are present, which is useful
+for scripts.
 
 ## First Run
 
@@ -51,9 +47,12 @@ codex "describe what this codebase does"
 
 ## System Requirements
 
-- Node.js 18+ (for npm install)
-- macOS, Linux, or Windows (WSL recommended on Windows)
+- macOS, Windows, or Linux
+- npm, Homebrew, or a platform-specific GitHub release binary
 - An OpenAI account (ChatGPT plan) or API key
+
+On Windows, run natively in PowerShell with the Windows sandbox, or use WSL2
+for Linux-native projects and toolchains.
 
 ## Releases & Changelog
 

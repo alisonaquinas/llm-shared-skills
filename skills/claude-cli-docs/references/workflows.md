@@ -33,15 +33,22 @@ claude -p "translate new strings into French and raise a PR for review"
 
 ## Sub-agents
 
-Claude Code can spawn multiple agent instances to work in parallel:
+Custom subagents live in `~/.claude/agents/` for user-wide use or
+`.claude/agents/` for project-scoped use. Each is a Markdown file with YAML
+frontmatter:
 
-```bash
-claude "spawn 3 agents to implement feature A, B, and C in parallel,
-        then merge the results"
+```markdown
+---
+name: test-runner
+description: Runs tests and diagnoses failures. Use PROACTIVELY after edits.
+tools: Bash, Read, Grep
+---
+
+Run focused tests, summarize failures, and identify the smallest fix.
 ```
 
-Sub-agents share the same tool set but work in isolated contexts. The orchestrator
-coordinates and merges their output.
+Use `/agents` to create or edit subagents interactively. If `tools` is omitted,
+the subagent inherits available tools, including MCP tools.
 
 Full docs: <https://code.claude.com/docs/en/sub-agents>
 
@@ -49,7 +56,10 @@ Full docs: <https://code.claude.com/docs/en/sub-agents>
 
 - Write a `CLAUDE.md` with build/test commands and project conventions
 - Use `/plan` mode for large changes to review the approach before execution
+- Use `/agents` for repeatable specialized roles instead of ad hoc delegation prompts
 - Use `--permission-mode acceptEdits` for trusted automation scripts
+- Use `--permission-mode auto` when the built-in classifier should decide safe actions
+- Use `--bare -p` for fast scripts that should skip project auto-discovery
 - Pipe output into Claude for analysis: `tail -f app.log | claude -p "alert on errors"`
 - Use `--max-turns` to bound non-interactive runs
 

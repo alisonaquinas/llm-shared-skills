@@ -16,7 +16,7 @@ Lock event contracts, matcher rules, return behavior, portability expectations, 
 
 Load reference files on demand only when the corresponding topic is active:
 
-- `references/event-contract.md` — Load when defining events, matchers, environment variables, and return JSON
+- `references/event-contract.md` — Load when defining events, matchers, stdin payloads, exit codes, and return JSON
 - `references/safety-patterns.md` — Load when the hook can block actions, rewrite files, or trigger other tools
 
 ## Quick Start
@@ -58,5 +58,5 @@ Do not start creation while event semantics, return behavior, or fallback handli
 
 | Reference File | Load When |
 |---|---|
-| `references/event-contract.md` | Load when defining events, matchers, environment variables, and return JSON |
+| `references/event-contract.md` | Load when defining events, matchers, stdin payloads, exit codes, and return JSON |
 | `references/safety-patterns.md` | Load when the hook can block actions, rewrite files, or trigger other tools |

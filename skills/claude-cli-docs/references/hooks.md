@@ -20,7 +20,12 @@ Hooks let you run shell commands before or after Claude Code actions. Examples:
 | `PreToolUse` | Before any tool is called |
 | `PostToolUse` | After any tool completes |
 | `Notification` | When Claude sends a notification |
+| `UserPromptSubmit` | Before a user prompt is processed |
 | `Stop` | When Claude stops (task complete or error) |
+| `SubagentStop` | When a subagent completes |
+| `PreCompact` | Before conversation compaction |
+| `SessionStart` | At session startup |
+| `SessionEnd` | At session end |
 
 ## Configure Hooks
 
@@ -35,7 +40,7 @@ In `~/.claude/settings.json`:
         "hooks": [
           {
             "type": "command",
-            "command": "prettier --write $CLAUDE_TOOL_INPUT_FILE_PATH"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/format.sh"
           }
         ]
       }
@@ -44,20 +49,23 @@ In `~/.claude/settings.json`:
 }
 ```
 
-## Environment Variables in Hooks
+## Hook Input
 
-Claude Code passes context to hooks via environment variables:
+Hook commands receive JSON on stdin. `CLAUDE_PROJECT_DIR` is available when the
+CLI spawns the hook command and points at the project root.
 
-| Variable | Value |
+| Detail | Notes |
 | --- | --- |
-| `CLAUDE_TOOL_NAME` | Name of the tool that fired the hook |
-| `CLAUDE_TOOL_INPUT_FILE_PATH` | File path (for file-editing tools) |
-| `CLAUDE_TOOL_INPUT` | Full JSON input to the tool |
-| `CLAUDE_TOOL_OUTPUT` | Tool output (PostToolUse only) |
+| stdin | Event payload as JSON |
+| `CLAUDE_PROJECT_DIR` | Absolute project root |
+| timeout | Defaults to 60 seconds per command; configurable per hook |
+| execution | Matching hooks run in parallel; identical commands are deduplicated |
 
 ## Hook Return Values
 
-Hooks can return JSON to influence Claude's behavior:
+Hooks can use exit codes or JSON stdout to influence behavior:
 
-- `{"decision": "block", "reason": "..."}` — block the tool call
-- `{"decision": "approve"}` — approve without prompting
+- Exit `0` — success. stdout is usually shown only to the user, except selected context-injection events.
+- Exit `2` — blocking error. stderr is fed back according to the event.
+- Other non-zero exits — non-blocking error; stderr is shown to the user.
+- JSON stdout can include `continue`, `stopReason`, `suppressOutput`, or event-specific decisions.

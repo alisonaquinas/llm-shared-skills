@@ -16,7 +16,7 @@ Root URL and full page index are in the Key URLs section below.
 | --- | --- | --- |
 | Install, auth, first run | `references/installation.md` | user needs to install or authenticate the CLI |
 | Features and capabilities | `references/features.md` | user asks what the CLI can do |
-| Command-line flags and options | `references/cli-reference.md` | user asks about specific flags, options, or invocations |
+| Command-line flags, subcommands, config | `references/cli-reference.md` | user asks about flags, `codex exec`, `codex mcp`, profiles, or invocations |
 | Slash commands | `references/slash-commands.md` | user asks about in-session slash commands |
 
 ---
@@ -24,15 +24,30 @@ Root URL and full page index are in the Key URLs section below.
 ## Key URLs at a Glance
 
 ```text
-CLI root           https://developers.openai.com/codex/cli
-Features           https://developers.openai.com/codex/cli/features
-CLI reference      https://developers.openai.com/codex/cli/reference
-Slash commands     https://developers.openai.com/codex/cli/slash-commands
-Authentication     https://developers.openai.com/codex/auth
-IDE extension      https://developers.openai.com/codex/ide
-GitHub README      https://github.com/openai/codex/blob/main/README.md
-GitHub releases    https://github.com/openai/codex/releases
+CLI root            https://developers.openai.com/codex/cli
+Features            https://developers.openai.com/codex/cli/features
+Command options     https://developers.openai.com/codex/cli/reference
+Slash commands      https://developers.openai.com/codex/cli/slash-commands
+Config reference    https://developers.openai.com/codex/config-reference
+MCP                 https://developers.openai.com/codex/mcp
+Non-interactive     https://developers.openai.com/codex/noninteractive
+IDE extension       https://developers.openai.com/codex/ide
+GitHub README       https://github.com/openai/codex/blob/main/README.md
+GitHub releases     https://github.com/openai/codex/releases
 ```
+
+---
+
+## Quick Start
+
+```text
+Need install/update/auth? Load references/installation.md.
+Need flags, config, exec, MCP, or resume? Load references/cli-reference.md.
+Need slash commands? Load references/slash-commands.md.
+```
+
+For facts that may have changed, fetch the official page listed in the reference
+before answering.
 
 ---
 
@@ -42,14 +57,14 @@ GitHub releases    https://github.com/openai/codex/releases
 # npm (global)
 npm install -g @openai/codex
 
-# Homebrew (macOS/Linux)
-brew install codex
+# Homebrew
+brew install --cask codex
 ```
 
 Then authenticate:
 
 ```bash
-codex auth login
+codex login
 ```
 
-or set `OPENAI_API_KEY` in your environment.
+or pipe an API key into `codex login --with-api-key`.
