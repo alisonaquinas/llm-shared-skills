@@ -29,7 +29,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full release notes.
 
 ## Skills
 
-This repository currently contains 109 shared skills.
+This repository currently contains 110 shared skills.
 
 | Skill | Source | Description |
 |---|---|---|
@@ -92,6 +92,7 @@ This repository currently contains 109 shared skills.
 | `codex-cli-docs` | Claude | Look up official OpenAI Codex CLI documentation at developers.openai.com/codex/cli |
 | `ag` | Codex | Fast recursive search with The Silver Searcher (`ag`) |
 | `markdownlint` | Codex | Lint and fix Markdown with markdownlint |
+| `madr-adr` | Codex | Generate, author, review, and lint Markdown Architectural Decision Records |
 | `edit-files` | Codex | Safe generic file editing with planning, patches, and verification |
 | `sqlite` | Codex | Complete SQLite workflows from queries and backups to diffing and migrations |
 | `zoxide` | Codex | Fast directory jumps with zoxide |

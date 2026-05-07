@@ -1,0 +1,4 @@
+interface:
+  display_name: "MADR ADR"
+  short_description: "Generate and review Markdown ADRs"
+  default_prompt: "Use $madr-adr to draft, lint, or review a Markdown Architecture Decision Record."
