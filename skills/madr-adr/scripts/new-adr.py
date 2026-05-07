@@ -9,7 +9,6 @@ import re
 import sys
 from pathlib import Path
 
-
 FILENAME_RE = re.compile(r"^(\d{4})-[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
 
 

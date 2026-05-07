@@ -5,10 +5,8 @@ from __future__ import annotations
 
 import argparse
 import re
-import sys
 from dataclasses import dataclass
 from pathlib import Path
-
 
 FILENAME_RE = re.compile(r"^\d{4}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$")
 H1_RE = re.compile(r"^# (?!#)(.+)$", re.MULTILINE)
