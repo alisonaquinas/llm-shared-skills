@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-05-07
+
 ### Added
 
 - Added `.codex-plugin/plugin.json` so the shared skills bundle can be published through a Codex plugin marketplace.

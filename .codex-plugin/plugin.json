@@ -1,6 +1,6 @@
 {
   "name": "shared-skills",
-  "version": "1.7.7",
+  "version": "1.8.0",
   "description": "Cross-compatible LLM skills for Claude Code and Codex: ag, bash, changelog, chatgpt-docs, claude-docs, claude-cli, claude-cli-docs, codex-docs, codex-cli, codex-cli-docs, git, markdownlint, powershell, skill-creator, skill-linting, skill-test-drive, skill-validation, sqlite, zoxide, and many more system utilities.",
   "author": {
     "name": "Alison Aquinas"
