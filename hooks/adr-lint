@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Best-effort ADR lint hook for Markdown files under decisions directories.
+
+set -euo pipefail
+
+ROOT="${CLAUDE_PLUGIN_ROOT:-${CURSOR_PLUGIN_ROOT:-}}"
+if [ -z "$ROOT" ]; then
+    ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+fi
+
+SCRIPT="$ROOT/skills/madr-adr/scripts/lint-adr.py"
+FILE_PATH="${CLAUDE_TOOL_INPUT_FILE_PATH:-}"
+
+if [ -z "$FILE_PATH" ] && [ -n "${CLAUDE_TOOL_INPUT:-}" ]; then
+    FILE_PATH="$(
+        python -c 'import json, os; data=json.loads(os.environ.get("CLAUDE_TOOL_INPUT","{}")); print(data.get("file_path") or data.get("path") or "")' 2>/dev/null || true
+    )"
+fi
+
+case "$FILE_PATH" in
+    *.md) ;;
+    *) exit 0 ;;
+esac
+
+case "$FILE_PATH" in
+    *"/decisions/"*|*"\\decisions\\"*) ;;
+    *) exit 0 ;;
+esac
+
+if [ ! -f "$SCRIPT" ]; then
+    exit 0
+fi
+
+if command -v python >/dev/null 2>&1; then
+    python "$SCRIPT" "$FILE_PATH"
+elif command -v python3 >/dev/null 2>&1; then
+    python3 "$SCRIPT" "$FILE_PATH"
+fi
