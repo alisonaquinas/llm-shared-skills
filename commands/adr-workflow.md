@@ -1,4 +1,4 @@
-# MADR ADR workflow
+# MADR workflow
 
 Create, review, or update Markdown Architectural Decision Records.
 

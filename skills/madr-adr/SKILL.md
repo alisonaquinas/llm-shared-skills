@@ -9,7 +9,7 @@ description: >
   options, outcomes, consequences, and confirmation evidence.
 ---
 
-# MADR ADR
+# MADR
 
 Workflow support for Markdown Architectural Decision Records that follow the
 MADR structure.
