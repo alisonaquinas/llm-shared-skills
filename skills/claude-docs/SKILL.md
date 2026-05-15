@@ -66,3 +66,45 @@ deprecation schedule, see
 
 For a curated cross-platform map (Bedrock + Vertex IDs, capability flags, selection
 guidance) see `references/models.md`.
+
+---
+
+## Quick Start
+
+The lookup workflow for almost any Claude API question is the same: pick the
+matching reference file from the Intent Router, then WebFetch the canonical
+URL. Two starter recipes:
+
+### Minimal first request (Python SDK)
+
+```python
+import anthropic
+
+client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
+
+message = client.messages.create(
+    model="<current-sonnet-id>",  # pick from /about-claude/models/overview
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Hello, Claude"}],
+)
+print(message.content)
+```
+
+### Minimal first request (REST / curl)
+
+```bash
+curl https://api.anthropic.com/v1/messages \
+  --header "x-api-key: $ANTHROPIC_API_KEY" \
+  --header "anthropic-version: 2023-06-01" \
+  --header "content-type: application/json" \
+  --data '{
+    "model": "<current-sonnet-id>",
+    "max_tokens": 1024,
+    "messages": [{"role": "user", "content": "Hello"}]
+  }'
+```
+
+For anything beyond a first call (tool use, prompt caching, extended /
+adaptive thinking, batch processing, files API, Agent SDK), load the matching
+reference file from the Intent Router and WebFetch the linked page on
+platform.claude.com.
