@@ -7,6 +7,8 @@
 | Common workflows | <https://code.claude.com/docs/en/common-workflows> |
 | Best practices | <https://code.claude.com/docs/en/best-practices> |
 | Sub-agents | <https://code.claude.com/docs/en/sub-agents> |
+| Routines & scheduling | <https://code.claude.com/docs/en/routines> |
+| Remote control / dispatch | <https://code.claude.com/docs/en/remote-control> |
 | Settings | <https://code.claude.com/docs/en/settings> |
 
 ## Common Workflows
@@ -51,6 +53,29 @@ Use `/agents` to create or edit subagents interactively. If `tools` is omitted,
 the subagent inherits available tools, including MCP tools.
 
 Full docs: <https://code.claude.com/docs/en/sub-agents>
+
+## Remote Dispatch & Cross-Device Handoff
+
+Claude Code sessions can move between surfaces (terminal, desktop, web, iOS) without
+restarting. The orchestrator keeps the conversation state; switching surfaces just
+attaches a new I/O channel.
+
+```bash
+# Move a web or iOS session into the local terminal
+/teleport
+
+# Start a session on one machine and resume on another by session ID
+claude --resume <session-id>
+```
+
+Full docs: <https://code.claude.com/docs/en/remote-control>
+
+## Desktop Scheduled Tasks
+
+The Claude Code desktop app can run scheduled local tasks (cron-like, without a remote
+runner). Configure via the desktop app's task UI or by editing
+`~/.claude/scheduled-tasks.json`. Cross-reference with `references/routines-and-dispatch.md`
+for the remote-routine equivalent.
 
 ## Best Practices
 

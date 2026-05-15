@@ -32,7 +32,7 @@ tools = [{
 }]
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model="<current-sonnet-id>",  # see models/overview for the GA alias
     max_tokens=1024,
     tools=tools,
     messages=[{"role": "user", "content": "What's the weather in NYC?"}]
@@ -42,10 +42,41 @@ response = client.messages.create(
 ## Context Window Notes
 
 - Default: 200K tokens (~150K words)
-- 1M token beta: available for Opus 4.6 and Sonnet 4.6 with `context-1m-2025-08-07` beta header
-- Long context pricing applies above 200K tokens
+- 1M context: available on the current Opus and Sonnet generations via the long-context
+  beta header. Canonical instructions and current header value live at
+  <https://platform.claude.com/docs/en/build-with-claude/context-windows>.
+- Long-context pricing applies above 200K tokens — consult the pricing page for the
+  current tier.
 
 ## Prompt Caching
 
-Reduces cost and latency for repeated large prompts. Mark cacheable blocks with
-`"cache_control": {"type": "ephemeral"}`. See the prompt caching docs for TTL details.
+Reduces cost and latency for repeated large prompts (system instructions, tool schemas,
+long documents).
+
+```python
+# Mark a system block as cacheable
+messages=[{
+    "role": "user",
+    "content": [
+        {
+            "type": "text",
+            "text": "<long shared context>",
+            "cache_control": {"type": "ephemeral"}
+        },
+        {"type": "text", "text": "<turn-specific question>"}
+    ]
+}]
+```
+
+Key operational facts:
+
+- **Default TTL** is **5 minutes**. The previous 1-hour default was retired in early
+  2026; explicitly request the 1-hour TTL via the prompt-caching beta if you need it.
+- **Cache scope** is **per workspace**, not per organization. Two workspaces under the
+  same org bill independent caches and do not share hits.
+- Cache writes are billed at a small premium over standard input tokens; cache reads
+  are billed at a steep discount. The exact multipliers and TTL options live at
+  <https://platform.claude.com/docs/en/build-with-claude/prompt-caching>.
+
+Pair prompt caching with adaptive thinking (`references/extended-thinking.md`) for the
+lowest cost-per-turn on repeat agentic workloads.

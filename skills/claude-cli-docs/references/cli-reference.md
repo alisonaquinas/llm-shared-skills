@@ -17,7 +17,7 @@ claude -p "prompt here"       # print mode — output to stdout, no interaction
 | Flag | Description |
 | --- | --- |
 | `-p, --print` | Non-interactive: print response to stdout and exit |
-| `--model <id>` | Override the model (e.g. `--model claude-opus-4-6`) |
+| `--model <id>` | Override the model. Use the canonical model alias (e.g. `claude-opus-<latest>` or a pinned ID from `https://platform.claude.com/docs/en/about-claude/models/overview`). |
 | `--output-format` | Output format: `text`, `json`, `stream-json` |
 | `--max-turns <n>` | Limit agentic turns in non-interactive mode |
 | `--allowedTools` | Comma-separated list of tools to enable |
@@ -71,5 +71,8 @@ claude --bare -p "summarize this repository"
 | `/plan` | Enter plan mode |
 | `/agents` | Manage custom subagents |
 | `/hooks` | Inspect or configure hooks |
+| `/schedule` | Create or manage cron-scheduled routines (remote agents). See `references/routines-and-dispatch.md` |
+| `/loop` | Run a prompt or slash command on a recurring interval (e.g. `/loop 5m /foo`); omit interval to let the model self-pace |
+| `/teleport` | Move a web or iOS session into the local terminal (cross-device handoff) |
 
 Full slash command list → <https://code.claude.com/docs/en/cli-reference>

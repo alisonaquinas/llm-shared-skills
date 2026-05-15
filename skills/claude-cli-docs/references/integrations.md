@@ -14,6 +14,8 @@
 | Remote control | <https://code.claude.com/docs/en/remote-control> |
 | Slack | <https://code.claude.com/docs/en/slack> |
 | Chrome | <https://code.claude.com/docs/en/chrome> |
+| Channels (Telegram / Discord / iMessage webhooks) | <https://code.claude.com/docs/en/channels> |
+| Routines & scheduling | <https://code.claude.com/docs/en/routines> |
 
 ## GitHub Actions
 
@@ -61,3 +63,20 @@ Continue a local terminal session from your phone or any browser:
 <https://code.claude.com/docs/en/remote-control>
 
 Use `/teleport` to move a web/iOS session into your terminal.
+
+## Channels
+
+Bridge Claude Code conversations into messaging platforms via webhooks (Telegram,
+Discord, iMessage, and other chat surfaces). Useful for receiving long-running task
+output on a phone or for triggering agents from a group chat.
+
+Full docs: <https://code.claude.com/docs/en/channels>
+
+## Routines & Scheduling
+
+Create cron-scheduled remote agents (routines) and recurring local tasks. See
+`references/routines-and-dispatch.md` for the full index, or jump directly to:
+
+- Routines overview: <https://code.claude.com/docs/en/routines>
+- GitHub Actions integration: <https://code.claude.com/docs/en/github-actions>
+- GitLab CI/CD integration: <https://code.claude.com/docs/en/gitlab-ci-cd>

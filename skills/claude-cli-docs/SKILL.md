@@ -1,6 +1,6 @@
 ---
 name: claude-cli-docs
-description: "Use this skill to look up official Claude Code documentation at code.claude.com/docs. Trigger when the user asks about Claude Code CLI flags, CLAUDE.md, MCP servers, Claude Code hooks, Claude Code skills, sub-agents, Claude Code settings, GitHub Actions with Claude Code, GitLab CI/CD, or any Claude Code developer reference."
+description: "Use this skill to look up official Claude Code documentation at code.claude.com/docs. Trigger when the user asks about Claude Code CLI flags, CLAUDE.md, MCP servers, Claude Code hooks, Claude Code skills, sub-agents, Claude Code settings, routines / scheduled jobs, remote dispatch / cross-device handoff, channels (Telegram / Discord / iMessage webhooks), GitHub Actions with Claude Code, GitLab CI/CD, or any Claude Code developer reference."
 ---
 
 # Coding CLI Docs
@@ -23,6 +23,7 @@ Full page index: <https://code.claude.com/docs/llms.txt>
 | Custom skills/slash commands | `references/skills.md` | user asks about creating or using custom `/commands` |
 | Hooks | `references/hooks.md` | user asks about pre/post hooks on tool actions |
 | Workflows, sub-agents, best practices | `references/workflows.md` | user asks about patterns, common tasks, or parallel agents |
+| Routines, scheduling, remote dispatch | `references/routines-and-dispatch.md` | user asks about `/schedule`, `/loop`, cron routines, cross-device handoff, or desktop scheduled tasks |
 | CI/CD, Slack, Chrome, IDE integrations | `references/integrations.md` | user asks about non-terminal surfaces or automation |
 
 ---
@@ -43,6 +44,7 @@ Plugins           https://code.claude.com/docs/en/plugins
 Worktrees         https://code.claude.com/docs/en/worktrees
 Common workflows  https://code.claude.com/docs/en/common-workflows
 Best practices    https://code.claude.com/docs/en/best-practices
+Routines          https://code.claude.com/docs/en/routines
 GitHub Actions    https://code.claude.com/docs/en/github-actions
 GitLab CI/CD      https://code.claude.com/docs/en/gitlab-ci-cd
 VS Code           https://code.claude.com/docs/en/vs-code

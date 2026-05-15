@@ -4,11 +4,13 @@ description: >
   Use this skill to look up, navigate, or find anything in the official Anthropic
   Claude API documentation at platform.claude.com/docs. Trigger when the user asks
   about Claude API endpoints, model IDs, pricing, prompt engineering, tool use,
-  extended thinking, adaptive thinking, context windows, vision, the Agent SDK,
-  rate limits, authentication, error codes, or any Anthropic/Claude developer
-  reference. Also trigger for questions like "where is the Claude doc for X",
-  "what does the Claude API reference say about Y", "find the Anthropic docs on Z",
-  or any request to look something up in Claude/Anthropic documentation.
+  extended thinking, adaptive thinking, context windows (200K, 1M context),
+  prompt caching (TTL, workspace-level isolation), vision, files API, batch API,
+  the Agent SDK, rate limits, authentication, error codes, or any
+  Anthropic/Claude developer reference. Also trigger for questions like
+  "where is the Claude doc for X", "what does the Claude API reference say
+  about Y", "find the Anthropic docs on Z", or any request to look something
+  up in Claude/Anthropic documentation.
 ---
 
 # Claude API Docs
@@ -54,10 +56,13 @@ API reference      https://platform.claude.com/docs/en/api/
 
 ## Current Model IDs (quick reference)
 
-| Model | API ID | Notes |
-| --- | --- | --- |
-| Claude Opus 4.6 | `claude-opus-4-6` | Most capable, best for agents & complex coding |
-| Claude Sonnet 4.6 | `claude-sonnet-4-6` | Best speed/intelligence balance |
-| Claude Haiku 4.5 | `claude-haiku-4-5-20251001` | Fastest, near-frontier |
+Authoritative list, including AWS Bedrock and GCP Vertex IDs and current GA status:
+<https://platform.claude.com/docs/en/about-claude/models/overview>
 
-Full model list with AWS Bedrock / GCP Vertex IDs → `references/models.md`
+Use the canonical overview page when picking a model or constructing a request — it
+reflects the current GA generation without going stale here. For the current
+deprecation schedule, see
+<https://platform.claude.com/docs/en/about-claude/model-deprecations>.
+
+For a curated cross-platform map (Bedrock + Vertex IDs, capability flags, selection
+guidance) see `references/models.md`.

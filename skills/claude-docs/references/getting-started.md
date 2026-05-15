@@ -18,7 +18,7 @@ import anthropic
 client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
 
 message = client.messages.create(
-    model="claude-sonnet-4-6",
+    model="<current-sonnet-id>",  # see https://platform.claude.com/docs/en/about-claude/models/overview
     max_tokens=1024,
     messages=[{"role": "user", "content": "Hello, Claude"}]
 )

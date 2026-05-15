@@ -1,4 +1,4 @@
 interface:
   display_name: "Claude Code CLI Docs"
   short_description: "Look up official Claude Code CLI documentation"
-  default_prompt: "Use $claude-cli-docs to find the documentation for [CLI flags/CLAUDE.md/MCP/hooks/skills/workflows/etc.]."
+  default_prompt: "Use $claude-cli-docs to find the documentation for [CLI flags/CLAUDE.md/MCP/hooks/skills/workflows/routines/dispatch/channels/etc.]."

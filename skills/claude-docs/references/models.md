@@ -10,32 +10,44 @@
 
 ## Current Models
 
-| Model | API ID | Input $/MTok | Output $/MTok | Context | Max Output |
-| --- | --- | --- | --- | --- | --- |
-| Claude Opus 4.6 | `claude-opus-4-6` | $5 | $25 | 200K (1M beta) | 128K |
-| Claude Sonnet 4.6 | `claude-sonnet-4-6` | $3 | $15 | 200K (1M beta) | 64K |
-| Claude Haiku 4.5 | `claude-haiku-4-5-20251001` | $1 | $5 | 200K | 64K |
+The canonical list of currently-GA Claude models, with exact API IDs, context windows,
+and capability flags, lives at
+<https://platform.claude.com/docs/en/about-claude/models/overview>. Read it rather
+than caching specific IDs here — the GA set rotates as new model generations ship.
 
-## Third-Party Platform IDs
+As of mid-2026, the high-level shape is:
 
-| Model | AWS Bedrock ID | GCP Vertex AI ID |
-| --- | --- | --- |
-| Claude Opus 4.6 | `anthropic.claude-opus-4-6-v1` | `claude-opus-4-6` |
-| Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6` | `claude-sonnet-4-6` |
-| Claude Haiku 4.5 | `anthropic.claude-haiku-4-5-20251001-v1:0` | `claude-haiku-4-5@20251001` |
+- Two tiers in the **Opus** line and the **Sonnet** line expose a **1M-token context
+  window** (the 200K default plus a 1M opt-in via the long-context beta header).
+- The **Haiku** line targets latency and throughput; current Haiku context window is
+  200K.
+- All current GA models support text input, image input (vision), text output, and
+  multilingual responses.
+- Extended thinking is available across the line; **adaptive thinking** (auto budget)
+  is available on Opus and Sonnet generations, not Haiku.
 
-## Capability Flags
+For a specific API ID, the AWS Bedrock variant, or the GCP Vertex variant, consult the
+overview page or the model-card link from there. Pinned IDs intentionally are not
+listed in this file to avoid silent drift.
 
-All current models support: text input, image input (vision), text output, multilingual, extended thinking, adaptive thinking (Opus/Sonnet only).
+## Pricing
+
+Current per-million-token pricing for every GA model:
+<https://platform.claude.com/docs/en/about-claude/pricing>
 
 ## Model Selection Guide
 
-- **Most complex tasks / agents / coding**: Claude Opus 4.6
-- **Balanced speed + intelligence**: Claude Sonnet 4.6
-- **Fastest / high-volume**: Claude Haiku 4.5
+- **Most complex tasks / agents / coding**: latest **Opus** generation.
+- **Balanced speed + intelligence**: latest **Sonnet** generation.
+- **Fastest / high-volume**: latest **Haiku** generation.
+
+When the user does not pin a specific model, prefer the latest GA Opus generation for
+coding agents and the latest GA Sonnet generation for balanced workloads.
 
 ## Deprecations
 
+Canonical deprecation schedule:
 <https://platform.claude.com/docs/en/about-claude/model-deprecations>
 
-Claude Haiku 3 (`claude-3-haiku-20240307`) retires **April 19, 2026** — migrate to Haiku 4.5.
+Track the schedule from that page rather than from this file — once a date passes, the
+entry typically rotates off the schedule and the model becomes unavailable.
